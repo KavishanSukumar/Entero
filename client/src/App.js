@@ -5,7 +5,7 @@ import LandingPage from "./pages/landingPage/LandingPage";
 function App() {
   return (
     <div className="App">
-      <Login/>
+      <Register/>
     </div>
   );
 }
