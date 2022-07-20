@@ -1,16 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { RiFunctionLine, RiArrowDropDownLine} from 'react-icons/ri';
-import {BsFillChatRightTextFill} from 'react-icons/bs';
+import { RiFunctionLine} from 'react-icons/ri';
+import {BsFillCalendarEventFill,BsFillChatRightTextFill} from 'react-icons/bs';
 
 function CustomerSidebar() {
   return (
-    <div className="min-h-screen overflow-y-auto py-4 px-3 bg-gray-800 w-64 hidden md:block">
+    <div className="min-h-screen top-18 left-0 py-4 px-3 bg-gray-800 min-w-fit hidden md:block ">
       <ul className="y-4 ">
          <li>
             <Link to="/" className="flex text-white p-3 rounded-full hover:bg-gray-700 ">
-                <RiFunctionLine className="w-6 h-6 text-gray-500"/>
-               <span className="ml-3">Dashboard</span>
+                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <span className="ml-3">Events</span>
             </Link>
         </li>
 
@@ -18,7 +18,7 @@ function CustomerSidebar() {
             <Link to="/" className="flex text-white p-3 rounded-full hover:bg-gray-700 ">
                 <RiFunctionLine className="w-6 h-6 text-gray-500"/>
                 <span className="ml-3">Dashboard</span>
-                <RiArrowDropDownLine className="w-6 h-6 text-gray-500 ml-16"/>
+                
             </Link>
         </li>
 

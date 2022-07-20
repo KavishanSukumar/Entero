@@ -9,7 +9,7 @@ import {
 
 function Footer() {
   return (
-    <div className=' py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300'>
+    <div className=' py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300 bg-[#465360]'>
       <div>
         <h1 className='w-full text-3xl font-bold text-[#00df9a]'>LOGO</h1>
         <p className='py-4'>Entero is a event planning site which is dedicated to making any event you can imagine a reality. Make your event memorable with Entero.</p>
