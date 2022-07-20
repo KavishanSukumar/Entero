@@ -6,7 +6,7 @@ import {BsFillCalendarEventFill,BsFillChatRightTextFill} from 'react-icons/bs';
 import Shakir from '../Shakir.jpg';
 
 
-function CustomerHeader() {
+function AdminHeader() {
 
     const [nav, setNav] = useState(false);
 
@@ -78,7 +78,7 @@ function CustomerHeader() {
             <Link to="/" className="flex text-white p-3 rounded-full hover:bg-gray-700 ">
                 <BsFillChatRightTextFill className="w-6 h-6 text-gray-500"/>
                <span className="ml-3">Chat</span>
-               <span class="inline-flex justify-center items-center p-3 ml-24 w-3 h-3 text-white bg-blue-600 rounded-full">15</span>
+               <span className="inline-flex justify-center items-center p-3 ml-24 w-3 h-3 text-white bg-blue-600 rounded-full">15</span>
             
 
             </Link>
@@ -100,4 +100,4 @@ function CustomerHeader() {
   )
 }
 
-export default CustomerHeader
+export default AdminHeader

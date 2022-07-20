@@ -3,17 +3,26 @@ import {BsReplyFill} from 'react-icons/bs';
 import {AiFillDelete} from 'react-icons/ai';
 
 function ReviewComponent() {
-    const [reply, setReply] = useState(false);
-        
-
-        const seeReply = () => {
-        setReply(!reply);
-        };
-
-        
-
-  return (
+    return (
     <div className="m-3 p-5">
+
+        {/*Start of the insights */}
+        <div className="p-2 shadow-xl mb-5 grid grid-cols-3">
+            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl">
+                <p className="text-4xl mb-2">25</p>
+                <p className="text-sm">Recieved</p>
+            </div>
+            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl">
+                <p className="text-4xl mb-2">15</p>
+                <p className="text-sm">Replied</p>
+            </div>
+            <div className="bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl">
+                <p className="text-4xl mb-2">6</p>
+                <p className="text-sm">Discarded</p>
+            </div>
+
+        </div>
+        {/*end of insights */}
 
         {/*Start of the section container */}
         <div className="p-2 shadow-2xl mb-5">
@@ -29,7 +38,7 @@ function ReviewComponent() {
                     <h4 className='mb-3 font-medium text-center'>Shakir</h4>
                     
                     {/*content */}
-                    <p class="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400">Read more</b>
+                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400">Read more</b>
                     </p>
                     
                     
@@ -55,7 +64,7 @@ function ReviewComponent() {
                     <h4 className='mb-3 font-medium text-center'>Shakir</h4>
                     
                     {/*content */}
-                    <p class="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design
+                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design
                     </p>
                     
                     
@@ -80,7 +89,7 @@ function ReviewComponent() {
                     <h4 className='mb-3 font-medium text-center'>Shakir</h4>
                     
                     {/*content */}
-                    <p class="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design
+                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design
                     </p>
                     
                     
@@ -105,7 +114,7 @@ function ReviewComponent() {
                     <h4 className='mb-3 font-medium text-center'>Shakir</h4>
                     
                     {/*content */}
-                    <p class="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design
+                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design
                     </p>
                     
                     

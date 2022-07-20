@@ -1,17 +1,17 @@
 import React from 'react';
-import CustomerHeader from "../components/CustomerHeader";
+import AdminHeader from "../components/AdminHeader";
 import Footer from "../components/Footer"; 
-import CustomerSidebar from "../components/CustomerSidebar"; 
+import AdminSidebar from "../components/AdminSidebar"; 
 import ReviewComponent from "../components/ReviewComponent"; 
 
 {/*For after login customer pages use Customer Hedaer and customer sidebar */}
 
-function UserPage() {
+function AdminPage() {
   return (
     <div>
-      <CustomerHeader />
+      <AdminHeader />
       <div className="flex">
-        <CustomerSidebar />
+        <AdminSidebar />
         <ReviewComponent />
         
         {/* Body content comes here */}
@@ -23,4 +23,4 @@ function UserPage() {
   )
 }
 
-export default UserPage
+export default AdminPage

@@ -36,7 +36,7 @@ return (
     
     {/*login components*/}
             <div className="p-3 hidden md:block">
-            <Link to="/userpage" className='bg-blue-500 text-white hover:bg-blue-400 px-5 py-2 rounded'>
+            <Link to="/adminpage" className='bg-blue-500 text-white hover:bg-blue-400 px-5 py-2 rounded mx-2'>
             
               Sign in
             </Link>
@@ -59,7 +59,7 @@ return (
         <li className='p-4 border-b border-gray-600 text-white hover:text-blue-500'><Link to="/aboutus">About us</Link></li>
         <li className='p-4 border-b border-gray-600 text-white hover:text-blue-500'><Link to="/contactus">Contact Us</Link></li>
         <li className='p-4'>
-            <Link to="/userpage" className='bg-blue-500 text-white hover:bg-blue-400 px-5 py-2 rounded'>
+            <Link to="/adminpage" className='bg-blue-500 text-white hover:bg-blue-400 px-5 py-2 rounded'>
             
                    Sign in
             </Link>
