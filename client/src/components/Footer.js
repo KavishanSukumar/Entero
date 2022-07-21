@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {
     FaFacebookSquare,
     FaInstagram,
@@ -9,7 +10,7 @@ import {
 
 function Footer() {
   return (
-    <div className=' py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300 bg-[#465360]'>
+    <div className='py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300 bg-gray-500'>
       <div>
         <h1 className='w-full text-3xl font-bold text-[#00df9a]'>LOGO</h1>
         <p className='py-4'>Entero is a event planning site which is dedicated to making any event you can imagine a reality. Make your event memorable with Entero.</p>
@@ -25,9 +26,9 @@ function Footer() {
             <div>
                 <h6 className='font-medium text-black'>Information</h6>
                 <ul>
-                    <li className='py-2 text-sm'>About us</li>
+                    <li className='py-2 text-sm'><Link to="/aboutus">About us</Link></li>
                     <li className='py-2 text-sm'>Event Management</li>
-                    <li className='py-2 text-sm'>Contact us</li>
+                    <li className='py-2 text-sm'><Link to="/contactus">Contact Us</Link></li>
                     
                 </ul>
             </div>

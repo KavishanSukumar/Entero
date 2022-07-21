@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import {Link} from 'react-router-dom';
-import { AiOutlineClose, AiOutlineMenu , AiOutlineBell} from 'react-icons/ai';
-import Shakir from '../Shakir.jpg';
+import {Link,NavLink} from 'react-router-dom';
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+
 
 function Header() {
   
@@ -12,14 +12,10 @@ function Header() {
         setNav(!nav);
         };
 
-        
-          
-        
-
-return (
+  return (
   
     
-  <div className='flex items-center h-18 w-screen text-black bg-[#d89444] justify-between'>
+  <div className='sticky top-0 flex items-center h-18 w-screen text-black bg-[#d89444] justify-between '>
     {/* Before login styles  */}
 
     {/* header logo */}
@@ -28,9 +24,9 @@ return (
 
     {/*header links */}
     <ul className='hidden md:flex'>
-      <li className='px-10 py-3 hover:text-white hover:bg-orange-300 hover:rounded'><Link to="/">Home</Link></li>
-      <li className='px-10 py-3 hover:text-white hover:bg-orange-300 hover:rounded'><Link to="/aboutus">About us</Link></li>
-      <li className='px-10 py-3 hover:text-white hover:bg-orange-300 hover:rounded'><Link to="/contactus">Contact Us</Link></li>
+      <li className='px-10 py-3 hover:text-white hover:bg-orange-300 hover:rounded'><NavLink className={({isActive})=>isActive? "text-white":""} to="/">Home</NavLink></li>
+      <li className='px-10 py-3 hover:text-white hover:bg-orange-300 hover:rounded'><NavLink className={({isActive})=>isActive? "text-white":""} to="/aboutus">About us</NavLink></li>
+      <li className='px-10 py-3 hover:text-white hover:bg-orange-300 hover:rounded'><NavLink className={({isActive})=>isActive? "text-white":""} to="/contactus">Contact Us</NavLink></li>
     </ul>
     
     
@@ -55,9 +51,9 @@ return (
 
     <ul className={nav ? 'fixed left-0 top-9 w-[50%] h-full border-r border-r-gray-900 bg-[#000300]  md:hidden' : ' fixed left-[-100%]'}>
 
-        <li className='p-4 border-b border-gray-600 text-white hover:text-blue-500'><Link to="/">Home</Link></li>
-        <li className='p-4 border-b border-gray-600 text-white hover:text-blue-500'><Link to="/aboutus">About us</Link></li>
-        <li className='p-4 border-b border-gray-600 text-white hover:text-blue-500'><Link to="/contactus">Contact Us</Link></li>
+        <li className='p-4 border-b border-gray-600 text-white hover:text-blue-500'><NavLink className={({isActive})=>isActive? "text-blue-500":""} to="/">Home</NavLink></li>
+        <li className='p-4 border-b border-gray-600 text-white hover:text-blue-500'><NavLink className={({isActive})=>isActive? "text-blue-500":""} to="/aboutus">About us</NavLink></li>
+        <li className='p-4 border-b border-gray-600 text-white hover:text-blue-500'><NavLink className={({isActive})=>isActive? "text-blue-500":""} to="/contactus">Contact Us</NavLink></li>
         <li className='p-4'>
             <Link to="/adminpage" className='bg-blue-500 text-white hover:bg-blue-400 px-5 py-2 rounded'>
             

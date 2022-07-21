@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink,Link} from 'react-router-dom';
 import { AiOutlineClose, AiOutlineMenu , AiFillBell, AiFillHome} from 'react-icons/ai';
 import { RiFunctionLine} from 'react-icons/ri';
 import {BsFillCalendarEventFill,BsFillChatRightTextFill} from 'react-icons/bs';
 import Shakir from '../Shakir.jpg';
 
-
+{/* Admin header is created because the menu in responsive layout will change to the admin sidebar,not home,contact us pages */}
 function AdminHeader() {
 
     const [nav, setNav] = useState(false);
@@ -14,7 +14,7 @@ function AdminHeader() {
         setNav(!nav);
         };
   return (
-    <div className='flex items-center  h-18 text-black bg-[#d89444] justify-between'>
+    <div className='flex items-center top-0  h-18 text-black bg-[#d89444] justify-between'>
 
     {/* After login styles */}
     {/* header logo */}
@@ -30,9 +30,9 @@ function AdminHeader() {
     
     {/* After login components*/}
             <div className="md:hidden">
-                <Link to="/">
+                <NavLink activeClassname="is-active" to="/">
                 <AiFillHome size={24} className="text-black hover:text-white"/>
-                </Link>
+                </NavLink>
                 
             </div>
             <div className="p-3">
@@ -50,46 +50,47 @@ function AdminHeader() {
          }
     </div>
     
-
+        {/* The links are chnged to the admins sidebar and not to the home,about us,contact us links */}
     <div className={nav ? 'fixed left-0 top-12 w-[85%] p-12 min-h-screen overflow-y-auto bg-gray-800 text-white  md:hidden' : ' fixed left-[-100%]'}>
         <ul className=' text-lg'>
             <li className='py-2 border-b border-gray-500'>
-            <Link to="/" className="flex text-white p-3 rounded-full hover:bg-gray-700 ">
+            <NavLink to="/" className={({isActive})=>isActive? "flex text-white p-3 mb-2 rounded-full bg-gray-700":"flex mb-2 text-white p-3 rounded-full hover:bg-gray-700"}>
                 <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
-                <span className="ml-3">Events</span>
-            </Link>
+                <span className="ml-3">Dashboard</span>
+            </NavLink>
             </li>
             
             <li className='py-2 border-b border-gray-500'>
-            <Link to="/" className="flex text-white p-3 rounded-full hover:bg-gray-700 ">
+            <NavLink to="/adminpage" className={({isActive})=>isActive? "flex text-white p-3 mb-2 rounded-full bg-gray-700":"flex text-white p-3 rounded-full hover:bg-gray-700"}>
                 <RiFunctionLine className="w-6 h-6 text-gray-500"/>
-                <span className="ml-3">Dashboard</span>
-            </Link>
+                <span className="ml-3">Messages</span>
+                
+            </NavLink>
         </li>
 
 
         <li className='py-2 border-b border-gray-500'>
-            <Link to="/" className="flex text-white p-3 rounded-full hover:bg-gray-700 ">
-                <RiFunctionLine className="w-6 h-6 text-gray-500"/>
-               <span className="ml-3">Dashboard</span>
-            </Link>
+            <NavLink to="/adminevents" className={({isActive})=>isActive? "flex text-white p-3 mb-2 rounded-full bg-gray-700":"flex mb-2 text-white p-3 rounded-full hover:bg-gray-700"}>
+                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <span className="ml-3">Events</span>
+            </NavLink>
         </li>
         <li className='py-2 border-b border-gray-500'>
-            <Link to="/" className="flex text-white p-3 rounded-full hover:bg-gray-700 ">
+            <NavLink to="/" className={({isActive})=>isActive? "flex text-white p-3 rounded-full bg-gray-700":"flex text-white p-3 rounded-full hover:bg-gray-700"}>
                 <BsFillChatRightTextFill className="w-6 h-6 text-gray-500"/>
-               <span className="ml-3">Chat</span>
-               <span className="inline-flex justify-center items-center p-3 ml-24 w-3 h-3 text-white bg-blue-600 rounded-full">15</span>
+               <span className="ml-3">Messages</span>
+               <span className="inline-flex justify-center items-center p-3 ml-28 w-3 h-3 text-white bg-blue-600 rounded-full">15</span>
             
 
-            </Link>
+            </NavLink>
         </li>
         
         
         <li className='py-2 border-b border-gray-500'>
-            <Link to="/" className="flex text-white p-3 rounded-full hover:bg-gray-700 ">
-                <RiFunctionLine className="w-6 h-6 text-gray-500"/>
-               <span className="ml-3">Dashboard</span>
-            </Link>
+            <NavLink to="/" className={({isActive})=>isActive? "flex text-white p-3 mb-2 rounded-full bg-gray-700":"flex mb-2 text-white p-3 rounded-full hover:bg-gray-700"}>
+                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <span className="ml-3">Dashboard</span>
+            </NavLink>
         </li>
 
         </ul>
