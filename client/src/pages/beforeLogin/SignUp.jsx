@@ -1,20 +1,16 @@
 import React from 'react';
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-import LandingPage from '../../components/landingpage/LandingPage';
+import Register from '../../components/register/Register';
 
-
-
-function Home() {
+function SignUp() {
   return (
     <div>
         <Header />
-        {/* Have to create a division and add the page content */}
-        
-        <LandingPage />
+        <Register />
         <Footer />
     </div>
   )
 }
 
-export default Home
+export default SignUp

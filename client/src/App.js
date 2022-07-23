@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import Login from "./components/login/Login";
-import Register from "./components/register/Register";
-import LandingPage from "./pages/landingPage/LandingPage";
-=======
+
 
 import Chat from "./components/chat/Chat";
 import { Routes,Route} from 'react-router-dom';
@@ -14,16 +10,13 @@ import AboutUs from "./pages/beforeLogin/AboutUs";
 import AdminPage from "./pages/afterLogin/admin/AdminPage";
 import AdminEvents from "./pages/afterLogin/admin/AdminEvents";
 import UserProfile from "./pages/afterLogin/UserProfile";
-
-
->>>>>>> 627612f6291ca987ea361e61213d6af607950ddc
+import SignUp from "./pages/beforeLogin/SignUp";
+import SignIn from "./pages/beforeLogin/SignIn";
 
 function App() {
   return (
     <div className="App">
-<<<<<<< HEAD
-      <Register/>
-=======
+
       
       <Routes>
                    
@@ -34,10 +27,12 @@ function App() {
         <Route exact path="/contactus" element={<ContactUs/>} />
         <Route exact path="/adminpage" element={<AdminPage />} />
         <Route exact path="/adminevents" element={<AdminEvents />} />
+        <Route exact path="/signup" element={<SignUp />} />
+        <Route exact path="/signin" element={<SignIn />} />
         <Route exact path="/userprofile" element={<UserProfile />} />
-      </Routes>
+      </Routes> 
       {/* <Chat /> */}
->>>>>>> 627612f6291ca987ea361e61213d6af607950ddc
+
     </div>
   );
 }

@@ -24,12 +24,12 @@ function Header() {
         }
 
         const dropdownEvent=(
-          <div className="hidden md:block absolute top-12 md:left-[24%] lg:left-[36%] w-44 bg-white rounded divide-y divide-gray-100 shadow ">
+          <div className="hidden md:block absolute top-12 md:left-[24%] lg:left-[36%] w-44 z-50 bg-white rounded divide-y divide-gray-100 shadow ">
             <ul class="py-1 text-sm text-gray-700" >
               <li className="block py-2 px-4 hover:bg-gray-100">
               Event 1
               </li>
-              <li className="block py-2 px-4 hover:bg-gray-100">
+              <li className="block py-2 px-4 hover:bg-gray-100 ">
               Event 2
               </li>
             </ul>
@@ -79,7 +79,7 @@ function Header() {
     
     {/*login components*/}
             <div className="p-3 hidden md:block">
-            <Link to="/adminpage" className='bg-blue-500 text-white hover:bg-blue-400 px-5 py-2 rounded mx-2'>
+            <Link to="/signin" className='bg-blue-500 text-white hover:bg-blue-400 px-5 py-2 rounded mx-2'>
             
               Sign in
             </Link>
