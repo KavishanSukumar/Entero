@@ -31,7 +31,7 @@ function MessageComponent() {
             <h3 className="border-b mb-5 border-black font-medium uppercase">New messages</h3>
             
             {/*grid styling to contain 4 cards per section */}
-            <div className="m-2 grid col-span-2 lg:grid-cols-4 ">
+            <div className="m-2 grid col-span-2 lg:grid-cols-2  xl:grid-cols-4 ">
                 {/*The card */}
                 <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner md:transform hover:scale-110 transition duration-300">
                     {/*Name of the sender */}

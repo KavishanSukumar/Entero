@@ -3,7 +3,7 @@ import {NavLink,Link} from 'react-router-dom';
 import { AiOutlineClose, AiOutlineMenu , AiFillBell, AiFillHome} from 'react-icons/ai';
 import { RiFunctionLine} from 'react-icons/ri';
 import {BsFillCalendarEventFill,BsFillChatRightTextFill} from 'react-icons/bs';
-import Shakir from '../Shakir.jpg';
+import Shakir from '../../Shakir.jpg';
 
 {/* Admin header is created because the menu in responsive layout will change to the admin sidebar,not home,contact us pages */}
 function AdminHeader() {

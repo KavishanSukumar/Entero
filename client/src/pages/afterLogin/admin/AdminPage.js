@@ -1,8 +1,8 @@
 import React from 'react';
-import AdminHeader from "../components/AdminHeader";
-import Footer from "../components/Footer"; 
-import AdminSidebar from "../components/AdminSidebar"; 
-import MessageComponent from "../components/MessageComponent"; 
+import AdminHeader from "../../../components/header/AdminHeader";
+import Footer from "../../../components/footer/Footer"; 
+import AdminSidebar from "../../../components/sidebar/AdminSidebar"; 
+import MessageComponent from "../../../components/contactus/MessageComponent"; 
 
 {/*For after login customer pages use Customer Hedaer and customer sidebar */}
 

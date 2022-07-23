@@ -1,21 +1,22 @@
 import React from 'react';
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 
 
 
-function Events() {
+function Services() {
   return (
     <div>
         <Header />
         {/* Have to create a division and add the page content */}
         
         <div>
-          <p>Hello events</p>
+          <p>this is ervices page</p>
         </div>
         <Footer />
+        
     </div>
   )
 }
 
-export default Events
+export default Services

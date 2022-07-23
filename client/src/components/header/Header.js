@@ -99,8 +99,8 @@ function Header() {
     <ul className={nav ? 'fixed left-0 top-9 w-[75%] p-8 h-full border-r border-r-gray-900 bg-[#000300]  md:hidden' : ' fixed left-[-100%]'}>
 
         <li className='p-4 border-b border-gray-600 text-white hover:text-blue-500'><NavLink className={({isActive})=>isActive? "text-blue-500":""} to="/">Home</NavLink></li>
-        <li className='p-4 border-b border-gray-600 text-white hover:text-blue-500'><NavLink className={({isActive})=>isActive? "text-blue-500":""} to="/">Events</NavLink></li>
-        <li className='p-4 border-b border-gray-600 text-white hover:text-blue-500'><NavLink className={({isActive})=>isActive? "text-blue-500":""} to="/aboutus">Services</NavLink></li>
+        <li className='p-4 border-b border-gray-600 text-white hover:text-blue-500'><NavLink className={({isActive})=>isActive? "text-blue-500":""} to="/events">Events</NavLink></li>
+        <li className='p-4 border-b border-gray-600 text-white hover:text-blue-500'><NavLink className={({isActive})=>isActive? "text-blue-500":""} to="/services">Services</NavLink></li>
         <li className='p-4 border-b border-gray-600 text-white hover:text-blue-500'><NavLink className={({isActive})=>isActive? "text-blue-500":""} to="/aboutus">About us</NavLink></li>
         <li className='p-4 border-b mb-2 border-gray-600 text-white hover:text-blue-500'><NavLink className={({isActive})=>isActive? "text-blue-500":""} to="/contactus">Contact Us</NavLink></li>
         <li className='p-4'>

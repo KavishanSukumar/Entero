@@ -1,13 +1,14 @@
 
 import Chat from "./components/chat/Chat";
 import { Routes,Route} from 'react-router-dom';
-import Home from "./pages/Home";
-import Events from "./pages/Events";
-import Services from "./pages/Services";
-import ContactUs from "./pages/ContactUs";
-import AboutUs from "./pages/AboutUs";
-import AdminPage from "./pages/AdminPage";
-import AdminEvents from "./pages/AdminEvents";
+import Home from "./pages/beforeLogin/Home";
+import Events from "./pages/beforeLogin/Events";
+import Services from "./pages/beforeLogin/Services";
+import ContactUs from "./pages/beforeLogin/ContactUs";
+import AboutUs from "./pages/beforeLogin/AboutUs";
+import AdminPage from "./pages/afterLogin/admin/AdminPage";
+import AdminEvents from "./pages/afterLogin/admin/AdminEvents";
+import UserProfile from "./pages/afterLogin/UserProfile";
 
 
 
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/contactus" element={<ContactUs/>} />
         <Route exact path="/adminpage" element={<AdminPage />} />
         <Route exact path="/adminevents" element={<AdminEvents />} />
+        <Route exact path="/userprofile" element={<UserProfile />} />
       </Routes>
       {/* <Chat /> */}
     </div>

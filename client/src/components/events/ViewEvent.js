@@ -8,7 +8,7 @@ function ViewEvent() {
     <div className="m-3 p-5">
         {/*Start of the insights */}
         <div className="p-2 shadow-xl mb-10 grid grid-cols-3 ">
-            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl col-span-3 md:col-start-2 md:col-span-1">
+            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl col-span-3 lg:col-start-2 lg:col-span-1">
                 <p className="text-4xl mb-2">28</p>
                 <p className="text-sm">Recieved</p>
             </div>
@@ -23,7 +23,7 @@ function ViewEvent() {
             <h3 className="border-b mb-5 border-black font-medium uppercase">Current events</h3>
             
             {/*grid styling to contain 4 cards per section */}
-            <div className="m-2 grid col-span-2 lg:grid-cols-4 ">
+            <div className="m-2 grid col-span-2 lg:grid-cols-2  xl:grid-cols-4 ">
                 
 
                     {/*The card */}
