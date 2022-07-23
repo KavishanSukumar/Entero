@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+import Login from "./components/login/Login";
+import Register from "./components/register/Register";
+import LandingPage from "./pages/landingPage/LandingPage";
+=======
 
 import Chat from "./components/chat/Chat";
 import { Routes,Route} from 'react-router-dom';
@@ -11,10 +16,14 @@ import AdminEvents from "./pages/afterLogin/admin/AdminEvents";
 import UserProfile from "./pages/afterLogin/UserProfile";
 
 
+>>>>>>> 627612f6291ca987ea361e61213d6af607950ddc
 
 function App() {
   return (
     <div className="App">
+<<<<<<< HEAD
+      <Register/>
+=======
       
       <Routes>
                    
@@ -28,6 +37,7 @@ function App() {
         <Route exact path="/userprofile" element={<UserProfile />} />
       </Routes>
       {/* <Chat /> */}
+>>>>>>> 627612f6291ca987ea361e61213d6af607950ddc
     </div>
   );
 }
