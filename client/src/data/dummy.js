@@ -640,7 +640,7 @@ export const earningData = [
     icon: <BsBoxSeam />,
     amount: '4,396',
     percentage: '+23%',
-    title: 'Products',
+    title: 'Service Providers',
     iconColor: 'rgb(255, 244, 229)',
     iconBg: 'rgb(254, 201, 15)',
     pcColor: 'green-600',
@@ -649,7 +649,7 @@ export const earningData = [
     icon: <FiBarChart />,
     amount: '423,39',
     percentage: '+38%',
-    title: 'Sales',
+    title: 'Bookings',
     iconColor: 'rgb(228, 106, 118)',
     iconBg: 'rgb(255, 244, 229)',
 

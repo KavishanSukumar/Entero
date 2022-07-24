@@ -10,10 +10,12 @@ import { earningData, SparklineAreaData } from '../data/dummy';
 
 const AdminDashboard = () => {
 
-    // const { currentColor } = useStateContext();
+    //  const { currentColor } = useStateContext();
 
     return (
       <div className="mt-12">
+         {/* <div className=" bg-slate-400"> */}
+         <div className=" bg-slate-100">
         <div className="flex flex-wrap lg:flex-nowrap justify-center">
           <div className="bg-white dark:text-gray-200 dark:bg-secondary-dary-bg h-44
           rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repat bg-cover bg-center">
@@ -23,7 +25,7 @@ const AdminDashboard = () => {
                   Earnings
                 </p>
                 <p className="text-2xl">
-                  $63,448.78
+                  $3,448.78
                 </p>
               </div>
   
@@ -31,7 +33,8 @@ const AdminDashboard = () => {
             <div className="mt-6">
               <Button 
                 color="white"
-                // bgColor={currentColor}
+                bgColor="#03C9D7"
+              //  bgColor={currentColor}
                 text="Download"
                 borderRadius="10px"
                 size="md"
@@ -127,12 +130,14 @@ const AdminDashboard = () => {
   
                     <div className="mt-5">
                       <SparkLine 
+                        currentColor="#03C9D7"
                         // currentColor={currentColor}
                         id="line-sparkline"
                         type="Line"
                         height="80px"
                         width="250px"
                         data={SparklineAreaData}
+                        color="#03C9D7"
                         // color={currentColor}
                       />
                     </div>
@@ -140,6 +145,7 @@ const AdminDashboard = () => {
                     <div className="mt-10">
                       <Button 
                         color="white"
+                        bgColor="#03C9D7"
                         // bgColor={currentColor}
                         text="Download Report"
                         borderRadius="10px"
@@ -156,6 +162,7 @@ const AdminDashboard = () => {
   
               </div>
           </div>
+        </div>
         </div>
       </div>
     )

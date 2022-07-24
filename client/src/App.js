@@ -10,7 +10,7 @@ import { Routes,Route} from 'react-router-dom';
 // import AdminDashboard from "./pages/AdminDashboard";
 import {AdminDashboard} from './pages';
 import { FiSettings } from 'react-icons/fi';
-
+import './App.css';
 
 
 function App() {
