@@ -5,12 +5,12 @@ import { GoPrimitiveDot } from 'react-icons/go';
 import { Stacked, Button, SparkLine } from '../components';
 
 import { earningData, SparklineAreaData } from '../data/dummy';
-import { useStateContext } from '../contexts/ContextProvider';
+// import { useStateContext } from '../contexts/ContextProvider';
 
 
 const AdminDashboard = () => {
 
-    const { currentColor } = useStateContext();
+    // const { currentColor } = useStateContext();
 
     return (
       <div className="mt-12">
@@ -31,7 +31,7 @@ const AdminDashboard = () => {
             <div className="mt-6">
               <Button 
                 color="white"
-                bgColor={currentColor}
+                // bgColor={currentColor}
                 text="Download"
                 borderRadius="10px"
                 size="md"
@@ -127,20 +127,20 @@ const AdminDashboard = () => {
   
                     <div className="mt-5">
                       <SparkLine 
-                        currentColor={currentColor}
+                        // currentColor={currentColor}
                         id="line-sparkline"
                         type="Line"
                         height="80px"
                         width="250px"
                         data={SparklineAreaData}
-                        color={currentColor}
+                        // color={currentColor}
                       />
                     </div>
   
                     <div className="mt-10">
                       <Button 
                         color="white"
-                        bgColor={currentColor}
+                        // bgColor={currentColor}
                         text="Download Report"
                         borderRadius="10px"
                        

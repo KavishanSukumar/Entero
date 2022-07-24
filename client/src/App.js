@@ -29,6 +29,9 @@ function App() {
 
         <Route path="/admindashboard" element={<AdminDashboard />} />
 
+
+        {/* <AdminDashboard /> */}
+
       </Routes>
       {/* <Chat /> */}
     </div>
