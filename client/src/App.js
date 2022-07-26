@@ -11,6 +11,7 @@ import { Routes,Route} from 'react-router-dom';
 import {AdminDashboard} from './pages';
 import {Customers2} from './pages';
 import {BusinessPolicies} from './pages';
+import {Appointment} from './pages';
 import { FiSettings } from 'react-icons/fi';
 import './App.css';
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/admindashboard" element={<AdminDashboard />} />
         <Route path="/customers2" element={<Customers2 />} />
         <Route path="/businesspolicies" element={<BusinessPolicies />} />
+        <Route path="/appointment" element={<Appointment />} />
         {/* <AdminDashboard /> */}
 
       </Routes>
