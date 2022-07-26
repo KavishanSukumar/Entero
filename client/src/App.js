@@ -9,6 +9,8 @@ import { Routes,Route} from 'react-router-dom';
 // import AdminEvents from "./pages/AdminEvents";
 // import AdminDashboard from "./pages/AdminDashboard";
 import {AdminDashboard} from './pages';
+import {Customers2} from './pages';
+import {BusinessPolicies} from './pages';
 import { FiSettings } from 'react-icons/fi';
 import './App.css';
 
@@ -28,8 +30,8 @@ function App() {
         <Route exact path="/adminevents" element={<AdminEvents />} /> */}
 
         <Route path="/admindashboard" element={<AdminDashboard />} />
-
-
+        <Route path="/customers2" element={<Customers2 />} />
+        <Route path="/businesspolicies" element={<BusinessPolicies />} />
         {/* <AdminDashboard /> */}
 
       </Routes>
