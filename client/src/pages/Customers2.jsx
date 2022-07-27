@@ -4,7 +4,7 @@ ColumnDirective, Page, Selection, Inject, Edit,
 Toolbar, Sort, Filter } from '@syncfusion/ej2-react-grids';
 
 import { customers2Data, customersGrid } from '../data/dummy';
-// import { Header } from '../components';
+import { Header } from '../components';
 
 const Customers2 = () => {
     return (
@@ -14,7 +14,7 @@ const Customers2 = () => {
         bg-white rounded-3xl">
          {/* <div className="m-2 md:m-10 p-2 md:p-10
         bg-white rounded-3xl"></div> */}
-          {/* <Header category="Page" title="Customers" /> */}
+          <Header category="Page" title="Customers" />
           <GridComponent
             
             dataSource={customers2Data}

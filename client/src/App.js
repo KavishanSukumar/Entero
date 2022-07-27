@@ -9,9 +9,12 @@ import { Routes,Route} from 'react-router-dom';
 // import AdminEvents from "./pages/AdminEvents";
 // import AdminDashboard from "./pages/AdminDashboard";
 import {AdminDashboard} from './pages';
+import {Admin} from './pages';
+import {Services} from './pages';
 import {Customers2} from './pages';
 import {BusinessPolicies} from './pages';
 import {Appointment} from './pages';
+import {Appointment2} from './pages';
 import { FiSettings } from 'react-icons/fi';
 import './App.css';
 
@@ -31,10 +34,13 @@ function App() {
         <Route exact path="/adminevents" element={<AdminEvents />} /> */}
 
         <Route path="/admindashboard" element={<AdminDashboard />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/services" element={<Services />} />
         <Route path="/customers2" element={<Customers2 />} />
         <Route path="/businesspolicies" element={<BusinessPolicies />} />
         <Route path="/appointment" element={<Appointment />} />
-        {/* <AdminDashboard /> */}
+        <Route path="/appointment2" element={<Appointment2 />} />
+        
 
       </Routes>
       {/* <Chat /> */}
