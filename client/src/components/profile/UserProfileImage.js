@@ -3,10 +3,10 @@ import Shakir from '../../Shakir.jpg';
 
 function UserProfileImage() {
   return (
-    <div className="flex md:justify-center w-full lg:flex-col lg:justify-start lg:w-[20%] shadow-2xl">
+    <div className="flex md:justify-center mt-20 md:mt-8 lg:flex-col lg:justify-start shadow-2xl border-2 lg:min-h-screen">
             {/*The image */}
             <div className="p-8">
-                <img src={Shakir} className="w-48 h-48 lg:w-36 lg:h-36 xl:w-48 xl:h-48 rounded-full shadow-2xl hover:transform hover:scale-110 transition duration-200"/>
+                <img src={Shakir} alt="whatever" className="w-48 h-48 lg:w-36 lg:h-36 xl:w-48 xl:h-48 rounded-full shadow-2xl hover:transform hover:scale-110 transition duration-200"/>
             </div>
 
             {/*The buttons */}

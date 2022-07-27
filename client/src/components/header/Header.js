@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Link,NavLink} from 'react-router-dom';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import Ss from '../../Ss.svg';
 
 
 function Header() {
@@ -11,75 +12,33 @@ function Header() {
         setNav(!nav);
         };
 
-        const[dropEvent,setDropEvent]=useState(false);
 
-        const handleDropEvent=()=>{
-          setDropEvent(!dropEvent)
-        }
-
-        const[dropService,setDropService]=useState(false);
-
-        const handleDropService=()=>{
-          setDropService(!dropService)
-        }
-
-        const dropdownEvent=(
-          <div className="hidden md:block absolute top-12 md:left-[24%] lg:left-[36%] w-44 z-50 bg-white rounded divide-y divide-gray-100 shadow ">
-            <ul class="py-1 text-sm text-gray-700" >
-              <li className="block py-2 px-4 hover:bg-gray-100">
-              Event 1
-              </li>
-              <li className="block py-2 px-4 hover:bg-gray-100 ">
-              Event 2
-              </li>
-            </ul>
-    
-          </div>
-      //     
-        );
-
-        const dropdownService=(
-          <div className="hidden md:block absolute top-12 md:left-[36%] lg:left-[44%] w-44 bg-white rounded divide-y divide-gray-100 shadow ">
-            <ul class="py-1 text-sm text-gray-700" >
-              <li className="block py-2 px-4 hover:bg-gray-100">
-              Service 1
-              </li>
-              <li className="block py-2 px-4 hover:bg-gray-100">
-              Service 2
-              </li>
-            </ul>
-    
-          </div>
-      //     
-        );
 
   return (
-  
-    
-  <div className='sticky top-0 flex items-center h-18 w-screen text-black bg-[#d89444] justify-between '>
+ 
+  <div className='sticky top-0 flex items-center h-14 w-screen text-black bg-white shadow-2xl justify-between '>
     {/* Before login styles  */}
 
     {/* header logo */}
-
+    
     <h1 className='text-3xl font-bold text-[#00df9a] px-4'>Logo</h1>
 
     {/*header links */}
     <ul className='hidden md:flex'>
-      <li className='px-6 lg:px-8 py-3 hover:text-white hover:bg-orange-300 hover:rounded'><NavLink className={({isActive})=>isActive? "text-white":""} to="/">Home</NavLink>          
+      <li className='px-6 lg:px-8 py-3 hover:text-cyan-500 hover:rounded'><NavLink className={({isActive})=>isActive? "text-cyan-500 hover:text-black":""} to="/">Home</NavLink>          
       </li>
-      <li className='px-6 lg:px-8 py-3 hover:text-white hover:bg-orange-300 hover:rounded'><NavLink onMouseEnter={handleDropEvent} className={({isActive})=>isActive? "text-white":""} to="/events">Events</NavLink></li>
-      <li className='px-6 lg:px-8 py-3 hover:text-white hover:bg-orange-300 hover:rounded'><NavLink className={({isActive})=>isActive? "text-white":""} onMouseDown={handleDropService}  to="/services">Services</NavLink></li>
-      <li className='px-6 lg:px-8 py-3 hover:text-white hover:bg-orange-300 hover:rounded'><NavLink className={({isActive})=>isActive? "text-white":""} to="/aboutus">About us</NavLink></li>
-      <li className='px-6 lg:px-8 py-3 hover:text-white hover:bg-orange-300 hover:rounded'><NavLink className={({isActive})=>isActive? "text-white":""} to="/contactus">Contact Us</NavLink></li>
+      <li className='px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded'><NavLink className={({isActive})=>isActive? "text-cyan-500 hover:text-black":""} to="/products">Products</NavLink></li>
+      <li className='px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded'><NavLink className={({isActive})=>isActive? "text-cyan-500 hover:text-black":""} to="/services">Services</NavLink></li>
+      <li className='px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded'><NavLink className={({isActive})=>isActive? "text-cyan-500 hover:text-black":""} to="/aboutus">About</NavLink></li>
+      <li className='px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded'><NavLink className={({isActive})=>isActive? "text-cyan-500 hover:text-cyan-500":""} to="/contactus">Contact</NavLink></li>
       
     </ul>
-    {dropEvent? dropdownEvent:""}
-    {dropService? dropdownService:""}
+    
     
     
     {/*login components*/}
             <div className="p-3 hidden md:block">
-            <Link to="/signin" className='bg-blue-500 text-white hover:bg-blue-400 px-5 py-2 rounded mx-2'>
+            <Link to="/signin" className='bg-cyan-500 text-white hover:bg-blue-400 px-5 py-2 rounded mx-2'>
             
               Sign in
             </Link>

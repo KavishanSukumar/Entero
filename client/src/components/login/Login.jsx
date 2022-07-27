@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 function Login() {
   return (
     <>
-      <div className=" flex flex-col justify-center font-serif">
+      <div className=" flex flex-col justify-center font-serif mb-8">
         {/* <div className="-z-10 max-h-screen ">
           <video autoPlay loop muted class="absolute ">
             <source src="/assets/videos/lbg.mp4" type="video/mp4" />
@@ -18,7 +18,7 @@ function Login() {
         <form className="flex flex-row w-7/12 justify-center object-center mt-48 items-center mx-auto bg-white rounded-lg  shadow-inner ">
           <div className="basis-7/12 p-0">
             <img
-              className="rounded-lg object-fill "
+              className=" rounded-lg object-fill "
               src="/assets/images/loginbg.png"
             />
           </div>
@@ -69,7 +69,7 @@ function Login() {
             </div>
 
             <button className="border w-full my-5 py-2 bg-black hover:bg-yellow-900 hover:text-black text-white">
-            <Link to="/adminpage">Sign in</Link>
+            <Link to="/adminevents">Sign in</Link>
             </button>
             <div className="text-center">
               <p>Do you have an account?</p>

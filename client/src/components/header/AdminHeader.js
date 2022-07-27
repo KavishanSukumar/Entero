@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import {NavLink,Link} from 'react-router-dom';
-import { AiOutlineClose, AiOutlineMenu , AiFillBell, AiFillHome} from 'react-icons/ai';
+import {NavLink} from 'react-router-dom';
+import { AiOutlineClose, AiOutlineMenu , AiFillBell} from 'react-icons/ai';
 import { RiFunctionLine,RiArrowDropDownLine} from 'react-icons/ri';
-import {BsFillCalendarEventFill,BsFillChatRightTextFill} from 'react-icons/bs';
+import {BsFillCalendarEventFill} from 'react-icons/bs';
 import Shakir from '../../Shakir.jpg';
 
 {/* Admin header is created because the menu in responsive layout will change to the admin sidebar,not home,contact us pages */}
@@ -19,8 +19,31 @@ function AdminHeader() {
         const handleAdminEvent=()=>{
             setAdminEvent(!adminEvent);
         }
+
+        const[dropEvent,setDropEvent]=useState(false);
+
+        const handleDropEvent=()=>{
+          setDropEvent(!dropEvent)
+        }
+
+
+        const dropdownEvent=(
+          <div className="hidden md:block absolute top-14 right-0 w-44 z-50 bg-gray-100 rounded divide-y divide-gray-100 shadow " onMouseLeave={handleDropEvent}>
+            <ul class="py-1 text-sm text-gray-700" >
+              
+                <NavLink to="/userprofile"><li className="block py-2 px-4 hover:bg-gray-200">My Profile</li></NavLink>
+                <NavLink to="/userprofile"><li className="block py-2 px-4 hover:bg-gray-200">Settings</li></NavLink>
+                <NavLink to="/userprofile"><li className="block py-2 px-4 hover:bg-gray-200">Logout</li></NavLink>
+              
+              
+            </ul>
+    
+          </div>     
+        );
+
+        
   return (
-    <div className='flex items-center top-0  h-18 text-black bg-[#d89444] justify-between'>
+    <div className='fixed w-full flex items-center top-0  h-14  text-black bg-white shadow-2xl justify-between z-10'>
 
     {/* After login styles */}
     {/* header logo */}
@@ -29,46 +52,72 @@ function AdminHeader() {
 
     {/*header links */}
     <ul className='hidden md:flex'>
-        <li className='px-10 py-3 hover:text-white hover:bg-orange-300 hover:rounded'><Link to="/">Home</Link></li>
-        <li className='px-10 py-3 hover:text-white hover:bg-orange-300 hover:rounded'><Link to="/aboutus">About us</Link></li>
-        <li className='px-10 py-3 hover:text-white hover:bg-orange-300 hover:rounded'><Link to="/contactus">Contact Us</Link></li>
+      <li className='px-6 lg:px-8 py-3 hover:text-cyan-500 hover:rounded'><NavLink className={({isActive})=>isActive? "text-cyan-500 hover:text-black":""} to="/">Home</NavLink>          
+      </li>
+      <li className='px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded'><NavLink className={({isActive})=>isActive? "text-cyan-500 hover:text-black":""} to="/products">Products</NavLink></li>
+      <li className='px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded'><NavLink className={({isActive})=>isActive? "text-cyan-500 hover:text-black":""} to="/services">Services</NavLink></li>
+      <li className='px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded'><NavLink className={({isActive})=>isActive? "text-cyan-500 hover:text-black":""} to="/aboutus">About</NavLink></li>
+      <li className='px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded'><NavLink className={({isActive})=>isActive? "text-cyan-500 hover:text-cyan-500":""} to="/contactus">Contact</NavLink></li>
+      
     </ul>
     
+    
     {/* After login components*/}
-            <div className="md:hidden">
-                <NavLink activeClassname="is-active" to="/">
-                <AiFillHome size={24} className="text-black hover:text-white"/>
-                </NavLink>
+            
+            <div className="hidden md:inline-flex items-center ">
+                <div className="p-3">
+                    <AiFillBell size={24} className="text-black hover:text-gray-300"/>
+                </div>
                 
-            </div>
-            <div className="p-3">
-                <AiFillBell size={24} className="text-black hover:text-white"/>
+                <img src={Shakir} className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125" onClick={handleDropEvent}/>
             </div>
             
-                <img src={Shakir} className="w-8 h-8 rounded-full mx-2"/>
-            
+    {dropEvent? dropdownEvent:""}
+     
         
 
     {/* Responsive component */}
-    <div onClick={handleNav} className='flex md:hidden'>
+    <div onClick={handleNav} className='flex mx-2 md:hidden'>
         {nav ? <AiOutlineClose size={30}/> :       
          <AiOutlineMenu size={30} />
          }
     </div>
     
         {/* The links are changed to the admins sidebar and not to the home,about us,contact us links */}
-    <div className={nav ? 'fixed left-0 top-12 w-full p-12 min-h-screen overflow-y-auto bg-gray-800 text-white  md:hidden' : ' fixed left-[-100%]'}>
+    <div className={nav ? 'fixed left-0 top-14 w-full p-12 min-h-screen overflow-y-auto bg-gray-800 text-white  md:hidden' : ' fixed left-[-100%]'}>
+        
+        
+    <div className="flex items-center shadow-2xl mb-2 ">
+            {/*The image */}
+            <div className="p-8">
+                <img src={Shakir} className="w-36 h-36 rounded-full shadow-2xl "/>
+            </div>
+
+            {/*The buttons */}
+            <div className="flex flex-col p-4 w-56 ">
+                <button className="  border-2   p-2 mb-3 rounded hover:bg-transparent hover:border-black">
+                <NavLink to="/userprofile">Profile</NavLink>
+                </button>
+                <button className=" border-2   p-2 mb-3 rounded hover:bg-transparent hover:border-black">
+                    Logout
+                </button>
+            </div>
+    </div>
+        
+        
         <ul className=' text-lg'>
             <li className='relative py-2 mb-4 border-b border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg' onClick={handleAdminEvent}>
             
                 <RiFunctionLine className="w-6 h-6 text-gray-500"/>
-                <span className="ml-3">Messages</span>
+                <span className="ml-3">Users</span>
                 <RiArrowDropDownLine className="w-6 h-6 text-gray-500 absolute right-0" />
                 
           
             </li>
             <ul  className={adminEvent? "py-3 pl-4":"hidden"}>
-                  <li><NavLink to="/adminpage" className={({isActive})=>isActive? "flex items-center p-2 pl-11 w-full text-base font-normal text-white rounded-lg transition duration-75 bg-gray-700":"flex items-center p-2 pl-11 w-full text-base font-normal text-white rounded-lg transition duration-75 hover:bg-gray-700"}>New messages</NavLink>
+                  <li className="mb-2"><NavLink to="/adminusercustomer" className={({isActive})=>isActive? "flex items-center p-2 pl-11 w-full text-base font-normal text-white rounded-lg transition duration-75 bg-gray-700":"flex items-center p-2 pl-11 w-full text-base font-normal text-white rounded-lg transition duration-75 hover:bg-gray-700"}>Customer</NavLink>
+                  </li>
+                  <li><NavLink to="/adminuserservices" className={({isActive})=>isActive? "flex items-center p-2 pl-11 w-full text-base font-normal text-white rounded-lg transition duration-75 bg-gray-700":"flex items-center p-2 pl-11 w-full text-base font-normal text-white rounded-lg transition duration-75 hover:bg-gray-700"}>Services</NavLink>
                   </li>
                   
             </ul>
@@ -76,20 +125,42 @@ function AdminHeader() {
 
         <ul className=' text-lg'> 
         <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
+            <NavLink to="/admindashboard" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
+                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <span className="ml-3">Dashboard</span>
+            </NavLink>
+        </li>
+        <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
             <NavLink to="/adminevents" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
                 <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
                 <span className="ml-3">Events</span>
             </NavLink>
         </li>
-        <li className='py-2 mb-4 border-b border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
-        <NavLink to="/" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center"}>
-                <BsFillChatRightTextFill className="w-6 h-6 text-gray-500"/>
-               <span className="ml-3">Chat</span>
-               <span className="inline-flex p-3 items-center justify-center ml-1 w-3 h-3 text-white bg-blue-600 rounded-full">15</span>
-            
-
+        <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
+            <NavLink to="/adminorders" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
+                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <span className="ml-3">Orders</span>
             </NavLink>
         </li>
+        <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
+            <NavLink to="/adminpayment" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
+                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <span className="ml-3">Payment</span>
+            </NavLink>
+        </li>
+        <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
+            <NavLink to="/adminfeedback" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
+                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <span className="ml-3">Feedback</span>
+            </NavLink>
+        </li>
+        <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
+            <NavLink to="/admincontact" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
+                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <span className="ml-3">Contact</span>
+            </NavLink>
+        </li>
+        
 
         </ul> 
     </div>

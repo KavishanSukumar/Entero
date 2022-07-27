@@ -5,7 +5,7 @@ import {AiFillDelete} from 'react-icons/ai';
 
 function ViewEvent() {
   return (
-    <div className="m-3 p-5">
+    <div className="mt-14 md:m-3 p-5 ">
         {/*Start of the insights */}
         <div className="p-2 shadow-xl mb-10 grid grid-cols-3 ">
             <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl col-span-3 lg:col-start-2 lg:col-span-1">
@@ -27,7 +27,7 @@ function ViewEvent() {
                 
 
                     {/*The card */}
-                <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner md:transform hover:scale-110 transition duration-300">
+                <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300">
                     {/*Name of the sender */}
                     <h4 className='mb-3 font-medium text-center'>Shakir</h4>
                     
