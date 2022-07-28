@@ -1,11 +1,12 @@
 import React from 'react';
 import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
-import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
-import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
+import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart,FiHome } from 'react-icons/fi';
+import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft, BsGem } from 'react-icons/bs';
 import { BiColorFill } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
 import { RiContactsLine, RiStockLine } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount } from 'react-icons/md';
+import { MdOutlinePermCameraMic } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
 import { GiLouvrePyramid } from 'react-icons/gi';
@@ -641,7 +642,7 @@ export const earningData = [
     icon: <BsBoxSeam />,
     amount: '4,396',
     percentage: '+23%',
-    title: 'Products',
+    title: 'Service Providers',
     iconColor: 'rgb(255, 244, 229)',
     iconBg: 'rgb(254, 201, 15)',
     pcColor: 'green-600',
@@ -650,7 +651,7 @@ export const earningData = [
     icon: <FiBarChart />,
     amount: '423,39',
     percentage: '+38%',
-    title: 'Sales',
+    title: 'Bookings',
     iconColor: 'rgb(228, 106, 118)',
     iconBg: 'rgb(255, 244, 229)',
 
@@ -661,6 +662,59 @@ export const earningData = [
     amount: '39,354',
     percentage: '-12%',
     title: 'Refunds',
+    iconColor: 'rgb(0, 194, 146)',
+    iconBg: 'rgb(235, 250, 242)',
+    pcColor: 'red-600',
+  },
+];
+
+export const earningData2 = [
+  // {
+  //   icon: <BsGem />,
+  //   // icon: <MdOutlineSupervisorAccount />,
+  //   amount: 'Caterings',
+  //   percentage: '45',
+  //   title: 'Service1',
+  //   iconColor: '#03C9D7',
+  //   iconBg: '#E5FAFB',
+  //   pcColor: 'red-600',
+  // },
+  {
+    icon: <BsGem />,
+    amount: 'Caterings',
+    percentage: '45',
+    title: 'Service1',
+    iconColor: '#03C9D7',
+    iconBg: '#E5FAFB',
+    pcColor: 'red-600',
+  },
+  {
+    icon: <FiHome />,
+    // icon: <BsBoxSeam />,
+    amount: 'Halls',
+    percentage: '23',
+    title: 'Service2',
+    iconColor: 'rgb(255, 244, 229)',
+    iconBg: 'rgb(254, 201, 15)',
+    pcColor: 'green-600',
+  },
+  {
+    // icon: <FiBarChart />,
+    icon: <BsGem />,
+    amount: 'Decoration',
+    percentage: '38',
+    title: 'Service3',
+    iconColor: 'rgb(228, 106, 118)',
+    iconBg: 'rgb(255, 244, 229)',
+
+    pcColor: 'green-600',
+  },
+  {
+    // icon: <HiOutlineRefresh />,
+    icon: <MdOutlinePermCameraMic />,
+    amount: 'Photography',
+    percentage: '33',
+    title: 'Service4',
     iconColor: 'rgb(0, 194, 146)',
     iconBg: 'rgb(235, 250, 242)',
     pcColor: 'red-600',
