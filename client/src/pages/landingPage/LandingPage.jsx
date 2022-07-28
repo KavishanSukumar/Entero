@@ -1,4 +1,5 @@
 import React from "react";
+import Carousel from "../../components/landing/Carousel";
 
 function LandingPage() {
   return (
@@ -24,14 +25,9 @@ function LandingPage() {
           </button>
         </div>
 
-        <video
-          autoPlay
-          loop
-          muted
-          class="relative -z-10 w-full h-full opacity-75"
-        >
-          <source src="/assets/videos/landingPage.mp4" type="video/mp4" />
-        </video>
+        <div>
+          <Carousel />
+        </div>
       </div>
 
       <div class=" bg-yellow-700 text-white w-full h-16 ">Footer</div>

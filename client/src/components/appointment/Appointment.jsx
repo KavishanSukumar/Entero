@@ -5,7 +5,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 function Appointment() {
   return (
-    <div className="flex flex-col  justify-around mx-72 my-32 ">
+    <div className="flex flex-col  justify-around mx-60 my-32 ">
       <div className="flex justify-start mb-7">
         <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
           Appointment
@@ -55,6 +55,12 @@ function Appointment() {
                   scope="col"
                   class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                 >
+                  Customer Name
+                </th>
+                <th
+                  scope="col"
+                  class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                >
                   Time
                 </th>
                 <th
@@ -95,293 +101,25 @@ function Appointment() {
                   1
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Mark
+                  Sukumar Kavishan
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Otto
+                  15:00:56
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  25:05:2022
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  0775844312
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                  lorem50 Lorem ipsum dolor
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  Confirmed
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                   @mdo
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  2
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Jacob
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Thornton
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @fat
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
-                </td>
-              </tr>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  3
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Larry
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Wild
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  @twitter
                 </td>
               </tr>
             </tbody>
