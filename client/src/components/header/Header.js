@@ -55,7 +55,7 @@ function Header() {
          }
     </div>
 
-    <ul className={nav ? 'fixed left-0 top-9 w-full  justify-start p-8 h-full border-r border-r-gray-900 bg-[#000300]  md:hidden' : ' fixed left-[-100%]'}>
+    <ul className={nav ? 'fixed left-0 top-14 w-full  justify-start p-8 h-full border-r border-r-gray-900 bg-[#000300]  md:hidden' : ' fixed left-[-100%]'}>
 
         <li className='p-4 border-b border-gray-600 text-white hover:text-blue-500'><NavLink className={({isActive})=>isActive? "text-blue-500":""} to="/">Home</NavLink></li>
         <li className='p-4 border-b border-gray-600 text-white hover:text-blue-500'><NavLink className={({isActive})=>isActive? "text-blue-500":""} to="/events">Events</NavLink></li>

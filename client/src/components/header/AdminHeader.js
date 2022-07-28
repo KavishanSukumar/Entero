@@ -87,18 +87,18 @@ function AdminHeader() {
     <div className={nav ? 'fixed left-0 top-14 w-full p-12 min-h-screen overflow-y-auto bg-gray-800 text-white  md:hidden' : ' fixed left-[-100%]'}>
         
         
-    <div className="flex items-center shadow-2xl mb-2 ">
+    <div className="flex flex-col items-center shadow-2xl mb-2 ">
             {/*The image */}
-            <div className="p-8">
-                <img src={Shakir} className="w-36 h-36 rounded-full shadow-2xl "/>
+            <div className="p-2">
+                <img src={Shakir} className="w-28 h-28 rounded-full shadow-2xl "/>
             </div>
 
             {/*The buttons */}
-            <div className="flex flex-col p-4 w-56 ">
-                <button className="  border-2   p-2 mb-3 rounded hover:bg-transparent hover:border-black">
+            <div className="flex flex-col w-44 p-4">
+                <button className="  border-2   p-1 mb-3 rounded hover:bg-transparent hover:border-black">
                 <NavLink to="/userprofile">Profile</NavLink>
                 </button>
-                <button className=" border-2   p-2 mb-3 rounded hover:bg-transparent hover:border-black">
+                <button className=" border-2   p-1 mb-3 rounded hover:bg-transparent hover:border-black">
                     Logout
                 </button>
             </div>

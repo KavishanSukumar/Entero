@@ -5,12 +5,16 @@ import {AiFillDelete} from 'react-icons/ai';
 
 function ViewEvent() {
   return (
-    <div className="mt-14 md:m-3 p-5 w-full">
+    <div className="p-5 w-full">
         {/*Start of the insights */}
-        <div className="p-2 shadow-xl mb-10 grid grid-cols-3 ">
-            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl col-span-3 lg:col-start-2 lg:col-span-1">
+        <div className="p-2 shadow-xl mb-10 grid grid-cols-4 ">
+            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl col-span-2 lg:col-start-2 lg:col-span-1">
                 <p className="text-4xl mb-2">28</p>
-                <p className="text-sm">Recieved</p>
+                <p className="text-sm">Current events</p>
+            </div>
+            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl col-span-2 lg:col-start-3 lg:col-span-1">
+                <p className="text-4xl mb-2">28</p>
+                <p className="text-sm">Past events</p>
             </div>
             
 
@@ -32,12 +36,15 @@ function ViewEvent() {
                     <h4 className='mb-3 font-medium text-center'>#0034</h4>
                     
                     {/*content */}
-                    <div>
-                        <h2 className="bg-yellow-300">Name:</h2>
+                    <div className="bg-red-400 flex flex-col items-center mb-3">
+                        <p>Kavin Fernando</p>
+                        <p>Birthday</p>
+                        <p>0778965432</p>
                     </div>
                     
-                    <h2 className="bg-yellow-300">Type:</h2>
-                    <h2 className="bg-yellow-300">Contact:</h2>
+                    
+                    
+                    
                     
                     
                     {/*buttons for reply and discard */}

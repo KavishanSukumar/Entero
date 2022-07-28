@@ -52,7 +52,7 @@ function MessageComponent() {
     )
     return (
         
-    <div className="mt-14 md:m-3 p-5 w-full">
+    <div className="p-5 w-full mt-14 md:mt-0">
         {/*Start of the insights */}
         <div className="p-2 shadow-xl mb-10 grid grid-cols-3">
             <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl">
