@@ -11,7 +11,7 @@ function AdminContact() {
           
           
           <AdminSidebar />
-          <div className="md:ml-[17%] lg:ml-[13%] xl:ml-[11%] 2xl:ml-[9%] md:mt-14">
+          <div className="md:ml-[17%] lg:ml-[13%] xl:ml-[11%] 2xl:ml-[9%] md:mt-14 w-screen">
             
             <MessageComponent />
           

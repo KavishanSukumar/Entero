@@ -5,7 +5,7 @@ import {AiFillDelete} from 'react-icons/ai';
 
 function ViewEvent() {
   return (
-    <div className="mt-14 md:m-3 p-5 ">
+    <div className="mt-14 md:m-3 p-5 w-full">
         {/*Start of the insights */}
         <div className="p-2 shadow-xl mb-10 grid grid-cols-3 ">
             <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl col-span-3 lg:col-start-2 lg:col-span-1">
@@ -29,21 +29,23 @@ function ViewEvent() {
                     {/*The card */}
                 <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300">
                     {/*Name of the sender */}
-                    <h4 className='mb-3 font-medium text-center'>Shakir</h4>
+                    <h4 className='mb-3 font-medium text-center'>#0034</h4>
                     
                     {/*content */}
-                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400">Read more</b>
-                    </p>
+                    <div>
+                        <h2 className="bg-yellow-300">Name:</h2>
+                    </div>
+                    
+                    <h2 className="bg-yellow-300">Type:</h2>
+                    <h2 className="bg-yellow-300">Contact:</h2>
                     
                     
                     {/*buttons for reply and discard */}
                     <div className="flex justify-center">
                         <button className=" inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-blue-400 font-medium mx-2 mb-2">
-                            <BsReplyFill size={18} />Reply
+                            See details
                         </button>
-                        <button className="inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-red-400 font-medium mx-2 mb-2">
-                            <AiFillDelete size={18}/>Discard
-                        </button>
+                        
                     </div>
 
                     {/*Time recieved */}
