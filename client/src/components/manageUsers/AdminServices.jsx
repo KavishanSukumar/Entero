@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {AiOutlineClose} from 'react-icons/ai'
 import Shakir from '../../Shakir.jpg';
 
-function AdminCustomers() {
+function AdminServices() {
     const [popup,setPopup]=useState(false);
 
     const handlePopup=()=>{
@@ -12,14 +12,14 @@ function AdminCustomers() {
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2">
         <div className="flex p-1 md:justify-end md:px-4 py-2 ">
             <div className="relative">
-                <input type="text" className="p-2 w-64 md:w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search for customers" />
+                <input type="text" className="p-2 w-64 md:w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search for services" />
             </div>
         </div>
 
         <div className={popup? "absolute min-w-full min-h-screen z-10 backdrop-blur-sm bg-gray-500/50 top-0  p-4 left-0":"hidden"} >
             <div className="bg-white absolute top-[20%] flex flex-col  w-[70%] mx-[10%] p-2">
                 <div className="w-full inline-flex justify-end items-end">
-                    <AiOutlineClose className="w-4 h-4 cursor-pointer" onClick={handlePopup}/>
+                    <AiOutlineClose className="w-6 h-6 cursor-pointer" onClick={handlePopup}/>
                 </div>
                 <div className="w-full flex flex-col md:flex-row">
                 <div className="flex flex-col  items-center shadow-2xl mb-2 ">
@@ -65,7 +65,7 @@ function AdminCustomers() {
                     0023
                 </td>
                 <td className="py-4 px-6 text-center font-medium uppercase">
-                Kavin Fernando
+                Perera and sons
                 </td>
                 <td className="py-4 px-6 text-center">
                 <p class="font-medium text-blue-600 hover:underline cursor-pointer" onClick={handlePopup}>Edit</p>
@@ -78,4 +78,4 @@ function AdminCustomers() {
   )
 }
 
-export default AdminCustomers
+export default AdminServices

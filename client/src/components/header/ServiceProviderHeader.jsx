@@ -20,12 +20,12 @@ function ServiceProviderHeader() {
 
 
     const dropdownEvent=(
-      <div className="hidden md:block absolute top-14 right-0 w-44 z-50 bg-green-300 rounded divide-y divide-gray-100 shadow " onMouseLeave={handleDropEvent}>
+      <div className="hidden md:block absolute top-14 right-0 w-44 z-50 bg-gray-100 rounded divide-y divide-gray-100 shadow " onMouseLeave={handleDropEvent}>
         <ul class="py-1 text-sm text-gray-700" >
-          <li className="block py-2 px-4 hover:bg-gray-100">
+          <li className="block py-2 px-4 hover:bg-gray-200">
           My Profile
           </li>
-          <li className="block py-2 px-4 hover:bg-gray-100 ">
+          <li className="block py-2 px-4 hover:bg-gray-200 ">
           Logout
           </li>
         </ul>
@@ -74,7 +74,7 @@ return (
 
     {/* The links are changed to the admins sidebar and not to the home,about us,contact us links */}
 <div className={nav ? 'fixed left-0 top-14 w-full p-12 min-h-screen overflow-y-auto bg-gray-800 text-white  md:hidden' : ' fixed left-[-100%]'}>
-        <div className="flex items-center shadow-2xl mb-2 ">
+        <div className="flex flex-col items-center shadow-2xl mb-2 ">
             {/*The image */}
             <div className="p-2">
                 <img src={Shakir} className="w-28 h-28 rounded-full shadow-2xl "/>
