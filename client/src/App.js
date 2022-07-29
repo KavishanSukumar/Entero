@@ -9,7 +9,7 @@ import Carousel from "./components/landing/Carousel";
 function App() {
   return (
     <div className="App">
-      <LandingPage />
+      <Chat />
     </div>
   );
 }
