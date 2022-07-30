@@ -57,7 +57,7 @@ function AdminSidebar() {
         }
 
   return (
-    <div className="relative">
+    <div className="relative z-50">
 
         <div className={!namez? "hidden md:block fixed shadow-2xl min-h-screen w-36  left-0 top-14 flex-col p-3":"hidden"}>
             <div className={!namez? "flex justify-center shadow-inner p-3 border-2":"hidden"} onClick={handleNamez}>
@@ -102,7 +102,7 @@ function AdminSidebar() {
                         <BsFillCalendar2CheckFill size={40} className="text-gray-400 hover:scale-110"/>
                     </NavLink>
 
-                    <span className={eventLabel? "absolute ml-12 w-28 text-center rounded-md bg-black text-white":"hidden"}>Events</span>
+                    <span className={eventLabel? "absolute ml-12  w-28 text-center rounded-md bg-black text-white":"hidden"}>Events</span>
                 </div> 
 
                 <div className="relative inline-flex items-center mb-4">

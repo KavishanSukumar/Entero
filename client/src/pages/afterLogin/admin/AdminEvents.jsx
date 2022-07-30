@@ -1,6 +1,7 @@
 import React from 'react';
 import AdminHeader from '../../../components/header/AdminHeader';
 import AdminSidebar from '../../../components/sidebar/AdminSidebar';
+import EventsAdmin from '../../../components/events/EventsAdmin';
 
 
 function AdminEvents() {
@@ -13,7 +14,7 @@ function AdminEvents() {
         <AdminSidebar />
         <div className="md:ml-[17%] lg:ml-[13%] xl:ml-[11%] 2xl:ml-[9%] md:mt-14 w-screen">
           
-          <p>Put events here</p>
+          <EventsAdmin />
         
         </div>
       </div>
