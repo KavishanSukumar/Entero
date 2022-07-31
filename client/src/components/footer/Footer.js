@@ -10,7 +10,7 @@ import {
 
 function Footer() {
   return (
-    <div className='py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300 bg-gray-500'>
+    <div className='py-16 px-4 grid md:grid-cols-3 gap-8 text-gray-300 bg-gray-500'>
       <div>
         <h1 className='w-full text-3xl font-bold text-[#00df9a]'>LOGO</h1>
         <p className='py-4'>Entero is a event planning site which is dedicated to making any event you can imagine a reality. Make your event memorable with Entero.</p>
@@ -22,7 +22,7 @@ function Footer() {
             <FaTwitterSquare size={30} />
         </div>
       </div>
-      <div className='lg:col-span-2 flex justify-around mt-6'>
+      <div className='md:col-span-2 flex justify-around mt-6'>
             <div>
                 <h6 className='font-medium text-black'>Information</h6>
                 <ul>

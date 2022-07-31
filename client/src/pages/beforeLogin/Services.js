@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 
 
 
@@ -11,7 +11,7 @@ function Services() {
         {/* Have to create a division and add the page content */}
         
         <div>
-          <p>This is the services page</p>
+          <p>this is ervices page</p>
         </div>
         <Footer />
         
