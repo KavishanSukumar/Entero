@@ -58,23 +58,23 @@ function Carousel() {
 
   return (
     <>
-      <div className="z-10 absolute text-center top-40 w-full">
-        <h1 className="text-2xl font-bold py-6">
-          Searching for Event Services?
-        </h1>
-        <div className="flex flex-row justify-center">
-          <h1 className="text-xl w-96 py-6">
-            We are here to accomadate the events and the services for both
-            parties service providers and customers. you are able to find or
-            privide your needed or wanted services through this single system
+      <div className="relative flex flex-row  h-1/5 my-9 justify-center items-center">
+        <div className="z-10 absolute text-center top-40 bg-white p-6 rounded-xl opacity-80 shadow-inner">
+          <h1 className="text-2xl font-bold py-6">
+            Searching for Event Services?
           </h1>
+          <div className="flex flex-row justify-center">
+            <h1 className="text-xl w-96 py-6">
+              We are here to accomadate the events and the services for both
+              parties service providers and customers. you are able to find or
+              privide your needed or wanted services through this single system
+            </h1>
+          </div>
+          <h1 className="text-2xl font-bold  py-6">Join us Entero </h1>
+          <button className="border left-60 w-64 py-2 bg-yellow-900 hover:bg-gray-500 hover:text-black text-white">
+            Sign Up
+          </button>
         </div>
-        <h1 className="text-2xl font-bold  py-6">Join us Entero </h1>
-        <button className="border left-60 w-64 py-2 bg-yellow-900 hover:bg-gray-500 hover:text-black text-white">
-          Sign Up
-        </button>
-      </div>
-      <div className="flex flex-row relative h-screen justify-center items-center">
         {/* <ArrowCircleLeftIcon
           className="absolute top-1/2 left-8 w-screen z-10 cursor-pointer select-none"
           onClick={handleClickLeft}
@@ -83,10 +83,10 @@ function Carousel() {
           className="absolute top-1/2 right-8 w-screen z-10 cursor-pointer select-none"
           onClick={handleClickRight}
         /> */}
-        <div ref={carouselRef} className="w-auto h-auto">
+        <div ref={carouselRef} className="">
           <img
             src={CarauselDataImages[current]}
-            className="w-screen h-96 rounded-xl"
+            className="w-screen h-[720px]  rounded-xl"
             alt="Event Imgs"
           />
         </div>
