@@ -14,7 +14,7 @@ function Login() {
           style={{ backgroundImage: "url(/assets/images/login1.jpg)" }}
           className="bg-opacity-60 flex flex-col justify-center h-screen font-serif bg-cover"
         /> */}
-        <form className="flex flex-row w-7/12 justify-center object-center mt-48 items-center mx-auto bg-white rounded-lg  shadow-inner ">
+        <form className="flex flex-row w-7/12 justify-center object-center mt-40 items-center mx-auto bg-white rounded-lg  shadow-inner ">
           <div className="basis-7/12 p-0">
             <img
               className="rounded-lg object-fill "
@@ -79,6 +79,7 @@ function Login() {
           </div>
         </form>
       </div>
+      
     </>
   );
 }

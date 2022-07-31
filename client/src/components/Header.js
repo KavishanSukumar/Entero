@@ -61,7 +61,8 @@ function Header() {
 
     {/* header logo */}
 
-    <h1 className='text-3xl font-bold text-[#00df9a] px-4'>Logo</h1>
+   
+
 
     {/*header links */}
     <ul className='hidden md:flex'>
@@ -79,9 +80,9 @@ function Header() {
     
     {/*login components*/}
             <div className="p-3 hidden md:block">
-            <Link to="/adminpage" className='bg-blue-500 text-white hover:bg-blue-400 px-5 py-2 rounded mx-2'>
+            <Link to="/adminpage" className='bg-[#d89444] text-white hover:bg-black px-5 py-2 rounded mx-2'>
             
-              Sign in
+              Sign In
             </Link>
                 
               
