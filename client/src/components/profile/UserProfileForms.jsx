@@ -81,7 +81,7 @@ function UserProfileForms() {
                     <button className="p-1 px-2 mt-2 mx-2 bg-gray-100 border-2 hover:border-black  hover:bg-transparent rounded" >
                         Update
                     </button>
-                    <button type="button" className="p-1 px-2 mt-2 mx-2 bg-gray-100 border-2 hover:border-black  hover:bg-transparent rounded lg:hidden" onClick={handleProfileDiv}>
+                    <button type="button" className="p-1 px-2 mt-2 mx-2 bg-gray-100 border-2 hover:border-black  hover:bg-transparent rounded md:hidden" onClick={handleProfileDiv}>
                         Cancel
                     </button>
             
@@ -133,7 +133,7 @@ function UserProfileForms() {
                     <button className="p-1 px-2 mt-2 mx-2 bg-gray-100 border-2 hover:border-black  hover:bg-transparent rounded" >
                         Update
                     </button>
-                    <button type="button" className="p-1 px-2 mt-2 mx-2 bg-gray-100 border-2 hover:border-black  hover:bg-transparent rounded lg:hidden" onClick={handlePasswordDiv}>
+                    <button type="button" className="p-1 px-2 mt-2 mx-2 bg-gray-100 border-2 hover:border-black  hover:bg-transparent rounded md:hidden" onClick={handlePasswordDiv}>
                         Cancel
                     </button>
             
