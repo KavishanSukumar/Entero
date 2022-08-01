@@ -2,9 +2,9 @@ import React from 'react';
 import { Alignments, HtmlEditor, Image, Inject, Link, QuickToolbar,
 RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 
-import { EditorData } from '../data/dummy';
-import { Header } from '../components';
-import {Button} from '../components';
+import { EditorData } from '../../../data/dummy';
+import { Header } from '../../../components';
+import {Button} from '../../../components';
 
 const BusinessPolicies = () => {
     return (
@@ -86,7 +86,7 @@ the Top Brand features that you customized.</p>
 accept cookies, but you can usually modify your browser setting to decline cookies if you
 prefer. If you choose to decline cookies, you may not be able to fully experience the
 interactive features of the Top Brand services or websites you visit.</p><br />
-<b>Links</b>
+{/* <b>Links</b>
 <p>This website contains links to other sites. Please be aware that we are not responsible for
 the content or privacy practices of such other sites. We encourage our users to be aware
 when they leave our site and to read the privacy statements of any other site that collects
@@ -146,7 +146,7 @@ SETTINGS ON THOSE THIRD PARTY SITES). IF YOU DO NOT WANT INFORMATION ABOUT
 YOU, INCLUDING PERSONALLY IDENTIFYING INFORMATION, TO BE SHARED IN THIS
 MANNER, DO NOT USE THIS FEATURE. You may disconnect your account from a third
 party account at any time. Users may learn how to disconnect their accounts from third-
-party websites by contacting us via email or telephone.</p>
+party websites by contacting us via email or telephone.</p> */}
 <b><h4>E-mail Communications</h4></b>
 <p>From time to time, Top Brand may contact you via email for the purpose of providing
 announcements, promotional offers, alerts, confirmations, surveys, and/or other general
@@ -158,7 +158,7 @@ by Emailing to legal@topbrand.co.</p>
 External Data Storage Sites
 <p>We may store your data on servers provided by third party hosting vendors with whom
 we have contracted.</p><br />
-<b><h4>Changes to this Statement</h4></b>
+{/* <b><h4>Changes to this Statement</h4></b>
 <p>Top Brand reserves the right to change this Privacy Policy from time to time. We will notify
 you about significant changes in the way we treat personal information by sending a
 notice to the primary email address specified in your account, by placing a prominent
@@ -169,7 +169,7 @@ by that Policy.</p><br />
 <b><h4>Contact Information</h4></b>
 <p>Top Brand welcomes your questions or comments regarding this Statement of Privacy. If
 you believe that Top Brand has not adhered to this Statement, please contact Top Brand
-at:</p><br />
+at:</p><br /> */}
 <p className="content-center text-center">
 Top Brand Worldwide, LLC<br />
 139 Fulton Street PH 1101<br />
@@ -203,6 +203,7 @@ Effective as of January 01, </p>
           md:p-10 bg-white rounded-3xl">
           <Header title="Edit Business Policies" />
           <RichTextEditorComponent>
+          <EditorData />
             <Inject services={[HtmlEditor, Toolbar,
             Image, Link, QuickToolbar ]} />
           </RichTextEditorComponent>
@@ -215,7 +216,8 @@ Effective as of January 01, </p>
                 text="Edit"
                 borderRadius="10px"
                 size="md"
-                width="200px"
+                width="300px"
+                // margin-right="200px"
               />
             </div>
         </div>
