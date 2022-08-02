@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Third Year Group Project-Event Management System",
   "main": ".\\client\\src\\index.js",
+  "engines": {
+    "node": "16.15.0"
+  },
   "scripts": {
-    "start": "cd .\\client && npm start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "cd .\\client && npm start"
   },
   "repository": {
     "type": "git",
