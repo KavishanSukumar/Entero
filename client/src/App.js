@@ -11,9 +11,7 @@ import AdminUserCustomer from "./pages/afterLogin/admin/AdminUserCustomer";
 import AdminUserServices from "./pages/afterLogin/admin/AdminUserServices";
 import AdminDashboard from './pages/afterLogin/admin/AdminDashboard';
 import AdminEvents from "./pages/afterLogin/admin/AdminEvents";
-import AdminOrders from "./pages/afterLogin/admin/AdminOrders";
 import AdminPayment from "./pages/afterLogin/admin/AdminPayment";
-import AdminFeedback from "./pages/afterLogin/admin/AdminFeedback";
 import AdminContact from "./pages/afterLogin/admin/AdminContact";
 import CustomerEvents from "./pages/afterLogin/customer/CustomerEvents";
 import CustomerServices from "./pages/afterLogin/customer/CustomerServices";
@@ -40,12 +38,10 @@ function App() {
         <Route exact path="/contactus" element={<ContactUs/>} />
         {/*Admin pages */}
         <Route exact path="/adminusercustomer" element={<AdminUserCustomer />} />
-        <Route exact path="/adminuserservices" element={<AdminUserServices />} />
+        <Route exact path="/adminuserservice" element={<AdminUserServices />} />
         <Route exact path="/admindashboard" element={<AdminDashboard />} />
         <Route exact path="/adminevents" element={<AdminEvents />} />
-        <Route exact path="/adminorders" element={<AdminOrders />} />
         <Route exact path="/adminpayment" element={<AdminPayment />} />
-        <Route exact path="/adminfeedback" element={<AdminFeedback />} />
         <Route exact path="/admincontact" element={<AdminContact />} />
 
         {/*Customer pages */}

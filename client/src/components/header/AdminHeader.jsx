@@ -14,12 +14,6 @@ function AdminHeader() {
         setNav(!nav);
         };
 
-        const [adminEvent,setAdminEvent]=useState(false);
-
-        const handleAdminEvent=()=>{
-            setAdminEvent(!adminEvent);
-        }
-
         const[dropEvent,setDropEvent]=useState(false);
 
         const handleDropEvent=()=>{
@@ -32,7 +26,7 @@ function AdminHeader() {
             <ul class="py-1 text-sm text-gray-700" >
               
                 <NavLink to="/userprofile"><li className="block py-2 px-4 hover:bg-gray-200">My Profile</li></NavLink>
-                <NavLink to="/userprofile"><li className="block py-2 px-4 hover:bg-gray-200">Settings</li></NavLink>
+                <NavLink to="/userprofile"><li className="block py-2 px-4 hover:bg-gray-200">Business policies</li></NavLink>
                 <NavLink to="/userprofile"><li className="block py-2 px-4 hover:bg-gray-200">Logout</li></NavLink>
               
               
@@ -104,26 +98,20 @@ function AdminHeader() {
             </div>
     </div>
         
-        
-        <ul className=' text-sm'>
-            <li className='relative py-2 mb-4 border-b border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg' onClick={handleAdminEvent}>
-            
-                <RiFunctionLine className="w-6 h-6 text-gray-500"/>
-                <span className="ml-3">Users</span>
-                <RiArrowDropDownLine className="w-6 h-6 text-gray-500 absolute right-0" />
-                
-          
-            </li>
-            <ul  className={adminEvent? "py-3 pl-4 text-sm":"hidden"}>
-                  <li className="mb-2"><NavLink to="/adminusercustomer" className={({isActive})=>isActive? "flex items-center p-2 pl-11 w-full  text-white rounded-lg transition duration-75 bg-gray-700":"flex items-center p-2 pl-11 w-full  text-white rounded-lg transition duration-75 hover:bg-gray-700"}>Customer</NavLink>
-                  </li>
-                  <li><NavLink to="/adminuserservices" className={({isActive})=>isActive? "flex items-center p-2 pl-11 w-full  text-white rounded-lg transition duration-75 bg-gray-700":"flex items-center p-2 pl-11 w-full  text-white rounded-lg transition duration-75 hover:bg-gray-700"}>Services</NavLink>
-                  </li>
-                  
-            </ul>
-        </ul>
 
         <ul className=' text-sm'> 
+        <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
+            <NavLink to="/adminusercustomer" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
+                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <span className="ml-3">Customers</span>
+            </NavLink>
+        </li>
+        <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
+            <NavLink to="/adminuserservice" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
+                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <span className="ml-3">Services</span>
+            </NavLink>
+        </li>
         <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
             <NavLink to="/admindashboard" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
                 <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />

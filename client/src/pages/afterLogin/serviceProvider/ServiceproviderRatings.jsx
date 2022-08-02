@@ -1,6 +1,7 @@
 import React from 'react'
 import ServiceProviderHeader from '../../../components/header/ServiceProviderHeader';
 import ServiceProviderSidebar from '../../../components/sidebar/ServiceProviderSidebar';
+import ReviewServiceProvider from '../../../components/feedback/ReviewServiceProvider';
 
 function ServiceproviderRatings() {
   return (
@@ -9,9 +10,9 @@ function ServiceproviderRatings() {
       <div className="flex">
         
         <ServiceProviderSidebar />
-        <div className="md:ml-[17%] lg:ml-[13%] xl:ml-[11%] 2xl:ml-[9%] md:mt-14 w-screen">
+        <div className="md:ml-20 md:mt-14 w-screen">
             
-          <p>This is service ratings</p>
+          <ReviewServiceProvider />
           
           </div>
       </div>

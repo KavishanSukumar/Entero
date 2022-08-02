@@ -118,18 +118,18 @@ function MessageComponent() {
                     {typeReply? typeReplyMessage:""}
 
                     {/*The card */}
-                <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner  hover:scale-110 transition duration-300">
+                <div className={!typeReply? "p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300":"hidden"}>
                     {/*Name of the sender */}
                     <h4 className='mb-3 font-medium text-center'>Shakir</h4>
                     
                     {/*content */}
-                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400">Read more</b>
+                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
                     </p>
                     
                     
                     {/*buttons for reply and discard */}
                     <div className="flex justify-center">
-                        <button className=" inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-blue-400 font-medium mx-2 mb-2">
+                        <button className=" inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-blue-400 font-medium mx-2 mb-2" onClick={handleTypeReply}>
                             <BsReplyFill size={18} />Reply
                         </button>
                         <button className="inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-red-400 font-medium mx-2 mb-2">
@@ -144,18 +144,18 @@ function MessageComponent() {
                     {/*end of the card */}
 
                     {/*The card */}
-                <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner  hover:scale-110 transition duration-300">
+                <div className={!typeReply? "p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300":"hidden"}>
                     {/*Name of the sender */}
                     <h4 className='mb-3 font-medium text-center'>Shakir</h4>
                     
                     {/*content */}
-                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400">Read more</b>
+                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
                     </p>
                     
                     
                     {/*buttons for reply and discard */}
                     <div className="flex justify-center">
-                        <button className=" inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-blue-400 font-medium mx-2 mb-2">
+                        <button className=" inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-blue-400 font-medium mx-2 mb-2" onClick={handleTypeReply}>
                             <BsReplyFill size={18} />Reply
                         </button>
                         <button className="inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-red-400 font-medium mx-2 mb-2">
@@ -169,18 +169,19 @@ function MessageComponent() {
                 </div>
                     {/*end of the card */}
 
-                    <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner  hover:scale-110 transition duration-300">
+                    {/*The card */}
+                <div className={!typeReply? "p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300":"hidden"}>
                     {/*Name of the sender */}
-                    <h4 className='mb-3 font-medium text-center '>Shakir</h4>
+                    <h4 className='mb-3 font-medium text-center'>Shakir</h4>
                     
                     {/*content */}
-                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400">Read more</b>
+                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
                     </p>
                     
                     
                     {/*buttons for reply and discard */}
                     <div className="flex justify-center">
-                        <button className=" inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-blue-400 font-medium mx-2 mb-2">
+                        <button className=" inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-blue-400 font-medium mx-2 mb-2" onClick={handleTypeReply}>
                             <BsReplyFill size={18} />Reply
                         </button>
                         <button className="inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-red-400 font-medium mx-2 mb-2">
@@ -193,7 +194,7 @@ function MessageComponent() {
                     
                 </div>
                     {/*end of the card */}
-                
+
 
                     
             </div>

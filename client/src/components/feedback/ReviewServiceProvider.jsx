@@ -4,7 +4,7 @@ import {AiOutlineClose,AiOutlineStar} from 'react-icons/ai';
 import Shakir from '../../Shakir.jpg';
 
 
-function ReviewAdmin() {
+function ReviewServiceProvider() {
 
     const [popup,setPopup]=useState(false);
 
@@ -15,10 +15,14 @@ return (
         
     <div className="relative p-5 w-full mt-14 md:mt-0 min-h-screen">
         {/*Start of the insights */}
-        <div className="p-2 shadow-xl mb-10 grid grid-cols-3">
-            <div className=" bg-slate-100 p-2 col-span-3 md:col-start-2 md:col-span-1 text-center min-h-fit shadow-inner mx-2 rounded-xl">
-                <p className="text-4xl mb-2">28</p>
-                <p className="text-sm">Recieved</p>
+        <div className="p-2 shadow-xl mb-10 grid grid-cols-4">
+            <div className=" bg-slate-100 p-2 col-span-2 md:col-start-2 md:col-span-1 text-center min-h-fit shadow-inner mx-2 rounded-xl">
+                <p className="text-4xl mb-2">4.2</p>
+                <p className="text-sm">Overall rating</p>
+            </div>
+            <div className=" bg-slate-100 p-2 col-span-2 md:col-start-3 md:col-span-1 text-center min-h-fit shadow-inner mx-2 rounded-xl">
+                <p className="text-4xl mb-2">26</p>
+                <p className="text-sm">Reviews</p>
             </div>
 
         </div>
@@ -117,4 +121,4 @@ return (
   )
 }
 
-export default ReviewAdmin
+export default ReviewServiceProvider

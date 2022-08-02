@@ -8,7 +8,8 @@ function AdminCustomers() {
     const handlePopup=()=>{
         setPopup(!popup)
     }
-  return (
+
+    return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 min-h-screen">
         {/*Start of the insights */}
         <div className="p-2 shadow-xl mb-10 grid grid-cols-4">
@@ -23,11 +24,13 @@ function AdminCustomers() {
 
         </div>
         {/*end of insights */}
-        <div className="flex p-1 md:justify-end md:px-4 py-2 ">
+        <div className="flex p-1 md:px-4 py-2 ">
             <div className="relative">
-                <input type="text" className="p-2 w-64 md:w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search for customers" />
+                <input type="text" className="p-2 w-64 md:w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search customers" />
             </div>
         </div>
+
+        
 
         <div className={popup? "absolute min-w-full min-h-full z-10 backdrop-blur-sm bg-gray-500/50 top-0  p-4 left-0":"hidden"} >
             <div className="bg-white absolute top-[20%] flex flex-col  w-[70%] mx-[10%] p-2">
@@ -50,9 +53,11 @@ function AdminCustomers() {
                     </div>
                     <div className=" w-full">
                         <p className="text-center text-base font-medium mb-2 border-b-2">Details</p>
-                        <p className="px-1 text-left"><b>Name:</b> Kavin Fernando</p>
-                        <p className="px-1 text-left"><b>NIC:</b> 723456789V</p>
-                        <p className="px-1 text-left"><b>Address:</b> Shangrila Hotel Colombo 02</p>
+                        <p className="md:ml-8 px-1 text-left"><b>Name:</b> Kavin Fernando</p>
+                        <p className="md:ml-8 px-1 text-left"><b>NIC:</b> 723456789V</p>
+                        <p className="md:ml-8 px-1 text-left"><b>Address:</b> Shangrila Hotel Colombo 02</p>
+                        <p className="md:ml-8 px-1 text-left"><b>Email:</b> kavingghyre@gmail.com</p>
+                        <p className="md:ml-8 px-1 text-left"><b>Contact:</b> 0778965432</p>
                     </div>
                 
                 </div>
@@ -60,41 +65,44 @@ function AdminCustomers() {
                 
             </div>
         </div>
-
-        <table className="w-full mt-2 md:w-[80%] md:mx-[10%] lg:w-[60%] lg:mx-[20%] text-xs md:text:sm text-left">
-        
-        <thead className="text-xs text-white font-medium uppercase bg-black">
+        <table className="w-full mt-2 md:w-[80%] md:mx-[10%] lg:w-[60%] lg:mx-[20%] text-[10px] md:text-xs">
+            
+        <thead className="text-white font-medium uppercase bg-black">
             <tr>
-                <th className=" py-3 text-center w-[10%]">
+                <th className=" py-2 text-center w-[10%]">
                     ID
                 </th>
-                <th className="py-3 text-center w-[40%]">
+                <th className="py-2 text-center w-[40%]">
                     Name
                 </th>
-                <th className="py-3 text-center w-[20%]">
+                <th className="py-2 text-center w-[20%]">
                     Status
                 </th>
-                <th className="py-3 w-[30%]">
+                <th className="py-2 w-[30%]">
                     
                 </th>
             </tr>
         </thead>
         <tbody className="bg-gray-200">
             <tr class="border-b ">
-                <td className=" py-4 font-medium text-gray-900 text-center">
+                <td className=" py-2 font-medium text-gray-900 text-center">
                     0023
                 </td>
-                <td className="py-4 text-center font-medium uppercase">
+                <td className="py-2 text-center font-medium uppercase">
                 Kavin Fernando
                 </td>
-                <td className="py-4 font-medium text-gray-900 text-center">Active</td>
-                <td className="py-4 text-center">
-                <p class="font-medium text-blue-600 hover:underline cursor-pointer" onClick={handlePopup}>Edit</p>
+                <td className="py-2 font-medium text-gray-900 text-center">Active</td>
+                <td className="py-2 text-center">
+                <p class="font-medium text-blue-600 hover:underline cursor-pointer" onClick={handlePopup}>View</p>
                 </td>
             </tr>
             
         </tbody>
+        
     </table>
+        
+
+        
     </div>
   )
 }

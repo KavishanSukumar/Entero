@@ -1,7 +1,7 @@
 import React from 'react';
 import AdminHeader from "../../../components/header/AdminHeader";
 import AdminSidebar from '../../../components/sidebar/AdminSidebar';
-import AdminServices from '../../../components/manageUsers/AdminServices';
+import AdminServiceProviders from '../../../components/manageUsers/AdminServiceProviders';
 
 function AdminUserServices() {
   return (
@@ -10,9 +10,9 @@ function AdminUserServices() {
       <div className="flex">
         
       <AdminSidebar />
-      <div className="md:ml-[17%] lg:ml-[13%] xl:ml-[11%] 2xl:ml-[9%] md:mt-14 w-screen">
+      <div className="md:ml-20 md:mt-14 w-screen">
         
-      <AdminServices />
+      <AdminServiceProviders />
       
       </div>
     </div>
