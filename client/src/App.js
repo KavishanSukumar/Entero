@@ -6,7 +6,12 @@ import CustomerChat from "./pages/afterLogin/customer/CustomerChat";
 function App() {
   return (
     <div className="App">
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/customer" element={<CustomerChat />} />
+      </Routes>
     </div>
   );
 }
