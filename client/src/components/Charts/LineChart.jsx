@@ -4,7 +4,7 @@ SeriesDirective, Inject, LineSeries, DateTime,
 Legend, Tooltip } from '@syncfusion/ej2-react-charts';
 
 import { lineCustomSeries, LinePrimaryYAxis,
-  LinePrimaryXAxis } from '../../data/dummy';
+  LinePrimaryXAxis } from '../../documents/dummy';
   import { useStateContext } from '../../contexts/ContextProvider';
 
 const LineChart = () => {

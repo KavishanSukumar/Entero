@@ -4,7 +4,7 @@ import { GoPrimitiveDot } from 'react-icons/go';
 
 import { Stacked, Button, SparkLine } from '../../../components';
 
-import { earningData, SparklineAreaData } from '../../../data/dummy';
+import { earningData, SparklineAreaData } from '../../../documents/dummy';
 // import { useStateContext } from '../contexts/ContextProvider';
 
 
@@ -17,7 +17,7 @@ const AdminDashboard = () => {
          {/* <div className=" bg-slate-400"> */}
          <div className=" bg-slate-100">
         <div className="flex flex-wrap lg:flex-nowrap justify-center">
-          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dary-bg h-44
+          {/* <div className="bg-white dark:text-gray-200 dark:bg-secondary-dary-bg h-44
           rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repat bg-cover bg-center">
             <div className="flex justify-between item-center">
               <div>
@@ -40,7 +40,7 @@ const AdminDashboard = () => {
                 size="md"
               />
             </div>
-          </div>
+          </div> */}
   
           <div className="flex m-3 flex-wrap justify-center
           gap-1 item-center">
@@ -64,9 +64,9 @@ const AdminDashboard = () => {
                     <span className="text-lg font-semibold">
                     {item.amount}
                     </span>
-                    <span className={`text-sm text-${item.pcColor} ml-2`}>
+                    {/* <span className={`text-sm text-${item.pcColor} ml-2`}>
                       {item.percentage}
-                    </span>
+                    </span> */}
                   </p>
                   <p className="text-sm text-gray-400 mt-1">
                     {item.title}

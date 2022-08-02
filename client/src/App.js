@@ -6,6 +6,7 @@ import {Admin} from './pages';
 import {Services} from './pages';
 import {Services2} from './pages';
 import {Customers2} from './pages';
+import {AdminBusinessPolicies} from './pages';
 import {BusinessPolicies} from './pages';
 import {Appointment} from './pages';
 import {Appointment2} from './pages';
@@ -25,6 +26,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/services2" element={<Services2 />} />
         <Route path="/customers2" element={<Customers2 />} />
+        <Route path="/adminbusinesspolicies" element={<AdminBusinessPolicies />} />
         <Route path="/businesspolicies" element={<BusinessPolicies />} />
         <Route path="/appointment" element={<Appointment />} />
         <Route path="/appointment2" element={<Appointment2 />} />

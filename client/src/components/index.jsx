@@ -1,13 +1,4 @@
-// export { default as Button } from './Button';
-// export { default as Header } from './Header';
-// export { default as SparkLine } from './Charts/SparkLine';
-// export { default as Stacked } from './Charts/Stacked';
-
-
-
-
-
-export { default as Button } from './Button';
+export { default as Button } from './button/Button';
 // export { default as ThemeSettings } from './ThemeSettings';
 // export { default as Sidebar } from './Sidebar';
 
@@ -17,9 +8,9 @@ export { default as Button } from './Button';
 // export { default as Chat } from './Chat';
 // export { default as Notification } from './Notification';
 // export { default as UserProfile } from './UserProfile';
-export { default as SparkLine } from './Charts/SparkLine';
-export { default as LineChart } from './Charts/LineChart';
-export { default as Stacked } from './Charts/Stacked';
-export { default as Pie } from './Charts/Pie';
+export { default as SparkLine } from './charts/SparkLine';
+export { default as LineChart } from './charts/LineChart';
+export { default as Stacked } from './charts/Stacked';
+export { default as Pie } from './charts/Pie';
 // export { default as ChartsHeader } from './ChartsHeader';
-export { default as Header } from './Header';
+export { default as Header } from './PagesHeader/Header';

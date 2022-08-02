@@ -12,14 +12,14 @@ import {
   Filter,
 } from "@syncfusion/ej2-react-grids";
 
-import { customersData, customersGrid, earningData2 } from "../../../data/dummy";
+import { customersData, customersGrid, earningData2 } from "../../../documents/dummy";
 import { Header } from "../../../components";
 import { Button } from "../../../components";
-import avatar from "../../../data/avatar.jpg";
-import avatar2 from "../../../data/avatar2.jpg";
-import avatar3 from "../../../data/avatar3.png";
-import avatar4 from "../../../data/avatar4.jpg";
-import avatar5 from "../../../data/avatar5.jpg";
+import avatar from "../../../documents/avatar.jpg";
+import avatar2 from "../../../documents/avatar2.jpg";
+import avatar3 from "../../../documents/avatar3.png";
+import avatar4 from "../../../documents/avatar4.jpg";
+import avatar5 from "../../../documents/avatar5.jpg";
 
 const Services2 = () => {
   return (
