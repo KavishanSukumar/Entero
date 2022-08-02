@@ -3,6 +3,7 @@ import Home from "./pages/beforeLogin/Home";
 import Register from "./components/register/Register";
 import Login from "./components/login/Login";
 import CustomerChat from "./pages/afterLogin/customer/CustomerChat";
+import PortFolio from "./components/portfolio/PortFolio";
 function App() {
   return (
     <div className="App">
