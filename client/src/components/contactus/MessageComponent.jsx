@@ -209,8 +209,8 @@ function MessageComponent() {
         
         </div>
         {/*end of the section container */}
-        <div className={popup? "fixed backdrop-blur-sm top-0 w-full h-full z-50  p-4 left-0":"hidden"} >
-            <div className="bg-white fixed  top-[20%] flex flex-col  w-[70%] mx-[15%] p-2">
+        <div className={popup? "fixed backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  p-4 left-0":"hidden"} >
+            <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[70%] mx-[15%] p-2">
                 <div className="w-full inline-flex justify-end items-end">
                     <AiOutlineClose className="w-6 h-6 cursor-pointer" onClick={handlePopup}/>
                 </div>
@@ -282,8 +282,8 @@ function MessageComponent() {
         
         </div>
         {/*end of the section container */}
-        <div className={popupR? "absolute min-w-full min-h-full z-0 backdrop-blur-sm bg-gray-500/50 top-0  p-4 left-0":"hidden"} >
-            <div className="bg-white absolute top-[5%] flex flex-col  w-[70%] mx-[10%] p-2">
+        <div className={popup? "fixed backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  p-4 left-0":"hidden"} >
+            <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[70%] mx-[15%] p-2">
                 <div className="w-full inline-flex justify-end items-end">
                     <AiOutlineClose className="w-6 h-6 cursor-pointer" onClick={handlePopupR}/>
                 </div>

@@ -71,24 +71,32 @@ return (
 </div>
 
     {/* The links are changed to the admins sidebar and not to the home,about us,contact us links */}
-<div className={nav ? 'fixed left-0 top-14 w-full p-12 min-h-screen overflow-y-auto bg-gray-800 text-white  md:hidden' : ' fixed left-[-100%]'}>
-    <div className="flex flex-col items-center shadow-2xl mb-2">
-            {/*The image */}
-            <div className="p-2">
-                <img src={Shakir} className="w-28 h-28 rounded-full shadow-2xl "/>
-            </div>
-
-            {/*The buttons */}
-            <div className="flex flex-col w-44 p-2">
-                <button className="  border-2   p-1 mb-1 rounded hover:bg-transparent hover:border-black">
-                <NavLink to="/userprofile">Profile</NavLink>
-                </button>
-                <button className=" border-2   p-1 rounded hover:bg-transparent hover:border-black">
-                    Logout
-                </button>
-            </div>
-    </div>
-    <ul className=' text-sm'> 
+    <div className={nav ? 'fixed left-0 top-14 w-full p-2 min-h-full overflow-y-auto bg-gray-800 text-white  md:hidden' : ' fixed left-[-100%]'}>
+        
+        
+        <div className="flex flex-col items-center shadow-2xl mb-2">
+                {/*The image */}
+                <div className="p-2">
+                    <img src={Shakir} className="w-28 h-28 rounded-full shadow-2xl "/>
+                </div>
+    
+                {/*The buttons */}
+                <div className="flex flex-col w-44 p-2">
+                    <button className="  border-2   p-1 mb-1 rounded hover:bg-transparent hover:border-black">
+                    <NavLink to="/userprofile">Profile</NavLink>
+                    </button>
+                    <button className=" border-2   p-1 rounded hover:bg-transparent hover:border-black">
+                        Logout
+                    </button>
+                </div>
+        </div>
+    <ul className=' text-sm'>
+    <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
+            <NavLink to="/" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
+                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <span className="ml-3">Notifications</span>
+            </NavLink>
+        </li>  
     
     <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
         <NavLink to="/customerevents" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>

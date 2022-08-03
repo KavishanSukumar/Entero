@@ -99,7 +99,13 @@ function AdminHeader() {
     </div>
         
 
-        <ul className=' text-sm'> 
+        <ul className=' text-sm'>
+        <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
+            <NavLink to="/" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
+                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <span className="ml-3">Notifications</span>
+            </NavLink>
+        </li> 
         <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
             <NavLink to="/adminusercustomer" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
                 <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
@@ -125,21 +131,9 @@ function AdminHeader() {
             </NavLink>
         </li>
         <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
-            <NavLink to="/adminorders" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
-                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
-                <span className="ml-3">Orders</span>
-            </NavLink>
-        </li>
-        <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
             <NavLink to="/adminpayment" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
                 <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
                 <span className="ml-3">Payment</span>
-            </NavLink>
-        </li>
-        <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
-            <NavLink to="/adminfeedback" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
-                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
-                <span className="ml-3">Feedback</span>
             </NavLink>
         </li>
         <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
