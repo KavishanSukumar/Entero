@@ -63,7 +63,7 @@ function MessageComponent() {
     )
     return (
         
-    <div className="relative p-5 w-full mt-14 z-0 md:mt-0 min-h-screen">
+    <div className="relative p-5 w-full mt-14 z-0 md:mt-0 h-full">
         {/*Start of the insights */}
         <div className="p-2 shadow-xl mb-10 grid grid-cols-3">
             <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl">
@@ -209,8 +209,8 @@ function MessageComponent() {
         
         </div>
         {/*end of the section container */}
-        <div className={popup? "absolute min-w-full min-h-full z-0 backdrop-blur-sm bg-gray-500/50 top-0  p-4 left-0":"hidden"} >
-            <div className="bg-white absolute top-[5%] flex flex-col  w-[70%] mx-[10%] p-2">
+        <div className={popup? "fixed backdrop-blur-sm top-0 w-full h-full z-50  p-4 left-0":"hidden"} >
+            <div className="bg-white fixed  top-[20%] flex flex-col  w-[70%] mx-[15%] p-2">
                 <div className="w-full inline-flex justify-end items-end">
                     <AiOutlineClose className="w-6 h-6 cursor-pointer" onClick={handlePopup}/>
                 </div>

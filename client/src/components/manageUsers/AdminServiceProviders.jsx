@@ -132,13 +132,13 @@ function AdminServiceProviders() {
                 <td className="py-2 text-center">
                 <p class="font-medium text-blue-600 hover:underline cursor-pointer">Reject</p>
                 </td>
-            </tr>
+            </tr>        
             
         </tbody>
     </table>
     )
   return (
-    <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 min-h-screen">
+    <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
         {/*Start of the insights */}
         <div className="p-2 shadow-xl mb-10 grid grid-cols-4">
             <div className=" bg-slate-100 p-2 col-span-2 md:col-start-2 md:col-span-1 text-center min-h-fit shadow-inner mx-2 rounded-xl">
@@ -160,8 +160,8 @@ function AdminServiceProviders() {
         {service? serviceData:serviceRegisterData}
         
 
-        <div className={popup? "absolute min-w-full min-h-full z-10 backdrop-blur-sm bg-gray-500/50 top-0  p-4 left-0":"hidden"} >
-            <div className="bg-white absolute top-[20%] flex flex-col  w-[70%] mx-[10%] p-2">
+        <div className={popup? "fixed backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  p-4 left-0":"hidden"} >
+            <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[70%] mx-[15%] p-2">
                 <div className="w-full inline-flex justify-end items-end">
                     <AiOutlineClose className="w-4 h-4 cursor-pointer" onClick={handlePopup}/>
                 </div>
@@ -195,8 +195,8 @@ function AdminServiceProviders() {
                 
             </div>
         </div>
-        <div className={popupS? "absolute min-w-full min-h-full z-10 backdrop-blur-sm bg-gray-500/50 top-0  p-4 left-0":"hidden"} >
-            <div className="bg-white absolute top-[20%] flex flex-col  w-[70%] mx-[10%] p-2">
+        <div className={popupS? "fixed backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  p-4 left-0":"hidden"} >
+            <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[70%] mx-[15%] p-2">
                 <div className="w-full inline-flex justify-end items-end">
                     <AiOutlineClose className="w-6 h-6 cursor-pointer" onClick={handlePopupS}/>
                 </div>
