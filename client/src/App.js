@@ -1,8 +1,12 @@
+import React from 'react';
+import Portfolio from './component/portfolio/portfolio';
+import Managepayment from './component/managepayment/managepayment'
+import SystemReports from './component/systemreports/systemreports';
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </div>
+    // <Portfolio/>
+    // <Managepayment/>
+    <SystemReports/>
   );
 }
 
