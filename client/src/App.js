@@ -16,10 +16,10 @@ import AdminPayment from "./pages/afterLogin/admin/AdminPayment";
 import AdminContact from "./pages/afterLogin/admin/AdminContact";
 import CustomerEvents from "./pages/afterLogin/customer/CustomerEvents";
 import CustomerServices from "./pages/afterLogin/customer/CustomerServices";
-import AdminBusinessPolicies from "./pages/afterLogin/admin/AdminBusinessPolicies";
-import BusinessPolicies from "./pages/beforeLogin/businesspolicies/BusinessPolicies";
-import Appointment from "./pages/afterLogin/customer/Appointment";
-import Appointment2 from "./pages/afterLogin/customer/Appointment2";
+// import AdminBusinessPolicies from "./pages/afterLogin/admin/AdminBusinessPolicies";
+// import BusinessPolicies from "./pages/beforeLogin/businesspolicies/BusinessPolicies";
+// import Appointment from "./pages/afterLogin/customer/Appointment";
+// import Appointment2 from "./pages/afterLogin/customer/Appointment2";
 import CustomerAppointments from "./pages/afterLogin/customer/CustomerAppointments";
 import CustomerBookings from "./pages/afterLogin/customer/CustomerAppointments";
 import CustomerChat from "./pages/afterLogin/customer/CustomerChat";
@@ -70,10 +70,10 @@ function App() {
         <Route exact path="/signup" element={<SignUp />} />
         <Route exact path="/signin" element={<SignIn />} />
         <Route exact path="/userprofile" element={<UserProfile />} />
-        <Route exact path="/adminbusinesspolicies" element={<AdminBusinessPolicies />} />
+        {/* <Route exact path="/adminbusinesspolicies" element={<AdminBusinessPolicies />} />
         <Route exact path="/businesspolicies" element={<BusinessPolicies />} />
         <Route exact path="/appointment" element={<Appointment />} />
-        <Route exact path="/appointment2" element={<Appointment2 />} />
+        <Route exact path="/appointment2" element={<Appointment2 />} /> */}
       </Routes>
                    
         
