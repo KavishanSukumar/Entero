@@ -5,13 +5,13 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 function Appointment() {
   return (
-    <div className="flex flex-col  justify-around mx-60 my-32 ">
+    <div className="flex flex-col w-auto  justify-around mx-6 my-3">
       <div className="flex justify-start mb-7">
-        <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+        <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl">
           Appointment
         </h2>
       </div>
-      <div className="shadow-md p-3 rounded-md">
+      <div className="shadow-md p-3 w-auto rounded-md ">
         <div className="flex flex-col lg:flex-row ">
           <div className="basis-6/12 mx-3 my-3">
             <label className="relative block">
@@ -31,7 +31,7 @@ function Appointment() {
             </label>
           </div>
           <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
-            <button className="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+            <button className="py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
               <AccessTimeIcon /> Time Range
             </button>
           </div>
@@ -42,7 +42,7 @@ function Appointment() {
           </div>
         </div>
         <div className="overflow-auto justify-center w-full h-screen">
-          <table class="min-w-full">
+          <table class="min-w-full z-0">
             <thead class="bg-white border-b sticky top-0">
               <tr>
                 <th
