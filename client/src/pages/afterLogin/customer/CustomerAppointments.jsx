@@ -1,15 +1,19 @@
 import React from 'react'
-import CustomerHeader from '../../../components/header/CustomerHeader';
-import CustomerSidebar from '../../../components/sidebar/CustomerSidebar';
+
+// import CustomerHeader from '../../../components/header/CustomerHeader';
+// import CustomerSidebar from '../../../components/sidebar/CustomerSidebar';
+
 
 function CustomerAppointments() {
   return (
     <div>
-      <CustomerHeader />
+
+      {/* <CustomerHeader /> */}
       <div className="flex">
         
-        <CustomerSidebar />
-        <div className="md:ml-[17%] lg:ml-[13%] xl:ml-[11%] 2xl:ml-[9%] md:mt-14 w-screen">
+        {/* <CustomerSidebar /> */}
+        <div className="md:ml-20 md:mt-14 w-screen">
+
             
           <p>This is customer appointments</p>
           
