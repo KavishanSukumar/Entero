@@ -19,14 +19,14 @@ function UserProfileForms() {
     <div className="flex flex-col items-center py-8">
 
             {/*The button to make profile update form visible on responsive */}
-            <div className={!profileDiv?"lg:hidden w-[50%]":"hidden"}>
-                    <button type="button" className="border w-full  mb-6 py-2 bg-black hover:bg-yellow-900 hover:text-black text-white" onClick={handleProfileDiv}>
+            <div className={!profileDiv?"md:hidden w-[50%]":"hidden"}>
+                    <button type="button" className="border w-full  mb-6 py-2 bg-cyan-500 hover:bg-cyan-200 text-white" onClick={handleProfileDiv}>
                     Edit profile
                     </button>
             </div>
 
             {/* <form className="flex-col bg-red-300 mx-4 p-4 w-[100%] lg:w-96"> */}
-            <form className={profileDiv? "w-[100%] p-4 rounded-lg border-2 mb-8 shadow-inner lg:block lg:mx-[20px] lg:mb-8 lg:mt-0 lg:bg-white lg:p-4 lg:rounded-lg lg:border-2 lg:shadow-inner lg:w-[500px]":"hidden lg:block lg:mx-[20px] lg:mb-8 lg:mt-0 lg:bg-white lg:p-4 lg:rounded-lg lg:border-2 lg:shadow-inner lg:w-[500px] "}>
+            <form className={profileDiv? "w-[100%] p-4 rounded-lg border-2 mb-8 text-xs lg:text-md shadow-inner md:block md:mx-[20px] md:mb-8 md:mt-0 md:bg-white md:p-4 md:rounded-lg md:border-2 md:shadow-inner lg:w-[500px] md:w-[350px]":"hidden md:block md:mx-[20px] md:mb-8 md:mt-0 md:bg-white md:p-4 md:rounded-lg md:border-2 md:shadow-inner lg:w-[500px] md:w-[350px] text-xs lg:text-base"}>
 
                 <h1 className="text-xl font-bold text-center py-2">Edit profile</h1>
 
@@ -81,7 +81,7 @@ function UserProfileForms() {
                     <button className="p-1 px-2 mt-2 mx-2 bg-gray-100 border-2 hover:border-black  hover:bg-transparent rounded" >
                         Update
                     </button>
-                    <button type="button" className="p-1 px-2 mt-2 mx-2 bg-gray-100 border-2 hover:border-black  hover:bg-transparent rounded lg:hidden" onClick={handleProfileDiv}>
+                    <button type="button" className="p-1 px-2 mt-2 mx-2 bg-gray-100 border-2 hover:border-black  hover:bg-transparent rounded md:hidden" onClick={handleProfileDiv}>
                         Cancel
                     </button>
             
@@ -90,17 +90,17 @@ function UserProfileForms() {
             </form>
 
             {/*The button to make password update form visible on responsive */}
-            <div className={!profileDiv?"lg:hidden w-[50%]":"hidden"}>
-                    <button type="button" className="border w-full  mb-6 py-2 bg-black hover:bg-yellow-900 hover:text-black text-white" onClick={handlePasswordDiv}>
+            <div className={!profileDiv?"md:hidden w-[50%]":"hidden"}>
+                    <button type="button" className="border w-full  mb-6 py-2 bg-cyan-500 hover:bg-cyan-200 text-white" onClick={handlePasswordDiv}>
                     Update password
                     </button>
             </div>
 
-            <form className={passwordDiv? "w-[100%] p-4 rounded-lg border-2 mb-8 shadow-inner lg:block lg:mx-[20px] lg:mb-8 lg:mt-0 lg:bg-white lg:p-4 lg:rounded-lg lg:border-2 lg:shadow-inner lg:w-[500px]":"hidden lg:block lg:mx-[20px] lg:mb-8 lg:mt-0 lg:bg-white lg:p-4 lg:rounded-lg lg:border-2 lg:shadow-inner lg:w-[500px] "}>
+            <form className={passwordDiv? "w-[100%] p-4 rounded-lg border-2 mb-8 text-xs lg:text-md shadow-inner md:block md:mx-[20px] md:mb-8 md:mt-0 md:bg-white md:p-4 md:rounded-lg md:border-2 md:shadow-inner lg:w-[500px] md:w-[350px]":"hidden md:block md:mx-[20px] md:mb-8 md:mt-0 md:bg-white md:p-4 md:rounded-lg md:border-2 md:shadow-inner lg:w-[500px] md:w-[350px] text-xs lg:text-base"}>
 
                 <h1 className="text-xl font-bold text-center py-2">Update password</h1>
                 
-                <div className="flex flex-col py-2 ">
+                <div className="flex flex-col py-2">
                     <label>Current Password</label>
                     <input
                         className="border p-2 "
@@ -133,7 +133,7 @@ function UserProfileForms() {
                     <button className="p-1 px-2 mt-2 mx-2 bg-gray-100 border-2 hover:border-black  hover:bg-transparent rounded" >
                         Update
                     </button>
-                    <button type="button" className="p-1 px-2 mt-2 mx-2 bg-gray-100 border-2 hover:border-black  hover:bg-transparent rounded lg:hidden" onClick={handlePasswordDiv}>
+                    <button type="button" className="p-1 px-2 mt-2 mx-2 bg-gray-100 border-2 hover:border-black  hover:bg-transparent rounded md:hidden" onClick={handlePasswordDiv}>
                         Cancel
                     </button>
             

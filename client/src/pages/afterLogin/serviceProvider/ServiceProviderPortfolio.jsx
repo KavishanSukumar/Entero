@@ -9,7 +9,7 @@ function ServiceProviderPortfolio() {
       <div className="flex">
         
         <ServiceProviderSidebar />
-        <div className="md:ml-[17%] lg:ml-[13%] xl:ml-[11%] 2xl:ml-[9%] md:mt-14 w-screen">
+        <div className="md:ml-20 md:mt-14 w-screen">
             
           <p>This is service portfolio</p>
           

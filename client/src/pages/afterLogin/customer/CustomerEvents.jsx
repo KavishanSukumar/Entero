@@ -1,8 +1,8 @@
 import React from 'react';
 
-// import CustomerHeader from '../../../components/header/CustomerHeader';
-// import CustomerSidebar from '../../../components/sidebar/CustomerSidebar';
-// import AdminSidebar from '../../../components/sidebar/AdminSidebar';
+import CustomerHeader from '../../../components/header/CustomerHeader';
+import CustomerSidebar from '../../../components/sidebar/CustomerSidebar';
+
 
 
 import {eventData } from "../../../documents/dummy";
@@ -20,13 +20,12 @@ function CustomerEvents() {
   return (
     <div>
 
-      
-      {/* <div className="flex">
-       
-        <div className="md:ml-20 md:mt-14 w-screen"> */}
-            
-          {/* <p>This is customer events</p> */}
-          {/* <AdminSidebar /> */}
+      <CustomerHeader />
+      <div className="flex">
+        
+        <CustomerSidebar />
+        <div className="md:ml-20 md:mt-14 w-screen">
+
 
 
           <div
@@ -425,8 +424,8 @@ function CustomerEvents() {
 
 
 
-          {/* </div>
-      </div>   */}
+          </div>
+      </div>  
     </div>
 
 

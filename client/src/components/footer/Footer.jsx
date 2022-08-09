@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Ss from "../../Ss.svg";
+// import Ss from "../../Ss.svg";
 import { FaFacebookSquare, FaInstagram, FaTwitterSquare } from "react-icons/fa";
 import { ImLocation } from "react-icons/im";
 import { BsFillTelephoneFill } from "react-icons/bs";
@@ -9,7 +9,7 @@ function Footer() {
   return (
     <div className="py-3 px-3 grid md:grid-cols-3 gap-8 text-gray-300 bg-gray-500">
       <div>
-        <img src={Ss} alt="logo" className="w-36 h-36 object-cover mt-3" />
+        {/* <img src={Ss} alt="logo" className="w-36 h-36 object-cover mt-3" /> */}
         <p className="py-1">
           Entero is a event planning site which is dedicated to making any event
           you can imagine a reality. Make your event memorable with Entero.
@@ -56,3 +56,4 @@ function Footer() {
 }
 
 export default Footer;
+

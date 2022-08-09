@@ -1,6 +1,7 @@
 import React from 'react';
 import AdminHeader from "../../../components/header/AdminHeader";
 import AdminSidebar from '../../../components/sidebar/AdminSidebar';
+import AdminCustomers from '../../../components/manageUsers/AdminCustomers';
 
 function AdminUserCustomer() {
   return (
@@ -10,9 +11,9 @@ function AdminUserCustomer() {
       
       
       <AdminSidebar />
-      <div className="md:ml-[17%] lg:ml-[13%] xl:ml-[11%] 2xl:ml-[9%] md:mt-14 w-screen">
+      <div className="md:ml-20 md:mt-14 w-screen">
         
-      <p>This is user customer</p>
+      <AdminCustomers />
       
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 // import CustomerHeader from '../../../components/header/CustomerHeader';
-// import CustomerSidebar from '../../../components/sidebar/CustomerSidebar';
+import CustomerSidebar from '../../../components/sidebar/CustomerSidebar';
 
 
 function CustomerAppointments() {
@@ -10,8 +10,8 @@ function CustomerAppointments() {
 
       {/* <CustomerHeader /> */}
       <div className="flex">
-        
-        {/* <CustomerSidebar /> */}
+
+        <CustomerSidebar />
         <div className="md:ml-20 md:mt-14 w-screen">
 
             

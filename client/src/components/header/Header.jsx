@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import Ss from "../../Ss.svg";
+// import Ss from "../../Ss.svg";
 
 function Header() {
   const [nav, setNav] = useState(false);
@@ -15,8 +15,8 @@ function Header() {
       {/* Before login styles  */}
 
       {/* header logo */}
-      <img src={Ss} alt="logo" className="w-20 h-14 object-cover mt-3" />
-      {/* <h1 className="text-3xl font-bold text-[#00df9a] px-4">Logo</h1> */}
+      {/* <img src={Ss} alt="logo" className="w-20 h-14 object-cover mt-3" /> */}
+      
 
       {/*header links */}
       <ul className="hidden md:flex">
@@ -148,3 +148,4 @@ function Header() {
 }
 
 export default Header;
+
