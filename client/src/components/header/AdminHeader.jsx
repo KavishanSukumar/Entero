@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {NavLink} from 'react-router-dom';
-import { AiOutlineClose, AiOutlineMenu , AiFillBell} from 'react-icons/ai';
-import { RiFunctionLine,RiArrowDropDownLine} from 'react-icons/ri';
+import { AiOutlineClose, AiOutlineMenu , AiFillBell, AiFillHome} from 'react-icons/ai';
 import {BsFillCalendarEventFill} from 'react-icons/bs';
 import Shakir from '../../Shakir.jpg';
 
@@ -14,15 +13,25 @@ function AdminHeader() {
         setNav(!nav);
         };
 
-        const[dropEvent,setDropEvent]=useState(false);
+        const[dropdownPic,setDropdownPic]=useState(false);
+        const[dropdownBell,setDropdownBell]=useState(false);
 
-        const handleDropEvent=()=>{
-          setDropEvent(!dropEvent)
+        const handleDropdownPic=()=>{
+          setDropdownPic(!dropdownPic)
+          if(dropdownBell){
+            setDropdownBell(!dropdownBell)
+          }
         }
+        const handleDropdownBell=()=>{
+            setDropdownBell(!dropdownBell)
+            if(dropdownPic){
+                setDropdownPic(!dropdownPic)
+            }
+          }
 
 
-        const dropdownEvent=(
-          <div className="hidden md:block absolute top-14 right-0 w-44 z-50 bg-gray-100 rounded divide-y divide-gray-100 shadow " onMouseLeave={handleDropEvent}>
+        const picDropdown=(
+          <div className="hidden md:block absolute top-14 right-0 w-44 z-50 bg-gray-100 rounded divide-y divide-gray-100 shadow " onMouseLeave={handleDropdownPic}>
             <ul class="py-1 text-sm text-gray-700" >
               
                 <NavLink to="/userprofile"><li className="block py-2 px-4 hover:bg-gray-200">My Profile</li></NavLink>
@@ -34,6 +43,19 @@ function AdminHeader() {
     
           </div>     
         );
+        const bellDropdown=(
+            <div className="hidden md:block absolute top-14 right-14 md:w-44 lg:w-72 z-50 bg-gray-100 rounded divide-y divide-gray-100 shadow " onMouseLeave={handleDropdownBell}>
+              <ul class="py-1 text-sm text-gray-700" >
+                
+                  <NavLink to="/userprofile"><li className="block py-4 px-4 hover:bg-gray-200">Notification 1</li></NavLink>
+                  <NavLink to="/userprofile"><li className="block py-4 px-4 hover:bg-gray-200">Notification 2</li></NavLink>
+                  <NavLink to="/userprofile"><li className="block py-4 px-4 hover:bg-gray-200">Notification 3</li></NavLink>
+                
+                
+              </ul>
+      
+            </div>     
+          );
 
         
   return (
@@ -60,13 +82,14 @@ function AdminHeader() {
             
             <div className="hidden md:inline-flex items-center ">
                 <div className="p-3">
-                    <AiFillBell size={24} className="text-black hover:text-gray-300"/>
+                    <AiFillBell size={24} className="text-black hover:text-gray-300" onClick={handleDropdownBell} />
                 </div>
                 
-                <img src={Shakir} className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125" onClick={handleDropEvent}/>
+                <img src={Shakir} className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125" onClick={handleDropdownPic}/>
             </div>
             
-    {dropEvent? dropdownEvent:""}
+    {dropdownPic? picDropdown:""}
+    {dropdownBell? bellDropdown:""}
      
         
 
@@ -142,6 +165,12 @@ function AdminHeader() {
                 <span className="ml-3">Contact</span>
             </NavLink>
         </li>
+        <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
+        <NavLink to="/" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
+            <AiFillHome className="w-6 h-6 text-gray-500" />
+            <span className="ml-3">Go to home page</span>
+        </NavLink>
+    </li>
         
 
         </ul> 

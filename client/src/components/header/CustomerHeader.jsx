@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import {NavLink,Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import { AiOutlineClose, AiOutlineMenu , AiFillBell, AiFillHome} from 'react-icons/ai';
-import { RiFunctionLine,RiArrowDropDownLine} from 'react-icons/ri';
 import {BsFillCalendarEventFill,BsFillChatRightTextFill} from 'react-icons/bs';
 import Shakir from '../../Shakir.jpg';
 
@@ -130,6 +129,12 @@ return (
            <span className="inline-flex p-3 items-center justify-center ml-1 w-3 h-3 text-white bg-blue-600 rounded-full">15</span>
         
 
+        </NavLink>
+    </li>
+    <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
+        <NavLink to="/" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
+            <AiFillHome className="w-6 h-6 text-gray-500" />
+            <span className="ml-3">Go to home page</span>
         </NavLink>
     </li>
 
