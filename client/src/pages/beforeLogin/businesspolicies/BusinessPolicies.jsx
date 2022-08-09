@@ -2,9 +2,13 @@ import React from 'react';
 import { Alignments, HtmlEditor, Image, Inject, Link, QuickToolbar,
 RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 
-import { EditorData } from '../../../documents/dummy';
-import { Header } from '../../../components';
-import {Button} from '../../../components';
+// import { EditorData } from '../../../documents/dummy';
+// import { Header } from '../../../components';
+// import {Button} from '../../../components';
+
+import {EditorData} from '../../../documents/dummy';
+import Header from '../../../components/PagesHeader/Header';
+import Button from '../../../components/button/Button';
 
 const BusinessPolicies = () => {
     return (
@@ -23,8 +27,8 @@ const BusinessPolicies = () => {
             <div className="ml-20 flex flex-wrap lg:flex-nowrap justify-center">
 
                                                                 {/* ---------only admin can view this button----(start)---- */}
-            <div className="justify-center">      
-            {/* <div className="ml-20 justify-center"> */}
+            {/* <div className="justify-center">      
+          
               <Button 
                 color="white"
                 bgColor="#03C9D7"
@@ -33,9 +37,10 @@ const BusinessPolicies = () => {
                 borderRadius="10px"
                 size="md"
                 width="300px"
+                // placeholder="only admin can edit"
                 // margin-right="200px"
               />
-            </div>
+            </div> */}
                                                                 {/* ---------only admin can view this button----(end)---- */}
 
 

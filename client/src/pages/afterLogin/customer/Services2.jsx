@@ -12,9 +12,9 @@ import {
   Filter,
 } from "@syncfusion/ej2-react-grids";
 
-import { customersData, customersGrid, earningData2 } from "../../../documents/dummy";
-import { Header } from "../../../components";
-import { Button } from "../../../components";
+import {earningData2} from "../../../documents/dummy";
+import Header from '../../../components/PagesHeader/Header';
+import Button from '../../../components/button/Button';
 import avatar from "../../../documents/avatar.jpg";
 import avatar2 from "../../../documents/avatar2.jpg";
 import avatar3 from "../../../documents/avatar3.png";

@@ -2,9 +2,9 @@ import React from 'react';
 import { Alignments, HtmlEditor, Image, Inject, Link, QuickToolbar,
 RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 
-import { EditorData } from '../../../documents/dummy';
-import { Header } from '../../../components';
-import {Button} from '../../../components';
+import {EditorData} from '../../../documents/dummy';
+import Header from '../../../components/PagesHeader/Header';
+import Button from '../../../components/button/Button';
 
 const AdminBusinessPolicies = () => {
     return (

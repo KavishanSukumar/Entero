@@ -12,7 +12,12 @@ import { GoPrimitiveDot } from 'react-icons/go';
 import { IoIosMore } from 'react-icons/io';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 
-import { Stacked, Pie, Button, LineChart, SparkLine } from '../../../components';
+// import  Stacked, Pie, Button, LineChart, SparkLine  from '../../../components';
+import  Stacked from '../../../components/Charts/Stacked';
+import  Pie from '../../../components/Charts/Pie';
+import  Button from '../../../components/button/Button';
+import  LineChart from '../../../components/Charts/LineChart';
+import  SparkLine from '../../../components/Charts/SparkLine';
 import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropdownData, SparklineAreaData, ecomPieChartData } from '../../../documents/dummy';
 import { useStateContext } from '../../../contexts/ContextProvider';
 import product9 from '../../../documents/product9.jpg';

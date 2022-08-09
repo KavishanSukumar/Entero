@@ -53,9 +53,12 @@ import { GridComponent, ColumnsDirective,
 ColumnDirective, Page, Selection, Inject, Edit,
 Toolbar, Sort, Filter } from '@syncfusion/ej2-react-grids';
 
-import { customersData, customersGrid, earningData2} from '../../../documents/dummy';
-import { Header } from '../../../components';
-import { Button } from '../../../components';
+// import { customersData, customersGrid, earningData2} from '../../../documents/dummy';
+import {customersData} from '../../../documents/dummy';
+import {customersGrid} from '../../../documents/dummy';
+import {earningData2} from '../../../documents/dummy';
+import Header from '../../../components/PagesHeader/Header';
+import Button from '../../../components/button/Button';
 
 
 

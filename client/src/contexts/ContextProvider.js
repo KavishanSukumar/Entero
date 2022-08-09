@@ -1,3 +1,5 @@
+//this file is for to set Dark mode
+
 import React, { createContext, useContext, useState } from 'react';
 
 const StateContext = createContext();

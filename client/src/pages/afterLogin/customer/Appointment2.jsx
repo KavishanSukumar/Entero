@@ -2,9 +2,9 @@ import React from 'react';
 import { ScheduleComponent, Day, Week, WorkWeek, Month,
   Agenda, Inject, Resize, DragAndDrop } from '@syncfusion/ej2-react-schedule';
 
-import { scheduleData } from '../../../documents/dummy';
-import { Header } from '../../../components';
-import {Button} from '../../../components';
+  import scheduleData from '../../../documents/dummy';
+  import Header from '../../../components/PagesHeader/Header';
+import Button from '../../../components/button/Button';
 
 
 const Appointment2 = () => {
@@ -71,12 +71,15 @@ const Appointment2 = () => {
             <div>
                 {/* <div className="bg-white bg-opacity-90 rounded-xl shadow-lg p-8 md:w-80"> */}
                     <form className="flex flex-col space-y-4 ">
+                        <h3><b>Create an Appointment</b></h3>
                         <div>
+                             <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Date</label>
                             <input type="date" placeholder="Date" className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black">
                             </input>
                         </div>
 
                         <div>
+                            <label for="time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Time</label>
                             <input type="time" placeholder="Time" className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black">
                             </input>
                         </div>
@@ -89,7 +92,7 @@ const Appointment2 = () => {
                         {/* <button className="inline-block self-end bg-black text-white font-bold rounded-lg px-6 py-2 uppercase text-sm hover:bg-sky-700 ">
                             Send
                         </button> */}
- <div className="mt-6 justify-center items-center">
+ <div className="mt-6 justify-center items-center flex w-full">
               <Button 
                 color="white"
                 bgColor="#03C9D7"
