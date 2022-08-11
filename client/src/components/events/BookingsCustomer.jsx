@@ -1,8 +1,57 @@
-import React,{useState} from 'react'
+import { useState } from "react";
+import { AiOutlineClose } from "react-icons/ai";
+import Shakir from "../../Shakir.jpg";
+import SearchIcon from "@mui/icons-material/Search";
+
+import * as React from "react";
+import PropTypes from "prop-types";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+  
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box sx={{ p: 3 }}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
+    );
+  }
+  
+  TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+  };
+  
+  function a11yProps(index) {
+    return {
+      id: `simple-tab-${index}`,
+      "aria-controls": `simple-tabpanel-${index}`,
+    };
+  }
 
 function BookingsCustomer() {
     const [past,setPast]=useState(false);
     const [present,setPresent]=useState(true);
+
+    const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
     
     const handlePast=()=>{
@@ -22,100 +71,148 @@ function BookingsCustomer() {
         }
     }
     const presentData=(
-        <table className="w-full mt-2 md:w-[80%] md:mx-[10%] lg:w-[60%] lg:mx-[20%] text-[10px] md:text-xs text-left">
-            
-        <thead className="text-white font-medium uppercase bg-black">
+
+        <div className="overflow-auto justify-center w-full h-screen">
+        <table class="min-w-full z-0">
+          <thead class="bg-white border-b sticky top-0">
             <tr>
-            <th className=" py-2  text-center w-[10%]">
-                    NO
-                </th>
-                <th className="py-2 text-center w-[25%]">
-                    Category
-                </th>
-                <th className="py-2 text-center w-[15%]">
-                   Date
-                </th>
-                <th className="py-2 text-center w-[30%]">
-                   Service Provider
-                </th>
-                <th className="py-2 text-center w-[20%]">
-                    Status
-                </th>
-                
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                No
+              </th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                Category
+              </th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                Date
+              </th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                Service provider
+              </th>
+
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >Status</th>
             </tr>
-        </thead>
-        <tbody className="bg-gray-200">
-            <tr class="border-b ">
-                <td className=" py-2 font-medium text-gray-900 text-center">
-                    0023
-                </td>
-                <td className="py-2 text-center font-medium uppercase">
-                Kalindu Studio
-                </td>
-                <td className="py-2 text-center font-medium uppercase">
+          </thead>
+          <tbody className="">
+            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                0023
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Photography
-                </td>
-                <td className="py-2 text-center font-medium uppercase">
-                Active
-                </td>
-                <td className="py-2 text-center">
-                <p class="font-medium text-blue-600 hover:underline cursor-pointer">View</p>
-                </td>
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                12.02.2022
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Kalindu studio
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <button
+                  className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                >
+                  Confirm
+                </button>
+                <button
+                  className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                >
+                  Cancel
+                </button>
+              </td>
             </tr>
-            
-        </tbody>
-    </table>
+          </tbody>
+        </table>
+      </div>
+        
+        
     )
 
     const pastData=(
-        <table className="w-full mt-2 md:w-[80%] md:mx-[10%] lg:w-[60%] lg:mx-[20%] text-[10px] md:text-xs text-left">
-            
-        <thead className="text-white font-medium uppercase bg-black">
+
+        <div className="overflow-auto justify-center w-full h-screen">
+        <table class="min-w-full z-0">
+          <thead class="bg-white border-b sticky top-0">
             <tr>
-                <th className=" py-2  text-center w-[10%]">
-                    NO
-                </th>
-                <th className="py-2 text-center w-[15%]">
-                    Category
-                </th>
-                <th className="py-2 text-center w-[15%]">
-                   Date
-                </th>
-                <th className="py-2 text-center w-[30%]">
-                   Service Provider
-                </th>
-                <th className="py-2 text-center w-[15%]">
-                    Status
-                </th>
-                <th className="py-2 text-center w-[15%]">
-                    Rating
-                </th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                NO
+              </th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                Category
+              </th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                Date
+              </th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                Service provider
+              </th>
+
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >Status</th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >Rating</th>
             </tr>
-        </thead>
-        <tbody className="bg-gray-200">
-            <tr class="border-b ">
-                <td className=" py-2 font-medium text-gray-900 text-center">
-                    0023
-                </td>
-                <td className="py-2 text-center font-medium uppercase">
-                Kalindu Studio
-                </td>
-                <td className="py-2 text-center">
-                <p class="font-medium text-blue-600 hover:underline cursor-pointer" >View</p>
-                </td>
-                <td className="py-2 text-center">
-                <p class="font-medium text-blue-600 hover:underline cursor-pointer">Accept</p>
-                </td>
-                <td className="py-2 text-center">
-                <p class="font-medium text-blue-600 hover:underline cursor-pointer">Reject</p>
-                </td>
-                <td className="py-2 text-center">
-                <p class="font-medium text-blue-600 hover:underline cursor-pointer">Reject</p>
-                </td>
-            </tr>        
-            
-        </tbody>
-    </table>
+          </thead>
+          <tbody className="">
+            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                0023
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Photography
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                12.03.2020
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              Kalindu Studio
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              Past
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <button
+                  className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                >
+                  Rating
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+        
     )
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
@@ -130,22 +227,25 @@ function BookingsCustomer() {
 
         </div>
         {/*end of insights */}
-        <div className="flex p-1 md:px-4 py-2 ">
-            <div className="relative w-full">
-                <input type="text" className="p-2 w-64 md:w-80 md:ml-[20%] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search services" />
-            </div>
-        </div>
-        {/*tabs at the top of table */}
-        <div className="w-full mt-2 md:w-[80%] md:mx-[10%] lg:w-[60%] lg:mx-[20%] text-[10px] md:text-xs">
-            <ul class="flex ">
-                <li className={past? "mr-4 inline-block border-b-2 border-cyan-500 p-1 cursor-pointer text-cyan-500 uppercase text-lg ":"mr-4 inline-block p-1 border-b-2 hover:text-cyan-500 hover:border-cyan-500 cursor-pointer uppercase text-lg"} onClick={handlePast}>PAST
-                </li>
-                <li className={present? "mr-2 inline-block border-b-2 border-cyan-500 p-1 cursor-pointer text-cyan-500 uppercase text-lg ":"mr-2 inline-block p-1 border-b-2 hover:text-cyan-500 hover:border-cyan-500 cursor-pointer uppercase text-lg"} onClick={handlePresent}>PRESENT
-                </li>
-            </ul>
-        </div>
-        {/*end of tabs */}
-        {past? pastData:presentData}
+        <Box sx={{ width: "100%" }}>
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="basic tabs example"
+          >
+            <Tab label="PRESENT" {...a11yProps(0)} />
+            <Tab label="PAST" {...a11yProps(1)} />
+          </Tabs>
+        </Box>
+        <TabPanel value={value} index={0}>
+        
+          {presentData}
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          {pastData}
+        </TabPanel>
+      </Box>
         
 
         

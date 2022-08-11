@@ -6,6 +6,7 @@ import {
   AiFillBell,
   AiFillHome,
 } from "react-icons/ai";
+import { TbReportAnalytics } from "react-icons/tb";
 import { BsCalendar2Check } from "react-icons/bs";
 import { MdSpaceDashboard, MdContactPhone } from "react-icons/md";
 import { FaUsers, FaUserCog } from "react-icons/fa";
@@ -47,12 +48,17 @@ function AdminHeader() {
         <NavLink to="/userprofile">
           <li className="block py-2 px-4 hover:bg-gray-200">My Profile</li>
         </NavLink>
-        <NavLink to="/userprofile">
+        <NavLink to="/adminpolicies">
           <li className="block py-2 px-4 hover:bg-gray-200">
             Business policies
           </li>
         </NavLink>
-        <NavLink to="/userprofile">
+        <NavLink to="/adminterms">
+          <li className="block py-2 px-4 hover:bg-gray-200">
+            Terms and Conditions
+          </li>
+        </NavLink>
+        <NavLink to="/">
           <li className="block py-2 px-4 hover:bg-gray-200">Logout</li>
         </NavLink>
       </ul>
@@ -270,6 +276,19 @@ function AdminHeader() {
             >
               <GiMoneyStack className="w-6 h-6 text-gray-500" />
               <span className="ml-3">Payment</span>
+            </NavLink>
+          </li>
+          <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
+            <NavLink
+              to="/adminreports"
+              className={({ isActive }) =>
+                isActive
+                  ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
+                  : "inline-flex items-center "
+              }
+            >
+              <TbReportAnalytics className="w-6 h-6 text-gray-500" />
+              <span className="ml-3">Reports</span>
             </NavLink>
           </li>
           <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">

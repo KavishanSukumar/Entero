@@ -222,57 +222,7 @@ function AdminServiceProviders() {
         </div>
       </div>
       {/*end of insights */}
-      <div className={serviceRegister ? "hidden" : "flex p-1 md:px-4 py-2 "}>
-        <div className="relative w-64">
-          {/* <input
-            type="text"
-            className="p-2 w-64 md:w-80 md:ml-[20%] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Search services"
-          /> */}
-          <label className="relative block">
-            <span className="sr-only">Search</span>
-            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-              <SearchIcon
-                className="!h-5 !w-5 fill-slate-300"
-                viewBox="0 0 20 20"
-              />
-            </span>
-            <input
-              className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-              placeholder="Search for Chats..."
-              type="text"
-              name="search"
-            />
-          </label>
-        </div>
-      </div>
-      {/* tabs at the top of table
-      <div className="w-full mt-2 md:w-[80%] md:mx-[10%] lg:w-[60%] lg:mx-[20%] text-[10px] md:text-xs">
-        <ul class="flex ">
-          <li
-            className={
-              service
-                ? "mr-4 inline-block border-b-2 border-cyan-500 p-1 cursor-pointer text-cyan-500 uppercase text-lg "
-                : "mr-4 inline-block p-1 border-b-2 hover:text-cyan-500 hover:border-cyan-500 cursor-pointer uppercase text-lg"
-            }
-            onClick={handleService}
-          >
-            Service
-          </li>
-          <li
-            className={
-              serviceRegister
-                ? "mr-2 inline-block border-b-2 border-cyan-500 p-1 cursor-pointer text-cyan-500 uppercase text-lg "
-                : "mr-2 inline-block p-1 border-b-2 hover:text-cyan-500 hover:border-cyan-500 cursor-pointer uppercase text-lg"
-            }
-            onClick={handleServiceRegister}
-          >
-            Service registrations
-          </li>
-        </ul>
-      </div>
-      end of tabs
-      {service ? serviceData : serviceRegisterData} */}
+      
 
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -286,6 +236,26 @@ function AdminServiceProviders() {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
+        <div className="flex p-1 md:px-4 py-2 ">
+        <div className="relative w-64">
+          
+          <label className="relative block">
+            <span className="sr-only">Search</span>
+            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+              <SearchIcon
+                className="!h-5 !w-5 fill-slate-300"
+                viewBox="0 0 20 20"
+              />
+            </span>
+            <input
+              className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+              placeholder="Search for services"
+              type="text"
+              name="search"
+            />
+          </label>
+        </div>
+      </div>
           {serviceData}
         </TabPanel>
         <TabPanel value={value} index={1}>
@@ -347,6 +317,8 @@ function AdminServiceProviders() {
           </div>
         </div>
       </div>
+
+
       <div
         className={
           popupS

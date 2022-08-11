@@ -1,9 +1,51 @@
-import React,{useState} from 'react'
+import {useState} from 'react'
 import {AiOutlineClose} from 'react-icons/ai'
 import Shakir from '../../Shakir.jpg';
+import SearchIcon from "@mui/icons-material/Search";
+
+import * as React from "react";
+import PropTypes from "prop-types";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+  
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box sx={{ p: 3 }}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
+    );
+  }
+  
+  TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+  };
+  
+  function a11yProps(index) {
+    return {
+      id: `simple-tab-${index}`,
+      "aria-controls": `simple-tabpanel-${index}`,
+    };
+  }
 
 function AdminCustomers() {
     const [popup,setPopup]=useState(false);
+    const [value, setValue] = React.useState(0);
 
     const handlePopup=()=>{
         setPopup(!popup)
@@ -23,10 +65,26 @@ function AdminCustomers() {
         </div>
         {/*end of insights */}
         <div className="flex p-1 md:px-4 py-2 ">
-            <div className="relative w-full">
-                <input type="text" className="p-2 w-64 md:w-80 md:ml-[20%] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search customers" />
-            </div>
+        <div className="relative w-64">
+          
+          <label className="relative block">
+            <span className="sr-only">Search</span>
+            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+              <SearchIcon
+                className="!h-5 !w-5 fill-slate-300"
+                viewBox="0 0 20 20"
+              />
+            </span>
+            <input
+              className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+              placeholder="Search for customers"
+              type="text"
+              name="search"
+            />
+          </label>
         </div>
+      </div>
+        
 
         
 
@@ -63,41 +121,93 @@ function AdminCustomers() {
                 
             </div>
         </div>
-        <table className="w-full mt-2 md:w-[80%] md:mx-[10%] lg:w-[60%] lg:mx-[20%] text-[10px] md:text-xs">
-            
-        <thead className="text-white font-medium uppercase bg-black">
+
+        <div className="overflow-auto justify-center w-full h-screen">
+        <table class="min-w-full z-0">
+          <thead class="bg-white border-b sticky top-0">
             <tr>
-                <th className=" py-2 text-center w-[10%]">
-                    ID
-                </th>
-                <th className="py-2 text-center w-[40%]">
-                    Name
-                </th>
-                <th className="py-2 text-center w-[20%]">
-                    Status
-                </th>
-                <th className="py-2 w-[30%]">
-                    
-                </th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                ID
+              </th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                Name
+              </th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                Status
+              </th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                
+              </th>
             </tr>
-        </thead>
-        <tbody className="bg-gray-200">
-            <tr class="border-b ">
-                <td className=" py-2 font-medium text-gray-900 text-center">
-                    0023
-                </td>
-                <td className="py-2 text-center font-medium capitalize">
-                kavin fernando
-                </td>
-                <td className="py-2 font-medium text-gray-900 text-center">Active</td>
-                <td className="py-2 text-center">
-                <p class="font-medium text-blue-600 hover:underline cursor-pointer" onClick={handlePopup}>View</p>
-                </td>
+          </thead>
+          <tbody className="">
+            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                0023
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Kavin Fernando
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Photography
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Active
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <button
+                  onClick={handlePopup}
+                  className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                >
+                  View
+                </button>
+              </td>
             </tr>
-            
-        </tbody>
+          </tbody>
+        </table>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
-    </table>
         
 
         

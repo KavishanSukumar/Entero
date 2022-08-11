@@ -1,10 +1,55 @@
 import { stringify } from 'postcss';
-import React,{Component} from 'react';
+import {Component} from 'react';
 import { useState } from 'react';
 import MockData from './payments.json'
+import SearchIcon from "@mui/icons-material/Search";
+import * as React from "react";
+import PropTypes from "prop-types";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+  
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box sx={{ p: 3 }}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
+    );
+  }
+  
+  TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+  };
+  
+  function a11yProps(index) {
+    return {
+      id: `simple-tab-${index}`,
+      "aria-controls": `simple-tabpanel-${index}`,
+    };
+  }
 
 
 export default function SortTable(){
+    const [values, setValues] = React.useState(0);
+
+    const handleChange = (event, newValue) => {
+        setValues(newValue);
+    };
      const [data, setdata] = useState(MockData);
      const [order,setorder] = useState("ASC");
      const sorting = (col) =>{
@@ -64,8 +109,8 @@ export default function SortTable(){
             
              <div className='mt-20 w-full flex flex-col order-1'> 
                     <div className='flex flex-row ml-9'>
-                            <div className='flex order-1 mt-7'>
-                                        <div className='flex w-40 font-bold h-12'>
+                    <div className="flex p-1 md:px-4 py-2 ">
+                                <div className="relative w-64">
                                                 <select id="years" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
                                                 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2">
                                                 <option selected>Year</option>
@@ -80,8 +125,8 @@ export default function SortTable(){
                                         </div>
                             </div>
 
-                            <div className='flex order-2 mt-7'>
-                                        <div className='flex w-40 font-bold   ml-5 h-12'>
+                            <div className="flex p-1 md:px-4 py-2 ">
+                                <div className="relative w-64">
                                                             <select id="months" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
                                                             dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2">
                                                             <option selected> Month</option>
@@ -102,7 +147,7 @@ export default function SortTable(){
                                         </div>
                             </div>
 
-                            <div className='flex order-3'>
+                            {/* <div className='flex order-3'>
                                         <div className='m-6 justify-center'>
                                         <form>   
                                         <label for="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
@@ -119,7 +164,27 @@ export default function SortTable(){
 
                                         </div >
                             
-                            </div >
+                            </div > */}
+                            <div className="flex p-1 md:px-4 py-2 ">
+                                <div className="relative w-64">
+                                
+                                <label className="relative block">
+                                    <span className="sr-only">Search</span>
+                                    <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                                    <SearchIcon
+                                        className="!h-5 !w-5 fill-slate-300"
+                                        viewBox="0 0 20 20"
+                                    />
+                                    </span>
+                                    <input
+                                    className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                                    placeholder="Search "
+                                    type="text"
+                                    name="search"
+                                    />
+                                </label>
+                                </div>
+                            </div>
 
                             
 
@@ -127,17 +192,43 @@ export default function SortTable(){
 
                     </div>
 
-                <div className='ml-16 lr-2 w-[1400px] order-2'>
-                                <table className="shadow-2xl border-2 w-full">
-                                <thead className='bg-black text-white'>
-                                    <th >User id</th>
-                                    <th >Service provider</th>
-                                    <th >Date of payment</th>
-                                    <th >Payment Status</th>
+
+                    
+
+                    <div className="overflow-auto justify-center w-full h-screen">
+        <table class="min-w-full z-0">
+          <thead class="bg-white border-b sticky top-0">
+            <tr>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                User ID
+              </th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                Service Provider
+              </th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                Date of Payment
+              </th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                Payment Status
+              </th>
+            </tr>
                                     
 
                                 </thead>
-                                <tbody className='text-center'>
+                                <tbody className="">
+            
                                 
                                     
                                 
@@ -145,11 +236,11 @@ export default function SortTable(){
                                     
                                         return (
                                     
-                                            <tr key={d.userid} className='cursor-pointer duration-300 hover:bg-cyan-500 hover:scale-105 h-auto even:bg-slate-200 hover:text-white'>
-                                                <td>{d.userid}</td>
-                                                <td>{d.service_provider}</td>
-                                                <td>{d.started_date}</td>
-                                                <td>{d.status}</td>
+                                            <tr key={d.userid} className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.userid}</td>
+                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.service_provider}</td>
+                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.started_date}</td>
+                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.status}</td>
                                             
                                             </tr>
                                         
