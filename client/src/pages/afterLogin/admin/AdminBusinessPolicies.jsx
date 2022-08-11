@@ -3,12 +3,19 @@ import { Alignments, HtmlEditor, Image, Inject, Link, QuickToolbar,
 RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 
 import {EditorData} from '../../../documents/dummy';
-import Header from '../../../components/PagesHeader/Header';
+import PageHeader from '../../../components/PagesHeader/PageHeader';
 import Button from '../../../components/button/Button';
-
+import AdminHeader from '../../../components/header/AdminHeader';
+ import AdminSidebar from '../../../components/sidebar/AdminSidebar';
 const AdminBusinessPolicies = () => {
     return (
-        <div className="w-full p-2 pb-48
+
+      <div>
+      <AdminHeader />
+      <div className="flex">
+        
+        <AdminSidebar />
+        <div className="w-full p-2 pb-48 pt-12 pl-24
         bg-slate-100">
         {/* ---only admin can this div-(start)--- */}
         <div className="m-2 md:m-10 mt-24 p-2
@@ -19,7 +26,7 @@ const AdminBusinessPolicies = () => {
             gap-1"
             >
             <div >
-            <Header title="Edit Business Policies" />
+            <PageHeader title="Edit Business Policies" />
             </div>
 
             <div className="ml-20 flex flex-wrap lg:flex-nowrap justify-center">
@@ -53,6 +60,8 @@ const AdminBusinessPolicies = () => {
         {/* ---only admin can this div-(end)--- */}
 
         </div>
+        </div>
+         </div>
       )
 }
 

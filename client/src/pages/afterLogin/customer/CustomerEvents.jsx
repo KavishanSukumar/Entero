@@ -1,12 +1,11 @@
-
 import React from 'react';
-import CustomerHeader from '../../../components/header/CustomerHeader';
-
-
+// import CustomerHeader from '../../../components/header/CustomerHeader';
+// import CustomerSidebar from '../../../components/sidebar/CustomerSidebar';
+// import AdminSidebar from '../../../components/sidebar/AdminSidebar';
 
 
 import {eventData } from "../../../documents/dummy";
-import Header from "../../../components/PagesHeader/Header";
+import PageHeader from "../../../components/PagesHeader/PageHeader";
 import Button  from "../../../components/button/Button";
 import avatar from "../../../documents/avatar.jpg";
 import avatar2 from "../../../documents/avatar2.jpg";
@@ -14,18 +13,17 @@ import avatar3 from "../../../documents/avatar3.png";
 import avatar4 from "../../../documents/avatar4.jpg";
 import avatar5 from "../../../documents/avatar5.jpg";
 
-
-
+import Header from "../../../components/header/Header";
 function CustomerEvents() {
   return (
     <div>
-
-
-      <CustomerHeader />
-      <div className="flex">
-        
-        
-
+      
+      {/* <div className="flex">
+       
+        <div className="md:ml-20 md:mt-14 w-screen"> */}
+            
+          {/* <p>This is customer events</p> */}
+          <Header />
 
 
           <div
@@ -36,7 +34,7 @@ function CustomerEvents() {
         className="m-2 md:m-10 p-2 md:p-10 
             bg-white rounded-3xl"
       >
-        {/* <Header title="Services" /> */}
+        {/* <PageHeader title="Services" /> */}
 
 
 
@@ -44,7 +42,7 @@ function CustomerEvents() {
           gap-1 item-center">
           <div className="mr-20">
 
-             <Header title="Events" />
+             <PageHeader title="Events" />
           </div>
           <div className="ml-12">
 
@@ -416,7 +414,6 @@ function CustomerEvents() {
           </div>
         </div>
       </div>
-
     </div>
 
 
@@ -425,10 +422,9 @@ function CustomerEvents() {
 
 
 
-          </div>
-      </div>  
-    
-
+          {/* </div>
+      </div>   */}
+    </div>
 
 
   )

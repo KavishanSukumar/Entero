@@ -205,6 +205,3 @@ function EventsAdmin() {
 
 export default EventsAdmin
 
-
-
-

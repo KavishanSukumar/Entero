@@ -7,16 +7,16 @@ import AboutUs from "./pages/beforeLogin/AboutUs";
 import UserProfile from "./pages/afterLogin/UserProfile";
 import SignUp from "./pages/beforeLogin/SignUp";
 import SignIn from "./pages/beforeLogin/SignIn";
-import Admin from "./pages/afterLogin/admin/Admin";
+
 import AdminUserCustomer from "./pages/afterLogin/admin/AdminUserCustomer";
 import AdminUserServices from "./pages/afterLogin/admin/AdminUserServices";
 import AdminDashboard from './pages/afterLogin/admin/AdminDashboard';
+
 import AdminEvents from "./pages/afterLogin/admin/AdminEvents";
 import AdminPayment from "./pages/afterLogin/admin/AdminPayment";
 import AdminContact from "./pages/afterLogin/admin/AdminContact";
 import CustomerProfile from "./pages/afterLogin/customer/CustomerProfile";
-import CustomerEvents from "./pages/afterLogin/customer/CustomerEvents";
-import CustomerServices from "./pages/afterLogin/customer/CustomerServices";
+
 // import AdminBusinessPolicies from "./pages/afterLogin/admin/AdminBusinessPolicies";
 // import BusinessPolicies from "./pages/beforeLogin/businesspolicies/BusinessPolicies";
 // import Appointment from "./pages/afterLogin/customer/Appointment";
@@ -32,6 +32,21 @@ import ServiceproviderRatings from "./pages/afterLogin/serviceProvider/Servicepr
 import ServiceProviderBookings from "./pages/afterLogin/serviceProvider/ServiceProviderBookings"
 import { FiSettings } from "react-icons/fi";
 
+import Admin from './pages/afterLogin/admin/Admin';
+import CustomerServices from './pages/afterLogin/customer/CustomerServices';
+import CustomerEvents from './pages/afterLogin/customer/CustomerEvents';
+import AdminBusinessPolicies from './pages/afterLogin/admin/AdminBusinessPolicies';
+import BusinessPolicies from './pages/beforeLogin/businesspolicies/BusinessPolicies';
+import AdminTermsCondition from './pages/afterLogin/admin/AdminTermsCondition';
+import TermsCondition from './pages/beforeLogin/termscondition/TermsCondition';
+import Appointment from './pages/afterLogin/customer/Appointment';
+import Appointment2 from './pages/afterLogin/customer/Appointment2';
+
+
+import './App.css';
+
+
+
 function App() {
   return (
     <div className="App">
@@ -45,6 +60,7 @@ function App() {
         <Route exact path="/contactus" element={<ContactUs/>} />
         {/*Admin pages */}
         <Route path="/admin" element={<Admin />} />
+
         <Route exact path="/adminusercustomer" element={<AdminUserCustomer />} />
         <Route exact path="/adminuserservice" element={<AdminUserServices />} />
         <Route exact path="/admindashboard" element={<AdminDashboard />} />
@@ -76,6 +92,17 @@ function App() {
         <Route exact path="/businesspolicies" element={<BusinessPolicies />} />
         <Route exact path="/appointment" element={<Appointment />} />
         <Route exact path="/appointment2" element={<Appointment2 />} /> */}
+
+        {/* <Route path="/customerServices" element={<CustomerServices />} />
+        <Route path="/customerEvents" element={<CustomerEvents />} />
+        <Route path="/adminbusinesspolicies" element={<AdminBusinessPolicies />} />
+        <Route path="/businesspolicies" element={<BusinessPolicies />} />
+        <Route path="/adminTermsCondition" element={<AdminTermsCondition />} />
+        <Route path="/termsCondition" element={<TermsCondition />} />
+        <Route path="/appointment" element={<Appointment />} />
+        <Route path="/appointment2" element={<Appointment2 />} />
+        <Route path="/customerAppointments" element={<CustomerAppointments />} /> */}
+
       </Routes>
                    
         
