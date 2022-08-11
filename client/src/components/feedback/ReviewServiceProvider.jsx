@@ -17,12 +17,10 @@ return (
         {/*Start of the insights */}
         <div className="p-2 shadow-xl mb-10 grid grid-cols-4">
             <div className=" bg-slate-100 p-2 col-span-2 md:col-start-2 md:col-span-1 text-center min-h-fit shadow-inner mx-2 rounded-xl">
-                <p className="text-4xl mb-2">4.2</p>
-                <p className="text-sm">Overall rating</p>
+            <p className="text-base font-bold">Overall rating - 4.2</p>
             </div>
             <div className=" bg-slate-100 p-2 col-span-2 md:col-start-3 md:col-span-1 text-center min-h-fit shadow-inner mx-2 rounded-xl">
-                <p className="text-4xl mb-2">26</p>
-                <p className="text-sm">Reviews</p>
+            <p className="text-base font-bold">Reviews - 28</p>
             </div>
 
         </div>

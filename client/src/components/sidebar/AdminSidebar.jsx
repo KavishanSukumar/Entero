@@ -1,5 +1,8 @@
 import React,{useState} from 'react';
-import { BsFillCalendar2CheckFill } from 'react-icons/bs';
+import {BsCalendar2Check } from 'react-icons/bs';
+import {MdSpaceDashboard,MdContactPhone} from 'react-icons/md'
+import {FaUsers,FaUserCog} from 'react-icons/fa'
+import {GiMoneyStack} from 'react-icons/gi'
 import { NavLink } from 'react-router-dom';
 
 function AdminSidebar() {
@@ -29,41 +32,43 @@ return (
         <div className="hidden md:block fixed bg-transparent shadow-2xl min-h-screen left-0 top-14 flex-col w-20 ">
             
             
-            <div className="shadow-2xl md:mt-16 flex flex-col items-center border-2 w-full">
+            <div className="shadow-2xl md:mt-20 flex flex-col items-center border-2 w-full">
+
+            <div className="relative inline-flex items-center mb-4">
+                    <NavLink to="/admindashboard" className="cursor-pointer" onMouseEnter={()=>handleLabel(3)} onMouseLeave={()=>handleLabel(3)}>
+                        <MdSpaceDashboard className="w-12 h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
+                    </NavLink>
+
+                    <span className={dashboardLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Dashboard</span>
+                </div>   
             
             <div className="relative inline-flex items-center mb-4">
                     <NavLink to="/adminusercustomer" className="cursor-pointer" onMouseEnter={()=>handleLabel(1)} onMouseLeave={()=>handleLabel(1)}>
-                        <BsFillCalendar2CheckFill className="w-16 h-16 text-gray-400 hover:scale-110 hover:bg-gray-200"/>
+                        <FaUsers className="w-12 h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
                     </NavLink>
 
                     <span className={customerLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Customers</span>
                 </div>
                 <div className="relative inline-flex items-center mb-4">
                     <NavLink to="/adminuserservice" className="cursor-pointer" onMouseEnter={()=>handleLabel(2)} onMouseLeave={()=>handleLabel(2)}>
-                        <BsFillCalendar2CheckFill className="w-16 h-16 text-gray-400 hover:scale-110 hover:bg-gray-200"/>
+                        <FaUserCog className="w-12 h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
                     </NavLink>
 
                     <span className={serviceLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Services</span>
                 </div>
                     
-                    <div className="relative inline-flex items-center mb-4">
-                    <NavLink to="/admindashboard" className="cursor-pointer" onMouseEnter={()=>handleLabel(3)} onMouseLeave={()=>handleLabel(3)}>
-                        <BsFillCalendar2CheckFill className="w-16 h-16 text-gray-400 hover:scale-110 hover:bg-gray-200"/>
-                    </NavLink>
-
-                    <span className={dashboardLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Dashboard</span>
-                </div>   
+                    
 
                  <div className="relative inline-flex items-center mb-4">
                     <NavLink to="/adminevents" className="cursor-pointer" onMouseEnter={()=>handleLabel(4)} onMouseLeave={()=>handleLabel(4)}>
-                        <BsFillCalendar2CheckFill className="w-16 h-16 text-gray-400 hover:scale-110 hover:bg-gray-200"/>
+                        <BsCalendar2Check className="w-12 h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
                     </NavLink>
 
                     <span className={eventLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Events</span>
                 </div>
                 <div className="relative inline-flex items-center mb-4">
                     <NavLink to="/adminpayment" className="cursor-pointer" onMouseEnter={()=>handleLabel(5)} onMouseLeave={()=>handleLabel(5)}>
-                        <BsFillCalendar2CheckFill className="w-16 h-16 text-gray-400 hover:scale-110 hover:bg-gray-200"/>
+                        <GiMoneyStack className="w-12 h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
                     </NavLink>
 
                     <span className={paymentLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Payment</span>
@@ -71,7 +76,7 @@ return (
 
                 <div className="relative inline-flex items-center mb-4">
                     <NavLink to="/admincontact" className="cursor-pointer" onMouseEnter={()=>handleLabel(6)} onMouseLeave={()=>handleLabel(6)}>
-                        <BsFillCalendar2CheckFill className="w-16 h-16 text-gray-400 hover:scale-110 hover:bg-gray-200"/>
+                        <MdContactPhone className="w-12 h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
                     </NavLink>
 
                     <span className={contactLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Contact</span>

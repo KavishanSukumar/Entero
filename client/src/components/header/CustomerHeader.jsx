@@ -82,7 +82,7 @@ return (
                 {/*The buttons */}
                 <div className="flex flex-col w-44 p-2">
                     <button className="  border-2   p-1 mb-1 rounded hover:bg-transparent hover:border-black">
-                    <NavLink to="/userprofile">Profile</NavLink>
+                    <NavLink to="/customerprofile">Profile</NavLink>
                     </button>
                     <button className=" border-2   p-1 rounded hover:bg-transparent hover:border-black">
                         Logout

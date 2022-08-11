@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import {NavLink} from 'react-router-dom';
 import { AiOutlineClose, AiOutlineMenu , AiFillBell, AiFillHome} from 'react-icons/ai';
-import {BsFillCalendarEventFill,BsFillChatRightTextFill} from 'react-icons/bs';
+import SnippetFolderIcon from '@mui/icons-material/SnippetFolder';
+import BookIcon from '@mui/icons-material/Book';
+import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+import ChatIcon from '@mui/icons-material/Chat';
+import ReviewsIcon from '@mui/icons-material/Reviews';
+import PaymentsIcon from '@mui/icons-material/Payments';
 import Shakir from '../../Shakir.jpg';
 
 function ServiceProviderHeader() {
@@ -94,32 +99,32 @@ return (
     <ul className=' text-sm'> 
     <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
             <NavLink to="/" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
-                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <AiFillBell className="w-6 h-6 text-gray-500" />
                 <span className="ml-3">Notifications</span>
             </NavLink>
         </li> 
     <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
         
         <NavLink to="/serviceportfolio" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
-            <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+            <SnippetFolderIcon className="w-6 h-6 text-gray-500" />
             <span className="ml-3">Portfolio</span>
         </NavLink>
     </li>
     <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
         <NavLink to="/serviceappointments" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
-            <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+            <BookIcon className="w-6 h-6 text-gray-500" />
             <span className="ml-3">Appointments</span>
         </NavLink>
     </li>
     <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
         <NavLink to="/servicebookings" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
-            <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+            <EventAvailableIcon className="w-6 h-6 text-gray-500" />
             <span className="ml-3">Bookings</span>
         </NavLink>
     </li>    
     <li className='py-2 mb-4 border-b border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
     <NavLink to="/servicechat" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center"}>
-            <BsFillChatRightTextFill className="w-6 h-6 text-gray-500"/>
+            <ChatIcon className="w-6 h-6 text-gray-500"/>
            <span className="ml-3">Chat</span>
            <span className="inline-flex p-3 items-center justify-center ml-1 w-3 h-3 text-white bg-blue-600 rounded-full">15</span>
         
@@ -128,13 +133,13 @@ return (
     </li>
     <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
         <NavLink to="/serviceratings" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
-            <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+            <ReviewsIcon className="w-6 h-6 text-gray-500" />
             <span className="ml-3">Ratings</span>
         </NavLink>
     </li>
     <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
         <NavLink to="/servicecharges" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
-            <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+            <PaymentsIcon className="w-6 h-6 text-gray-500" />
             <span className="ml-3">Charges</span>
         </NavLink>
     </li>

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import {NavLink} from 'react-router-dom';
 import { AiOutlineClose, AiOutlineMenu , AiFillBell, AiFillHome} from 'react-icons/ai';
-import {BsFillCalendarEventFill} from 'react-icons/bs';
+import {BsCalendar2Check } from 'react-icons/bs';
+import {MdSpaceDashboard,MdContactPhone} from 'react-icons/md'
+import {FaUsers,FaUserCog} from 'react-icons/fa'
+import {GiMoneyStack} from 'react-icons/gi'
 import Shakir from '../../Shakir.jpg';
 
 {/* Admin header is created because the menu in responsive layout will change to the admin sidebar,not home,contact us pages */}
@@ -125,43 +128,44 @@ function AdminHeader() {
         <ul className=' text-sm'>
         <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
             <NavLink to="/" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
-                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <AiFillBell className="w-6 h-6 text-gray-500" />
                 <span className="ml-3">Notifications</span>
+            </NavLink>
+        </li>
+        <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
+            <NavLink to="/admindashboard" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
+                <MdSpaceDashboard className="w-6 h-6 text-gray-500" />
+                <span className="ml-3">Dashboard</span>
             </NavLink>
         </li> 
         <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
             <NavLink to="/adminusercustomer" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
-                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <FaUsers className="w-6 h-6 text-gray-500" />
                 <span className="ml-3">Customers</span>
             </NavLink>
         </li>
         <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
             <NavLink to="/adminuserservice" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
-                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <FaUserCog className="w-6 h-6 text-gray-500" />
                 <span className="ml-3">Services</span>
             </NavLink>
         </li>
-        <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
-            <NavLink to="/admindashboard" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
-                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
-                <span className="ml-3">Dashboard</span>
-            </NavLink>
-        </li>
+    
         <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
             <NavLink to="/adminevents" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
-                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <BsCalendar2Check className="w-6 h-6 text-gray-500" />
                 <span className="ml-3">Events</span>
             </NavLink>
         </li>
         <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
             <NavLink to="/adminpayment" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
-                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <GiMoneyStack className="w-6 h-6 text-gray-500" />
                 <span className="ml-3">Payment</span>
             </NavLink>
         </li>
         <li className='py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg'>
             <NavLink to="/admincontact" className={({isActive})=>isActive? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1":"inline-flex items-center "}>
-                <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+                <MdContactPhone className="w-6 h-6 text-gray-500" />
                 <span className="ml-3">Contact</span>
             </NavLink>
         </li>

@@ -13,6 +13,7 @@ import AdminDashboard from './pages/afterLogin/admin/AdminDashboard';
 import AdminEvents from "./pages/afterLogin/admin/AdminEvents";
 import AdminPayment from "./pages/afterLogin/admin/AdminPayment";
 import AdminContact from "./pages/afterLogin/admin/AdminContact";
+import CustomerProfile from "./pages/afterLogin/customer/CustomerProfile";
 import CustomerEvents from "./pages/afterLogin/customer/CustomerEvents";
 import CustomerServices from "./pages/afterLogin/customer/CustomerServices";
 import CustomerBookings from "./pages/afterLogin/customer/CustomerBookings";
@@ -45,6 +46,7 @@ function App() {
         <Route exact path="/admincontact" element={<AdminContact />} />
 
         {/*Customer pages */}
+        <Route exact path="/customerprofile" element={<CustomerProfile />} />
         <Route exact path="/customerevents" element={<CustomerEvents />} />
         <Route exact path="/customerservices" element={<CustomerServices />} />
         <Route exact path="/customerbookings" element={<CustomerBookings />} />

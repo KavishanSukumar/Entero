@@ -1,22 +1,14 @@
-import React from 'react';
-import CustomerHeader from '../../../components/header/CustomerHeader';
-import CustomerSidebar from '../../../components/sidebar/CustomerSidebar';
+import React from 'react'
+import CustomerHeader from '../../../components/header/CustomerHeader'
 
 
 function CustomerEvents() {
   return (
     <div>
-      <CustomerHeader />
-      <div className="flex">
-        
-        <CustomerSidebar />
-        <div className="md:ml-20 md:mt-14 w-screen">
-            
-          <p>This is customer events</p>
-          
-          </div>
-      </div>
-      
+        <CustomerHeader />
+        <div>
+            <p>events</p>
+        </div>
     </div>
   )
 }
