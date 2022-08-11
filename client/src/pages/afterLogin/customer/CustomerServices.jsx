@@ -16,7 +16,7 @@ import React from 'react';
 // } from "@syncfusion/ej2-react-grids";
 
 import { customersData, customersGrid, earningData2 } from "../../../documents/dummy";
- import Header from "../../../components/PagesHeader/Header";
+ import PageHeader from "../../../components/PagesHeader/PageHeader";
 import  Button  from "../../../components/button/Button";
 import avatar from "../../../documents/avatar.jpg";
 import avatar2 from "../../../documents/avatar2.jpg";
@@ -52,7 +52,7 @@ function CustomerServices() {
         className="m-2 md:m-10 p-2 md:p-10 
             bg-white rounded-3xl"
       >
-        <Header title="Services" />
+        <PageHeader title="Services" />
 
         <div className="flex flex-wrap lg:flex-nowrap justify-center">
         

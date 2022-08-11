@@ -264,6 +264,67 @@ Effective as of August 20, </p>
               </p> </h3>
   </div>
 );
+
+
+
+
+export const EditorData2 = () => (
+  <div>
+    <h3>
+    {/* <p className="text-sm italic truncate overflow-hidden"> */}
+    <p>
+          <h2 className="content-center text-center">Terms and Condition Entero</h2><br />
+          {/* <h2>Privacy Policy Entero</h2><br /> */}
+          Event Management Group (EMG) is a wholly owned division of Solent Rib Charters Ltd (SRC) and prior to any event that is booked with (EMG), the client must sign a booking form in which they agree to EMG's Terms & Conditions. A copy of these Terms & Conditions can be found below.<br /><br />
+
+          <b><h4>Payment</h4></b>
+
+Payment in full is due no later than 7 days prior to the event date. This may be made via electronic transfer, debit card, cheque or credit card (3% fee - 4% on AMEX). The company reserves the right to cancel the event if payment has not been received in full.<br /><br />
+
+<b><h4>Inclusions</h4></b>
+
+The company will supply all activity equipment and instructors, venue costs as detailed in the invoice (if applicable), event management and public liability insurance of RS.5,000,000.<br /><br />
+
+<b><h4>Substitution</h4></b>
+
+The company reserves the right to substitute a comparable activity for another in the event of equipment failure or circumstances beyond its reasonable control.<br /><br />
+
+<b><h4>Company Authority</h4></b>
+
+The customer recognises the authority of the company’s Event manager and Skippers, understanding that they may take any decision they regard as necessary to ensure the health, welfare and safety of those taking part in the event.<br /><br />
+
+<b><h4>Changing Dates</h4></b>
+
+Every effort will be made to change the event date when requested, although the company reserves the right to charge 10% of the event value. The charge may be higher when it has not been possible to cancel subcontractors or venues. No change may be made within 30 days of the event.<br /><br />
+
+<b><h4>Cancellation</h4></b>
+
+Whether or not payment has been made, if the customer cancels within 4 weeks of the event there is a 100% cancellation fee. Cancellation between 4 weeks and 8 weeks from the event incurs a 50% cancellation fee. Cancellation more than 8 weeks from the event incurs a 15% cancellation fee.<br /><br />
+
+<b><h4>Change in number of attendees</h4></b>
+
+A reduction in the number of attendees does not usually result in a refund and never within 30 days of the event. If numbers are reduced more than 30 days before the event, then every effort will be made to save variable costs such as catering etc.<br /><br />
+
+<b><h4>Force Majeure</h4></b>
+
+The company may postpone the event where forces outside of the company’s control such as bad weather, acts of terrorism or other events which cannot be reasonably mitigated against, impact the running of the event. No liability for any costs or expenses incurred by the customer are accepted by the company in the event of cancellation or postponement.<br /><br />
+
+<b><h4>Liability for Damage</h4></b>
+
+The customer is liable for loss or damage caused by guests whilst on the event to boats, vehicles, clothing or other equipment supplied by the company but limited to the amount of the company’s insurance excess.<br /><br />
+
+<b><h4>Copyright</h4></b>
+
+The company retains rights to images taken on behalf of the customer. Where the customer has paid for photography, the company gives the customer permission to use such images freely.  The customer gives the company permission to use images or video taken during the event in company marketing and advertising materials.<br />
+              </p> </h3>
+  </div>
+);
+
+
+
+
+
+
 const customerGridImage = (props) => (
   <div className="image flex gap-4">
     <img
@@ -773,7 +834,7 @@ export const chatData = [
 export const earningData = [
   {
     icon: <MdOutlineSupervisorAccount />,
-    amount: '39,354',
+    amount: '354',
     percentage: '-4%',
     title: 'Customers',
     iconColor: '#03C9D7',
@@ -782,7 +843,7 @@ export const earningData = [
   },
   {
     icon: <BsBoxSeam />,
-    amount: '4,396',
+    amount: '396',
     percentage: '+23%',
     title: 'Service Providers',
     iconColor: 'rgb(255, 244, 229)',
@@ -791,7 +852,7 @@ export const earningData = [
   },
   {
     icon: <FiBarChart />,
-    amount: '423,39',
+    amount: '423',
     percentage: '+38%',
     title: 'Bookings',
     iconColor: 'rgb(228, 106, 118)',
@@ -3524,13 +3585,31 @@ export const stackedChartData = [
     { x: 'July', y: 159.9 },
   ],
   [
-    { x: 'Jan', y: 111.1 },
-    { x: 'Feb', y: 127.3 },
-    { x: 'Mar', y: 143.4 },
-    { x: 'Apr', y: 159.9 },
-    { x: 'May', y: 159.9 },
-    { x: 'Jun', y: 159.9 },
-    { x: 'July', y: 159.9 },
+    { x: 'Jan', y: 81.1 },
+    { x: 'Feb', y: 87.3 },
+    { x: 'Mar', y: 93.4 },
+    { x: 'Apr', y: 59.9 },
+    { x: 'May', y: 69.9 },
+    { x: 'Jun', y: 99.9 },
+    { x: 'July', y: 79.9 },
+  ],
+  [
+    { x: 'Jan', y: 21.1 },
+    { x: 'Feb', y: 17.3 },
+    { x: 'Mar', y: 63.4 },
+    { x: 'Apr', y: 69.9 },
+    { x: 'May', y: 69.9 },
+    { x: 'Jun', y: 15.9 },
+    { x: 'July', y: 19.9 },
+  ],
+  [
+    { x: 'Jan', y: 38.1 },
+    { x: 'Feb', y: 31.3 },
+    { x: 'Mar', y: 44.4 },
+    { x: 'Apr', y: 55.9 },
+    { x: 'May', y: 21.9 },
+    { x: 'Jun', y: 67.9 },
+    { x: 'July', y: 2.9 },
   ],
 ];
 
@@ -3539,7 +3618,7 @@ export const stackedCustomSeries = [
   { dataSource: stackedChartData[0],
     xName: 'x',
     yName: 'y',
-    name: 'Budget',
+    name: 'Caterings',
     type: 'StackingColumn',
     background: 'blue',
 
@@ -3548,11 +3627,28 @@ export const stackedCustomSeries = [
   { dataSource: stackedChartData[1],
     xName: 'x',
     yName: 'y',
-    name: 'Expense',
+    name: 'Halls',
     type: 'StackingColumn',
     background: 'red',
 
   },
+  { dataSource: stackedChartData[2],
+    xName: 'x',
+    yName: 'y',
+    name: 'Decorations',
+    type: 'StackingColumn',
+    background: 'blue',
+
+  },
+  { dataSource: stackedChartData[3],
+    xName: 'x',
+    yName: 'y',
+    name: 'Photography',
+    type: 'StackingColumn',
+    background: 'blue',
+
+  },
+
 
 ];
 

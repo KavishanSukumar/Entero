@@ -9,16 +9,25 @@ import  SparkLine from '../../../components/Charts/SparkLine';
 import {earningData} from '../../../documents/dummy';
 import {SparklineAreaData} from '../../../documents/dummy';
 // import { useStateContext } from '../contexts/ContextProvider';
-
-
+import AdminHeader from '../../../components/header/AdminHeader';
+ import AdminSidebar from '../../../components/sidebar/AdminSidebar';
+import Footer from '../../../components/footer/Footer';
 const AdminDashboard = () => {
 
     //  const { currentColor } = useStateContext();
 
+
+    
     return (
-      <div className="mt-12">
-         {/* <div className=" bg-slate-400"> */}
-         <div className=" bg-slate-100">
+
+      <div>
+      <AdminHeader />
+      <div>
+        
+        <AdminSidebar />
+      <div className="pt-12 max-h-fit">
+         <div>
+         <div className=" bg-slate-100 max-h-fit">
         <div className="flex flex-wrap lg:flex-nowrap justify-center">
           {/* <div className="bg-white dark:text-gray-200 dark:bg-secondary-dary-bg h-44
           rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repat bg-cover bg-center">
@@ -85,18 +94,18 @@ const AdminDashboard = () => {
           <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4
           rounded-2xl md:w-780">
             <div className="flex justify-between">
-              <p className="font-semibold text-xl">Revenue Updates
+              <p className="font-semibold text-xl">Monthly Revenue Updates
               </p>
               <div className="flex item-center gap-4">
-                <p className="flex item-center gap-2 text-gray-600
+                {/* <p className="flex item-center gap-2 text-gray-600
                 hover:drop-shadow-xl">
                   <span><GoPrimitiveDot /></span>
                   <span>Expense</span>
-                </p>
+                </p> */}
                 <p className="flex item-center gap-2 text-green-400
                 hover:drop-shadow-xl">
                   <span><GoPrimitiveDot /></span>
-                  <span>Budget</span>
+                  <span>June</span>
                 </p>
               </div>
             </div>
@@ -107,31 +116,31 @@ const AdminDashboard = () => {
                   <div>
                     <p>
                       <span className="text-3xl font-semibold">
-                        $93,438
+                        Rs 1500
                       </span>
-                      <span className="p-1.5 hover:drop-shadow-xl cursor-pointer
+                      {/* <span className="p-1.5 hover:drop-shadow-xl cursor-pointer
                       rounded-full text-white bg-green-400 ml-3 text-xs">
                         23%
-                      </span>
+                      </span> */}
                     </p>
                     <p className="text-gray-500 mt-1">
-                      Budget
+                      Income
                     </p>
                   </div>
   
                   <div className="mt-8">
                     <p>
-                      <span className="text-3xl font-semibold">
+                      {/* <span className="text-3xl font-semibold">
                         $48,438
-                      </span>
+                      </span> */}
                       
                     </p>
-                    <p className="text-gray-500 mt-1">
+                    {/* <p className="text-gray-500 mt-1">
                       Expense
-                    </p>
+                    </p> */}
                   </div>
   
-                    <div className="mt-5">
+                    {/* <div className="mt-5">
                       <SparkLine 
                         currentColor="#03C9D7"
                         // currentColor={currentColor}
@@ -143,21 +152,21 @@ const AdminDashboard = () => {
                         color="#03C9D7"
                         // color={currentColor}
                       />
-                    </div>
+                    </div> */}
   
                     <div className="mt-10">
                       <Button 
                         color="white"
                         bgColor="#03C9D7"
                         // bgColor={currentColor}
-                        text="Download Report"
+                        text="Go to Report"
                         borderRadius="10px"
                        
                       />
                     </div>
                 </div>
                     <div>
-                      <Stacked width="320px"
+                      <Stacked width="360px"
                       height="360px" />
   
                       
@@ -167,6 +176,10 @@ const AdminDashboard = () => {
           </div>
         </div>
         </div>
+      </div>
+      </div>
+      </div>
+      <Footer />
       </div>
     )
 }

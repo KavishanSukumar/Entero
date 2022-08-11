@@ -3,7 +3,7 @@ import { ScheduleComponent, Day, Week, WorkWeek, Month,
   Agenda, Inject, Resize, DragAndDrop } from '@syncfusion/ej2-react-schedule';
 
   import scheduleData from '../../../documents/dummy';
-  import Header from '../../../components/PagesHeader/Header';
+  import PageHeader from '../../../components/PagesHeader/PageHeader';
 import Button from '../../../components/button/Button';
 
 
@@ -13,7 +13,7 @@ const Appointment2 = () => {
     bg-slate-100">
     <div className="m-2 md:m-10 mt-24 p-2
     md:p-10 bg-white rounded-3xl">
-      <Header title="Appointments" />
+      <PageHeader title="Appointments" />
       
       {/* <ScheduleComponent
         height="650px"

@@ -5,7 +5,7 @@ import React from 'react';
 
 
 import {eventData } from "../../../documents/dummy";
-import Header from "../../../components/PagesHeader/Header";
+import PageHeader from "../../../components/PagesHeader/PageHeader";
 import Button  from "../../../components/button/Button";
 import avatar from "../../../documents/avatar.jpg";
 import avatar2 from "../../../documents/avatar2.jpg";
@@ -34,7 +34,7 @@ function CustomerEvents() {
         className="m-2 md:m-10 p-2 md:p-10 
             bg-white rounded-3xl"
       >
-        {/* <Header title="Services" /> */}
+        {/* <PageHeader title="Services" /> */}
 
 
 
@@ -42,7 +42,7 @@ function CustomerEvents() {
           gap-1 item-center">
           <div className="mr-20">
 
-             <Header title="Events" />
+             <PageHeader title="Events" />
           </div>
           <div className="ml-12">
 

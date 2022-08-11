@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Header = ({ category, title }) => {
+const PageHeader = ({ category, title }) => {
   return (
     <div className="mb-10">
       <p className="text-gray-400">
@@ -13,4 +13,4 @@ const Header = ({ category, title }) => {
   )
 }
 
-export default Header
+export default PageHeader
