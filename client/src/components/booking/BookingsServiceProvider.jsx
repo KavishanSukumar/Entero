@@ -42,7 +42,7 @@ function a11yProps(index) {
   };
 }
 
-function Appointment() {
+function BookingsServiceProvider() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -53,7 +53,7 @@ function Appointment() {
     <div className="flex flex-col w-auto  justify-around mx-6 my-3">
       <div className="flex justify-start mb-7">
         <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl">
-          Appointment
+          Booking
         </h2>
       </div>
       <div className="my-3">
@@ -64,9 +64,9 @@ function Appointment() {
               onChange={handleChange}
               aria-label="basic tabs example"
             >
-              <Tab label="New Appointments" {...a11yProps(0)}></Tab>
-              <Tab label="Pending Appointments" {...a11yProps(1)}></Tab>
-              <Tab label="Past Appointments" {...a11yProps(2)}></Tab>
+              <Tab label="New Booking" {...a11yProps(0)}></Tab>
+              <Tab label="Pending Booking" {...a11yProps(1)}></Tab>
+              <Tab label="Past Booking" {...a11yProps(2)}></Tab>
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
@@ -110,7 +110,7 @@ function Appointment() {
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
-                        Appointment id
+                        Booking id
                       </th>
                       <th
                         scope="col"
@@ -135,7 +135,7 @@ function Appointment() {
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
-                        Description
+                        Package
                       </th>
 
                       <th
@@ -149,7 +149,7 @@ function Appointment() {
                   <tbody className="">
                     <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                       <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        A001
+                        1
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         Sukumar Kavishan
@@ -220,7 +220,7 @@ function Appointment() {
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
-                        Appointment id
+                        Booking id
                       </th>
                       <th
                         scope="col"
@@ -245,7 +245,7 @@ function Appointment() {
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
-                        Description
+                        Package
                       </th>
 
                       <th
@@ -259,7 +259,7 @@ function Appointment() {
                   <tbody className="">
                     <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                       <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        A002
+                        2
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         Priskila Athauda
@@ -330,7 +330,7 @@ function Appointment() {
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
-                        Appointment id
+                        Booking id
                       </th>
                       <th
                         scope="col"
@@ -355,7 +355,7 @@ function Appointment() {
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
-                        Description
+                        Package
                       </th>
                       <th
                         scope="col"
@@ -368,7 +368,7 @@ function Appointment() {
                   <tbody className="">
                     <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                       <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        A003
+                        3
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         Shakir Saheel
@@ -398,4 +398,4 @@ function Appointment() {
   );
 }
 
-export default Appointment;
+export default BookingsServiceProvider;
