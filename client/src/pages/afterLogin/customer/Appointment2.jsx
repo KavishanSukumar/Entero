@@ -84,10 +84,10 @@ const Appointment2 = () => {
                             </input>
                         </div>
 
-                        {/* <div>
-                            <textarea placeholder="Your message" rows="5" className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black">
+                        <div>
+                            <textarea placeholder="Description" rows="5" className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black">
                             </textarea>
-                        </div> */}
+                        </div>
 
                         {/* <button className="inline-block self-end bg-black text-white font-bold rounded-lg px-6 py-2 uppercase text-sm hover:bg-sky-700 ">
                             Send
