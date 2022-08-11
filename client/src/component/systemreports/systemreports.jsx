@@ -113,6 +113,17 @@ export default function SystemReports() {
                   width="700"
                   height="500"
                 />
+              </div>
+            </div>
+            <br></br> <br />
+            {/* 
+========================================================================================================================================================================
+                                                                                      Events
+======================================================================================================================================================================== */}
+            <div className='flex flex-col order-2'>
+              <div className='flex flex-row order-1 mt-7 mr-3 ml-3'>
+
+                <div className='flex w-40 font-bold '>
                   <select id="months" class="bg-gray-50 borde border-black text-gray-900 text-sm rounded-lg  w-full p-2.5
                         dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black  border-2">
                     <option selected>Choose a Month</option>
