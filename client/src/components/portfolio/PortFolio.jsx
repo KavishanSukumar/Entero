@@ -81,7 +81,7 @@ function PortFolio() {
         </div>
       </div>
       <div className="m-3">
-        <Contact />
+        <Packages />
       </div>
     </div>
   );
