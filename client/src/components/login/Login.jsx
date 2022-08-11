@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 function Login() {
   return (
     <>
-      <div className=" flex flex-col justify-center font-serif mb-8">
+      {/* <div className=" flex flex-col justify-center font-serif mb-8"> */}
         {/* <div className="-z-10 max-h-screen ">
           <video autoPlay loop muted class="absolute ">
             <source src="/assets/videos/lbg.mp4" type="video/mp4" />
@@ -15,7 +15,7 @@ function Login() {
           style={{ backgroundImage: "url(/assets/images/login1.jpg)" }}
           className="bg-opacity-60 flex flex-col justify-center h-screen font-serif bg-cover"
         /> */}
-        <form className="flex flex-row w-7/12 justify-center object-center mt-48 items-center mx-auto bg-white rounded-lg  shadow-inner ">
+        <form className="flex flex-row w-10/12 justify-center object-center items-center mx-auto bg-white rounded-lg  shadow-inner ">
           <div className="basis-7/12 p-0">
             <img
               className=" rounded-lg object-fill "
@@ -81,7 +81,8 @@ function Login() {
             </div>
           </div>
         </form>
-      </div>
+      {/* </div> */}
+      
     </>
   );
 }

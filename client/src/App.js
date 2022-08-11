@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/beforeLogin/Home";
+
 import Products from "./pages/beforeLogin/Products";
 import Services from "./pages/beforeLogin/Services";
 import ContactUs from "./pages/beforeLogin/ContactUs";
@@ -105,10 +106,9 @@ function App() {
 
       </Routes>
                    
-        
+        </div>
+  )
       
-    </div>
-  );
-}
 
+}
 export default App;
