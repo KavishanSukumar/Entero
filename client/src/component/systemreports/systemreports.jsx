@@ -54,7 +54,7 @@ export default function SystemReports() {
       <div className='flex flex-col'>
 
 
-        <div className='flex bg-white-300  h-screen  flex-wrap gap-8 order-1 w-full ml-36  mt-20  ' >
+        <div className='flex bg-white-300  h-screen  flex-wrap gap-8 order-1 w-full ml-36  mt-20' >
           <div className="flex  space-y-4 flex-col ml-5 text-2xl w-full text-center  ">
             <ul className=" nav nav-tabs flex flex-row  flex-wrap list-none border-b-0 pl-0 mb-4" id="tabs-tab" role="tablist">
               <li className="nav-item" role="presentation">
@@ -180,7 +180,7 @@ export default function SystemReports() {
                     {data.map((d) => {
 
                       return (
-                        <tr key={d.ID} className='cursor-pointer duration-300 hover:bg-cyan-500 hover:scale-105 h-auto even:bg-slate-200 hover:text-white'>
+                        <tr key={d.ID} className='cursor-pointer duration-300 hover:bg-cyan-500 hover:scale-105 h-auto even:bg-gray-300 hover:text-white'>
                           <td>{d.ID}</td>
                           <td>{d.ServiceProvider}</td>
                           <td>{d.Amount}</td>
@@ -280,7 +280,7 @@ export default function SystemReports() {
 
               <div className='flex order-3 mt-10'>
                 <table className="shadow-2xl border-2 w-full">
-                  <thead className='bg-slate-400 cursor-pointer'>
+                  <thead className='bg-black text-white cursor-pointer'>
                     <th >Event Id</th>
                     <th >Catergory</th>
                     <th >Service provider</th>
@@ -295,7 +295,7 @@ export default function SystemReports() {
                     {eventdata.map((d) => {
 
                       return (
-                        <tr key={d.eventid} onClick={() => setshowpopup(true)} className='cursor-pointer duration-300 hover:bg-cyan-500 hover:scale-105 h-auto even:bg-slate-200 hover:text-white'>
+                        <tr key={d.eventid} onClick={() => setshowpopup(true)} className='cursor-pointer duration-300 hover:bg-cyan-500 hover:scale-105 h-auto even:bg-gray-300 hover:text-white'>
                           <td>{d.eventid}</td>
                           <td>{d.eventname}</td>
                           <td>{d.serviceprovider}</td>
@@ -445,7 +445,7 @@ export default function SystemReports() {
 
                     <div className='flex order-3 mt-10 w-full'>
                       <table className="shadow-2xl border-2 w-full">
-                        <thead className='bg-slate-400 cursor-pointer'>
+                        <thead className='bg-black text-white cursor-pointer'>
                           <th >User Id</th>
                           <th >Name</th>
                           <th >Joined date</th>
@@ -457,7 +457,7 @@ export default function SystemReports() {
                           {serdata.map((d) => {
 
                             return (
-                              <tr key={d.id} className='cursor-pointer duration-300 hover:bg-cyan-500 hover:scale-105 h-auto even:bg-slate-200 hover:text-white'>
+                              <tr key={d.id} className='cursor-pointer duration-300 hover:bg-cyan-500 hover:scale-105 h-auto even:bg-gray-300 hover:text-white'>
                                 <td>{d.id}</td>
                                 <td>{d.name}</td>
                                 <td>{d.jdate}</td>
@@ -549,7 +549,7 @@ export default function SystemReports() {
 
                     <div className='flex order-3 mt-10 w-full'>
                       <table className="shadow-2xl border-2 w-full">
-                        <thead className='bg-slate-400 cursor-pointer'>
+                        <thead className='bg-black text-white cursor-pointer'>
                           <th >User Id</th>
                           <th >Name</th>
                           <th >Joined date</th>
@@ -561,7 +561,7 @@ export default function SystemReports() {
                           {serdata.map((d) => {
 
                             return (
-                              <tr key={d.id} className='cursor-pointer duration-300 hover:bg-cyan-500 hover:scale-105 h-auto even:bg-slate-200 hover:text-white'>
+                              <tr key={d.id} className='cursor-pointer duration-300 hover:bg-cyan-500 hover:scale-105 h-auto even:bg-gray-300 hover:text-white'>
                                 <td>{d.id}</td>
                                 <td>{d.name}</td>
                                 <td>{d.jdate}</td>
