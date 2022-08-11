@@ -106,26 +106,36 @@ function EventsAdmin() {
     <div className=" relative  p-5 w-full mt-14 md:mt-0 mb-2 h-full">
         {/*Start of the insights */}
         <div className="p-2 shadow-xl mb-10 grid grid-cols-3">
-            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl">
-                <p className="text-4xl mb-2">28</p>
-                <p className="text-sm">Pending Events</p>
+            <div className=" bg-slate-100 p-2 text-center md:h-10 shadow-inner mx-2 rounded-xl">
+                <p className="text-base font-bold">Pending - 12</p>
             </div>
-            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl">
-                <p className="text-4xl mb-2">15</p>
-                <p className="text-sm">Past Events</p>
+            <div className=" bg-slate-100 p-2 text-center md:h-10 shadow-inner mx-2 rounded-xl">
+                <p className="text-base font-bold">Past - 28</p>
             </div>
-            <div className="bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl">
-                <p className="text-4xl mb-2 ">6</p>
-                <p className="text-sm">Cancelled Events</p>
+            <div className="bg-slate-100 p-2 text-center md:h-10 shadow-inner mx-2 rounded-xl">
+                <p className="text-base font-bold">Cancelled - 6</p>
             </div>
 
         </div>
         {/*end of insights */}
         <div className="flex p-1 md:px-4 py-2 ">
-            <div className="relative">
-                <input type="text" className="p-2 w-64 md:w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search for events" />
+            <div className="relative w-full">
+                <input type="text" className="p-2 w-64 md:w-80 md:ml-[20%] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search events" />
             </div>
         </div>
+
+        {/*tabs at the top of table */}
+        <div className="w-full mt-2 md:w-[80%] md:mx-[10%] lg:w-[60%] lg:mx-[20%] text-[10px] md:text-xs">
+            <ul class="flex ">
+                <li className={pendingEvent? "mr-4 inline-block border-b-2 border-cyan-500 p-1 cursor-pointer text-cyan-500 uppercase text-lg ":"mr-4 inline-block p-1 border-b-2 hover:text-cyan-500 hover:border-cyan-500 cursor-pointer uppercase text-lg"} onClick={handlePendingEvent}>Pending
+                </li>
+                <li className={pastEvent? "mr-4 inline-block border-b-2 border-cyan-500 p-1 cursor-pointer text-cyan-500 uppercase text-lg ":"mr-4 inline-block p-1 border-b-2 hover:text-cyan-500 hover:border-cyan-500 cursor-pointer uppercase text-lg"} onClick={handlePastEvent}>Past
+                </li>
+                <li className={cancelledEvent? "mr-2 inline-block border-b-2 border-cyan-500 p-1 cursor-pointer text-cyan-500 uppercase text-lg ":"mr-4 inline-block p-1 border-b-2 hover:text-cyan-500 hover:border-cyan-500 cursor-pointer uppercase text-lg"} onClick={handleCancelledEvent}>Cancelled
+                </li>
+            </ul>
+        </div>
+        {/*end of tabs */}
 
         <div className={popup? "fixed backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  p-4 left-0":"hidden"} >
             <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[70%] mx-[15%] p-2">
@@ -167,18 +177,7 @@ function EventsAdmin() {
         </div>
 
         <table className="w-full mt-2 md:w-[80%] md:mx-[10%] lg:w-[60%] lg:mx-[20%] text-xs md:text:sm">
-            <caption>
-                <div className="w-full text-sm font-medium text-center text-gray-500 border-b border-gray-600 ">
-                    <ul class="flex -mb-px">
-                        <li className={pendingEvent? "mr-2 inline-block p-2 hover:text-black cursor-pointer text-green-300":"mr-2 inline-block p-2 hover:text-black cursor-pointer"} onClick={handlePendingEvent}>Pending
-                        </li>
-                        <li className={pastEvent? "mr-2 inline-block p-2 hover:text-black cursor-pointer text-green-300":"mr-2 inline-block p-2 hover:text-black cursor-pointer"} onClick={handlePastEvent}>Past
-                        </li>
-                        <li className={cancelledEvent? "mr-2 inline-block p-2 hover:text-black cursor-pointer text-green-300":"mr-2 inline-block p-2 hover:text-black cursor-pointer"} onClick={handleCancelledEvent}>Cancelled
-                        </li>
-                    </ul>
-                </div>
-            </caption>
+            
             <thead className="text-xs text-white font-medium uppercase bg-black">
                 <tr>
                     <th className=" text-[10px] py-2 text-center w-[20%]">

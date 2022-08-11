@@ -1,6 +1,7 @@
 import React from 'react'
 import CustomerHeader from '../../../components/header/CustomerHeader';
 import CustomerSidebar from '../../../components/sidebar/CustomerSidebar';
+import BookingsCustomer from '../../../components/events/BookingsCustomer';
 
 function CustomerBookings() {
   return (
@@ -10,10 +11,10 @@ function CustomerBookings() {
         
         <CustomerSidebar />
         <div className="md:ml-20 md:mt-14 w-screen">
-            
-          <p>This is customer Bookings</p>
           
-          </div>
+          <BookingsCustomer />
+        
+        </div>
       </div>
       
     </div>

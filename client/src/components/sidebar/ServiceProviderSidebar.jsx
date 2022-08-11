@@ -1,6 +1,15 @@
 import React,{useState} from 'react';
-import { BsFillCalendar2CheckFill} from 'react-icons/bs';
+import SnippetFolderIcon from '@mui/icons-material/SnippetFolder';
+import BookIcon from '@mui/icons-material/Book';
+import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+import ChatIcon from '@mui/icons-material/Chat';
+import ReviewsIcon from '@mui/icons-material/Reviews';
+import PaymentsIcon from '@mui/icons-material/Payments';
 import { NavLink } from 'react-router-dom';
+
+
+// import EventIcon from '@mui/icons-material/Event';
+
 
 function ServiceProviderSidebar() {
     
@@ -30,11 +39,11 @@ function ServiceProviderSidebar() {
         <div className="hidden md:block fixed bg-transparent shadow-2xl min-h-screen left-0 top-14 flex-col w-20 ">
             
             
-            <div className="shadow-2xl md:mt-16 flex flex-col items-center border-2 w-full">   
+            <div className="shadow-2xl md:mt-20 flex flex-col items-center border-2 w-full">   
 
                  <div className="relative inline-flex items-center mb-4">
                     <NavLink to="/serviceportfolio" className="cursor-pointer" onMouseEnter={()=>handleLabel(1)} onMouseLeave={()=>handleLabel(1)}>
-                        <BsFillCalendar2CheckFill className="w-16 h-16 text-gray-400 hover:scale-110 hover:bg-gray-200"/>
+                        <SnippetFolderIcon className="!w-12 !h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
                     </NavLink>
 
                     <span className={portfolioLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Portfolio</span>
@@ -42,35 +51,35 @@ function ServiceProviderSidebar() {
 
                 <div className="relative inline-flex items-center mb-4">
                     <NavLink to="/servicebookings" className="cursor-pointer" onMouseEnter={()=>handleLabel(2)} onMouseLeave={()=>handleLabel(2)}>
-                        <BsFillCalendar2CheckFill className="w-16 h-16 text-gray-400 hover:scale-110 hover:bg-gray-200"/>
+                        <BookIcon  className="!w-12 !h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
                     </NavLink>
 
                     <span className={bookingLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Bookings</span>
                 </div> 
                 <div className="relative inline-flex items-center mb-4">
                     <NavLink to="/serviceappointments" className="cursor-pointer" onMouseEnter={()=>handleLabel(3)} onMouseLeave={()=>handleLabel(3)}>
-                        <BsFillCalendar2CheckFill className="w-16 h-16 text-gray-400 hover:scale-110 hover:bg-gray-200"/>
+                        <EventAvailableIcon className="!w-12 !h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
                     </NavLink>
 
                     <span className={appointmentLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Appointments</span>
                 </div> 
                 <div className="relative inline-flex items-center mb-4">
                     <NavLink to="/servicechat" className="cursor-pointer" onMouseEnter={()=>handleLabel(4)} onMouseLeave={()=>handleLabel(4)}>
-                        <BsFillCalendar2CheckFill className="w-16 h-16 text-gray-400 hover:scale-110 hover:bg-gray-200"/>
+                        <ChatIcon className="!w-12 !h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
                     </NavLink>
 
                     <span className={chatLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Chat</span>
                 </div>
                 <div className="relative inline-flex items-center mb-4">
                     <NavLink to="/serviceratings" className="cursor-pointer" onMouseEnter={()=>handleLabel(5)} onMouseLeave={()=>handleLabel(5)}>
-                        <BsFillCalendar2CheckFill className="w-16 h-16 text-gray-400 hover:scale-110 hover:bg-gray-200"/>
+                        <ReviewsIcon className="!w-12 !h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
                     </NavLink>
 
                     <span className={ratingsLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Ratings</span>
                 </div>
                 <div className="relative inline-flex items-center mb-4">
                     <NavLink to="/servicecharges" className="cursor-pointer" onMouseEnter={()=>handleLabel(6)} onMouseLeave={()=>handleLabel(6)}>
-                        <BsFillCalendar2CheckFill className="w-16 h-16 text-gray-400 hover:scale-110 hover:bg-gray-200"/>
+                        <PaymentsIcon className="!w-12 !h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
                     </NavLink>
 
                     <span className={chargeLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Charges</span>

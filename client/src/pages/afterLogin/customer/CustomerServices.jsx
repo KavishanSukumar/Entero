@@ -1,7 +1,9 @@
 import React from 'react';
-
 import CustomerHeader from '../../../components/header/CustomerHeader';
-import CustomerSidebar from '../../../components/sidebar/CustomerSidebar';
+
+
+
+
 
 // import {
 //   GridComponent,
@@ -32,6 +34,7 @@ import avatar5 from "../../../documents/avatar5.jpg";
 function CustomerServices() {
   return (
     <div>
+
 
       <CustomerHeader /> 
       {/* <div className="flex">
@@ -370,6 +373,7 @@ function CustomerServices() {
           </div>
         </div>
       </div>
+
     </div>
 
 

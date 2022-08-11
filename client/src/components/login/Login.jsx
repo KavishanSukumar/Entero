@@ -69,7 +69,7 @@ function Login() {
             </div>
 
             <button className="border w-full my-5 py-2 bg-black hover:bg-yellow-900 hover:text-black text-white">
-            <Link to="/adminevents">Sign in</Link>
+            <Link to="/customerevents">Sign in</Link>
             </button>
             <div className="text-center">
               <p>Do you have an account?</p>

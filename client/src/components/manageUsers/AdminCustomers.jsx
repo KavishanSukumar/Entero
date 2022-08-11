@@ -12,21 +12,19 @@ function AdminCustomers() {
     return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
         {/*Start of the insights */}
-        <div className="p-2 shadow-xl mb-10 grid grid-cols-4">
-            <div className=" bg-slate-100 p-2 col-span-2 md:col-start-2 md:col-span-1 text-center min-h-fit shadow-inner mx-2 rounded-xl">
-                <p className="text-4xl mb-2">28</p>
-                <p className="text-sm">Active</p>
+        <div className="p-2 shadow-2xl mb-10 grid grid-cols-4 ">
+            <div className=" bg-slate-100 p-2 col-span-2 md:col-start-2 md:col-span-1 text-center md:h-10 shadow-inner mx-2 rounded-xl">
+                <p className="text-base font-bold">Active - 28</p>
             </div>
-            <div className=" bg-slate-100 p-2 col-span-2 md:col-start-3 md:col-span-1 text-center min-h-fit shadow-inner mx-2 rounded-xl">
-                <p className="text-4xl mb-2">28</p>
-                <p className="text-sm">Removed</p>
+            <div className=" bg-slate-100 p-2 col-span-2 md:col-start-3 md:col-span-1 text-center md:h-10 shadow-inner mx-2 rounded-xl">
+                <p className="text-base font-bold">Removed - 24</p>
             </div>
 
         </div>
         {/*end of insights */}
         <div className="flex p-1 md:px-4 py-2 ">
-            <div className="relative">
-                <input type="text" className="p-2 w-64 md:w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search customers" />
+            <div className="relative w-full">
+                <input type="text" className="p-2 w-64 md:w-80 md:ml-[20%] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search customers" />
             </div>
         </div>
 
@@ -53,7 +51,7 @@ function AdminCustomers() {
                     </div>
                     <div className=" w-full">
                         <p className="text-center text-base font-medium mb-2 border-b-2">Details</p>
-                        <p className="md:ml-8 px-1 text-left"><b>Name:</b> Kavin Fernando</p>
+                        <p className="md:ml-8 px-1 text-left "><b>Name:</b> Kavin Fernando</p>
                         <p className="md:ml-8 px-1 text-left"><b>NIC:</b> 723456789V</p>
                         <p className="md:ml-8 px-1 text-left"><b>Address:</b> Shangrila Hotel Colombo 02</p>
                         <p className="md:ml-8 px-1 text-left"><b>Email:</b> kavingghyre@gmail.com</p>
@@ -88,8 +86,8 @@ function AdminCustomers() {
                 <td className=" py-2 font-medium text-gray-900 text-center">
                     0023
                 </td>
-                <td className="py-2 text-center font-medium uppercase">
-                Kavin Fernando
+                <td className="py-2 text-center font-medium capitalize">
+                kavin fernando
                 </td>
                 <td className="py-2 font-medium text-gray-900 text-center">Active</td>
                 <td className="py-2 text-center">
