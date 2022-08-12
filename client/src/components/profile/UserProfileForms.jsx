@@ -20,7 +20,7 @@ function UserProfileForms() {
 
             {/*The button to make profile update form visible on responsive */}
             <div className={!profileDiv?"md:hidden w-[50%]":"hidden"}>
-                    <button type="button" className="border w-full  mb-6 py-2 bg-cyan-500 hover:bg-cyan-200 text-white" onClick={handleProfileDiv}>
+                    <button type="button" className="border w-full  mb-6 py-2 bg-cyan-500 hover:bg-cyan-400 text-white" onClick={handleProfileDiv}>
                     Edit profile
                     </button>
             </div>
@@ -78,10 +78,10 @@ function UserProfileForms() {
 
                 {/* Buttons to save or cancel,the cancel  button won,t be shown on large screens*/}
                 <div className="flex justify-end">
-                    <button className="p-1 px-2 mt-2 mx-2 bg-gray-100 border-2 hover:border-black  hover:bg-transparent rounded" >
+                    <button className="p-1 px-2 mt-2 mx-2 bg-cyan-500 border-2   hover:bg-cyan-400 rounded text-white" >
                         Update
                     </button>
-                    <button type="button" className="p-1 px-2 mt-2 mx-2 bg-gray-100 border-2 hover:border-black  hover:bg-transparent rounded md:hidden" onClick={handleProfileDiv}>
+                    <button type="button" className="p-1 px-2 mt-2 mx-2 bg-cyan-500 border-2   hover:bg-cyan-400 rounded md:hidden text-white" onClick={handleProfileDiv}>
                         Cancel
                     </button>
             
@@ -91,7 +91,7 @@ function UserProfileForms() {
 
             {/*The button to make password update form visible on responsive */}
             <div className={!profileDiv?"md:hidden w-[50%]":"hidden"}>
-                    <button type="button" className="border w-full  mb-6 py-2 bg-cyan-500 hover:bg-cyan-200 text-white" onClick={handlePasswordDiv}>
+                    <button type="button" className="border w-full  mb-6 py-2 bg-cyan-500 hover:bg-cyan-400 text-white" onClick={handlePasswordDiv}>
                     Update password
                     </button>
             </div>
@@ -130,10 +130,10 @@ function UserProfileForms() {
 
                 {/* The buttons to update password, the cancel button wont be shown on responsive*/}
                 <div className="flex justify-end">
-                    <button className="p-1 px-2 mt-2 mx-2 bg-gray-100 border-2 hover:border-black  hover:bg-transparent rounded" >
+                    <button className="p-1 px-2 mt-2 mx-2 bg-cyan-500 border-2  hover:bg-cyan-400 rounded text-white" >
                         Update
                     </button>
-                    <button type="button" className="p-1 px-2 mt-2 mx-2 bg-gray-100 border-2 hover:border-black  hover:bg-transparent rounded md:hidden" onClick={handlePasswordDiv}>
+                    <button type="button" className="p-1 px-2 mt-2 mx-2 bg-cyan-500 border-2 hover:bg-transparent rounded text-white md:hidden" onClick={handlePasswordDiv}>
                         Cancel
                     </button>
             

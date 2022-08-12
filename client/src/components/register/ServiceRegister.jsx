@@ -86,7 +86,7 @@ function ServiceRegister() {
             </label>
           </div>
         </div>
-        <button className="border w-full my-5 py-2 bg-black hover:bg-yellow-900 hover:text-black text-white">
+        <button className="border w-full my-5 py-2 bg-cyan-500 hover:bg-cyan-400 text-white">
           Sign Up
         </button>
       </form>

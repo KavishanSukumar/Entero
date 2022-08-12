@@ -139,7 +139,7 @@ function Header() {
           <button
             type="button"
             onClick={openModal}
-            className="bg-cyan-500 text-white hover:bg-blue-400 px-5 py-2 rounded mx-2"
+            className="bg-cyan-500 text-white hover:bg-cyan-400 px-5 py-2 rounded mx-2"
           >
             Sign in
           </button>

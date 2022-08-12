@@ -62,7 +62,7 @@ return (
             {/*end of the grid */}
 
             <div className="p-2 flex justify-end">
-                <button className="bg-red-200 text-center p-2 rounded-lg w-20">
+                <button className="bg-cyan-500 hover:bg-cyan-400 text-white text-center p-2 rounded-lg w-20">
                     More
                 </button>
             </div>

@@ -35,11 +35,11 @@ function MessageComponent() {
                     </div>
                     
                     <div className="flex justify-center">
-                        <button className=" inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-blue-400 font-medium mx-2 mb-2">
-                            <BsReplyFill size={18} />Send
+                        <button className=" inline-flex items-center justify-center bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded hover:border-2 text-white font-medium mx-2 mb-2">
+                            Send
                         </button>
-                        <button className="inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-red-400 font-medium mx-2 mb-2" onClick={handleTypeReply}>
-                            <AiFillDelete size={18} />Cancel
+                        <button className="inline-flex items-center justify-center bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded hover:border-2 text-white font-medium mx-2 mb-2" onClick={handleTypeReply}>
+                            Cancel
                         </button>
                     </div>
                     
@@ -86,11 +86,11 @@ function MessageComponent() {
                     
                     {/*buttons for reply and discard */}
                     <div className="flex justify-center">
-                        <button className=" inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-blue-400 font-medium mx-2 mb-2" onClick={handleTypeReply}>
-                            <BsReplyFill size={18} />Reply
+                        <button className=" inline-flex items-center w-20 justify-center bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2" onClick={handleTypeReply}>
+                            Reply
                         </button>
-                        <button className="inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-red-400 font-medium mx-2 mb-2">
-                            <AiFillDelete size={18}/>Discard
+                        <button className="inline-flex items-center justify-center w-20 bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2">
+                            Discard
                         </button>
                     </div>
 
@@ -113,37 +113,11 @@ function MessageComponent() {
                     
                     {/*buttons for reply and discard */}
                     <div className="flex justify-center">
-                        <button className=" inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-blue-400 font-medium mx-2 mb-2" onClick={handleTypeReply}>
-                            <BsReplyFill size={18} />Reply
+                        <button className=" inline-flex items-center w-20 justify-center bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2" onClick={handleTypeReply}>
+                            Reply
                         </button>
-                        <button className="inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-red-400 font-medium mx-2 mb-2">
-                            <AiFillDelete size={18}/>Discard
-                        </button>
-                    </div>
-
-                    {/*Time recieved */}
-                    <p className="text-center text-xs text-gray-500">2 hours ago</p>
-                    
-                </div>
-                    {/*end of the card */}
-
-                    {/*The card */}
-                <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300">
-                    {/*Name of the sender */}
-                    <h4 className='mb-3 font-medium text-center'>Shakir</h4>
-                    
-                    {/*content */}
-                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
-                    </p>
-                    
-                    
-                    {/*buttons for reply and discard */}
-                    <div className="flex justify-center">
-                        <button className=" inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-blue-400 font-medium mx-2 mb-2" onClick={handleTypeReply}>
-                            <BsReplyFill size={18} />Reply
-                        </button>
-                        <button className="inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-red-400 font-medium mx-2 mb-2">
-                            <AiFillDelete size={18}/>Discard
+                        <button className="inline-flex items-center justify-center w-20 bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2">
+                            Discard
                         </button>
                     </div>
 
@@ -165,11 +139,37 @@ function MessageComponent() {
                     
                     {/*buttons for reply and discard */}
                     <div className="flex justify-center">
-                        <button className=" inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-blue-400 font-medium mx-2 mb-2" onClick={handleTypeReply}>
-                            <BsReplyFill size={18} />Reply
+                        <button className=" inline-flex items-center w-20 justify-center bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2" onClick={handleTypeReply}>
+                            Reply
                         </button>
-                        <button className="inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-red-400 font-medium mx-2 mb-2">
-                            <AiFillDelete size={18}/>Discard
+                        <button className="inline-flex items-center justify-center w-20 bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2">
+                            Discard
+                        </button>
+                    </div>
+
+                    {/*Time recieved */}
+                    <p className="text-center text-xs text-gray-500">2 hours ago</p>
+                    
+                </div>
+                    {/*end of the card */}
+
+                    {/*The card */}
+                <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300">
+                    {/*Name of the sender */}
+                    <h4 className='mb-3 font-medium text-center'>Shakir</h4>
+                    
+                    {/*content */}
+                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
+                    </p>
+                    
+                    
+                    {/*buttons for reply and discard */}
+                    <div className="flex justify-center">
+                        <button className=" inline-flex items-center w-20 justify-center bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2" onClick={handleTypeReply}>
+                            Reply
+                        </button>
+                        <button className="inline-flex items-center justify-center w-20 bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2">
+                            Discard
                         </button>
                     </div>
 
@@ -185,7 +185,7 @@ function MessageComponent() {
             {/*end of the grid */}
 
             <div className="p-2 flex justify-end">
-                <button className="bg-red-200 text-center p-2 rounded-lg w-20">
+                <button className="bg-cyan-500 hover:bg-cyan-400 text-white text-center p-2 rounded-lg w-20">
                     More
                 </button>
             </div>
@@ -215,8 +215,8 @@ function MessageComponent() {
                         </div>
                     
                         <div className="flex justify-center">
-                            <button className=" inline-flex items-center bg-transparent p-2 w-30 rounded hover:border-2 hover:text-blue-400 font-medium mx-2 mb-2">
-                                <BsReplyFill size={18} />Send
+                            <button className=" inline-flex items-center bg-cyan-500 p-2 w-30 rounded hover:border-2 hover:bg-cyan-400 font-medium mx-2 mb-2">
+                                Send
                             </button>
                         </div>
                     </div>
@@ -258,7 +258,7 @@ function MessageComponent() {
             {/*end of the grid */}
 
             <div className="p-2 flex justify-end">
-                <button className="bg-red-200 text-center p-2 rounded-lg w-20">
+                <button className="bg-cyan-500 hover:bg-cyan-400 text-white text-center p-2 rounded-lg w-20">
                     More
                 </button>
             </div>

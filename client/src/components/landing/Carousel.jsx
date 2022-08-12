@@ -94,7 +94,7 @@ function Carousel() {
           <h1 className="text-2xl font-bold  py-6">Join us Entero </h1>
           <button
             onClick={handleOpen}
-            className="border left-60 w-64 py-2 bg-yellow-900 hover:bg-gray-500 hover:text-black text-white"
+            className="border left-60 w-64 py-2 bg-cyan-500 hover:bg-cyan-400  text-white"
           >
             Sign Up
           </button>

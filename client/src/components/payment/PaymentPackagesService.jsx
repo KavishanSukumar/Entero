@@ -30,7 +30,7 @@ function PaymentPackagesService() {
                   <div className="rounded-md shadow">
                     <button
                       type="button"
-                      className="py-2 px-4  bg-cyan-500 hover:bg-blue-400 focus:ring-cyan-900 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                      className="py-2 px-4  bg-cyan-500 hover:bg-cyan-400 focus:ring-cyan-900 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                     >
                       Change Package
                     </button>
@@ -59,7 +59,7 @@ function PaymentPackagesService() {
                   Started Date: <span>25:06:2022</span>
                 </p>
                 <p className="m-3">
-                  Remaining Trail Period <span className="text-red-600">6</span>{" "}
+                  Remaining Trial Period <span className="text-red-600">6</span>{" "}
                   Days
                 </p>
               </p>
