@@ -6,12 +6,11 @@ function PackageCard() {
       <div className="pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
         <div className="bg-white dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-12">
           <h3 className="text-2xl leading-8 font-extrabold text-gray-900 sm:text-3xl sm:leading-9 dark:text-white">
-            Premium
+            Refreshment
           </h3>
           <p className="mt-6 text-base leading-6 text-gray-500 dark:text-gray-200">
-            Start selling online for free with all the features you need to
-            launch your local delivery and pick-up service, nothing more. We
-            don&#x27;t charge commission or monthly fees, keep all your margin.
+            This package will provide you the best refreshment service to the maximum of
+            the amount you pay.
           </p>
           <div className="mt-8">
             <div className="flex items-center">
@@ -36,7 +35,7 @@ function PackageCard() {
                   </svg>
                 </div>
                 <p className="ml-3 text-sm leading-5 text-gray-700 dark:text-gray-200">
-                  All illimited components
+                  Pastry
                 </p>
               </li>
               <li className="flex items-start lg:col-span-1">
@@ -54,7 +53,7 @@ function PackageCard() {
                   </svg>
                 </div>
                 <p className="ml-3 text-sm leading-5 text-gray-700 dark:text-gray-200">
-                  Own custom Tailwind styles
+                  Rolls
                 </p>
               </li>
               <li className="flex items-start lg:col-span-1">
@@ -72,7 +71,7 @@ function PackageCard() {
                   </svg>
                 </div>
                 <p className="ml-3 text-sm leading-5 text-gray-700 dark:text-gray-200">
-                  Unlimited Templates
+                  Swiss Roll
                 </p>
               </li>
               <li className="flex items-start lg:col-span-1">
@@ -90,7 +89,7 @@ function PackageCard() {
                   </svg>
                 </div>
                 <p className="ml-3 text-sm leading-5 text-gray-700 dark:text-gray-200">
-                  Free premium dashboard
+                  Eclairs
                 </p>
               </li>
               <li className="flex items-start lg:col-span-1">
@@ -108,7 +107,7 @@ function PackageCard() {
                   </svg>
                 </div>
                 <p className="ml-3 text-sm leading-5 text-gray-700 dark:text-gray-200">
-                  Best ranking
+                  Chocolate Fudge Cake
                 </p>
               </li>
               <li className="flex items-start lg:col-span-1">
@@ -126,7 +125,7 @@ function PackageCard() {
                   </svg>
                 </div>
                 <p className="ml-3 text-sm leading-5 text-gray-700 dark:text-gray-200">
-                  Prenium svg
+                  Cool Drink
                 </p>
               </li>
               <li className="flex items-start lg:col-span-1">
@@ -144,7 +143,7 @@ function PackageCard() {
                   </svg>
                 </div>
                 <p className="ml-3 text-sm leading-5 text-gray-700 dark:text-gray-200">
-                  My wife
+                  Ice Coffee
                 </p>
               </li>
             </ul>
@@ -152,7 +151,7 @@ function PackageCard() {
         </div>
         <div className="py-8 px-6 text-center bg-gray-50 dark:bg-gray-700 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
           <div className="mt-4 flex items-center justify-center text-5xl leading-none font-extrabold text-gray-900 dark:text-white">
-            <span>LKR 100000</span>
+            <span>LKR 3600</span>
           </div>
           <div className="mt-6">
             <div className="rounded-md shadow">

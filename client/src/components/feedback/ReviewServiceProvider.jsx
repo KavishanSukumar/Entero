@@ -93,7 +93,7 @@ return (
 
                 <div className="w-full p-2 shadow-xl mb-10 grid grid-cols-1">
                     <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
-                        <p className="text-gray-700"><i>Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web designLorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web designLorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web designLorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design</i></p>
+                        <p className="text-gray-700"><i>I am so delighted about the services, all the refreshment items are very yummy. I recomment the refreshment price which is worth for the paid price.</i></p>
                     </div>
                     
                 </div>

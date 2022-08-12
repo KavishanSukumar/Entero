@@ -133,7 +133,7 @@ function ManagePayments() {
             aria-label="basic tabs example"
           >
             <Tab label="Past Service Charges" {...a11yProps(0)} />
-            <Tab label="Paending Service Charges" {...a11yProps(1)} />
+            <Tab label="Pending Service Charges" {...a11yProps(1)} />
            
           </Tabs>
         </Box>
@@ -147,7 +147,7 @@ function ManagePayments() {
                 scope="col"
                 class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
               >
-                Payment id
+                Payment_ID
               </th>
 
               <th
@@ -191,10 +191,10 @@ function ManagePayments() {
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                15:00:56
+                12:00:56
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                25:05:2022
+                25:04:2022
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
@@ -213,10 +213,10 @@ function ManagePayments() {
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                15:00:56
+                14:00:00
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                25:05:2022
+                23:04:2022
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
@@ -235,10 +235,10 @@ function ManagePayments() {
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                15:00:56
+                13:00:56
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                25:05:2022
+                25:03:2022
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
@@ -257,10 +257,10 @@ function ManagePayments() {
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                15:00:56
+                10:00:56
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                25:05:2022
+              05:02:2022
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
@@ -282,7 +282,7 @@ function ManagePayments() {
                 15:00:56
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                25:05:2022
+                19:02:2022
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
@@ -315,7 +315,7 @@ function ManagePayments() {
                 scope="col"
                 class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
               >
-                Payment id
+                Payment_ID
               </th>
 
              
@@ -354,7 +354,7 @@ function ManagePayments() {
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              25:05:2022
+              2:04:2022
               </td>
              
 
@@ -375,7 +375,7 @@ function ManagePayments() {
 
              
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                25:05:2022
+                23:05:2022
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
@@ -395,7 +395,7 @@ function ManagePayments() {
 
               
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                25:05:2022
+                29:06:2022
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
@@ -415,7 +415,7 @@ function ManagePayments() {
 
              
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                25:05:2022
+                2:07:2022
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
@@ -435,7 +435,7 @@ function ManagePayments() {
 
              
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                25:05:2022
+                3:08:2022
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">

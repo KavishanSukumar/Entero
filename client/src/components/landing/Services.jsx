@@ -33,8 +33,7 @@ function Services() {
             Catering
           </h3>
           <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-            The Zero Gravity Pen can be used to write in any orientation,
-            including upside-down. It even works in outer space.
+            We provide breakfast, lunch, tea party, dinner, catering, refreshments and other services as you need
           </p>
         </div>
         <div className="bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
@@ -51,8 +50,7 @@ function Services() {
             Decorations
           </h3>
           <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-            The Zero Gravity Pen can be used to write in any orientation,
-            including upside-down. It even works in outer space.
+            The packages will be provided to fulfill your expected sights of view whcich can make your eye pleasant and pure
           </p>
         </div>
         <div className="bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
@@ -69,8 +67,7 @@ function Services() {
             Hall
           </h3>
           <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-            The Zero Gravity Pen can be used to write in any orientation,
-            including upside-down. It even works in outer space.
+            According to the number of guests, place, and your wish you can select the needed shelter to conduct your occations
           </p>
         </div>
         <div className="bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
@@ -87,8 +84,7 @@ function Services() {
             Photography
           </h3>
           <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-            The Zero Gravity Pen can be used to write in any orientation,
-            including upside-down. It even works in outer space.
+            To feel your special day on the rest of your time mark that moment of happiness as a click by using our photography services
           </p>
         </div>
       </div>

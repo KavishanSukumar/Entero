@@ -63,7 +63,7 @@ function EventsAdmin() {
               scope="col"
               class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
             >
-              ID
+              Booking_ID
             </th>
             <th
               scope="col"
@@ -86,7 +86,7 @@ function EventsAdmin() {
         <tbody className="">
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                0023
+                B001
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Kavin Fernando
@@ -118,7 +118,7 @@ function EventsAdmin() {
               scope="col"
               class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
             >
-              ID
+              Booking_ID
             </th>
             <th
               scope="col"
@@ -141,7 +141,7 @@ function EventsAdmin() {
         <tbody className="">
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                0023
+                B003
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Devin Fernando
@@ -175,7 +175,7 @@ function EventsAdmin() {
               scope="col"
               class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
             >
-              ID
+              Booking_ID
             </th>
             <th
               scope="col"
@@ -198,13 +198,13 @@ function EventsAdmin() {
         <tbody className="">
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                0023
+                B005
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Ridul Fernando
+                Hasini Perera
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Birthday
+                Reception
               </td>
               
 
