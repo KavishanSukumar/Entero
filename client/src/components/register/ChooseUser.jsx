@@ -14,7 +14,6 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   bgcolor: "background.paper",
-  border: "2px solid #000",
   boxShadow: 24,
   m: 3,
   p: 4,
@@ -57,10 +56,10 @@ function ChooseUser() {
       <div className="flex flex-col lg:flex-row  justify-center font-serif h-auto">
         <div
           onClick={handleOpenCustomer}
-          className="relative w-96 h-auto shadow-md rounded-md m-3 hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+          className="relative w-96 h-auto shadow-md rounded-md m-3 hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-opacity-75"
         >
           <div className="flex flex-row justify-center">
-            <PersonIcon className="!h-36 !w-36 text-green-600" />
+            <PersonIcon className="!h-36 !w-36 text-teal-600" />
           </div>
           <div>
             <p className="text-lg font-bold text-center py-2">Sign up as</p>
@@ -69,10 +68,10 @@ function ChooseUser() {
         </div>
         <div
           onClick={handleOpenService}
-          className="w-96  shadow-md rounded-md m-3 h-auto hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+          className="w-96  shadow-md rounded-md m-3 h-auto hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-opacity-75"
         >
           <div className="flex flex-row justify-center">
-            <ManageAccountsIcon className="!h-36 !w-36 text-orange-500" />
+            <ManageAccountsIcon className="!h-36 !w-36 text-pink-900" />
           </div>
           <div>
             <p className="text-lg font-bold text-center py-2">Sign up as</p>

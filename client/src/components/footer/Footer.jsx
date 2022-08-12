@@ -1,25 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import Ss from "../../Ss.svg";
 import { FaFacebookSquare, FaInstagram, FaTwitterSquare } from "react-icons/fa";
 import { ImLocation } from "react-icons/im";
 import { BsFillTelephoneFill } from "react-icons/bs";
 
 function Footer() {
   return (
-    <div className="py-3 px-3 grid md:grid-cols-3 gap-8 text-gray-300 bg-gray-500">
+    <div className="py-3 px-3 grid md:grid-cols-3 gap-8 text-black  shadow-3xl rounded-lg border-2 m-2">
       <div>
-        {/* <img src={Ss} alt="logo" className="w-36 h-36 object-cover mt-3" /> */}
+        <img
+          src="/assets/images/Ss.svg"
+          alt="logo"
+          className="w-36 h-36 object-cover "
+        />
         <p className="py-1">
           Entero is a event planning site which is dedicated to making any event
           you can imagine a reality. Make your event memorable with Entero.
         </p>
         <div className="flex justify-between my-3">
-          <BsFillTelephoneFill className="cursor-pointer" size={30} />
-          <ImLocation className="cursor-pointer" size={30} />
-          <FaFacebookSquare className="cursor-pointer" size={30} />
-          <FaInstagram className="cursor-pointer" size={30} />
-          <FaTwitterSquare className="cursor-pointer" size={30} />
+          <BsFillTelephoneFill
+            className="cursor-pointer text-green-600"
+            size={30}
+          />
+          <ImLocation className="cursor-pointer text-red-600" size={30} />
+          <FaFacebookSquare className="cursor-pointer text-sky-800" size={30} />
+          <FaInstagram className="cursor-pointer text-red-500" size={30} />
+          <FaTwitterSquare className="cursor-pointer text-cyan-500" size={30} />
         </div>
       </div>
       <div className="md:col-span-2 flex justify-around mt-3">
@@ -56,4 +62,3 @@ function Footer() {
 }
 
 export default Footer;
-
