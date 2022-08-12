@@ -9,7 +9,7 @@ import ChooseUser from "./components/register/ChooseUser";
 function App() {
   return (
     <div className="App">
-      < ChooseUser/>
+      < Home/>
     </div>
   );
 }

@@ -1,6 +1,36 @@
-import React from "react";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import Input from "@mui/material/Input";
+import FilledInput from "@mui/material/FilledInput";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import InputAdornment from "@mui/material/InputAdornment";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
+import TextField from "@mui/material/TextField";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 function ServiceRegisterUser() {
+  const [values, setValues] = React.useState({
+    showPassword: false,
+  });
+
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleClickShowPassword = () => {
+    setValues({
+      ...values,
+      showPassword: !values.showPassword,
+    });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
   return (
     <div className="flex flex-col justify-center h-100 place-items-center font-serif mt-40 ">
       <form className="max-w-fit w-full mx-auto bg-white p-4  rounded-lg border-2">
@@ -17,24 +47,51 @@ function ServiceRegisterUser() {
         </div>
 
         <div className="flex flex-row justify-around">
-          <div className="flex flex-col basis-5/12 mr-1">
-            <label>Password</label>
-            <input
-              className="border  p-2"
-              placeholder="Enter password"
-              type="password"
-              required
+          <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+            <InputLabel htmlFor="outlined-adornment-password">
+              Password
+            </InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-password"
+              type={values.showPassword ? "text" : "password"}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
+              label="Password"
             />
-          </div>
-          <div className="flex flex-col basis-5/12 ml-1">
-            <label className="">Confirm Password</label>
-            <input
-              className="border p-2"
-              placeholder="Re-Enter Password"
-              type="password"
-              required
+          </FormControl>
+
+          <FormControl sx={{ m: 1, width: "25ch" }} variant="filled">
+            <InputLabel htmlFor="filled-adornment-password">
+              Password
+            </InputLabel>
+            <FilledInput
+              id="filled-adornment-password"
+              type={values.showPassword ? "text" : "password"}
+              onChange={handleChange("password")}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
             />
-          </div>
+          </FormControl>
         </div>
 
         <div className="flex items-center justify-between ">
