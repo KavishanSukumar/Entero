@@ -88,7 +88,7 @@ function EventsAdmin() {
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
 
 
-                E100011
+                B006
 
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
@@ -110,7 +110,7 @@ function EventsAdmin() {
             </tr>
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                E100012
+                B007
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Fasheen Cooray
@@ -131,7 +131,7 @@ function EventsAdmin() {
             </tr>
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                E100013
+                B008
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Milki Dayah

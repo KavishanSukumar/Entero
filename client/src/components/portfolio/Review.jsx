@@ -5,7 +5,7 @@ import StarHalfIcon from "@mui/icons-material/StarHalf";
 import PersonIcon from "@mui/icons-material/Person";
 
 function Review() {
-  let stars = 2.5;
+  let stars = 5;
   const starlist = [];
 
   for (let i = 1; i <= 5; i++) {
@@ -35,16 +35,13 @@ function Review() {
             <PersonIcon />
           </div>
           <div className="flex flex-col justify-center">
-            <p className="text-xs">42 Reviews</p>
+            <p className="text-xs">1 Review</p>
           </div>
         </div>
       </div>
       <div>
         <ReviewCard data={starlist} />
-        <ReviewCard data={starlist} />
-        <ReviewCard data={starlist} />
-        <ReviewCard data={starlist} />
-        <ReviewCard data={starlist} />
+        
       </div>
     </div>
   );
