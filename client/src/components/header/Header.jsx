@@ -1,21 +1,15 @@
-
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Link, NavLink } from "react-router-dom";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import Ss from "../../Ss.svg";
 import Login from "../login/Login";
 
-
 function Header() {
-  
-        const [nav, setNav] = useState(false);
-        
-        const handleNav = () => {
-        setNav(!nav);
-        };
+  const [nav, setNav] = useState(false);
 
-
+  const handleNav = () => {
+    setNav(!nav);
+  };
 
   let [isOpen, setIsOpen] = useState(false);
 
@@ -28,8 +22,6 @@ function Header() {
   }
 
   return (
-
- 
     <>
       {/* Login Form */}
       <Transition appear show={isOpen} as={Fragment}>
@@ -81,7 +73,11 @@ function Header() {
         {/* Before login styles  */}
 
         {/* header logo */}
-        <img src={Ss} alt="logo" className="w-20 h-14 object-cover mt-3" />
+        <img
+          src="/assets/images/Ss.svg"
+          alt="logo"
+          className="w-20 h-14 object-cover mt-3"
+        />
         {/* <h1 className="text-3xl font-bold text-[#00df9a] px-4">Logo</h1> */}
 
         {/*header links */}
@@ -123,7 +119,7 @@ function Header() {
               }
               to="/aboutus"
             >
-              About
+              About Us
             </NavLink>
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
@@ -133,7 +129,7 @@ function Header() {
               }
               to="/contactus"
             >
-              Contact
+              Contact Us
             </NavLink>
           </li>
         </ul>
@@ -154,66 +150,89 @@ function Header() {
           {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
         </div>
 
-        <ul
+        <div
           className={
             nav
-              ? "fixed left-0 top-9 w-full  justify-start p-8 h-full border-r border-r-gray-900 bg-[#000300]  md:hidden"
+              ? "fixed left-0 top-14 w-full p-2 min-h-full overflow-y-auto bg-gray-800 text-white  md:hidden"
               : " fixed left-[-100%]"
           }
         >
-          <li className="p-4 border-b border-gray-600 text-white hover:text-blue-500">
-            <NavLink
-              className={({ isActive }) => (isActive ? "text-blue-500" : "")}
-              to="/"
-            >
-              Home
-            </NavLink>
-          </li>
-          <li className="p-4 border-b border-gray-600 text-white hover:text-blue-500">
-            <NavLink
-              className={({ isActive }) => (isActive ? "text-blue-500" : "")}
-              to="/events"
-            >
-              Events
-            </NavLink>
-          </li>
-          <li className="p-4 border-b border-gray-600 text-white hover:text-blue-500">
-            <NavLink
-              className={({ isActive }) => (isActive ? "text-blue-500" : "")}
-              to="/services"
-            >
-              Services
-            </NavLink>
-          </li>
-          <li className="p-4 border-b border-gray-600 text-white hover:text-blue-500">
-            <NavLink
-              className={({ isActive }) => (isActive ? "text-blue-500" : "")}
-              to="/aboutus"
-            >
-              About us
-            </NavLink>
-          </li>
-          <li className="p-4 border-b mb-2 border-gray-600 text-white hover:text-blue-500">
-            <NavLink
-              className={({ isActive }) => (isActive ? "text-blue-500" : "")}
-              to="/contactus"
-            >
-              Contact Us
-            </NavLink>
-          </li>
-          <li className="p-4">
-            <Link
-              to="/signin"
-              className="bg-blue-500 text-white hover:bg-blue-400 px-5 py-2 rounded"
-            >
-              Sign in sssc
-            </Link>
-          </li>
-        </ul>
+          <ul className=" text-sm">
+            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
+                    : "inline-flex items-center "
+                }
+              >
+                <span className="ml-3">Home</span>
+              </NavLink>
+            </li>
+            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
+                    : "inline-flex items-center "
+                }
+              >
+                <span className="ml-3">Services</span>
+              </NavLink>
+            </li>
+            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
+              <NavLink
+                to="/adminusercustomer"
+                className={({ isActive }) =>
+                  isActive
+                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
+                    : "inline-flex items-center "
+                }
+              >
+                <span className="ml-3">Events</span>
+              </NavLink>
+            </li>
+
+            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
+                    : "inline-flex items-center "
+                }
+              >
+                <span className="ml-3">About Us</span>
+              </NavLink>
+            </li>
+            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
+                    : "inline-flex items-center "
+                }
+              >
+                <span className="ml-3">Contact Us</span>
+              </NavLink>
+            </li>
+
+            <li className="p-4">
+              <Link
+                to="/"
+                className="bg-blue-500 text-white hover:bg-blue-400 px-5 py-2 rounded"
+              >
+                Sign in
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </>
   );
-        
 }
 
 export default Header;

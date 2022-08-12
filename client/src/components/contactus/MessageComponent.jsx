@@ -64,20 +64,7 @@ function MessageComponent() {
     return (
         
     <div className="relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
-        {/*Start of the insights */}
-        <div className="p-2 shadow-xl mb-10 grid grid-cols-3">
-            <div className=" bg-slate-100 p-2 text-center md:h-10 shadow-inner mx-2 rounded-xl">
-            <p className="text-base font-bold">Recieved - 28</p>
-            </div>
-            <div className=" bg-slate-100 p-2 text-center md:h-10 shadow-inner mx-2 rounded-xl">
-            <p className="text-base font-bold">Replied - 28</p>
-            </div>
-            <div className="bg-slate-100 p-2 text-center md:h-10 shadow-inner mx-2 rounded-xl">
-            <p className="text-base font-bold">Discarded - 6</p>
-            </div>
-
-        </div>
-        {/*end of insights */}
+        
 
         {/*Start of the section container */}
         <div className="p-2 bg-gray-100 shadow-2xl mb-5">

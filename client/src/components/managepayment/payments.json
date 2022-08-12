@@ -1,0 +1,10 @@
+[   {"userid":1,"service_provider":"Bram", "started_date":"4/22/2022",     "status":"done","ispaid":"yes"},
+    {"userid":2,"service_provider":"Berni","started_date":"8/13/2021",     "status":"done(delayed)","ispaid":"No"},
+    {"userid":3,"service_provider":"Nissy","started_date":"7/20/2022",     "status":"done","ispaid":"No"},
+    {"userid":4,"service_provider":"Berkley","started_date":"1/14/2022",   "status":"done","ispaid":"yes"},
+    {"userid":5,"service_provider":"Michaella","started_date":"ongoing", "status":"ongoing","ispaid":"yes"},
+    {"userid":6,"service_provider":"Ethan","started_date":"1/6/2022",      "status":"done","ispaid":"yes"},
+    {"userid":7,"service_provider":"Benedetto","started_date":"ongoing", "status":"ongoing","ispaid":"No"},
+    {"userid":8,"service_provider":"Jessey","started_date":"12/19/2021",   "status":"done","ispaid":"yes"},
+    {"userid":9,"service_provider":"Hester","started_date":"ongoing",    "status":"delayed","ispaid":"No"},
+    {"userid":10,"service_provider":"Clarissa","started_date":"1/29/2022", "status":"done","ispaid":"yes"}]
