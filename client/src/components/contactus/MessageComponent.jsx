@@ -77,10 +77,10 @@ function MessageComponent() {
                     {/*The card */}
                 <div className={!typeReply?"p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300":"hidden"}>
                     {/*Name of the sender */}
-                    <h4 className='mb-3 font-medium text-center'>Shakir</h4>
+                    <h4 className='mb-3 font-medium text-center'>Kalana Bushan</h4>
                     
                     {/*content */}
-                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
+                    <p className="mb-7 text-gray-700">I would like to know about the system service providers trustability.And can I make a booking without creating an account..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
                     </p>
                     
                     
@@ -104,10 +104,10 @@ function MessageComponent() {
                     {/*The card */}
                 <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300">
                     {/*Name of the sender */}
-                    <h4 className='mb-3 font-medium text-center'>Shakir</h4>
+                    <h4 className='mb-3 font-medium text-center'>Tharindu Thaathvika</h4>
                     
                     {/*content */}
-                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
+                    <p className="mb-7 text-gray-700">Why are the services limited to 4.I am a tailor and i want to use this system but unfortunately i have no option and..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
                     </p>
                     
                     
@@ -130,10 +130,10 @@ function MessageComponent() {
                     {/*The card */}
                 <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300">
                     {/*Name of the sender */}
-                    <h4 className='mb-3 font-medium text-center'>Shakir</h4>
+                    <h4 className='mb-3 font-medium text-center'>Solangara Hetti</h4>
                     
                     {/*content */}
-                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
+                    <p className="mb-7 text-gray-700">This is a timely system and appreciate how this system will help the general public to overcome a massive issue..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
                     </p>
                     
                     
@@ -156,10 +156,10 @@ function MessageComponent() {
                     {/*The card */}
                 <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300">
                     {/*Name of the sender */}
-                    <h4 className='mb-3 font-medium text-center'>Shakir</h4>
+                    <h4 className='mb-3 font-medium text-center'>Metha Guru</h4>
                     
                     {/*content */}
-                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
+                    <p className="mb-7 text-gray-700">This is a good system and i would like to know som of the functionalities that you will provide in the future..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
                     </p>
                     
                     
@@ -238,7 +238,7 @@ function MessageComponent() {
                     <h4 className='mb-3 font-medium text-center '>Shakir</h4>
                     
                     {/*content */}
-                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400 cursor-pointer" onClick={handlePopupR}>Read more</b>
+                    <p className="mb-7 text-gray-700">What inspired you guys to build such a system and will the trial period increase in the future so that we can..<b className="text-blue-400 cursor-pointer" onClick={handlePopupR}>Read more</b>
                     </p>
                     
                     
@@ -257,11 +257,11 @@ function MessageComponent() {
             </div>
             {/*end of the grid */}
 
-            <div className="p-2 flex justify-end">
+            {/* <div className="p-2 flex justify-end">
                 <button className="bg-cyan-500 hover:bg-cyan-400 text-white text-center p-2 rounded-lg w-20">
                     More
                 </button>
-            </div>
+            </div> */}
             
         
         </div>
