@@ -5,8 +5,6 @@ function Packages() {
   return (
     <div className="flex flex-col">
       <PackageCard />
-      <PackageCard />
-      <PackageCard />
     </div>
   );
 }

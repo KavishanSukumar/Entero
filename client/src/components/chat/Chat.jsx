@@ -5,7 +5,7 @@ import SendIcon from "@mui/icons-material/Send";
 
 function chat() {
   return (
-    <div className="flex flex-row mt-14 md:mt-0 max-h-screen">
+    <div className="flex flex-row mt-14 mb-10 md:mt-0 max-h-screen h-auto">
       <div className="hidden lg:flex flex-col basis-1/3  max-h-screen border-r-2 ">
         {/*----------------------------------- Search Bar------------------------------- */}
         <div className="mt-6 ml-3 mr-1">
@@ -34,174 +34,48 @@ function chat() {
             <div>
               <img
                 className="inline-block h-14 w-14 rounded-full ring-2 ring-gray-500"
-                src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                src="https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/277582841_5239128016098567_5556185992353256575_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGKp4fnlNOqfC6OxI8ZuGz0AYIcaGARm5ABghxoYBGbkJ_pSaYhzhJ0teluCZKKj-kYsDS0AzDUItxxmzTiIc3k&_nc_ohc=T5QAw0otHBIAX86oCPh&tn=cj98qFRJLNhnK42a&_nc_ht=scontent-sin6-2.xx&oh=00_AT9NDQOLlJHLh61x6xsdiuwxZhlYRUl8QmY-CZndSS1wIw&oe=62FB6324"
                 alt=""
               />
             </div>
             <div className="col-span-5 flex flex-col">
-              <p className="text-lg font-medium capitalize truncate">
-                kavishan sukumar
-              </p>
+              <p className="text-lg font-medium capitalize truncate">Fabs</p>
               <p className="text-sm italic truncate overflow-hidden">
-                Thank you kavishan Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Aspernatur labore totam fuga laboriosam modi
-                nihil corporis quasi consequatur illum molestiae officia,
-                distinctio nam obcaecati fugit quis earum maiores iusto.
-                Nostrum.
+                Thank you shakir for connecting us
               </p>
             </div>
           </div>
+          {/* ------------------------------------------------------------ -------------------*/}
+
+          {/* ------------------------------------------------------------ -------------------*/}
+
           {/* ------------------------------------------------------------ -------------------*/}
           <div className="grid grid-cols-6 p-3 m-3 border-b-2">
             <div>
               <img
                 className="inline-block h-14 w-14 rounded-full ring-2 ring-black"
-                src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                src="https://pereraandsons.com/assets/img/logo.svg"
                 alt=""
               />
             </div>
             <div className="col-span-5 flex flex-col">
               <p className="text-lg font-medium capitalize truncate">
-                Shivakumar Athauda Rallage Priskila Athauda
+                Perera & Sons
               </p>
               <p className="text-sm italic truncate overflow-hidden">
-                Thank you kavishan
+                Thank you shakir
               </p>
             </div>
           </div>
           {/* ------------------------------------------------------------ -------------------*/}
-          <div className="grid grid-cols-6 p-3 m-3 border-b-2">
-            <div>
-              <img
-                className="inline-block h-14 w-14 rounded-full ring-2 ring-black"
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
-                alt=""
-              />
-            </div>
-            <div className="col-span-5 flex flex-col">
-              <p className="text-lg font-medium capitalize truncate">
-                Shakir Saheel
-              </p>
-              <p className="text-sm italic truncate overflow-hidden">
-                Thank you kavishan
-              </p>
-            </div>
-          </div>
-          {/* ------------------------------------------------------------ -------------------*/}
-          <div className="grid grid-cols-6 p-3 m-3 border-b-2">
-            <div>
-              <img
-                className="inline-block h-14 w-14 rounded-full ring-2 ring-black"
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-              />
-            </div>
-            <div className="col-span-5 flex flex-col">
-              <p className="text-lg font-medium capitalize truncate">
-                Senal Punsara
-              </p>
-              <p className="text-sm italic truncate overflow-hidden">
-                Thank you kavishan
-              </p>
-            </div>
-          </div>
-          {/* ------------------------------------------------------------ -------------------*/}
-          <div className="grid grid-cols-6 p-3 m-3 border-b-2">
-            <div>
-              <img
-                className="inline-block h-14 w-14 rounded-full ring-2 ring-black"
-                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-              />
-            </div>
-            <div className="col-span-5 flex flex-col">
-              <p className="text-lg font-medium capitalize truncate">
-                Yonali Fernando
-              </p>
-              <p className="text-sm italic truncate overflow-hidden">
-                Thank you kavishan
-              </p>
-            </div>
-          </div>
-          {/* ------------------------------------------------------------ -------------------*/}
-          <div className="grid grid-cols-6 p-3 m-3 border-b-2">
-            <div>
-              <img
-                className="inline-block h-14 w-14 rounded-full ring-2 ring-black"
-                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-              />
-            </div>
-            <div className="col-span-5 flex flex-col">
-              <p className="text-lg font-medium capitalize truncate">
-                Yonali Fernando
-              </p>
-              <p className="text-sm italic truncate overflow-hidden">
-                Thank you kavishan
-              </p>
-            </div>
-          </div>
-          {/* ------------------------------------------------------------ -------------------*/}
-          <div className="grid grid-cols-6 p-3 m-3 border-b-2">
-            <div>
-              <img
-                className="inline-block h-14 w-14 rounded-full ring-2 ring-black"
-                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-              />
-            </div>
-            <div className="col-span-5 flex flex-col">
-              <p className="text-lg font-medium capitalize truncate">
-                Yonali Fernando
-              </p>
-              <p className="text-sm italic truncate overflow-hidden">
-                Thank you kavishan
-              </p>
-            </div>
-          </div>
-          {/* ------------------------------------------------------------ -------------------*/}
-          <div className="grid grid-cols-6 p-3 m-3 border-b-2">
-            <div>
-              <img
-                className="inline-block h-14 w-14 rounded-full ring-2 ring-black"
-                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-              />
-            </div>
-            <div className="col-span-5 flex flex-col">
-              <p className="text-lg font-medium capitalize truncate">
-                Yonali Fernando
-              </p>
-              <p className="text-sm italic truncate overflow-hidden">
-                Thank you kavishan
-              </p>
-            </div>
-          </div>
-          {/* ------------------------------------------------------------ -------------------*/}
-          <div className="grid grid-cols-6 p-3 m-3 border-b-2">
-            <div>
-              <img
-                className="inline-block h-14 w-14 rounded-full ring-2 ring-black"
-                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-              />
-            </div>
-            <div className="col-span-5 flex flex-col">
-              <p className="text-lg font-medium capitalize truncate">
-                Yonali Fernando
-              </p>
-              <p className="text-sm italic truncate overflow-hidden">
-                Thank you kavishan
-              </p>
-            </div>
-          </div>
+
           {/* ------------------------------------------------------------ -------------------*/}
         </div>
       </div>
       <div className=" flex flex-col lg:basis-2/3 basis-full mt-6 ml-3">
         <div className="flex flex-row justify-start items-center border-b-2">
           <ArrowBackIosIcon className="!w-5 !h-10 mr-5 lg:!hidden" />
-          <p className="font-serif text-2xl capitalize">kavishan Sukumar</p>
+          <p className="font-serif text-2xl capitalize">Fabs</p>
         </div>
         <div className="mt-3 overflow-auto max-h-screen">
           {/* ------------------------------------------------------------------------------- */}
@@ -209,23 +83,15 @@ function chat() {
             <div>
               <img
                 className="inline-block h-9 w-9 rounded-full ring-2 ring-black"
-                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                src="https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/277582841_5239128016098567_5556185992353256575_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGKp4fnlNOqfC6OxI8ZuGz0AYIcaGARm5ABghxoYBGbkJ_pSaYhzhJ0teluCZKKj-kYsDS0AzDUItxxmzTiIc3k&_nc_ohc=T5QAw0otHBIAX86oCPh&tn=cj98qFRJLNhnK42a&_nc_ht=scontent-sin6-2.xx&oh=00_AT9NDQOLlJHLh61x6xsdiuwxZhlYRUl8QmY-CZndSS1wIw&oe=62FB6324"
                 alt=""
               />
             </div>
             <div className="flex ">
               <p className="text-sm italic ml-3 max-w-md">
-                Thank you kavishan Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Nulla dolorem aspernatur aliquid? Voluptate
-                sit, ratione consequuntur voluptas sint ex veniam dolore esse
-                consectetur quae magnam impedit, voluptatem, iste maiores
-                exercitationem? Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Unde expedita natus quae nisi voluptas
-                quisquam. Fugit perferendis voluptas tenetur, suscipit minima
-                illum ab possimus iure fuga. Magni iure ea temporibus provident
-                possimus, deserunt vero, maiores distinctio sunt pariatur in
-                similique error voluptas sapiente facere quis veritatis,
-                reprehenderit commodi! Sit, nemo!
+                We have package related to you requirements. and those are
+                vissible in the portfolio section. You can refer them to us for
+                more details.
               </p>
             </div>
           </div>
@@ -234,23 +100,13 @@ function chat() {
             <div>
               <img
                 className="inline-block h-9 w-9 rounded-full ring-2 ring-black"
-                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                src="/assets/images/Shakir.jpg"
                 alt=""
               />
             </div>
             <div className="flex ">
               <p className="text-sm italic ml-3 max-w-md">
-                Thank you kavishan Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Nulla dolorem aspernatur aliquid? Voluptate
-                sit, ratione consequuntur voluptas sint ex veniam dolore esse
-                consectetur quae magnam impedit, voluptatem, iste maiores
-                exercitationem? Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Unde expedita natus quae nisi voluptas
-                quisquam. Fugit perferendis voluptas tenetur, suscipit minima
-                illum ab possimus iure fuga. Magni iure ea temporibus provident
-                possimus, deserunt vero, maiores distinctio sunt pariatur in
-                similique error voluptas sapiente facere quis veritatis,
-                reprehenderit commodi! Sit, nemo!
+                Thank you very much...
               </p>
             </div>
           </div>
@@ -259,23 +115,13 @@ function chat() {
             <div>
               <img
                 className="inline-block h-9 w-9 rounded-full ring-2 ring-black"
-                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                src="https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/277582841_5239128016098567_5556185992353256575_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGKp4fnlNOqfC6OxI8ZuGz0AYIcaGARm5ABghxoYBGbkJ_pSaYhzhJ0teluCZKKj-kYsDS0AzDUItxxmzTiIc3k&_nc_ohc=T5QAw0otHBIAX86oCPh&tn=cj98qFRJLNhnK42a&_nc_ht=scontent-sin6-2.xx&oh=00_AT9NDQOLlJHLh61x6xsdiuwxZhlYRUl8QmY-CZndSS1wIw&oe=62FB6324"
                 alt=""
               />
             </div>
             <div className="flex ">
               <p className="text-sm italic ml-3 max-w-md">
-                Thank you kavishan Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Nulla dolorem aspernatur aliquid? Voluptate
-                sit, ratione consequuntur voluptas sint ex veniam dolore esse
-                consectetur quae magnam impedit, voluptatem, iste maiores
-                exercitationem? Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Unde expedita natus quae nisi voluptas
-                quisquam. Fugit perferendis voluptas tenetur, suscipit minima
-                illum ab possimus iure fuga. Magni iure ea temporibus provident
-                possimus, deserunt vero, maiores distinctio sunt pariatur in
-                similique error voluptas sapiente facere quis veritatis,
-                reprehenderit commodi! Sit, nemo!
+                If you want any futher detail please contact us
               </p>
             </div>
           </div>
@@ -284,23 +130,13 @@ function chat() {
             <div>
               <img
                 className="inline-block h-9 w-9 rounded-full ring-2 ring-black"
-                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                src="https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/277582841_5239128016098567_5556185992353256575_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGKp4fnlNOqfC6OxI8ZuGz0AYIcaGARm5ABghxoYBGbkJ_pSaYhzhJ0teluCZKKj-kYsDS0AzDUItxxmzTiIc3k&_nc_ohc=T5QAw0otHBIAX86oCPh&tn=cj98qFRJLNhnK42a&_nc_ht=scontent-sin6-2.xx&oh=00_AT9NDQOLlJHLh61x6xsdiuwxZhlYRUl8QmY-CZndSS1wIw&oe=62FB6324"
                 alt=""
               />
             </div>
             <div className="flex ">
               <p className="text-sm italic ml-3 max-w-md">
-                Thank you kavishan Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Nulla dolorem aspernatur aliquid? Voluptate
-                sit, ratione consequuntur voluptas sint ex veniam dolore esse
-                consectetur quae magnam impedit, voluptatem, iste maiores
-                exercitationem? Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Unde expedita natus quae nisi voluptas
-                quisquam. Fugit perferendis voluptas tenetur, suscipit minima
-                illum ab possimus iure fuga. Magni iure ea temporibus provident
-                possimus, deserunt vero, maiores distinctio sunt pariatur in
-                similique error voluptas sapiente facere quis veritatis,
-                reprehenderit commodi! Sit, nemo!
+                Thank you shakir for connecting us...
               </p>
             </div>
           </div>
