@@ -28,7 +28,23 @@ import ServiceProviderChat from "./pages/afterLogin/serviceProvider/ServiceProvi
 import ServiceProviderCharges from "./pages/afterLogin/serviceProvider/ServiceProviderCharges";
 import ServiceproviderRatings from "./pages/afterLogin/serviceProvider/ServiceproviderRatings";
 import ServiceProviderBookings from "./pages/afterLogin/serviceProvider/ServiceProviderBookings";
+
 import ServiceProviderProfile from "./pages/afterLogin/serviceProvider/ServiceProviderProfile";
+
+import { FiSettings } from "react-icons/fi";
+
+
+
+import CustomerServices2 from "./pages/afterLogin/customer/CustomerServices2";
+
+import CustomerEvents2 from "./pages/afterLogin/customer/CustomerEvents2";
+
+import BusinessPolicies from "./pages/beforeLogin/businesspolicies/BusinessPolicies";
+
+import TermsCondition from "./pages/beforeLogin/termscondition/TermsCondition";
+import Appointment from "./pages/afterLogin/customer/Appointment";
+import Appointment2 from "./pages/afterLogin/customer/Appointment2";
+
 
 function App() {
   return (
@@ -61,7 +77,9 @@ function App() {
         <Route exact path="/customerprofile" element={<CustomerProfile />} />
         <Route exact path="/customerhome" element={<CustomerHome />} />
         <Route exact path="/customerevents" element={<CustomerEvents />} />
+        <Route exact path="/customerevents2" element={<CustomerEvents2 />} />
         <Route exact path="/customerservices" element={<CustomerServices />} />
+        <Route exact path="/customerservices2" element={<CustomerServices2 />} />
         <Route exact path="/customerbookings" element={<CustomerBookings />} />
         <Route exact path="/customerappointments" element={<CustomerAppointments />}/>
         <Route exact path="/customerchat" element={<CustomerChat />} />
