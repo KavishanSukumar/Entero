@@ -198,7 +198,7 @@ function ManagePayments() {
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                Premium Montly
+                Premium Monthly
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
                 LKR 2000
@@ -207,9 +207,103 @@ function ManagePayments() {
                 Visa
               </td>
             </tr>
+            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                P002
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                15:00:56
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                25:05:2022
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                Premium Monthly
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                LKR 2000
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                Visa
+              </td>
+            </tr>
+            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                P003
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                15:00:56
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                25:05:2022
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                Premium 6 Months
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                LKR 11000
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                Master Card
+              </td>
+            </tr>
+            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                P004
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                15:00:56
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                25:05:2022
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                Premium Monthly
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                LKR 2000
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                Visa
+              </td>
+            </tr>
+            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                P005
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                15:00:56
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                25:05:2022
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                Premium 6 Months
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                LKR 11000
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                Master Card
+              </td>
+            </tr>
+
+
+
           </tbody>
         </table>
       </div>
+ {/* =======================================================================================================================================
+                                                 pending service charges
+ ======================================================================================================================================= */}
 
         </TabPanel>
         <TabPanel value={value} index={1}>
@@ -224,17 +318,12 @@ function ManagePayments() {
                 Payment id
               </th>
 
+             
               <th
                 scope="col"
                 class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
               >
-                Time
-              </th>
-              <th
-                scope="col"
-                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-              >
-                Date
+                Due Date
               </th>
 
               <th
@@ -265,14 +354,92 @@ function ManagePayments() {
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                15:00:56
+              25:05:2022
               </td>
+             
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                Premium Monthly
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                LKR 2000
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                Pending
+              </td>
+            </tr>
+            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                P002
+              </td>
+
+             
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 25:05:2022
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                Premium Montly
+                Premium Monthly
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                LKR 2000
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                Pending
+              </td>
+            </tr>
+            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                P003
+              </td>
+
+              
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                25:05:2022
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                Premium Monthly
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                LKR 2000
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                Pending
+              </td>
+            </tr>
+            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                P004
+              </td>
+
+             
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                25:05:2022
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                Premium Monthly
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                LKR 2000
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                Pending
+              </td>
+            </tr>
+            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                P005
+              </td>
+
+             
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                25:05:2022
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                Premium Monthly
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
                 LKR 2000
