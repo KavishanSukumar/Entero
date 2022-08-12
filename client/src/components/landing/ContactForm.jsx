@@ -44,7 +44,7 @@ function ContactForm() {
                 ></textarea>
               </div>
 
-              <button className="inline-block self-end bg-black text-white font-bold rounded-lg px-6 py-2 uppercase text-sm hover:bg-sky-700 ">
+              <button className="inline-block self-end bg-cyan-500 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm hover:bg-cyan-400 ">
                 Send
               </button>
             </form>

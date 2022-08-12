@@ -132,7 +132,7 @@ function AdminServiceProviders() {
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 <button
                   onClick={handlePopup}
-                  className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                  className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                 >
                   View
                 </button>
@@ -188,19 +188,19 @@ function AdminServiceProviders() {
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 <button
                   onClick={handlePopupS}
-                  className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                  className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                 >
                   View
                 </button>
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                   Accept
                 </button>
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                   Reject
                 </button>
               </td>
@@ -281,7 +281,7 @@ function AdminServiceProviders() {
 
               {/*The buttons */}
               <div className="flex flex-col w-44 p-4">
-                <button className=" border-2   p-1 mb-3 rounded hover:bg-transparent hover:border-black">
+                <button className=" border-2   p-1 mb-3 rounded bg-cyan-500 hover:bg-cyan-400">
                   Remove
                 </button>
               </div>

@@ -11,10 +11,10 @@ function UserProfileImage() {
 
             {/*The buttons */}
             <div className="flex flex-col items-center justify-center lg:w-44 xl:w-56 ">
-                <button className="p-2 w-24 lg:w-36 bg-gray-100 border-2 text-xs lg:text-base mb-1 rounded hover:bg-transparent hover:border-black lg:mt-0 ">
+                <button className="p-2 w-24 lg:w-36 bg-cyan-500 border-2 text-xs lg:text-base mb-1 rounded hover:bg-cyan-400 text-white lg:mt-0 ">
                     Change
                 </button>
-                <button className="p-2 w-24 lg:w-36 bg-gray-100 border-2 text-xs  lg:text-base rounded hover:bg-transparent hover:border-black lg:mt-0 ">
+                <button className="p-2 w-24 lg:w-36 bg-cyan-500 border-2 text-xs  lg:text-base rounded hover:bg-cyan-400 text-white lg:mt-0 ">
                     Remove
                 </button>
             </div>
