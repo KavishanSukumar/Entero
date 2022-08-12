@@ -1,6 +1,10 @@
 import React,{useState} from 'react';
 import { BsFillCalendar2CheckFill} from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
+import PersonIcon from '@mui/icons-material/Person';
+import BookIcon from '@mui/icons-material/Book';
+import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+import ChatIcon from '@mui/icons-material/Chat';
 
 function CustomerSidebar() {
     
@@ -30,7 +34,7 @@ function CustomerSidebar() {
 
                 <div className="relative inline-flex items-center mb-4">
                     <NavLink to="/customerprofile" className="cursor-pointer" onMouseEnter={()=>handleLabel(2)} onMouseLeave={()=>handleLabel(2)}>
-                        <BsFillCalendar2CheckFill className="w-16 h-16 text-gray-400 hover:scale-110 hover:bg-gray-200"/>
+                        <PersonIcon className="!w-12 !h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
                     </NavLink>
 
                     <span className={profileLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Profile</span>
@@ -38,21 +42,21 @@ function CustomerSidebar() {
 
                 <div className="relative inline-flex items-center mb-4">
                     <NavLink to="/customerbookings" className="cursor-pointer" onMouseEnter={()=>handleLabel(3)} onMouseLeave={()=>handleLabel(3)}>
-                        <BsFillCalendar2CheckFill className="w-16 h-16 text-gray-400 hover:scale-110 hover:bg-gray-200"/>
+                        <BookIcon className="!w-12 !h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
                     </NavLink>
 
                     <span className={bookingLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Bookings</span>
                 </div> 
                 <div className="relative inline-flex items-center mb-4">
                     <NavLink to="/customerappointments" className="cursor-pointer" onMouseEnter={()=>handleLabel(4)} onMouseLeave={()=>handleLabel(4)}>
-                        <BsFillCalendar2CheckFill className="w-16 h-16 text-gray-400 hover:scale-110 hover:bg-gray-200"/>
+                        <EventAvailableIcon className="!w-12 !h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
                     </NavLink>
 
                     <span className={appointmentLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Appointments</span>
                 </div> 
                 <div className="relative inline-flex items-center mb-4">
                     <NavLink to="/customerchat" className="cursor-pointer" onMouseEnter={()=>handleLabel(5)} onMouseLeave={()=>handleLabel(5)}>
-                        <BsFillCalendar2CheckFill className="w-16 h-16 text-gray-400 hover:scale-110 hover:bg-gray-200"/>
+                        <ChatIcon className="!w-12 !h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
                     </NavLink>
 
                     <span className={chatLabel? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white":"hidden"}>Chat</span>

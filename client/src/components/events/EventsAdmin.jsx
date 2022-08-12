@@ -224,19 +224,7 @@ function EventsAdmin() {
 
   return (
     <div className=" relative  p-5 w-full mt-14 md:mt-0 mb-2 h-full">
-      {/*Start of the insights */}
-      <div className="p-2 shadow-xl mb-10 grid grid-cols-3">
-        <div className=" bg-slate-100 p-2 text-center md:h-10 shadow-inner mx-2 rounded-xl">
-          <p className="text-base font-bold">Pending - 12</p>
-        </div>
-        <div className=" bg-slate-100 p-2 text-center md:h-10 shadow-inner mx-2 rounded-xl">
-          <p className="text-base font-bold">Past - 28</p>
-        </div>
-        <div className="bg-slate-100 p-2 text-center md:h-10 shadow-inner mx-2 rounded-xl">
-          <p className="text-base font-bold">Cancelled - 6</p>
-        </div>
-      </div>
-      {/*end of insights */}
+      
 
       <div className="flex p-1 md:px-4 py-2 ">
         <div className="relative w-64">

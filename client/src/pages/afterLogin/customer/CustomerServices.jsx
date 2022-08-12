@@ -1,5 +1,6 @@
 import React from 'react';
 import CustomerHeader from '../../../components/header/CustomerHeader';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -168,7 +169,7 @@ function CustomerServices() {
                     </div>
 
                     <button className="inline-block self-end bg-black text-white font-bold rounded-lg px-6 py-2 uppercase text-sm hover:bg-sky-700 ">
-                      View Portfolio
+                     <NavLink to="/customerserviceportfolio">View Portfolio</NavLink> 
                     </button>
                   </form>
                 </div>

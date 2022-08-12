@@ -13,7 +13,7 @@ import avatar3 from "../../../documents/avatar3.png";
 import avatar4 from "../../../documents/avatar4.jpg";
 import avatar5 from "../../../documents/avatar5.jpg";
 
-import Header from "../../../components/header/Header";
+import CustomerHeader from "../../../components/header/CustomerHeader";
 function CustomerEvents() {
   return (
     <div>
@@ -23,7 +23,7 @@ function CustomerEvents() {
         <div className="md:ml-20 md:mt-14 w-screen"> */}
             
           {/* <p>This is customer events</p> */}
-          <Header />
+          <CustomerHeader />
 
 
           <div

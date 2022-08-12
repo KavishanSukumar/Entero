@@ -1,6 +1,7 @@
 import React from 'react';
 import ServiceProviderHeader from '../../../components/header/ServiceProviderHeader';
 import ServiceProviderSidebar from '../../../components/sidebar/ServiceProviderSidebar';
+import BookingsServiceProvider from "../../../components/booking/BookingsServiceProvider"
 
 function ServiceproviderBookings() {
   return (
@@ -11,7 +12,7 @@ function ServiceproviderBookings() {
         <ServiceProviderSidebar />
         <div className="md:ml-20 md:mt-14 w-screen">
             
-          <p>This is service booking</p>
+          <BookingsServiceProvider />
           
           </div>
       </div>
