@@ -28,7 +28,9 @@ import { FiSettings } from "react-icons/fi";
 
 import Admin from "./pages/afterLogin/admin/Admin";
 import CustomerServices from "./pages/afterLogin/customer/CustomerServices";
+import CustomerServices2 from "./pages/afterLogin/customer/CustomerServices2";
 import CustomerEvents from "./pages/afterLogin/customer/CustomerEvents";
+import CustomerEvents2 from "./pages/afterLogin/customer/CustomerEvents2";
 import AdminBusinessPolicies from "./pages/afterLogin/admin/AdminBusinessPolicies";
 import BusinessPolicies from "./pages/beforeLogin/businesspolicies/BusinessPolicies";
 import AdminTermsCondition from "./pages/afterLogin/admin/AdminTermsCondition";
@@ -62,7 +64,9 @@ function App() {
         {/*Customer pages */}
         <Route exact path="/customerprofile" element={<CustomerProfile />} />
         <Route exact path="/customerevents" element={<CustomerEvents />} />
+        <Route exact path="/customerevents2" element={<CustomerEvents2 />} />
         <Route exact path="/customerservices" element={<CustomerServices />} />
+        <Route exact path="/customerservices2" element={<CustomerServices2 />} />
         <Route exact path="/customerbookings" element={<CustomerBookings />} />
         <Route
           exact
