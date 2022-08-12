@@ -17,8 +17,10 @@ import CustomerProfile from "./pages/afterLogin/customer/CustomerProfile";
 import CustomerAppointments from "./pages/afterLogin/customer/CustomerAppointments";
 import CustomerBookings from "./pages/afterLogin/customer/CustomerBookings";
 import CustomerChat from "./pages/afterLogin/customer/CustomerChat";
+import CustomerHome from "./pages/afterLogin/customer/CustomerHome"
 import CustomerServices from "./pages/afterLogin/customer/CustomerServices";
 import CustomerEvents from "./pages/afterLogin/customer/CustomerEvents";
+import CustomerServicePortfolio from "./pages/afterLogin/customer/CustomerServicePortfolio";
 
 
 import ServiceProviderPortfolio from "./pages/afterLogin/serviceProvider/ServiceProviderPortfolio";
@@ -27,6 +29,7 @@ import ServiceProviderChat from "./pages/afterLogin/serviceProvider/ServiceProvi
 import ServiceProviderCharges from "./pages/afterLogin/serviceProvider/ServiceProviderCharges";
 import ServiceproviderRatings from "./pages/afterLogin/serviceProvider/ServiceproviderRatings";
 import ServiceProviderBookings from "./pages/afterLogin/serviceProvider/ServiceProviderBookings";
+import ServiceProviderProfile from "./pages/afterLogin/serviceProvider/ServiceProviderProfile";
 
 
 
@@ -42,14 +45,10 @@ function App() {
         <Route exact path="/services" element={<Home />} />
         <Route exact path="/aboutus" element={<Home />} />
         <Route exact path="/contactus" element={<Home />} />
+
         {/*Admin pages */}
         <Route path="/admin" element={<Admin />} />
-
-        <Route
-          exact
-          path="/adminusercustomer"
-          element={<AdminUserCustomer />}
-        />
+        <Route exact path="/adminusercustomer" element={<AdminUserCustomer />}/>
         <Route exact path="/adminuserservice" element={<AdminUserServices />} />
         <Route exact path="/admindashboard" element={<AdminDashboard />} />
         <Route exact path="/adminevents" element={<AdminEvents />} />
@@ -62,15 +61,13 @@ function App() {
 
         {/*Customer pages */}
         <Route exact path="/customerprofile" element={<CustomerProfile />} />
+        <Route exact path="/customerhome" element={<CustomerHome />} />
         <Route exact path="/customerevents" element={<CustomerEvents />} />
         <Route exact path="/customerservices" element={<CustomerServices />} />
         <Route exact path="/customerbookings" element={<CustomerBookings />} />
-        <Route
-          exact
-          path="/customerappointments"
-          element={<CustomerAppointments />}
-        />
+        <Route exact path="/customerappointments" element={<CustomerAppointments />}/>
         <Route exact path="/customerchat" element={<CustomerChat />} />
+        <Route exact path="customerserviceportfolio" element={<CustomerServicePortfolio />} />
 
         {/*Service provider pages */}
 
@@ -99,6 +96,11 @@ function App() {
           exact
           path="/servicecharges"
           element={<ServiceProviderCharges />}
+        />
+         <Route
+          exact
+          path="/serviceprofile"
+          element={<ServiceProviderProfile />}
         />
 
         <Route exact path="/userprofile" element={<UserProfile />} />

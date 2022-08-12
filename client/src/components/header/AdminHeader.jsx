@@ -12,6 +12,8 @@ import { MdSpaceDashboard, MdContactPhone } from "react-icons/md";
 import { FaUsers, FaUserCog } from "react-icons/fa";
 import { GiMoneyStack } from "react-icons/gi";
 import Shakir from "../../Shakir.jpg";
+import CelebrationIcon from '@mui/icons-material/Celebration';
+import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 
 {
   /* Admin header is created because the menu in responsive layout will change to the admin sidebar,not home,contact us pages */
@@ -100,7 +102,7 @@ function AdminHeader() {
             className={({ isActive }) =>
               isActive ? "text-cyan-500 hover:text-black" : ""
             }
-            to="/"
+            to="/customerhome"
           >
             Home
           </NavLink>
@@ -110,7 +112,7 @@ function AdminHeader() {
             className={({ isActive }) =>
               isActive ? "text-cyan-500 hover:text-black" : ""
             }
-            to="/"
+            to="/customerservices"
           >
             Services
           </NavLink>
@@ -120,31 +122,12 @@ function AdminHeader() {
             className={({ isActive }) =>
               isActive ? "text-cyan-500 hover:text-black" : ""
             }
-            to="/"
+            to="/customerevents"
           >
             Events
           </NavLink>
         </li>
-        <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "text-cyan-500 hover:text-black" : ""
-            }
-            to="/aboutus"
-          >
-            About Us
-          </NavLink>
-        </li>
-        <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "text-cyan-500 hover:text-cyan-500" : ""
-            }
-            to="/contactus"
-          >
-            Contact Us
-          </NavLink>
-        </li>
+  
       </ul>
 
       {/* After login components*/}
@@ -306,7 +289,7 @@ function AdminHeader() {
           </li>
           <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
             <NavLink
-              to="/"
+              to="/customerhome"
               className={({ isActive }) =>
                 isActive
                   ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
@@ -314,7 +297,33 @@ function AdminHeader() {
               }
             >
               <AiFillHome className="w-6 h-6 text-gray-500" />
-              <span className="ml-3">Go to home page</span>
+              <span className="ml-3">Customer Home</span>
+            </NavLink>
+          </li>
+          <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
+            <NavLink
+              to="/customerhome"
+              className={({ isActive }) =>
+                isActive
+                  ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
+                  : "inline-flex items-center "
+              }
+            >
+              <CelebrationIcon className="w-6 h-6 text-gray-500" />
+              <span className="ml-3">Customer Events</span>
+            </NavLink>
+          </li>
+          <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
+            <NavLink
+              to="/customerhome"
+              className={({ isActive }) =>
+                isActive
+                  ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
+                  : "inline-flex items-center "
+              }
+            >
+              <MiscellaneousServicesIcon className="w-6 h-6 text-gray-500" />
+              <span className="ml-3">Customer Services</span>
             </NavLink>
           </li>
         </ul>

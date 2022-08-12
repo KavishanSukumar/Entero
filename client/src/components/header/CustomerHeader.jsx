@@ -6,10 +6,12 @@ import {
   AiFillBell,
   AiFillHome,
 } from "react-icons/ai";
-import {
-  BsFillCalendarEventFill,
-  BsFillChatRightTextFill,
-} from "react-icons/bs";
+
+import BookIcon from "@mui/icons-material/Book";
+import EventAvailableIcon from "@mui/icons-material/EventAvailable";
+import ChatIcon from "@mui/icons-material/Chat";
+import CelebrationIcon from '@mui/icons-material/Celebration';
+import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 import Shakir from "../../Shakir.jpg";
 
 function CustomerHeader() {
@@ -19,20 +21,52 @@ function CustomerHeader() {
     setNav(!nav);
   };
 
-  const [dropEvent, setDropEvent] = useState(false);
+  const [dropdownPic, setDropdownPic] = useState(false);
+  const [dropdownBell, setDropdownBell] = useState(false);
 
-  const handleDropEvent = () => {
-    setDropEvent(!dropEvent);
+  const handleDropdownPic = () => {
+    setDropdownPic(!dropdownPic);
+    if (dropdownBell) {
+      setDropdownBell(!dropdownBell);
+    }
+  };
+  const handleDropdownBell = () => {
+    setDropdownBell(!dropdownBell);
+    if (dropdownPic) {
+      setDropdownPic(!dropdownPic);
+    }
   };
 
-  const dropdownEvent = (
+  const picDropdown = (
     <div
       className="hidden md:block absolute top-14 right-0 w-44 z-50 bg-gray-100 rounded divide-y divide-gray-100 shadow "
-      onMouseLeave={handleDropEvent}
+      onMouseLeave={handleDropdownPic}
     >
       <ul class="py-1 text-sm text-gray-700">
-        <li className="block py-2 px-4 hover:bg-gray-200">My Profile</li>
-        <li className="block py-2 px-4 hover:bg-gray-200 ">Logout</li>
+        <NavLink to="/customerprofile">
+          <li className="block py-2 px-4 hover:bg-gray-200">My Profile</li>
+        </NavLink>
+        <NavLink to="/">
+          <li className="block py-2 px-4 hover:bg-gray-200">Logout</li>
+        </NavLink>
+      </ul>
+    </div>
+  );
+  const bellDropdown = (
+    <div
+      className="hidden md:block absolute top-14 right-14 md:w-44 lg:w-72 z-50 bg-gray-100 rounded divide-y divide-gray-100 shadow "
+      onMouseLeave={handleDropdownBell}
+    >
+      <ul class="py-1 text-sm text-gray-700">
+        <NavLink to="/userprofile">
+          <li className="block py-4 px-4 hover:bg-gray-200">Notification 1</li>
+        </NavLink>
+        <NavLink to="/userprofile">
+          <li className="block py-4 px-4 hover:bg-gray-200">Notification 2</li>
+        </NavLink>
+        <NavLink to="/userprofile">
+          <li className="block py-4 px-4 hover:bg-gray-200">Notification 3</li>
+        </NavLink>
       </ul>
     </div>
   );
@@ -54,7 +88,7 @@ function CustomerHeader() {
             className={({ isActive }) =>
               isActive ? "text-cyan-500 hover:text-black" : ""
             }
-            to="/"
+            to="/customerhome"
           >
             Home
           </NavLink>
@@ -64,7 +98,7 @@ function CustomerHeader() {
             className={({ isActive }) =>
               isActive ? "text-cyan-500 hover:text-black" : ""
             }
-            to="/"
+            to="/customerservices"
           >
             Services
           </NavLink>
@@ -74,47 +108,33 @@ function CustomerHeader() {
             className={({ isActive }) =>
               isActive ? "text-cyan-500 hover:text-black" : ""
             }
-            to="/services"
+            to="/customerevents"
           >
             Events
           </NavLink>
         </li>
-        <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "text-cyan-500 hover:text-black" : ""
-            }
-            to="/aboutus"
-          >
-            About Us
-          </NavLink>
-        </li>
-        <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "text-cyan-500 hover:text-cyan-500" : ""
-            }
-            to="/contactus"
-          >
-            Contact Us
-          </NavLink>
-        </li>
+        
       </ul>
 
       {/* After login components*/}
       <div className="hidden md:inline-flex items-center ">
         <div className="p-3">
-          <AiFillBell size={24} className="text-black hover:text-white" />
+          <AiFillBell
+            size={24}
+            className="text-black hover:text-gray-300"
+            onClick={handleDropdownBell}
+          />
         </div>
 
         <img
           src={Shakir}
           className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125"
-          onClick={handleDropEvent}
+          onClick={handleDropdownPic}
         />
       </div>
 
-      {dropEvent ? dropdownEvent : ""}
+      {dropdownPic ? picDropdown : ""}
+      {dropdownBell ? bellDropdown : ""}
 
       {/* Responsive component */}
       <div onClick={handleNav} className="flex mx-2 md:hidden">
@@ -147,6 +167,19 @@ function CustomerHeader() {
         </div>
         <ul className=" text-sm">
           <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
+              <NavLink
+                to="/customerhome"
+                className={({ isActive }) =>
+                  isActive
+                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
+                    : "inline-flex items-center "
+                }
+              >
+                <AiFillHome className="w-6 h-6 text-gray-500" />
+                <span className="ml-3">Home</span>
+              </NavLink>
+            </li>
+          <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -155,7 +188,7 @@ function CustomerHeader() {
                   : "inline-flex items-center "
               }
             >
-              <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+              <AiFillBell className="w-6 h-6 text-gray-500" />
               <span className="ml-3">Notifications</span>
             </NavLink>
           </li>
@@ -169,7 +202,7 @@ function CustomerHeader() {
                   : "inline-flex items-center "
               }
             >
-              <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+              <CelebrationIcon className="w-6 h-6 text-gray-500" />
               <span className="ml-3">Events</span>
             </NavLink>
           </li>
@@ -182,7 +215,7 @@ function CustomerHeader() {
                   : "inline-flex items-center "
               }
             >
-              <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+              <MiscellaneousServicesIcon className="w-6 h-6 text-gray-500" />
               <span className="ml-3">Services</span>
             </NavLink>
           </li>
@@ -195,7 +228,7 @@ function CustomerHeader() {
                   : "inline-flex items-center "
               }
             >
-              <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+              <BookIcon className="w-6 h-6 text-gray-500" />
               <span className="ml-3">Bookings</span>
             </NavLink>
           </li>
@@ -208,7 +241,7 @@ function CustomerHeader() {
                   : "inline-flex items-center "
               }
             >
-              <BsFillCalendarEventFill className="w-6 h-6 text-gray-500" />
+              <EventAvailableIcon className="w-6 h-6 text-gray-500" />
               <span className="ml-3">Appointments</span>
             </NavLink>
           </li>
@@ -222,26 +255,14 @@ function CustomerHeader() {
                   : "inline-flex items-center"
               }
             >
-              <BsFillChatRightTextFill className="w-6 h-6 text-gray-500" />
+              <ChatIcon className="w-6 h-6 text-gray-500" />
               <span className="ml-3">Chat</span>
               <span className="inline-flex p-3 items-center justify-center ml-1 w-3 h-3 text-white bg-blue-600 rounded-full">
                 15
               </span>
             </NavLink>
           </li>
-          <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                isActive
-                  ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                  : "inline-flex items-center "
-              }
-            >
-              <AiFillHome className="w-6 h-6 text-gray-500" />
-              <span className="ml-3">Go to home page</span>
-            </NavLink>
-          </li>
+          
         </ul>
       </div>
     </div>

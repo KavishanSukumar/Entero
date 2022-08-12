@@ -1,6 +1,7 @@
 import React from 'react'
 import AdminHeader from '../../../components/header/AdminHeader';
 import AdminSidebar from '../../../components/sidebar/AdminSidebar';
+import SystemReports from "../../../components/systemreports/systemreports"
 
 
 function AdminReports() {
@@ -12,7 +13,7 @@ function AdminReports() {
         <AdminSidebar />
         <div className="md:ml-20 md:mt-14 w-screen">
             
-          <p>Please put reports component here .HERE ONLY</p>
+          <SystemReports />
           
           </div>
       </div>
