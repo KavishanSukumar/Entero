@@ -10,8 +10,8 @@ import {
 import BookIcon from "@mui/icons-material/Book";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import ChatIcon from "@mui/icons-material/Chat";
-import CelebrationIcon from '@mui/icons-material/Celebration';
-import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
+import CelebrationIcon from "@mui/icons-material/Celebration";
+import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
 import Shakir from "../../Shakir.jpg";
 
 function CustomerHeader() {
@@ -113,7 +113,6 @@ function CustomerHeader() {
             Events
           </NavLink>
         </li>
-        
       </ul>
 
       {/* After login components*/}
@@ -167,18 +166,18 @@ function CustomerHeader() {
         </div>
         <ul className=" text-sm">
           <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-              <NavLink
-                to="/customerhome"
-                className={({ isActive }) =>
-                  isActive
-                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                    : "inline-flex items-center "
-                }
-              >
-                <AiFillHome className="w-6 h-6 text-gray-500" />
-                <span className="ml-3">Home</span>
-              </NavLink>
-            </li>
+            <NavLink
+              to="/customerhome"
+              className={({ isActive }) =>
+                isActive
+                  ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
+                  : "inline-flex items-center "
+              }
+            >
+              <AiFillHome className="w-6 h-6 text-gray-500" />
+              <span className="ml-3">Home</span>
+            </NavLink>
+          </li>
           <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
             <NavLink
               to="/"
@@ -262,7 +261,6 @@ function CustomerHeader() {
               </span>
             </NavLink>
           </li>
-          
         </ul>
       </div>
     </div>

@@ -45,8 +45,8 @@ function AdminSidebar() {
 
   return (
     <div className="relative z-10">
-      <div className="hidden md:block fixed bg-transparent shadow-2xl min-h-screen left-0 top-14 flex-col w-20 ">
-        <div className="shadow-2xl md:mt-20 flex flex-col items-center border-2 w-full">
+      <div className="hidden md:block fixed bg-transparent min-h-screen left-0 top-14 flex-col w-20">
+        <div className="md:mt-0 flex flex-col items-center border-2 w-full h-screen py-6">
           <div className="relative inline-flex items-center mb-4">
             <NavLink
               to="/admindashboard"
@@ -54,13 +54,13 @@ function AdminSidebar() {
               onMouseEnter={() => handleLabel(3)}
               onMouseLeave={() => handleLabel(3)}
             >
-              <MdSpaceDashboard className="w-12 h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200" />
+              <MdSpaceDashboard className="w-12 h-12 text-teal-900 bg-teal-100 hover:scale-110 rounded-full p-3" />
             </NavLink>
 
             <span
               className={
                 dashboardLabel
-                  ? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white"
+                  ? "absolute ml-[55px] w-28 text-center rounded-md bg-black text-white"
                   : "hidden"
               }
             >
@@ -75,13 +75,13 @@ function AdminSidebar() {
               onMouseEnter={() => handleLabel(1)}
               onMouseLeave={() => handleLabel(1)}
             >
-              <FaUsers className="w-12 h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200" />
+              <FaUsers className="w-12 h-12 text-red-800 bg-red-100 hover:scale-110 rounded-full p-3" />
             </NavLink>
 
             <span
               className={
                 customerLabel
-                  ? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white"
+                  ? "absolute ml-[55px] w-28 text-center rounded-md bg-black text-white"
                   : "hidden"
               }
             >
@@ -95,13 +95,13 @@ function AdminSidebar() {
               onMouseEnter={() => handleLabel(2)}
               onMouseLeave={() => handleLabel(2)}
             >
-              <FaUserCog className="w-12 h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200" />
+              <FaUserCog className="w-12 h-12 text-lime-800 bg-lime-100 hover:scale-110 rounded-full p-3" />
             </NavLink>
 
             <span
               className={
                 serviceLabel
-                  ? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white"
+                  ? "absolute ml-[55px] w-28 text-center rounded-md bg-black text-white"
                   : "hidden"
               }
             >
@@ -116,13 +116,13 @@ function AdminSidebar() {
               onMouseEnter={() => handleLabel(4)}
               onMouseLeave={() => handleLabel(4)}
             >
-              <BsCalendar2Check className="w-12 h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200" />
+              <BsCalendar2Check className="w-12 h-12 text-fuchsia-800 bg-fuchsia-100 hover:scale-110 rounded-full p-3" />
             </NavLink>
 
             <span
               className={
                 eventLabel
-                  ? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white"
+                  ? "absolute ml-[55px] w-28 text-center rounded-md bg-black text-white"
                   : "hidden"
               }
             >
@@ -136,13 +136,13 @@ function AdminSidebar() {
               onMouseEnter={() => handleLabel(5)}
               onMouseLeave={() => handleLabel(5)}
             >
-              <GiMoneyStack className="w-12 h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200" />
+              <GiMoneyStack className="w-12 h-12 text-sky-800 bg-sky-100 hover:scale-110 rounded-full p-3" />
             </NavLink>
 
             <span
               className={
                 paymentLabel
-                  ? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white"
+                  ? "absolute ml-[55px] w-28 text-center rounded-md bg-black text-white"
                   : "hidden"
               }
             >
@@ -157,13 +157,13 @@ function AdminSidebar() {
               onMouseEnter={() => handleLabel(7)}
               onMouseLeave={() => handleLabel(7)}
             >
-              <TbReportAnalytics className="w-12 h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200" />
+              <TbReportAnalytics className="w-12 h-12 text-orange-800 bg-orange-100 hover:scale-110 rounded-full p-3" />
             </NavLink>
 
             <span
               className={
                 reportLabel
-                  ? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white"
+                  ? "absolute ml-[55px] w-28 text-center rounded-md bg-black text-white"
                   : "hidden"
               }
             >
@@ -178,13 +178,13 @@ function AdminSidebar() {
               onMouseEnter={() => handleLabel(6)}
               onMouseLeave={() => handleLabel(6)}
             >
-              <MdContactPhone className="w-12 h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200" />
+              <MdContactPhone className="w-12 h-12 text-green-800 bg-green-100 hover:scale-110 rounded-full p-3" />
             </NavLink>
 
             <span
               className={
                 contactLabel
-                  ? "absolute ml-[70px] w-28 text-center rounded-md bg-black text-white"
+                  ? "absolute ml-[55px] w-28 text-center rounded-md bg-black text-white"
                   : "hidden"
               }
             >

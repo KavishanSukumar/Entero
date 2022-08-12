@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import {
-  AiOutlineClose,
-  AiOutlineMenu,
-  AiFillBell,
-
-} from "react-icons/ai";
+import { AiOutlineClose, AiOutlineMenu, AiFillBell } from "react-icons/ai";
 import SnippetFolderIcon from "@mui/icons-material/SnippetFolder";
 import BookIcon from "@mui/icons-material/Book";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
@@ -72,7 +67,7 @@ function ServiceProviderHeader() {
   );
 
   return (
-    <div className="fixed w-full flex items-center top-0 h-14 text-black bg-white shadow-2xl justify-between z-10">
+    <div className="fixed w-full flex items-center top-0 h-14 text-black bg-white shadow-lg justify-between z-10">
       {/* After login styles */}
       {/* header logo */}
 
@@ -81,8 +76,6 @@ function ServiceProviderHeader() {
         alt="logo"
         className="w-20 h-14 object-cover mt-3"
       />
-
-      
 
       {/* After login components*/}
       <div className="hidden md:inline-flex items-center ">
@@ -228,7 +221,6 @@ function ServiceProviderHeader() {
               <span className="ml-3">Charges</span>
             </NavLink>
           </li>
-          
         </ul>
       </div>
     </div>
