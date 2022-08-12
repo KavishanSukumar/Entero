@@ -27,12 +27,12 @@ function CustomerSidebar() {
   return (
     <div className="relative z-10">
 
-        <div className="hidden md:block fixed bg-transparent shadow-2xl min-h-screen left-0 top-14 flex-col w-20">
+        <div className="hidden md:block fixed bg-transparent min-h-screen left-0 top-14 flex-col w-20">
             
             
-            <div className="shadow-2xl md:mt-20 flex flex-col items-center border-2 w-full">   
+            <div className=" md:mt-0 flex flex-col items-center border-2 w-full h-screen py-6">   
 
-                <div className="relative inline-flex items-center mb-4">
+                <div className="relative inline-flex items-center mb-4 ">
                     <NavLink to="/customerprofile" className="cursor-pointer" onMouseEnter={()=>handleLabel(2)} onMouseLeave={()=>handleLabel(2)}>
                         <PersonIcon className="!w-12 !h-12 text-cyan-500 hover:scale-110 hover:bg-gray-200"/>
                     </NavLink>
