@@ -1,6 +1,6 @@
 import React ,{useState} from 'react';
-import {BsReplyFill} from 'react-icons/bs';
-import {AiOutlineClose,AiOutlineStar} from 'react-icons/ai';
+import StarRateIcon from "@mui/icons-material/StarRate";
+import {AiOutlineClose} from 'react-icons/ai';
 import Shakir from '../../Shakir.jpg';
 
 
@@ -30,22 +30,23 @@ return (
                     <div className="flex justify-start items-center p-1 w-full">
                         <div className=" inline-flex">
                             <img src={Shakir} alt="" className="w-6 h-6 rounded-full mr-1 hover:scale-125" />
-                            <p className=' font-medium '>Shakir</p>
+                            <p className=' font-medium '>Kalana Bushan</p>
                         </div>
                         
                         <div className="flex justify-end grow ">
-                            <AiOutlineStar size={20} />
-                            <AiOutlineStar size={20} />
-                            <AiOutlineStar size={20} />
-                            <AiOutlineStar size={20} />
-                            <AiOutlineStar size={20} />
+                            <StarRateIcon  className="text-amber-200 text-xs" />
+                            <StarRateIcon  className="text-amber-200 text-xs" />
+                            <StarRateIcon  className="text-amber-200 text-xs" />
+                            <StarRateIcon  className="text-amber-200 text-xs" />
+                            <StarRateIcon  className="text-amber-200 text-xs" />
+                            
                         </div>
                         
                     </div>
                     
                     
                     {/*content */}
-                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
+                    <p className="mb-7 text-gray-700">Amazing service .Really appreciate how the crew worked so hard to make the event a reality.The food was really good and i would recommend this to anyone out there to make theri  events a dream come true...<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
                     </p>
                     
                     
@@ -61,11 +62,11 @@ return (
             </div>
             {/*end of the grid */}
 
-            <div className="p-2 flex justify-end">
+            {/* <div className="p-2 flex justify-end">
                 <button className="bg-cyan-500 hover:bg-cyan-400 text-white text-center p-2 rounded-lg w-20">
                     More
                 </button>
-            </div>
+            </div> */}
             
         
         </div>
@@ -78,15 +79,15 @@ return (
                 <div className="flex justify-around items-center p-1 w-full">
                         <div className=" inline-flex justify-center items-center w-[70%] ">
                             <img src={Shakir} alt="" className="w-8 h-8 rounded-full mr-1 hover:scale-125" />
-                            <p className=' font-medium text-base'>Shakir</p>
+                            <p className=' font-medium text-base'>Kalana Bushan</p>
                         </div>
                         
                         <div className="flex ">
-                            <AiOutlineStar size={20} />
-                            <AiOutlineStar size={20} />
-                            <AiOutlineStar size={20} />
-                            <AiOutlineStar size={20} />
-                            <AiOutlineStar size={20} />
+                            <StarRateIcon  className="text-amber-200 text-xs" />
+                            <StarRateIcon  className="text-amber-200 text-xs" />
+                            <StarRateIcon  className="text-amber-200 text-xs" />
+                            <StarRateIcon  className="text-amber-200 text-xs" />
+                            <StarRateIcon  className="text-amber-200 text-xs" />
                         </div>
                         
                 </div>

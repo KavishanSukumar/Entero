@@ -117,7 +117,7 @@ function AdminServiceProviders() {
           <tbody className="">
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                SP001
+                S100001
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Kalindu Studio
@@ -135,6 +135,55 @@ function AdminServiceProviders() {
                   className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                 >
                   View
+                </button>
+                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                  Remove
+                </button>
+              </td>
+            </tr>
+            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                S100002
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Mewana Decorators
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Decorations
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Active
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                  View
+                </button>
+                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                  Remove
+                </button>
+              </td>
+            </tr>
+            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                S100003
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Muthumaal Studio
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Photography
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Active
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                  View
+                </button>
+                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                  Remove
                 </button>
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
@@ -178,11 +227,6 @@ function AdminServiceProviders() {
                 scope="col"
                 class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
               ></th>
-
-              <th
-                scope="col"
-                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-              ></th>
             </tr>
           </thead>
           <tbody className="">
@@ -192,6 +236,9 @@ function AdminServiceProviders() {
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Neol Catering
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Kalaan Studio
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 <button
@@ -205,9 +252,28 @@ function AdminServiceProviders() {
                 <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                   Accept
                 </button>
+                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                  Reject
+                </button>
               </td>
+            </tr>
 
+            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                S200013
+              </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                HN Designers
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                  View
+                </button>
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                  Accept
+                </button>
                 <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                   Reject
                 </button>
@@ -220,9 +286,6 @@ function AdminServiceProviders() {
   );
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
-      
-      
-
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs
@@ -235,26 +298,25 @@ function AdminServiceProviders() {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-        <div className="flex p-1 md:px-4 py-2 ">
-        <div className="relative w-64">
-          
-          <label className="relative block">
-            <span className="sr-only">Search</span>
-            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-              <SearchIcon
-                className="!h-5 !w-5 fill-slate-300"
-                viewBox="0 0 20 20"
-              />
-            </span>
-            <input
-              className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-              placeholder="Search for services"
-              type="text"
-              name="search"
-            />
-          </label>
-        </div>
-      </div>
+          <div className="flex p-1 md:px-4 py-2 ">
+            <div className="relative w-64">
+              <label className="relative block">
+                <span className="sr-only">Search</span>
+                <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                  <SearchIcon
+                    className="!h-5 !w-5 fill-slate-300"
+                    viewBox="0 0 20 20"
+                  />
+                </span>
+                <input
+                  className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                  placeholder="Search for services"
+                  type="text"
+                  name="search"
+                />
+              </label>
+            </div>
+          </div>
           {serviceData}
         </TabPanel>
         <TabPanel value={value} index={1}>
@@ -289,7 +351,7 @@ function AdminServiceProviders() {
 
               {/*The buttons */}
               <div className="flex flex-col w-44 p-4">
-                <button className=" border-2   p-1 mb-3 rounded bg-cyan-500 hover:bg-cyan-400">
+                <button className=" border-2   p-1 mb-3 rounded bg-cyan-500 hover:bg-cyan-400 text-white">
                   Remove
                 </button>
               </div>
@@ -299,7 +361,7 @@ function AdminServiceProviders() {
                 Details
               </p>
               <p className="md:ml-8 px-1 text-left">
-                <b>Name:</b> Perera and sons
+                <b>Name:</b> Kalindu Photography
               </p>
               <p className="md:ml-8 px-1 text-left">
                 <b>BR:</b> 867564980
@@ -309,6 +371,9 @@ function AdminServiceProviders() {
               </p>
               <div className="mx-[20%]">
                 <button className="mt-4 w-full md:ml-8 text-center p-1 text-white bg-cyan-500 hover:bg-cyan-400">
+                  View BR
+                </button>
+                <button className="mt-4 w-full md:ml-8 text-center p-1 text-white bg-cyan-500 hover:bg-cyan-400">
                   Visit Portfolio
                 </button>
               </div>
@@ -316,7 +381,6 @@ function AdminServiceProviders() {
           </div>
         </div>
       </div>
-
 
       <div
         className={

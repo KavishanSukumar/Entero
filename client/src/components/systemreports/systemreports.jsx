@@ -13,7 +13,8 @@ import MockData from './monthlypay.json'
 import SearchIcon from "@mui/icons-material/Search";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-
+import {AiOutlineClose} from 'react-icons/ai'
+import Shakir from '../../Shakir.jpg';
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -90,6 +91,12 @@ function a11yProps1(index) {
 }
 //========================================================
 export default function SystemReports() {
+
+  const options = { labels: ["Customers", "Service Providers"] };
+  const series = [400, 100];
+
+
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -108,6 +115,12 @@ export default function SystemReports() {
   const [serdata, setdata4] = useState(ser);
   const [showpopup, setshowpopup] = useState(false);
   const handleOnClose = () => setshowpopup(false);
+  const [popup,setPopup]=useState(false);
+   
+
+    const handlePopup=()=>{
+        setPopup(!popup)
+    }
 
   const lineChartValues = {
     options: {
@@ -135,6 +148,83 @@ export default function SystemReports() {
 
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
+   
+   <div
+        className={
+          popup
+            ? "fixed backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  p-4 left-0"
+            : "hidden"
+        }
+      >
+        <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[70%] mx-[15%] p-2">
+          <div className="w-full inline-flex justify-end items-end">
+            <AiOutlineClose
+              className="w-6 h-6 cursor-pointer"
+              onClick={handlePopup}
+            />
+          </div>
+          <div className="w-full mb-4">
+            <p className="text-lg text-center font-medium border-b-2 border-gray-900">
+              #3456 (Pending)
+            </p>
+          </div>
+
+          <div className="w-full p-2 shadow-xl mb-10 grid grid-cols-1 lg:grid-cols-3">
+            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
+              <p className="text-center font-medium border-b-2 border-white">
+                Event Info
+              </p>
+              <p className="text-left">
+                <b>Date:</b> 02.09.22
+              </p>
+              <p className="text-left">
+                <b>Type:</b> Birthday
+              </p>
+              <p className="text-left">
+                <b>Venue:</b> Shangrila Hotel Colombo 02
+              </p>
+            </div>
+            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
+              <p className="text-center font-medium border-b-2 border-white">
+                Customer
+              </p>
+              <p className="text-left">
+                <b>ID:</b> 0065
+              </p>
+              <p className="text-left">
+                <b>Name:</b> Kavin Fernando
+              </p>
+            </div>
+            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
+              <p className="text-center font-medium border-b-2 border-white">
+                Services
+              </p>
+              <p className="text-center">
+                <b>Catering</b>
+              </p>
+              <p className="text-left">
+                <b>ID:</b> 0876
+              </p>
+              <p className="text-left">
+                <b>Name:</b> Royal Food
+              </p>
+              <p className="text-center">
+                <b>Photography</b>
+              </p>
+              <p className="text-left">
+                <b>ID:</b> 9865
+              </p>
+              <p className="text-left">
+                <b>Name:</b> Kalin Studio
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
 
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -413,12 +503,7 @@ export default function SystemReports() {
                         >
                           Catergory
                         </th>
-                        <th
-                          scope="col"
-                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                        >
-                          Service provider
-                        </th>
+
                         <th
                           scope="col"
                           class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
@@ -437,12 +522,7 @@ export default function SystemReports() {
                         >
                           Ended date
                         </th>
-                        <th
-                          scope="col"
-                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                        >
-                          Rating
-                        </th>
+                       
 
 
                       </tr>
@@ -462,11 +542,17 @@ export default function SystemReports() {
 
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.eventid}</td>
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.eventname}</td>
-                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.serviceprovider}</td>
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.customer}</td>
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.startdate}</td>
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.enddate}</td>
-                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.rating}</td>
+                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              <button onClick={handlePopup}
+                              className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md
+                               hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                              >
+                                View
+                              </button>
+                            </td>
 
 
 
@@ -509,14 +595,15 @@ export default function SystemReports() {
         </TabPanel>
         <TabPanel value={value} index={2}>
 
-          <div class="tab-pane fade flex flex-col gap-16   w-[1200px] " >
-            <div className='flex order-1'>
-              <div class="flex bg-gray-300 rounded-lg py-5 px-6 mb-4 text-2xl text-black justify-start   font-bold bold  w-full " role="alert">
+          <div class="tab-pane fade flex flex-col gap-16  mt-[-30px] w-[1100px]" >
+            <div className='flex flex-col order-1 '>
+              <div class="flex justify-center rounded-lg py-5 px-6 mb-4 text-2xl text-black   order-1 font-bold bold  w-full " role="alert">
 
-                <p>All Users : 500 </p>
-                <p className='ml-[450px]'>Service Providers : 100 </p>
-                <p className='ml-20'>Customers : 400 </p>
+                <p className=' bg-gray-200 p-5 rounded-2xl drop-shadow-sm '>All Users : 500 </p>
 
+              </div>
+              <div className=" order-2  ml-[380px]">
+                <Chart options={options} series={series} type="pie" width="500" height="900" />
               </div>
 
             </div>
@@ -527,7 +614,7 @@ export default function SystemReports() {
                   onChange={handleChange1}
                   aria-label="basic tabs example"
                 >
-                  <Tab label="SERVICE_PROVIDERS" {...a11yProps1(0)} />
+                  <Tab label="SERVICE PROVIDERS" {...a11yProps1(0)} />
                   <Tab label="CUSTOMERS" {...a11yProps1(1)} />
 
                 </Tabs>
@@ -575,7 +662,7 @@ export default function SystemReports() {
                     </div>
 
                     <div className="flex p-1 md:px-4 py-2 ">
-                      <div className="relative w-[600px]">
+                      <div className="relative w-[500px]">
 
                         <label className="relative block">
                           <span className="sr-only">Search</span>
@@ -721,7 +808,7 @@ export default function SystemReports() {
                     </div>
 
                     <div className="flex p-1 md:px-4 py-2 ">
-                      <div className="relative w-[600px]">
+                      <div className="relative w-[500px]">
 
                         <label className="relative block">
                           <span className="sr-only">Search</span>
@@ -752,7 +839,7 @@ export default function SystemReports() {
 
 
                     <div className='flex order-3 mt-10 w-full'>
-                    <div className="overflow-auto justify-center w-full h-screen">
+                      <div className="overflow-auto justify-center w-full h-screen">
                         <table class="min-w-full z-0  mr-10">
                           <thead class="bg-white border-b sticky top-0">
                             <tr>

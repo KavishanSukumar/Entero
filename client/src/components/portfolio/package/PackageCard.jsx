@@ -154,12 +154,20 @@ function PackageCard() {
             <span>LKR 3600</span>
           </div>
           <div className="mt-6">
-            <div className="rounded-md shadow">
+            <div className="rounded-md shadow m-3">
               <button
                 type="button"
                 className="py-2 px-4  bg-cyan-500 hover:bg-blue-400 focus:ring-cyan-900 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
               >
                 View Menu
+              </button>
+            </div>
+            <div className="rounded-md shadow m-3">
+              <button
+                type="button"
+                className="py-2 px-4  bg-cyan-500 hover:bg-blue-400 focus:ring-cyan-900 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+              >
+                Book Now
               </button>
             </div>
           </div>
