@@ -6,7 +6,7 @@ import Checkbox from "@mui/material/Checkbox";
 function ServiceRegister() {
   return (
     <div className="flex flex-row justify-center font-serif">
-      <form className="w-4/12 m-10  bg-white p-4  rounded-lg border-2">
+      <form className=" m-3  bg-white p-4  rounded-lg border-2">
         <h1 className="text-xl font-bold text-center py-2">Sign Up</h1>
 
         <div className="flex flex-col py-2 ">

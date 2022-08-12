@@ -39,6 +39,7 @@ import ServiceProviderProfile from "./pages/afterLogin/serviceProvider/ServicePr
 function App() {
   return (
     <div className="App">
+
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/products" element={<Home />} />
@@ -106,6 +107,7 @@ function App() {
         <Route exact path="/userprofile" element={<UserProfile />} />
         
       </Routes>
+
     </div>
   );
 }
