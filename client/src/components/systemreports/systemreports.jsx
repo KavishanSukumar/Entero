@@ -211,7 +211,7 @@ export default function SystemReports() {
                   </div>
                 </div>
                 <div className="flex p-1 md:px-4 py-2 ">
-                  <div className="relative w-[600px]">
+                  <div className="relative w-[500px]">
 
                     <label className="relative block">
                       <span className="sr-only">Search</span>
