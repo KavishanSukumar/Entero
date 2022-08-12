@@ -17,8 +17,4 @@ function ServiceProviderCharges() {
   );
 }
 
-<<<<<<< HEAD
 export default ServiceProviderCharges;
-=======
-export default ServiceProviderCharges;
->>>>>>> 5f7865d0bf295969586ea62e387df4a817a546dc
