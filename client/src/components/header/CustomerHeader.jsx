@@ -72,7 +72,7 @@ function CustomerHeader() {
   );
 
   return (
-    <div className="fixed w-full flex items-center top-0  h-14 text-black bg-white shadow-2xl justify-between z-10">
+    <div className="fixed w-full flex items-center top-0  h-14 text-black bg-white shadow-lg justify-between z-10">
       {/* After login styles */}
       {/* header logo */}
 
