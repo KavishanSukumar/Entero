@@ -7,6 +7,27 @@ import Review from "./Review";
 import Contact from "./Contact";
 
 function PortFolio() {
+  const [activeTab, setActiveTab] = React.useState(<AboutUs />);
+
+  const handleChange = (id) => {
+    switch (id) {
+      case "aboutus":
+        setActiveTab(<AboutUs />);
+        break;
+      case "packages":
+        setActiveTab(<Packages />);
+        break;
+      case "review":
+        setActiveTab(<Review />);
+        break;
+      case "contact":
+        setActiveTab(<Contact />);
+        break;
+      default:
+        break;
+    }
+  };
+
   let stars = 2.5;
   const starlist = [];
 
@@ -42,47 +63,45 @@ function PortFolio() {
           <div className="">{starlist}</div>
           <div className="my-3">
             <nav className="flex justify-start space-x-18">
-              <a
-                href="/"
-                className="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+              <p
+                onClick={() => handleChange("aboutus")}
+                className="cursor-pointer font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
               >
                 About Us
-              </a>
-              <a
-                href="/"
-                className="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+              </p>
+              <p
+                onClick={() => handleChange("packages")}
+                className="cursor-pointer font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
               >
                 Packages
-              </a>
-              <a
-                href="/"
-                className="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+              </p>
+              <p
+                onClick={() => handleChange("review")}
+                className="cursor-pointer font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
               >
                 Reviews
-              </a>
-              <a
-                href="/"
-                className="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+              </p>
+              <p
+                onClick={() => handleChange("contact")}
+                className="cursor-pointer font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
               >
                 Contact
-              </a>
+              </p>
             </nav>
           </div>
         </div>
         <div className="basis-5/12 flex justify-end m-3">
           <div>
-            <button
-              to=""
+            <a
+              href="/CustomerServices"
               className=" bg-cyan-500 text-white hover:bg-blue-400 py-2 px-3 rounded mr-1 cursor-pointer"
             >
               Back
-            </button>
+            </a>
           </div>
         </div>
       </div>
-      <div className="m-3">
-        <Packages />
-      </div>
+      <div className="m-3">{activeTab}</div>
     </div>
   );
 }
