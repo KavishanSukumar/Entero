@@ -6,6 +6,8 @@ import ServiceRegisterUser from "./components/register/ServiceRegisterUser";
 import Login from "./components/login/Login";
 import CustomerChat from "./pages/afterLogin/customer/CustomerChat";
 import ChooseUser from "./components/register/ChooseUser";
+import ServiceProviderCharges from "./pages/afterLogin/serviceProvider/ServiceProviderCharges";
+
 function App() {
   return (
     <div className="App">
