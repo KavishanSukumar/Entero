@@ -17,7 +17,7 @@ function AboutUs() {
         <div className="flex justify-center basis-3/6 shadow-xl rounded-lg  m-5 h-96 ">
           <img
             className="m-3 w-auto h-80 object-cover rounded-full "
-            src="/assets/images/aboutus.png"
+            src="/assets/images/about1.jpg"
           />
         </div>
       </div>
