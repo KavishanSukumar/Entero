@@ -18,8 +18,8 @@ function Events() {
         </h5>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
-        <div class=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative">
-          <div class="inline-flex items-center justify-center p-2 rounded-md shadow-lg mr-3 ">
+        <div className=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative">
+          <div className="inline-flex items-center justify-center p-2 rounded-md shadow-lg mr-3 ">
             <img
               src={EventImgs[0]}
               className="w-auto h-100 object-cover rounded-full"
@@ -27,17 +27,17 @@ function Events() {
             />
           </div>
           <div className="ml-3">
-            <h3 class="text-slate-900  mt-5 text-base font-medium tracking-tight">
+            <h3 className="text-slate-900  mt-5 text-base font-medium tracking-tight">
               Birthday
             </h3>
-            <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+            <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
               The Zero Gravity Pen can be used to write in any orientation,
               including upside-down. It even works in outer space.
             </p>
           </div>
         </div>
-        <div class=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative">
-          <div class="inline-flex items-center justify-center p-2 rounded-md shadow-lg mr-3">
+        <div className=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative">
+          <div className="inline-flex items-center justify-center p-2 rounded-md shadow-lg mr-3">
             <img
               src={EventImgs[1]}
               className="w-auto h-100 object-cover rounded-full"
@@ -45,17 +45,17 @@ function Events() {
             />
           </div>
           <div className="ml-3">
-            <h3 class="text-slate-900  mt-5 text-base font-medium tracking-tight">
+            <h3 className="text-slate-900  mt-5 text-base font-medium tracking-tight">
               Wedding
             </h3>
-            <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+            <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
               The Zero Gravity Pen can be used to write in any orientation,
               including upside-down. It even works in outer space.
             </p>
           </div>
         </div>
-        <div class=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative">
-          <div class="inline-flex items-center justify-center p-2 rounded-md shadow-lg mr-3">
+        <div className=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative">
+          <div className="inline-flex items-center justify-center p-2 rounded-md shadow-lg mr-3">
             <img
               src={EventImgs[2]}
               className="w-auto h-100 object-cover rounded-full"
@@ -63,17 +63,17 @@ function Events() {
             />
           </div>
           <div className="ml-3">
-            <h3 class="text-slate-900  mt-5 text-base font-medium tracking-tight">
+            <h3 className="text-slate-900  mt-5 text-base font-medium tracking-tight">
               Reception
             </h3>
-            <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+            <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
               The Zero Gravity Pen can be used to write in any orientation,
               including upside-down. It even works in outer space.
             </p>
           </div>
         </div>
-        <div class=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative">
-          <div class="inline-flex items-center justify-center p-2 rounded-md shadow-lg mr-3">
+        <div className=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative">
+          <div className="inline-flex items-center justify-center p-2 rounded-md shadow-lg mr-3">
             <img
               src={EventImgs[3]}
               className="w-auto h-100 object-cover rounded-full"
@@ -81,17 +81,17 @@ function Events() {
             />
           </div>
           <div className="ml-3">
-            <h3 class="text-slate-900  mt-5 text-base font-medium tracking-tight">
+            <h3 className="text-slate-900  mt-5 text-base font-medium tracking-tight">
               Engagement
             </h3>
-            <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+            <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
               The Zero Gravity Pen can be used to write in any orientation,
               including upside-down. It even works in outer space.
             </p>
           </div>
         </div>
-        <div class=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative">
-          <div class="inline-flex items-center justify-center p-2 rounded-md shadow-lg mr-3">
+        <div className=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative">
+          <div className="inline-flex items-center justify-center p-2 rounded-md shadow-lg mr-3">
             <img
               src={EventImgs[4]}
               className="w-auto h-100 object-cover rounded-full"
@@ -99,10 +99,10 @@ function Events() {
             />
           </div>
           <div className="ml-3">
-            <h3 class="text-slate-900  mt-5 text-base font-medium tracking-tight">
+            <h3 className="text-slate-900  mt-5 text-base font-medium tracking-tight">
               Other Occasion
             </h3>
-            <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+            <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
               The Zero Gravity Pen can be used to write in any orientation,
               including upside-down. It even works in outer space.
             </p>

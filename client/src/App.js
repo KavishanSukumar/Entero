@@ -20,18 +20,12 @@ import CustomerChat from "./pages/afterLogin/customer/CustomerChat";
 import CustomerServices from "./pages/afterLogin/customer/CustomerServices";
 import CustomerEvents from "./pages/afterLogin/customer/CustomerEvents";
 
-
 import ServiceProviderPortfolio from "./pages/afterLogin/serviceProvider/ServiceProviderPortfolio";
 import ServiceProviderAppointments from "./pages/afterLogin/serviceProvider/ServiceProviderAppointments";
 import ServiceProviderChat from "./pages/afterLogin/serviceProvider/ServiceProviderChat";
 import ServiceProviderCharges from "./pages/afterLogin/serviceProvider/ServiceProviderCharges";
 import ServiceproviderRatings from "./pages/afterLogin/serviceProvider/ServiceproviderRatings";
 import ServiceProviderBookings from "./pages/afterLogin/serviceProvider/ServiceProviderBookings";
-
-
-
-
-
 
 function App() {
   return (
@@ -57,8 +51,11 @@ function App() {
         <Route exact path="/adminreports" element={<AdminReports />} />
         <Route exact path="/admincontact" element={<AdminContact />} />
         <Route exact path="/adminterms" element={<AdminTermsCondition />} />
-        <Route exact path="/adminpolicies" element={<AdminBusinessPolicies />} />
-        
+        <Route
+          exact
+          path="/adminpolicies"
+          element={<AdminBusinessPolicies />}
+        />
 
         {/*Customer pages */}
         <Route exact path="/customerprofile" element={<CustomerProfile />} />
@@ -102,7 +99,6 @@ function App() {
         />
 
         <Route exact path="/userprofile" element={<UserProfile />} />
-        
       </Routes>
     </div>
   );

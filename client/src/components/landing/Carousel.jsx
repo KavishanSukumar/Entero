@@ -1,6 +1,20 @@
-import React, { useState, useRef, useEffect } from "react";
-import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
-import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import { useState, useRef, useEffect } from "react";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import ChooseUser from "../register/ChooseUser";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "background.paper",
+  boxShadow: 24,
+  p: 4,
+};
 
 let slideInterval;
 const CarauselDataImages = [
@@ -19,25 +33,19 @@ function Carousel() {
   const [current, setCurrent] = useState(0);
   const carouselRef = useRef();
   const length = CarauselDataImages.length;
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     carouselRef.current.addEventListener("animationend", removeAnimation);
-    carouselRef.current.addEventListener("mouseenter", pauseSlider);
-    carouselRef.current.addEventListener("mouseleave", startSlider);
-    startSlider();
-    return () => {
-      pauseSlider();
-    };
+    // startSlider();
   });
 
   const startSlider = () => {
     slideInterval = setInterval(() => {
       handleClickRight();
     }, 5000);
-  };
-
-  const pauseSlider = () => {
-    clearInterval(slideInterval);
   };
 
   const removeAnimation = () => {
@@ -58,6 +66,19 @@ function Carousel() {
 
   return (
     <>
+      <div>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style} className="rounded-lg">
+            <ChooseUser />
+          </Box>
+        </Modal>
+      </div>
+
       <div className="relative flex flex-row  h-1/5 my-9 justify-center items-center">
         <div className="z-10 absolute text-center top-40 bg-white p-6 rounded-xl opacity-80 shadow-inner">
           <h1 className="text-2xl font-bold py-6">
@@ -71,7 +92,10 @@ function Carousel() {
             </h1>
           </div>
           <h1 className="text-2xl font-bold  py-6">Join us Entero </h1>
-          <button className="border left-60 w-64 py-2 bg-yellow-900 hover:bg-gray-500 hover:text-black text-white">
+          <button
+            onClick={handleOpen}
+            className="border left-60 w-64 py-2 bg-yellow-900 hover:bg-gray-500 hover:text-black text-white"
+          >
             Sign Up
           </button>
         </div>
