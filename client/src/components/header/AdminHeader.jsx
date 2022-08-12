@@ -12,8 +12,8 @@ import { MdSpaceDashboard, MdContactPhone } from "react-icons/md";
 import { FaUsers, FaUserCog } from "react-icons/fa";
 import { GiMoneyStack } from "react-icons/gi";
 import Shakir from "../../Shakir.jpg";
-import CelebrationIcon from '@mui/icons-material/Celebration';
-import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
+import CelebrationIcon from "@mui/icons-material/Celebration";
+import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
 
 {
   /* Admin header is created because the menu in responsive layout will change to the admin sidebar,not home,contact us pages */
@@ -86,7 +86,7 @@ function AdminHeader() {
   );
 
   return (
-    <div className="fixed w-full flex items-center top-0  h-14  text-black bg-white shadow-2xl justify-between z-10">
+    <div className="fixed w-full flex items-center top-0  h-14  text-black bg-white shadow-lg justify-between z-10">
       {/* After login styles */}
       {/* header logo */}
 
@@ -127,7 +127,6 @@ function AdminHeader() {
             Events
           </NavLink>
         </li>
-  
       </ul>
 
       {/* After login components*/}
