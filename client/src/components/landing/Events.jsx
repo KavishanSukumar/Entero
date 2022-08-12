@@ -31,8 +31,7 @@ function Events() {
               Birthday
             </h3>
             <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-              The Zero Gravity Pen can be used to write in any orientation,
-              including upside-down. It even works in outer space.
+              We enlight your birthday celebration with more joyful and elegant services
             </p>
           </div>
         </div>
@@ -49,8 +48,7 @@ function Events() {
               Wedding
             </h3>
             <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-              The Zero Gravity Pen can be used to write in any orientation,
-              including upside-down. It even works in outer space.
+              You can choose the services as per your wish to make your day more special and surprising.
             </p>
           </div>
         </div>
@@ -67,8 +65,7 @@ function Events() {
               Reception
             </h3>
             <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-              The Zero Gravity Pen can be used to write in any orientation,
-              including upside-down. It even works in outer space.
+              Experience your moments in every point which makes you happy
             </p>
           </div>
         </div>
@@ -85,8 +82,7 @@ function Events() {
               Engagement
             </h3>
             <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-              The Zero Gravity Pen can be used to write in any orientation,
-              including upside-down. It even works in outer space.
+              To make your day success make a keen choice 
             </p>
           </div>
         </div>
@@ -103,8 +99,7 @@ function Events() {
               Other Occasion
             </h3>
             <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-              The Zero Gravity Pen can be used to write in any orientation,
-              including upside-down. It even works in outer space.
+              Here we are to resolve your needs to make your occations ideal
             </p>
           </div>
         </div>

@@ -63,7 +63,7 @@ function EventsAdmin() {
               scope="col"
               class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
             >
-              ID
+              Booking_ID
             </th>
             <th
               scope="col"
@@ -86,13 +86,58 @@ function EventsAdmin() {
         <tbody className="">
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                0023
+
+
+                E100011
+
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Kavin Fernando
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Birthday
+              </td>
+              
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <button
+                  onClick={handlePopup}
+                  className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                >
+                  View
+                </button>
+              </td>
+            </tr>
+            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                E100012
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Fasheen Cooray
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Birthday
+              </td>
+              
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <button
+                  onClick={handlePopup}
+                  className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                >
+                  View
+                </button>
+              </td>
+            </tr>
+            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                E100013
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Milki Dayah
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Wedding
               </td>
               
 
@@ -118,7 +163,7 @@ function EventsAdmin() {
               scope="col"
               class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
             >
-              ID
+              Booking_ID
             </th>
             <th
               scope="col"
@@ -141,7 +186,7 @@ function EventsAdmin() {
         <tbody className="">
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                0023
+                B003
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Devin Fernando
@@ -175,7 +220,7 @@ function EventsAdmin() {
               scope="col"
               class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
             >
-              ID
+              Booking_ID
             </th>
             <th
               scope="col"
@@ -198,13 +243,13 @@ function EventsAdmin() {
         <tbody className="">
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                0023
+                B005
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Ridul Fernando
+                Hasini Perera
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Birthday
+                Reception
               </td>
               
 

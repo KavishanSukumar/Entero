@@ -155,14 +155,14 @@ function Appointment() {
                         Sukumar Kavishan
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        15:00:56
+                        11:00:23
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        25:05:2022
+                        01:02:2022
                       </td>
 
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                        lorem50 Lorem ipsum dolor
+                        Need to get more information regarding the packages
                       </td>
 
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
@@ -265,14 +265,14 @@ function Appointment() {
                         Priskila Athauda
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        15:00:56
+                        09:02:32
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        25:05:2022
+                        30:06:2022
                       </td>
 
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                        lorem50 Lorem ipsum dolor
+                        Negotiation regarding the amount
                       </td>
 
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
@@ -374,14 +374,14 @@ function Appointment() {
                         Shakir Saheel
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        15:00:56
+                        08:10:28
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        25:05:2022
+                        18:03:2022
                       </td>
 
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                        lorem50 Lorem ipsum dolor
+                        Disscuss regarding the availability of extra services
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         Confirmed

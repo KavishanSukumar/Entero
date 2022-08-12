@@ -17,19 +17,7 @@ function ReviewCard(props) {
         </div>
       </div>
       <div className="m-3 font-serif italic">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nemo
-        dolorem est quam officia tempora cumque quas velit nobis placeat. Lorem
-        ipsum dolor sit amet consectetur adipisicing elit. Magni, eveniet.
-        Nesciunt dignissimos harum ducimus suscipit laudantium provident error
-        dolor sapiente deserunt quaerat! Sint magnam voluptatibus quod debitis
-        maxime corrupti nobis, tempore obcaecati beatae minus, quae vel officiis
-        iure nisi. Vero illo similique dolorem non sequi, sint qui illum cumque
-        quas commodi, eos laborum eum provident aliquid vitae temporibus
-        explicabo iure asperiores repellat eligendi fuga consequuntur odit enim!
-        Et aliquam eius exercitationem architecto repellat cum harum possimus
-        impedit maxime pariatur a consequatur, suscipit quia facilis enim
-        quaerat corrupti reprehenderit id ullam ipsam libero eos. Quis maiores
-        vitae nesciunt perspiciatis totam nobis.
+        I am so delighted about the services, all the refreshment items are very yummy. I recomment the refreshment price which is worth for the paid price.
       </div>
     </div>
   );

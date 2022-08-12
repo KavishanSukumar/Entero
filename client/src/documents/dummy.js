@@ -834,7 +834,7 @@ export const chatData = [
 export const earningData = [
   {
     icon: <MdOutlineSupervisorAccount />,
-    amount: '354',
+    amount: '124',
     percentage: '-4%',
     title: 'Customers',
     iconColor: '#03C9D7',
@@ -843,7 +843,7 @@ export const earningData = [
   },
   {
     icon: <BsBoxSeam />,
-    amount: '396',
+    amount: '67',
     percentage: '+23%',
     title: 'Service Providers',
     iconColor: 'rgb(255, 244, 229)',
@@ -852,7 +852,7 @@ export const earningData = [
   },
   {
     icon: <FiBarChart />,
-    amount: '423',
+    amount: '85',
     percentage: '+38%',
     title: 'Bookings',
     iconColor: 'rgb(228, 106, 118)',
