@@ -50,7 +50,7 @@ function Header() {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="relative w-7/12  transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <div className="mt-4">
+                  {/* <div className="mt-4">
                     <button
                       type="button"
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
@@ -58,7 +58,7 @@ function Header() {
                     >
                       Close
                     </button>
-                  </div>
+                  </div> */}
 
                   <div className="mt-2">
                     <Login />
