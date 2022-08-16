@@ -550,7 +550,7 @@ export default function SystemReports() {
                               className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md
                                hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                               >
-                                View
+                                More Details
                               </button>
                             </td>
 

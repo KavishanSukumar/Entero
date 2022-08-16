@@ -228,7 +228,7 @@ function MessageComponent() {
 
         <div className="p-2 bg-gray-100 shadow-2xl mb-5">
             {/*section name */}
-            <h3 className="border-b mb-5 border-black font-medium uppercase">Replies</h3>
+            <h3 className="border-b mb-5 border-black font-medium uppercase">Replied Messages</h3>
             
             {/*grid styling to contain 4 cards per section */}
             <div className="m-2 grid col-span-2 lg:grid-cols-2  xl:grid-cols-4 ">

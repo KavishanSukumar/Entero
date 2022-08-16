@@ -80,7 +80,7 @@ function BookingsCustomer() {
                 scope="col"
                 class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
               >
-                No
+                Booking_ID
               </th>
               <th
                 scope="col"
@@ -152,7 +152,7 @@ function BookingsCustomer() {
                 scope="col"
                 class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
               >
-                NO
+                Booking_ID
               </th>
               <th
                 scope="col"
@@ -214,6 +214,70 @@ function BookingsCustomer() {
       </div>
         
     )
+
+    const cancelData=(
+
+      <div className="overflow-auto justify-center w-full h-screen">
+      <table class="min-w-full z-0">
+        <thead class="bg-white border-b sticky top-0">
+          <tr>
+            <th
+              scope="col"
+              class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+            >
+              Booking_ID
+            </th>
+            <th
+              scope="col"
+              class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+            >
+              Category
+            </th>
+            <th
+              scope="col"
+              class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+            >
+              Date
+            </th>
+            <th
+              scope="col"
+              class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+            >
+              Service provider
+            </th>
+
+            <th
+              scope="col"
+              class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+            >Status</th>
+            
+          </tr>
+        </thead>
+        <tbody className="">
+          <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+              B003
+            </td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              Photography
+            </td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              12.03.2022
+            </td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            Melaka Studio
+            </td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            Cancelled
+            </td>
+
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      
+  )
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
         
@@ -226,6 +290,7 @@ function BookingsCustomer() {
           >
             <Tab label="PRESENT" {...a11yProps(0)} />
             <Tab label="PAST" {...a11yProps(1)} />
+            <Tab label="CANCELLED" {...a11yProps(2)} />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
@@ -234,6 +299,9 @@ function BookingsCustomer() {
         </TabPanel>
         <TabPanel value={value} index={1}>
           {pastData}
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          {cancelData}
         </TabPanel>
       </Box>
         
