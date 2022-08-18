@@ -125,14 +125,17 @@ export default function SystemReports() {
   const lineChartValues = {
     options: {
       chart: {
-        id: "basic-bar"
+        id: "basic-bar",
+        height: 500,
+        width: 700
       },
       xaxis: {
         categories: ['Jan', 'Feb', 'Mar', 'Aprail', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
       },
       markers: {
         size: [7]
-      }
+      },
+      
 
 
     },
@@ -147,7 +150,7 @@ export default function SystemReports() {
 
 
   return (
-    <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
+    <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full ">
    
    <div
         className={
@@ -239,11 +242,11 @@ export default function SystemReports() {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          <div className='flex flex-col gap-16 mt-[-50px]  w-full tab-pane fade show active' id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab">
+          <div className='flex flex-col gap-16 mt-[-50px]  w-full' >
             <div className='flex flex-col order-1'>
-              <div className='flex flex-row order-1  mr-3 ml-52 w-[700px]'>
+              <div className='flex flex-row order-1  mr-3 lg:ml-52 lg:w-[700px] gap-20'>
                 <div className="flex p-1 md:px-4 py-2 ">
-                  <div className="relative w-64">
+                  <div className="relative lg:w-64 md:w-52 ">
                     <select id="years" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
                                                 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2">
                       <option selected>Year</option>
@@ -258,19 +261,19 @@ export default function SystemReports() {
                   </div>
                 </div>
 
-                <div className='mt-2 ml-auto justify-end'>
-                  <p className='font-bold  text-xl '>Total Income : Rs 2000</p>
+                <div className='mt-2 lg:ml-auto xl:justify-end md:ml-28 sm:ml-20 justify-end '>
+                  <p className='font-bold  text-lg  sm:ml-24 '>Income (LKR): 2000</p>
                 </div>
               </div>
 
-              <div className='flex order-2 mt-10'>
+              <div className='flex order-2 mt-10 md:'>
                 <Chart
                   options={lineChartValues.options}
                   series={lineChartValues.series}
                   type="line"
-                  className="lineChartVerticleStyle ml-52"
-                  width="700"
-                  height="500"
+                  className="lineChartVerticleStyle lg:ml-52  lg:w-[700px] lg:h-[500] md:w-[700px] md:h-[400]  md:ml-1  sm:w-[505px] sm:h-[300px]  xs:w-[200px]     bg-cyan-100 rounded-lg"
+                  
+                  
                 />
               </div>
             </div>
@@ -280,8 +283,8 @@ export default function SystemReports() {
               <div className='flex flex-row order-1 mt-7 mr-3 ml-3'>
 
                 <div className="flex p-1 md:px-4 py-2 ">
-                  <div className="relative w-64">
-                    <select id="months" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
+                  <div className="relative lg:w-64 md:w-36 sm:w-28">
+                    <select id="months" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5 
                                                             dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2">
                       <option selected> Month</option>
                       <option value="1">January</option>
@@ -301,7 +304,7 @@ export default function SystemReports() {
                   </div>
                 </div>
                 <div className="flex p-1 md:px-4 py-2 ">
-                  <div className="relative w-[500px]">
+                  <div className="relative lg:w-[500px] md:w-[400px]">
 
                     <label className="relative block">
                       <span className="sr-only">Search</span>
@@ -322,15 +325,15 @@ export default function SystemReports() {
                 </div>
 
                 <div className='mt-2 ml-auto flex '>
-                  <p className='font-bold  text-xl '>Total Income : Rs 20000.00</p>
+                  <p className='font-bold  text-xl '>Income (LKR): 200000</p>
                 </div>
 
 
               </div>
 
               <div class="flex flex-col order-2 mt-5">
-                <div className="overflow-auto justify-center w-full h-screen">
-                  <table class="min-w-full z-0  mr-10">
+                <div className="overflow-auto justify-center w-full h-screen   ">
+                  <table class="min-w-full z-0  mr-10 ">
                     <thead class="bg-white border-b sticky top-0">
                       <tr>
                         <th
