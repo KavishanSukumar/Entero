@@ -47,6 +47,15 @@ import dec6 from "../../documents/dec6.jpg";
 import dec7 from "../../documents/dec7.jpg";
 import dec8 from "../../documents/dec8.jpg";
 
+import pho1 from "../../documents/pho1.jpeg";
+import pho2 from "../../documents/pho2.jpg";
+import pho3 from "../../documents/pho3.jpg";
+import pho4 from "../../documents/pho4.jpg";
+import pho5 from "../../documents/pho5.jpg";
+import pho6 from "../../documents/pho6.jpg";
+import pho7 from "../../documents/pho7.jpg";
+import pho8 from "../../documents/pho8.jpg";
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -119,13 +128,14 @@ function ServicesCustomer() {
  
   //   </>
   // );
+
   const cateData = (
     <>
       <div
         className="flex m-5 flex-wrap 
               gap-1"
       >
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -136,17 +146,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Marino Beach Colombo
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Zain Catering Service
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
             Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
             >
               See Portfolio
               <svg
@@ -166,7 +176,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -177,17 +187,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Pegasus Reef Hotel
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Sinro Caterers
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700  ">
               Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -207,7 +217,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -218,17 +228,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Galadari Hotel
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              A. H. Caters
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700">
               Trial
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -248,7 +258,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -259,17 +269,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Mandarina Colombo
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Raffles Catering
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
             Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -290,7 +300,7 @@ function ServicesCustomer() {
         </div>
 
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -301,17 +311,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Cinnamon Red Colombo
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Colombo Catering
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
             Trial
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -331,7 +341,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -342,17 +352,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
               Food, Function & Catering
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
             Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -372,7 +382,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class=" w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class=" w-72 bg-white rounded-lg border border-gray-200 shadow-md">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -383,17 +393,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Galle Face Hotel
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Jayamal Caterers
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
             Trial
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -413,7 +423,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -424,17 +434,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              ME Colombo
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+             Newsiri Caters
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
             Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -464,7 +474,7 @@ function ServicesCustomer() {
         className="flex m-5 flex-wrap 
               gap-1"
       >
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -475,17 +485,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
               Marino Beach Colombo
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
             Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -505,7 +515,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -516,17 +526,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
               Pegasus Reef Hotel
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
               Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -546,7 +556,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -557,17 +567,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
               Galadari Hotel
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Free
+            <p class="mb-3 font-normal text-gray-700 ">
+            Trial
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -587,7 +597,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -598,17 +608,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
               Mandarina Colombo
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
             Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -629,7 +639,7 @@ function ServicesCustomer() {
         </div>
 
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -640,17 +650,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
               Cinnamon Red Colombo
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Free
+            <p class="mb-3 font-normal text-gray-700 ">
+            Trial
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -670,7 +680,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -681,17 +691,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
               Cinnamon Grand Colombo
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700">
             Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -711,7 +721,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class=" w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class=" w-72 bg-white rounded-lg border border-gray-200 shadow-md">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -722,17 +732,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
               Galle Face Hotel
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Free
+            <p class="mb-3 font-normal text-gray-700 ">
+            Trial
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -752,7 +762,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -763,17 +773,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
               ME Colombo
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700">
             Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -802,7 +812,7 @@ function ServicesCustomer() {
         className="flex m-5 flex-wrap 
               gap-1"
       >
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -813,17 +823,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Marino Beach Colombo
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Smart Flora
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700  ">
             Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -843,7 +853,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -854,17 +864,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Pegasus Reef Hotel
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Wedding Carpet
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
               Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -884,7 +894,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -895,17 +905,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Galadari Hotel
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Olu Flora
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Free
+            <p class="mb-3 font-normal text-gray-700 ">
+            Trial
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -925,7 +935,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -936,17 +946,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Mandarina Colombo
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Manahara Flora
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700  ">
             Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -967,7 +977,7 @@ function ServicesCustomer() {
         </div>
 
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -978,17 +988,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Cinnamon Red Colombo
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+              2nd Chance Flowers
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Free
+            <p class="mb-3 font-normal text-gray-700 ">
+            Trial
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -1008,7 +1018,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -1019,17 +1029,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Cinnamon Grand Colombo
+              <h5 class="mb-2 text-2xl font-bold tracking-tight ">
+              Lassana Flora
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
             Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -1049,7 +1059,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class=" w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class=" w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -1060,17 +1070,17 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Galle Face Hotel
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900  ">
+              Wedding Dream Flora
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Free
+            <p class="mb-3 font-normal text-gray-700  ">
+            Trial
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -1090,7 +1100,7 @@ function ServicesCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
@@ -1101,17 +1111,356 @@ function ServicesCustomer() {
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              ME Colombo
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Shamins Deorations
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
             Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </>
+  );
+
+  const phoData = (
+    <>
+      <div
+        className="flex m-5 flex-wrap 
+              gap-1"
+      >
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho1}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Shine Photography
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700  ">
+            Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho2}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              CHE Studio
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+              Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho3}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Foto Station
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+              Trial
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho4}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              PhotoLk
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho5}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Roocine Studio
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Trial
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho6}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Dark Room Photography
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class=" w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho7}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Video7 Studio
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Trial
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho8}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              PassionArt Wedding Photographhy
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -1137,8 +1486,8 @@ function ServicesCustomer() {
 
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
-      <div className={serviceRegister ? "hidden" : "flex p-1 md:px-4 py-2 "}>
-        <div className="relative w-64">
+      {/* <div className={serviceRegister ? "hidden" : "flex p-1 md:px-4 py-2 "}> */}
+        <div className="relative w-64 mb-6 mt-6">
           <label className="relative block">
             <span className="sr-only">Search</span>
             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
@@ -1149,13 +1498,13 @@ function ServicesCustomer() {
             </span>
             <input
               className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-              placeholder="Search for Chats..."
+              placeholder="Search for Services..."
               type="text"
               name="search"
             />
           </label>
         </div>
-      </div>
+      {/* </div> */}
       {/* tabs at the top of table
       <div className="w-full mt-2 md:w-[80%] md:mx-[10%] lg:w-[60%] lg:mx-[20%] text-[10px] md:text-xs">
         <ul class="flex ">
@@ -1207,7 +1556,7 @@ function ServicesCustomer() {
           {decData}
         </TabPanel>
         <TabPanel value={value} index={3}>
-          {cateData}
+          {phoData}
         </TabPanel>
       </Box>
 
