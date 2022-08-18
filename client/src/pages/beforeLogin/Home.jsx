@@ -14,11 +14,24 @@ function Home() {
     <div>
       <Header />
       {/* Have to create a division and add the page content */}
+      <div id="carousel">
       <Carousel />
+      </div>
+      <div id="services" >
       <Services />
+      </div>
+      
+      <div id="events" >
       <Events />
+      </div>
+      <div id="aboutus">
       <AboutUs />
+      </div>
+      <div id="contactus">
       <ContactForm />
+      </div>
+      
+      
       {/* Have to create a division and add the page content */}
       <Footer />
     </div>

@@ -21,6 +21,11 @@ function Header() {
     setIsOpen(true);
   }
 
+  function handleBoth(){
+    openModal();
+    handleNav();
+  }
+
   return (
     <>
       {/* Login Form */}
@@ -83,54 +88,31 @@ function Header() {
         {/*header links */}
         <ul className="hidden md:flex">
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500 hover:rounded">
-            <NavLink
+            {/* <NavLink
               className={({ isActive }) =>
                 isActive ? "text-cyan-500 hover:text-black" : ""
               }
               to="/"
             >
               Home
-            </NavLink>
+            </NavLink> */}
+            <a href="#carousel">Home</a>
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-cyan-500 hover:text-black" : ""
-              }
-              to="/services"
-            >
-              Services
-            </NavLink>
+            
+            <a href="#services">Services</a>
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-cyan-500 hover:text-black" : ""
-              }
-              to="/events"
-            >
-              Events
-            </NavLink>
+            
+            <a href="#events">Events</a>
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-cyan-500 hover:text-black" : ""
-              }
-              to="/aboutus"
-            >
-              About Us
-            </NavLink>
+            
+            <a href="#aboutus">About Us</a>
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-cyan-500 hover:text-cyan-500" : ""
-              }
-              to="/contactus"
-            >
-              Contact Us
-            </NavLink>
+            
+            <a href="#contactus">Contact Us</a>
           </li>
         </ul>
 
@@ -159,7 +141,7 @@ function Header() {
         >
           <ul className=" text-sm">
             <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-              <NavLink
+              {/* <NavLink
                 to="/"
                 className={({ isActive }) =>
                   isActive
@@ -168,65 +150,41 @@ function Header() {
                 }
               >
                 <span className="ml-3">Home</span>
-              </NavLink>
+              </NavLink> */}
+              <a href="#carousel" onClick={handleNav}>Home</a>
             </li>
             <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive
-                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                    : "inline-flex items-center "
-                }
-              >
-                <span className="ml-3">Services</span>
-              </NavLink>
+              
+              <a href="#services" onClick={handleNav}>Services</a>
             </li>
             <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-              <NavLink
-                to="/adminusercustomer"
-                className={({ isActive }) =>
-                  isActive
-                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                    : "inline-flex items-center "
-                }
-              >
-                <span className="ml-3">Events</span>
-              </NavLink>
+              
+              <a href="#carousel" onClick={handleNav}>Events</a>
             </li>
 
             <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive
-                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                    : "inline-flex items-center "
-                }
-              >
-                <span className="ml-3">About Us</span>
-              </NavLink>
+              
+              <a href="#aboutus" onClick={handleNav}>About Us</a>
             </li>
             <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive
-                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                    : "inline-flex items-center "
-                }
-              >
-                <span className="ml-3">Contact Us</span>
-              </NavLink>
+              
+              <a href="#contactus" onClick={handleNav}>Contact Us</a>
             </li>
 
             <li className="p-4">
-              <Link
+              {/* <Link
                 to="/"
                 className="bg-blue-500 text-white hover:bg-blue-400 px-5 py-2 rounded"
               >
                 Sign in
-              </Link>
+              </Link> */}
+              <button
+                type="button"
+                onClick={() => handleBoth()}
+                className="bg-cyan-500 text-white hover:bg-cyan-400 px-5 py-2 rounded mx-2"
+              >
+                Sign in
+              </button>
             </li>
           </ul>
         </div>
