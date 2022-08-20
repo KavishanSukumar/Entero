@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import Home from "./pages/beforeLogin/Home";
@@ -29,25 +30,16 @@ import ServiceProviderChat from "./pages/afterLogin/serviceProvider/ServiceProvi
 import ServiceProviderCharges from "./pages/afterLogin/serviceProvider/ServiceProviderCharges";
 import ServiceproviderRatings from "./pages/afterLogin/serviceProvider/ServiceproviderRatings";
 import ServiceProviderBookings from "./pages/afterLogin/serviceProvider/ServiceProviderBookings";
-
 import ServiceProviderProfile from "./pages/afterLogin/serviceProvider/ServiceProviderProfile";
 
-import { FiSettings } from "react-icons/fi";
-
 import CustomerServices2 from "./pages/afterLogin/customer/CustomerServices2";
-
 import CustomerEvents2 from "./pages/afterLogin/customer/CustomerEvents2";
-
 import BusinessPolicies from "./pages/beforeLogin/businesspolicies/BusinessPolicies";
-
 import TermsCondition from "./pages/beforeLogin/termscondition/TermsCondition";
 import Appointment from "./pages/afterLogin/customer/Appointment";
 import Appointment2 from "./pages/afterLogin/customer/Appointment2";
-import { useEffect, useState } from "react";
 
 const API_URL = "http://localhost:4000/api/auth/isverify";
-
-import ChooseUser from "./components/register/ChooseUser";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
