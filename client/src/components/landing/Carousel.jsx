@@ -79,8 +79,8 @@ function Carousel() {
         </Modal>
       </div>
 
-      <div className="relative flex flex-row  h-1/5 my-9 justify-center items-center">
-        <div className="z-10 absolute text-center top-40 bg-white p-6 rounded-xl opacity-80 shadow-inner">
+      <div className="relative flex flex-row  h-1/5 my-0 justify-center items-center">
+        <div className="z-10 absolute text-center top-40 bg-white p-6 rounded-xl opacity-90 shadow-inner hover:scale-105">
           <h1 className="text-2xl font-bold py-6">
             Searching for Event Services?
           </h1>
