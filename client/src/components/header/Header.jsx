@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { Link, NavLink } from "react-router-dom";
+import {NavHashLink} from "react-router-hash-link";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import Login from "../login/Login";
 
@@ -88,31 +88,49 @@ function Header() {
         {/*header links */}
         <ul className="hidden md:flex">
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500 hover:rounded">
-            {/* <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-cyan-500 hover:text-black" : ""
-              }
-              to="/"
+            <NavHashLink
+              
+              to="/#carousel"
             >
               Home
-            </NavLink> */}
-            <a href="#carousel">Home</a>
+            </NavHashLink>
+            {/* <a href="#carousel">Home</a> */}
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-            
-            <a href="#services">Services</a>
+            <NavHashLink
+              
+              to="/#services"
+            >
+              Services
+            </NavHashLink>
+            {/* <a href="#services">Services</a> */}
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-            
-            <a href="#events">Events</a>
+          <NavHashLink
+              
+              to="/#events"
+            >
+              Events
+            </NavHashLink>
+            {/* <a href="#events">Events</a> */}
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-            
-            <a href="#aboutus">About Us</a>
+          <NavHashLink
+              
+              to="/#aboutus"
+            >
+              About Us
+            </NavHashLink>
+            {/* <a href="#aboutus">About Us</a> */}
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-            
-            <a href="#contactus">Contact Us</a>
+            <NavHashLink
+              
+              to="/#contactus"
+            >
+              Contact Us
+            </NavHashLink>
+            {/* <a href="#contactus">Contact Us</a> */}
           </li>
         </ul>
 
@@ -140,44 +158,56 @@ function Header() {
           }
         >
           <ul className=" text-sm">
-            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-              {/* <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive
-                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                    : "inline-flex items-center "
-                }
-              >
-                <span className="ml-3">Home</span>
-              </NavLink> */}
-              <a href="#carousel" onClick={handleNav}>Home</a>
-            </li>
-            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
+            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg" onClick={handleNav}>
               
-              <a href="#services" onClick={handleNav}>Services</a>
-            </li>
-            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
+            <NavHashLink
               
-              <a href="#carousel" onClick={handleNav}>Events</a>
+              to="/#carousel"
+            >
+              Home
+            </NavHashLink>
+            </li>
+            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg" onClick={handleNav}>
+              
+            <NavHashLink
+              
+              to="/#services"
+            >
+              Services
+            </NavHashLink>
+            </li>
+            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg" onClick={handleNav}>
+              
+            <NavHashLink
+              
+              to="/#events"
+            >
+              Events
+            </NavHashLink>
+            </li>
+            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg" onClick={handleNav}>
+              
+            <NavHashLink
+              
+              to="/#aboutus"
+            >
+              About Us
+            </NavHashLink>
             </li>
 
-            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
+            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg" onClick={handleNav}>
               
-              <a href="#aboutus" onClick={handleNav}>About Us</a>
-            </li>
-            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
+            <NavHashLink
               
-              <a href="#contactus" onClick={handleNav}>Contact Us</a>
+              to="/#contactus"
+            >
+              Contact Us
+            </NavHashLink>
             </li>
+            
 
             <li className="p-4">
-              {/* <Link
-                to="/"
-                className="bg-blue-500 text-white hover:bg-blue-400 px-5 py-2 rounded"
-              >
-                Sign in
-              </Link> */}
+              
               <button
                 type="button"
                 onClick={() => handleBoth()}

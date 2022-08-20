@@ -11,7 +11,7 @@ const EventImgs = [
 
 function Events() {
   return (
-    <div className="m-3">
+    <div className="m-3 pt-14">
       <div className="flex justify-center m-3">
         <h5 className="text-4xl font-bold tracking-tight text-gray-900 ">
           Events
