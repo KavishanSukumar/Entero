@@ -48,6 +48,15 @@ import dec7 from "../../documents/dec7.jpg";
 import dec8 from "../../documents/dec8.jpg";
 
 
+import pho1 from "../../documents/pho1.jpeg";
+import pho2 from "../../documents/pho2.jpg";
+import pho3 from "../../documents/pho3.jpg";
+import pho4 from "../../documents/pho4.jpg";
+import pho5 from "../../documents/pho5.jpg";
+import pho6 from "../../documents/pho6.jpg";
+import pho7 from "../../documents/pho7.jpg";
+import pho8 from "../../documents/pho8.jpg";
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -115,101 +124,36 @@ function EventsCustomer() {
       setService(!service);
     }
   };
-  const serviceData = (
-    <>
-      <div className="overflow-auto justify-center w-full h-screen">
-        <table class="min-w-full z-0">
-          <thead class="bg-white border-b sticky top-0">
-            <tr>
-              <th
-                scope="col"
-                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-              >
-                ID
-              </th>
-              <th
-                scope="col"
-                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-              >
-                Name
-              </th>
-              <th
-                scope="col"
-                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-              >
-                Category
-              </th>
-              <th
-                scope="col"
-                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-              >
-                Status
-              </th>
 
-              <th
-                scope="col"
-                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-              ></th>
-            </tr>
-          </thead>
-          <tbody className="">
-            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                0023
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Kalindu Studio
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Photography
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Active
-              </td>
 
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button
-                  onClick={handlePopup}
-                  className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                >
-                  View
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </>
-  );
-
-  const weddData = (
+  const cateData = (
     <>
       <div
         className="flex m-5 flex-wrap 
               gap-1"
       >
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
-              src={servicespic1}
+              src={cate1}
               alt=""
               className=" w-72 h-60"
             />
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Marino Beach Colombo
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Zain Catering Service
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
             Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
             >
               See Portfolio
               <svg
@@ -229,28 +173,28 @@ function EventsCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
-              src={servicespic2}
+              src={cate2}
               alt=""
               className=" w-72 h-60"
             />
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Pegasus Reef Hotel
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Sinro Caterers
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700  ">
               Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -270,28 +214,28 @@ function EventsCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
-              src={servicespic3}
+              src={cate3}
               alt=""
               className=" w-72 h-60"
             />
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Galadari Hotel
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              A. H. Caters
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700">
               Trial
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -311,28 +255,28 @@ function EventsCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
-              src={servicespic4}
+              src={cate4}
               alt=""
               className=" w-72 h-60"
             />
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Mandarina Colombo
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Raffles Catering
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
             Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -353,28 +297,28 @@ function EventsCustomer() {
         </div>
 
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
-              src={servicespic5}
+              src={cate5}
               alt=""
               className=" w-72 h-60"
             />
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Cinnamon Red Colombo
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Colombo Catering
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
             Trial
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -394,28 +338,28 @@ function EventsCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
-              src={servicespic6}
+              src={cate6}
               alt=""
               className=" w-72 h-60"
             />
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Cinnamon Grand Colombo
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Food, Function & Catering
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
             Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -435,28 +379,28 @@ function EventsCustomer() {
           </div>
         </div>
 
-        <div class=" w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class=" w-72 bg-white rounded-lg border border-gray-200 shadow-md">
           <a href="#">
             <img
               class="rounded-t-lg"
-              src={servicespic7}
+              src={cate7}
               alt=""
               className=" w-72 h-60"
             />
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Galle Face Hotel
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Jayamal Caterers
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
             Trial
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -476,28 +420,28 @@ function EventsCustomer() {
           </div>
         </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
               class="rounded-t-lg"
-              src={servicespic8}
+              src={cate8}
               alt=""
               className=" w-72 h-60"
             />
           </a>
           <div class="p-5">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              ME Colombo
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+             Newsiri Caters
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p class="mb-3 font-normal text-gray-700 ">
             Premium
             </p>
             <Rate />
             <a
               href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               See Portfolio
               <svg
@@ -523,339 +467,1027 @@ function EventsCustomer() {
 
   const serviceRegisterData = (
     <>
-
-<div
-                  className="flex m-5 flex-wrap 
+      <div
+        className="flex m-5 flex-wrap 
               gap-1"
-                >
-                  <div>
-                    <div className="bg-white bg-opacity-90 rounded-xl shadow-lg p-8 md:w-80">
-                      <form className="flex flex-col space-y-4 ">
-                        <div
-                          className=" flex item-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
-                          // onClick={() => handleClick('userProfile')}
-                        >
-                          <img
-                            className="rounded-full w-12 h-12"
-                            src={avatar3}
-                          />
-                          <p>
-                            <span className="text-gray-400 text-14">
-                              Shakir Saheel
-                            </span>{" "}
-                            <br />
-                            <span className="text-gray-400 font-bold ml-1 text-14">
-                              Maggona
-                            </span>
-                            <br />
-                            <div class="flex items-center mt-2.5 mb-5">
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-300"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>First star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-300"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>Second star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-300"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>Third star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-300"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>Fourth star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-300"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>Fifth star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
-                                Approved
-                              </span>
-                            </div>
-                          </p>
-                          {/* <MdKeyboardArrowDown className="text-gray-400 text-14"/> */}
-                        </div>
-
-                        <button className="inline-block self-end bg-black text-white font-bold rounded-lg px-6 py-2 uppercase text-sm hover:bg-sky-700 ">
-                          View Portfolio
-                        </button>
-                      </form>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="bg-white bg-opacity-90 rounded-xl shadow-lg p-8 md:w-80">
-                      <form className="flex flex-col space-y-4 ">
-                        <div
-                          className=" flex item-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
-                          // onClick={() => handleClick('userProfile')}
-                        >
-                          <img
-                            className="rounded-full w-12 h-12"
-                            src={avatar4}
-                          />
-                          <p>
-                            <span className="text-gray-400 text-14">
-                              Senal Punsara
-                            </span>{" "}
-                            <br />
-                            <span className="text-gray-400 font-bold ml-1 text-14">
-                              Colombo
-                            </span>
-                            <br />
-                            <div class="flex items-center mt-2.5 mb-5">
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-300"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>First star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-300"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>Second star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-300"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>Third star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-300"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>Fourth star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-300"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>Fifth star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
-                                Approved
-                              </span>
-                            </div>
-                          </p>
-                          {/* <MdKeyboardArrowDown className="text-gray-400 text-14"/> */}
-                        </div>
-
-                        <button className="inline-block self-end bg-black text-white font-bold rounded-lg px-6 py-2 uppercase text-sm hover:bg-sky-700 ">
-                          View Portfolio
-                        </button>
-                      </form>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="bg-white bg-opacity-90 rounded-xl shadow-lg p-8 md:w-80">
-                      <form className="flex flex-col space-y-4 ">
-                        <div
-                          className=" flex item-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
-                          // onClick={() => handleClick('userProfile')}
-                        >
-                          <img
-                            className="rounded-full w-12 h-12"
-                            src={avatar5}
-                          />
-                          <p>
-                            <span className="text-gray-400 text-14">
-                              Yonali Fernando
-                            </span>{" "}
-                            <br />
-                            <span className="text-gray-400 font-bold ml-1 text-14">
-                              Galle
-                            </span>
-                            <br />
-                            <div class="flex items-center mt-2.5 mb-5">
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-300"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>First star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-300"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>Second star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-300"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>Third star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-300"
-                                fill="bg-white-500"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>Fourth star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-300"
-                                fill="bg-white-500"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>Fifth star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
-                                Approved
-                              </span>
-                            </div>
-                          </p>
-                          {/* <MdKeyboardArrowDown className="text-gray-400 text-14"/> */}
-                        </div>
-
-                        <button className="inline-block self-end bg-black text-white font-bold rounded-lg px-6 py-2 uppercase text-sm hover:bg-sky-700 ">
-                          View Portfolio
-                        </button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-      {/* <div className="overflow-auto justify-center w-full h-screen">
-        <table class="min-w-full z-0">
-          <thead class="bg-white border-b sticky top-0">
-            <tr>
-              <th
-                scope="col"
-                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+      >
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={servicespic1}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Marino Beach Colombo
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                ID
-              </th>
-              <th
-                scope="col"
-                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={servicespic2}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Pegasus Reef Hotel
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+              Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                Name
-              </th>
-              <th
-                scope="col"
-                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-              ></th>
-              <th
-                scope="col"
-                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-              ></th>
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
 
-              <th
-                scope="col"
-                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-              ></th>
-            </tr>
-          </thead>
-          <tbody className="">
-            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                0023
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Kalindu Studio
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button
-                  onClick={handlePopupS}
-                  className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                >
-                  View
-                </button>
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                  Accept
-                </button>
-              </td>
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={servicespic3}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Galadari Hotel
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Trial
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
 
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                  Reject
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div> */}
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={servicespic4}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Mandarina Colombo
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={servicespic5}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Cinnamon Red Colombo
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Trial
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={servicespic6}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Cinnamon Grand Colombo
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700">
+            Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class=" w-72 bg-white rounded-lg border border-gray-200 shadow-md">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={servicespic7}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Galle Face Hotel
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Trial
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={servicespic8}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              ME Colombo
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700">
+            Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
     </>
   );
+  const decData = (
+    <>
+      <div
+        className="flex m-5 flex-wrap 
+              gap-1"
+      >
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={dec1}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Smart Flora
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700  ">
+            Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={dec2}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Wedding Carpet
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+              Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={dec3}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Olu Flora
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Trial
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={dec4}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Manahara Flora
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700  ">
+            Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={dec5}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+              2nd Chance Flowers
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Trial
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={dec6}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight ">
+              Lassana Flora
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class=" w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={dec7}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900  ">
+              Wedding Dream Flora
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700  ">
+            Trial
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={dec8}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Shamins Deorations
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </>
+  );
+
+  const phoData = (
+    <>
+      <div
+        className="flex m-5 flex-wrap 
+              gap-1"
+      >
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho1}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Shine Photography
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700  ">
+            Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho2}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              CHE Studio
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+              Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho3}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Foto Station
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+              Trial
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho4}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              PhotoLk
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho5}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Roocine Studio
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Trial
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho6}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Dark Room Photography
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class=" w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho7}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              Video7 Studio
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Trial
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho8}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              PassionArt Wedding Photographhy
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">
+            Premium
+            </p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </>
+  );
+
+
 
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
      
-      <div className={serviceRegister ? "hidden" : "flex p-1 md:px-4 py-2 "}>
-        <div className="relative w-64">
+      {/* <div className={serviceRegister ? "hidden" : "flex p-1 md:px-4 py-2 "}> */}
+        <div className="relative w-64 mt-6 mb-6">
         
           <label className="relative block">
             <span className="sr-only">Search</span>
@@ -867,13 +1499,13 @@ function EventsCustomer() {
             </span>
             <input
               className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-              placeholder="Search for Chats..."
+              placeholder="Search for Services..."
               type="text"
               name="search"
             />
           </label>
         </div>
-      </div>
+      {/* </div> */}
       {/* tabs at the top of table
       <div className="w-full mt-2 md:w-[80%] md:mx-[10%] lg:w-[60%] lg:mx-[20%] text-[10px] md:text-xs">
         <ul class="flex ">
@@ -916,7 +1548,7 @@ function EventsCustomer() {
             <Tab label="OTHER OCCASION" {...a11yProps(4)} />
        
 
-<div className="ml-28">
+{/* <div className="ml-28">
 <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
     <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
         <div class="flex items-center pl-3">
@@ -943,22 +1575,95 @@ function EventsCustomer() {
         </div>
     </li>
 </ul>
-</div>
+</div> */}
 </Tabs>
+
+
+
         </Box>
-        <TabPanel value={value} index={0}>
-          {serviceData}
+
+        <div className="flex flex-wrap lg:flex-nowrap justify-center">
+        {/* <div
+          className="flex flex-wrap
+         gap-1"
+        > */}
+<div>
+
+<br />
+<h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Services</h3>
+<ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+    <li class="w-full rounded-t-lg border-b border-gray-200 ">
+        <div class="flex items-center pl-3">
+            <input id="Caterings-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+            <label for="Caterings-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Caterings</label>
+        </div>
+    </li>
+    <li class="w-full rounded-t-lg border-b border-gray-200 ">
+        <div class="flex items-center pl-3">
+            <input id="Halls-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+            <label for="Halls-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Halls</label>
+        </div>
+    </li>
+    <li class="w-full rounded-t-lg border-b border-gray-200 ">
+        <div class="flex items-center pl-3">
+            <input id="Decoration-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+            <label for="Decoration-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Decoration</label>
+        </div>
+    </li>
+    <li class="w-full rounded-t-lg border-b border-gray-200 ">
+        <div class="flex items-center pl-3">
+            <input id="Photography-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" checked/>
+            <label for="Photography-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Photography</label>
+        </div>
+    </li>
+</ul>
+
+<br />
+<h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Status</h3>
+<ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+    <li class="w-full rounded-t-lg border-b border-gray-200">
+        <div class="flex items-center pl-3">
+            <input id="premium-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+            <label for="premium-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Premium</label>
+        </div>
+    </li>
+    <li class="w-full rounded-t-lg border-b border-gray-200">
+        <div class="flex items-center pl-3">
+            <input id="trial-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+            <label for="trial-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Trial</label>
+        </div>
+    </li>
+</ul>
+
+</div>
+<div>
+
+<TabPanel value={value} index={0}>
+        {cateData}
         </TabPanel>
         <TabPanel value={value} index={1}>
-          {weddData}
+        {cateData}{serviceRegisterData}{decData}{phoData}
         </TabPanel>
         <TabPanel value={value} index={2}>
-          {serviceData}
+        {decData}{phoData}
         </TabPanel>
         <TabPanel value={value} index={3}>
-          {serviceRegisterData}
+        {phoData}
         </TabPanel>
+</div>
+
+
+          {/* </div> */}
+          </div>
+
+
+
+
+
+       
       </Box>
+
+
 
       {/* <div
         className={
