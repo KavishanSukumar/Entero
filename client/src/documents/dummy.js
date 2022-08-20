@@ -85,7 +85,7 @@ export const EditorData = () => (
     <h3>
     {/* <p className="text-sm italic truncate overflow-hidden"> */}
     <p>
-          <h2 className="content-center text-center">Privacy Policy Entero</h2><br />
+          <h2 className="content-center text-center text-sm italic truncate overflow-hidden">Privacy Policy Entero</h2><br />
           {/* <h2>Privacy Policy Entero</h2><br /> */}
           <p>Protecting your private information is our priority. This Statement of Privacy applies to
 www.topbrand.co, Entero Worldwide, LLC and Entero S.A.S and governs data
@@ -168,67 +168,7 @@ the Entero features that you customized.</p>
 accept cookies, but you can usually modify your browser setting to decline cookies if you
 prefer. If you choose to decline cookies, you may not be able to fully experience the
 interactive features of the Entero services or websites you visit.</p><br />
-{/* <b>Links</b>
-<p>This website contains links to other sites. Please be aware that we are not responsible for
-the content or privacy practices of such other sites. We encourage our users to be aware
-when they leave our site and to read the privacy statements of any other site that collects
-personally identifiable information.</p>
-Security of your Personal Information
-<p>Entero secures your personal information from unauthorized access, use, or
-disclosure. Entero uses the following methods for this purpose:</p>
-- SSL Protocol
-When personal information (such as a credit card number) is transmitted to other
-websites, it is protected through the use of encryption, such as the Secure Sockets Layer
-(SSL) protocol.
-<p>We strive to take appropriate security measures to protect against unauthorized access to
-or alteration of your personal information. Unfortunately, no data transmission over the
-Internet or any wireless network can be guaranteed to be 100% secure. As a result, while
-we strive to protect your personal information, you acknowledge that: (a) there are
-security and privacy limitations inherent to the Internet which are beyond our control; and
-(b) security, integrity, and privacy of any and all information and data exchanged between
-you and us through this Site cannot be guaranteed.</p>
-Right to Deletion
-<p>Subject to certain exceptions set out below, on receipt of a verifiable request from you,
-we will:</p>
-• Delete your personal information from our records; and
-• Direct any service providers to delete your personal information from their
-records.
-<p>Please note that we may not be able to comply with requests to delete your personal
-information if it is necessary to:</p>
-• Complete the transaction for which the personal information was collected, fulfill
-the terms of a written warranty or product recall conducted in accordance with federal
-law, provide a good or service requested by you, or reasonably anticipated within the
-context of our ongoing business relationship with you, or otherwise perform a contract
-between you and us;
-• Detect security incidents, protect against malicious, deceptive, fraudulent, or illegal
-activity; or prosecute those responsible for that activity;
-• Debug to identify and repair errors that impair existing intended functionality;
-• Exercise free speech, ensure the right of another consumer to exercise his or her
-right of free speech, or exercise another right provided for by law;
-• Comply with the California Electronic Communications Privacy Act;
-• Engage in public or peer-reviewed scientific, historical, or statistical research in the
-public interest that adheres to all other applicable ethics and privacy laws, when our
-deletion of the information is likely to render impossible or seriously impair the
-achievement of such research, provided we have obtained your informed consent;
-• Enable solely internal uses that are reasonably aligned with your expectations
-based on your relationship with us;
-• Comply with an existing legal obligation; or
-• Otherwise use your personal information, internally, in a lawful manner that is
-compatible with the context in which you provided the information.<br />
-Children Under Thirteen
-<p>Entero does not knowingly collect personally identifiable information from children
-under the age of thirteen. If you are under the age of thirteen, you must ask your parent
-or guardian for permission to use this website.
-Disconnecting your Entero Account from Third Party Websites
-You will be able to connect your Entero account to third party accounts. BY
-CONNECTING YOUR Entero ACCOUNT TO YOUR THIRD PARTY ACCOUNT, YOU
-ACKNOWLEDGE AND AGREE THAT YOU ARE CONSENTING TO THE CONTINUOUS RELEASE
-OF INFORMATION ABOUT YOU TO OTHERS (IN ACCORDANCE WITH YOUR PRIVACY
-SETTINGS ON THOSE THIRD PARTY SITES). IF YOU DO NOT WANT INFORMATION ABOUT
-YOU, INCLUDING PERSONALLY IDENTIFYING INFORMATION, TO BE SHARED IN THIS
-MANNER, DO NOT USE THIS FEATURE. You may disconnect your account from a third
-party account at any time. Users may learn how to disconnect their accounts from third-
-party websites by contacting us via email or telephone.</p> */}
+
 <b><h4>E-mail Communications</h4></b>
 <p>From time to time, Entero may contact you via email for the purpose of providing
 announcements, promotional offers, alerts, confirmations, surveys, and/or other general
