@@ -34,6 +34,7 @@ function Home() {
       <div data-aos="slide-up">
         <ContactForm />
       </div>
+
       {/* Have to create a division and add the page content */}
       <Footer />
     </div>

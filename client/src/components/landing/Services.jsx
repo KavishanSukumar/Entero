@@ -12,9 +12,11 @@ const ServicesImgs = [
 
 function Services() {
   return (
+
     <div className="mx-3 mb-10 mt-24">
       <div className="flex justify-center mx-3 my-8">
         <h5 className="text-4xl font-bold tracking-tight text-gray-900 ">
+
           Services
         </h5>
       </div>

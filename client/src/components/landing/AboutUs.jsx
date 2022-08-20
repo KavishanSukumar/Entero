@@ -2,9 +2,14 @@ import React from "react";
 
 function AboutUs() {
   return (
-    <>
+
+    <div className="pt-14">
+      
+
+    
       <div className="flex flex-col lg:flex-row  mx-3 mb-10 mt-24">
         <div className="flex flex-col  basis-3/6 shadow-xl rounded-lg m-5 h-96 hover:scale-105">
+
           <div className="my-4 ml-10">
             <h1 className="text-6xl">Who are we?</h1>
           </div>
@@ -73,7 +78,7 @@ function AboutUs() {
           />
         </div>
       </div> */}
-    </>
+    </div>
   );
 }
 
