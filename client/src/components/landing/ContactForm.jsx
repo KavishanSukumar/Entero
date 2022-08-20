@@ -5,11 +5,13 @@ import React from "react";
 }
 function ContactForm() {
   return (
-    <div className="flex w-full min-h-screen justify-center items-center">
+    <div className="flex w-full justify-center items-center">
       <div className="flex flex-col m-3 lg:flex-row lg:space-x-6 space-y-6 lg:space-y-0  w-full  p-8 rounded-xl shadow-lg  bg-opacity-60">
         <div className="basis-4/12 flex flex-col space-y-8 justify-between">
           <div>
-            <h1 className="font-bold text-4xl tracking-wide">Contact Us</h1>
+            <h1 className="font-bold text-4xl tracking-wide mb-3">
+              Contact Us
+            </h1>
             <p className="pt-2 text-white-100 text-sm">
               Need to get in touch or want to say us anything, send us a message
               we will reach you back within one business day

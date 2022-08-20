@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { Link, NavLink } from "react-router-dom";
+import {NavHashLink} from "react-router-hash-link";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import Login from "../login/Login";
 
@@ -19,6 +19,11 @@ function Header() {
 
   function openModal() {
     setIsOpen(true);
+  }
+
+  function handleBoth(){
+    openModal();
+    handleNav();
   }
 
   return (
@@ -50,7 +55,7 @@ function Header() {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="relative w-7/12  transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <div className="mt-4">
+                  {/* <div className="mt-4">
                     <button
                       type="button"
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
@@ -58,7 +63,7 @@ function Header() {
                     >
                       Close
                     </button>
-                  </div>
+                  </div> */}
 
                   <div className="mt-2">
                     <Login />
@@ -83,54 +88,49 @@ function Header() {
         {/*header links */}
         <ul className="hidden md:flex">
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500 hover:rounded">
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-cyan-500 hover:text-black" : ""
-              }
-              to="/"
+            <NavHashLink
+              
+              to="/#carousel"
             >
               Home
-            </NavLink>
+            </NavHashLink>
+            {/* <a href="#carousel">Home</a> */}
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-cyan-500 hover:text-black" : ""
-              }
-              to="/services"
+            <NavHashLink
+              
+              to="/#services"
             >
               Services
-            </NavLink>
+            </NavHashLink>
+            {/* <a href="#services">Services</a> */}
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-cyan-500 hover:text-black" : ""
-              }
-              to="/events"
+          <NavHashLink
+              
+              to="/#events"
             >
               Events
-            </NavLink>
+            </NavHashLink>
+            {/* <a href="#events">Events</a> */}
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-cyan-500 hover:text-black" : ""
-              }
-              to="/aboutus"
+          <NavHashLink
+              
+              to="/#aboutus"
             >
               About Us
-            </NavLink>
+            </NavHashLink>
+            {/* <a href="#aboutus">About Us</a> */}
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-cyan-500 hover:text-cyan-500" : ""
-              }
-              to="/contactus"
+            <NavHashLink
+              
+              to="/#contactus"
             >
               Contact Us
-            </NavLink>
+            </NavHashLink>
+            {/* <a href="#contactus">Contact Us</a> */}
           </li>
         </ul>
 
@@ -158,75 +158,63 @@ function Header() {
           }
         >
           <ul className=" text-sm">
-            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive
-                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                    : "inline-flex items-center "
-                }
-              >
-                <span className="ml-3">Home</span>
-              </NavLink>
+            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg" onClick={handleNav}>
+              
+            <NavHashLink
+              
+              to="/#carousel"
+            >
+              Home
+            </NavHashLink>
             </li>
-            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive
-                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                    : "inline-flex items-center "
-                }
-              >
-                <span className="ml-3">Services</span>
-              </NavLink>
+            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg" onClick={handleNav}>
+              
+            <NavHashLink
+              
+              to="/#services"
+            >
+              Services
+            </NavHashLink>
             </li>
-            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-              <NavLink
-                to="/adminusercustomer"
-                className={({ isActive }) =>
-                  isActive
-                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                    : "inline-flex items-center "
-                }
-              >
-                <span className="ml-3">Events</span>
-              </NavLink>
+            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg" onClick={handleNav}>
+              
+            <NavHashLink
+              
+              to="/#events"
+            >
+              Events
+            </NavHashLink>
+            </li>
+            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg" onClick={handleNav}>
+              
+            <NavHashLink
+              
+              to="/#aboutus"
+            >
+              About Us
+            </NavHashLink>
             </li>
 
-            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive
-                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                    : "inline-flex items-center "
-                }
-              >
-                <span className="ml-3">About Us</span>
-              </NavLink>
+            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg" onClick={handleNav}>
+              
+            <NavHashLink
+              
+              to="/#contactus"
+            >
+              Contact Us
+            </NavHashLink>
             </li>
-            <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive
-                    ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                    : "inline-flex items-center "
-                }
-              >
-                <span className="ml-3">Contact Us</span>
-              </NavLink>
-            </li>
+            
 
             <li className="p-4">
-              <Link
-                to="/"
-                className="bg-blue-500 text-white hover:bg-blue-400 px-5 py-2 rounded"
+              
+              <button
+                type="button"
+                onClick={() => handleBoth()}
+                className="bg-cyan-500 text-white hover:bg-cyan-400 px-5 py-2 rounded mx-2"
               >
                 Sign in
-              </Link>
+              </button>
             </li>
           </ul>
         </div>

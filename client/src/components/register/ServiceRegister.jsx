@@ -1,53 +1,48 @@
-import * as React from "react";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormGroup from "@mui/material/FormGroup";
+import Input from "@mui/material/Input";
+import InputLabel from "@mui/material/InputLabel";
+import * as React from "react";
 
 function ServiceRegister() {
   return (
-    <div className="flex flex-row justify-center font-serif">
-      <form className=" m-3  bg-white p-4  rounded-lg border-2">
-        <h1 className="text-xl font-bold text-center py-2">Sign Up</h1>
+    <div className="flex flex-row justify-center ">
+      <form className=" m-3  bg-white p-4  rounded-lg border-2 w-128 ">
+        <h1 className="text-xl font-bold text-center py-2">
+          Service Provider Sign Up
+        </h1>
 
-        <div className="flex flex-col py-2 ">
-          <label>Company Name</label>
-          <input
-            className="border p-2 "
-            placeholder="Enter Company Name"
-            type="text"
-          />
+        <div className="flex flex-col  ">
+          <FormControl fullWidth sx={{ m: 1 }} variant="standard">
+            <InputLabel>Company Name</InputLabel>
+            <Input />
+          </FormControl>
         </div>
 
-        <div className="flex flex-col py-2 ">
-          <label>E-mail</label>
-          <input
-            className="border p-2 "
-            placeholder="Enter E-mail"
-            type="text"
-          />
+        <div className="flex flex-col  ">
+          <FormControl fullWidth sx={{ m: 1 }} variant="standard">
+            <InputLabel>Email</InputLabel>
+            <Input />
+          </FormControl>
         </div>
 
-        <div className="flex flex-col py-2">
-          <label>Contact Number</label>
-          <input
-            className="border p-2 "
-            placeholder="Enter Contact Number"
-            type="text"
-            required
-          />
+        <div className="flex flex-col ">
+          <FormControl fullWidth sx={{ m: 1 }} variant="standard">
+            <InputLabel>Contact Number</InputLabel>
+            <Input />
+          </FormControl>
         </div>
 
-        <div className="flex flex-col py-2">
-          <label>Address</label>
-          <input
-            className="border p-2 "
-            placeholder="Enter Address"
-            type="text"
-            required
-          />
+        <div className="flex flex-col ">
+          <FormControl fullWidth sx={{ m: 1 }} variant="standard">
+            <InputLabel>Address</InputLabel>
+            <Input />
+          </FormControl>
         </div>
 
-        <div className="flex flex-col py-2">
+        <div className="flex flex-col py-5 px-2">
           <label>Service Category</label>
           <FormGroup className="px-3">
             <FormControlLabel control={<Checkbox />} label="Refreshment" />
@@ -57,20 +52,20 @@ function ServiceRegister() {
           </FormGroup>
         </div>
 
-        <div className="flex flex-col py-2">
-          <label>Business Registration Document</label>
+        <div className="flex flex-col py-2 px-2">
+          <label className="mb-3">Business Registration Document</label>
           <input
             type="file"
             className="block w-full text-sm text-slate-500
-            file:mr-4 file:py-2 file:px-4
+            file:mr-4 file:py-1 file:px-4
             file:rounded-full file:border-0
             file:text-sm file:font-semibold
             file:bg-cyan-500 file:text-white
-            hover:file:bg-violet-100"
+            hover:file:bg-cyan-400"
           />
         </div>
 
-        <div className="flex items-center justify-between ">
+        <div className="flex items-center justify-between py-3 px-2">
           <div className="flex items-center mt-5">
             <input
               id="terms"
@@ -80,13 +75,13 @@ function ServiceRegister() {
             />
             <label
               htmlFor="terms"
-              className="ml-2 block top-8 text-sm text-indigo-700 right-0"
+              className="ml-2 block top-8 text-sm text-indigo-700 right-0 cursor-pointer"
             >
               Accept Terms & Conditions
             </label>
           </div>
         </div>
-        <button className="border w-full my-5 py-2 bg-cyan-500 hover:bg-cyan-400 text-white">
+        <button className="border w-full my-5 py-1 bg-cyan-500 hover:bg-cyan-400 text-white">
           Sign Up
         </button>
       </form>

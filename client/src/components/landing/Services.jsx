@@ -12,14 +12,16 @@ const ServicesImgs = [
 
 function Services() {
   return (
-    <div className="m-3">
-      <div className="flex justify-center m-3">
+
+    <div className="mx-3 mb-10 mt-24">
+      <div className="flex justify-center mx-3 my-8">
         <h5 className="text-4xl font-bold tracking-tight text-gray-900 ">
+
           Services
         </h5>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center mx-3 my-3">
-        <div className="bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+        <div className="bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl hover:scale-105">
           <div>
             <span className="inline-flex items-center justify-center p-2 rounded-md shadow-lg">
               <img
@@ -33,10 +35,11 @@ function Services() {
             Catering
           </h3>
           <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-            We provide breakfast, lunch, tea party, dinner, catering, refreshments and other services as you need
+            We provide breakfast, lunch, tea party, dinner, catering,
+            refreshments and other services as you need
           </p>
         </div>
-        <div className="bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+        <div className="bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl hover:scale-105">
           <div>
             <span className="inline-flex items-center justify-center p-2 rounded-md shadow-lg">
               <img
@@ -50,10 +53,11 @@ function Services() {
             Decorations
           </h3>
           <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-            The packages will be provided to fulfill your expected sights of view whcich can make your eye pleasant and pure
+            The packages will be provided to fulfill your expected sights of
+            view whcich can make your eye pleasant and pure
           </p>
         </div>
-        <div className="bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+        <div className="bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl hover:scale-105">
           <div>
             <span className="inline-flex items-center justify-center p-2 rounded-md shadow-lg">
               <img
@@ -67,10 +71,11 @@ function Services() {
             Hall
           </h3>
           <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-            According to the number of guests, place, and your wish you can select the needed shelter to conduct your occations
+            According to the number of guests, place, and your wish you can
+            select the needed shelter to conduct your occations
           </p>
         </div>
-        <div className="bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+        <div className="bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl hover:scale-105">
           <div>
             <span className="inline-flex items-center justify-center p-2 rounded-md shadow-lg">
               <img
@@ -84,7 +89,8 @@ function Services() {
             Photography
           </h3>
           <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-            To feel your special day on the rest of your time mark that moment of happiness as a click by using our photography services
+            To feel your special day on the rest of your time mark that moment
+            of happiness as a click by using our photography services
           </p>
         </div>
       </div>

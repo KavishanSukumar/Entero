@@ -16,6 +16,11 @@ function ServiceProviderHeader() {
     setNav(!nav);
   };
 
+  const logoutHandler = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/";
+  };
+
   const [dropdownPic, setDropdownPic] = useState(false);
   const [dropdownBell, setDropdownBell] = useState(false);
 
@@ -42,7 +47,12 @@ function ServiceProviderHeader() {
           <li className="block py-2 px-4 hover:bg-gray-200">My Profile</li>
         </NavLink>
         <NavLink to="/">
-          <li className="block py-2 px-4 hover:bg-gray-200">Logout</li>
+          <li
+            onClick={logoutHandler}
+            className="block py-2 px-4 hover:bg-gray-200"
+          >
+            Logout
+          </li>
         </NavLink>
       </ul>
     </div>
@@ -121,7 +131,10 @@ function ServiceProviderHeader() {
             <button className="  border-2   p-1 mb-1 rounded hover:bg-transparent hover:border-black">
               <NavLink to="/serviceprofile">Profile</NavLink>
             </button>
-            <button className=" border-2   p-1 rounded hover:bg-transparent hover:border-black">
+            <button
+              onClick={logoutHandler}
+              className=" border-2   p-1 rounded hover:bg-transparent hover:border-black"
+            >
               Logout
             </button>
           </div>
