@@ -48,7 +48,6 @@ import { useEffect, useState } from "react";
 const API_URL = "http://localhost:4000/api/auth/isverify";
 
 import ChooseUser from "./components/register/ChooseUser";
-import ServiceProviderCharges from "./pages/afterLogin/serviceProvider/ServiceProviderCharges";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
