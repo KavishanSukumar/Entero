@@ -43,6 +43,9 @@ import TermsCondition from "./pages/beforeLogin/termscondition/TermsCondition";
 import Appointment from "./pages/afterLogin/customer/Appointment";
 import Appointment2 from "./pages/afterLogin/customer/Appointment2";
 
+import ChooseUser from "./components/register/ChooseUser";
+import ServiceProviderCharges from "./pages/afterLogin/serviceProvider/ServiceProviderCharges";
+
 function App() {
   return (
     <div className="App">
