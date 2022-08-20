@@ -11,18 +11,18 @@ const EventImgs = [
 
 function Events() {
   return (
-    <div className="m-3">
-      <div className="flex justify-center m-3">
+    <div className="mx-3 mb-10 mt-24">
+      <div className="flex justify-center mx-3 my-8">
         <h5 className="text-4xl font-bold tracking-tight text-gray-900 ">
           Events
         </h5>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
-        <div className=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative">
+        <div className=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative hover:scale-105">
           <div className="inline-flex items-center justify-center p-2 rounded-md shadow-lg mr-3 ">
             <img
               src={EventImgs[0]}
-              className="w-auto h-100 object-cover rounded-full"
+              className="w-auto h-100 object-cover rounded-xl"
               alt="Event Imgs"
             />
           </div>
@@ -31,15 +31,16 @@ function Events() {
               Birthday
             </h3>
             <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-              We enlight your birthday celebration with more joyful and elegant services
+              We enlight your birthday celebration with more joyful and elegant
+              services
             </p>
           </div>
         </div>
-        <div className=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative">
+        <div className=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative hover:scale-105">
           <div className="inline-flex items-center justify-center p-2 rounded-md shadow-lg mr-3">
             <img
               src={EventImgs[1]}
-              className="w-auto h-100 object-cover rounded-full"
+              className="w-auto h-100 object-cover rounded-xl"
               alt="Event Imgs"
             />
           </div>
@@ -48,15 +49,16 @@ function Events() {
               Wedding
             </h3>
             <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-              You can choose the services as per your wish to make your day more special and surprising.
+              You can choose the services as per your wish to make your day more
+              special and surprising.
             </p>
           </div>
         </div>
-        <div className=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative">
+        <div className=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative hover:scale-105">
           <div className="inline-flex items-center justify-center p-2 rounded-md shadow-lg mr-3">
             <img
               src={EventImgs[2]}
-              className="w-auto h-100 object-cover rounded-full"
+              className="w-auto h-100 object-cover rounded-xl"
               alt="Event Imgs"
             />
           </div>
@@ -69,11 +71,11 @@ function Events() {
             </p>
           </div>
         </div>
-        <div className=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative">
+        <div className=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative hover:scale-105">
           <div className="inline-flex items-center justify-center p-2 rounded-md shadow-lg mr-3">
             <img
               src={EventImgs[3]}
-              className="w-auto h-100 object-cover rounded-full"
+              className="w-auto h-100 object-cover rounded-xl"
               alt="Event Imgs"
             />
           </div>
@@ -82,15 +84,15 @@ function Events() {
               Engagement
             </h3>
             <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-              To make your day success make a keen choice 
+              To make your day success make a keen choice
             </p>
           </div>
         </div>
-        <div className=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative">
+        <div className=" flex flex-row bg-white  rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl relative hover:scale-105">
           <div className="inline-flex items-center justify-center p-2 rounded-md shadow-lg mr-3">
             <img
               src={EventImgs[4]}
-              className="w-auto h-100 object-cover rounded-full"
+              className="w-auto h-100 object-cover rounded-xl"
               alt="Event Imgs"
             />
           </div>
