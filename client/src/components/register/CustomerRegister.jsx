@@ -1,25 +1,16 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import Input from "@mui/material/Input";
-import FilledInput from "@mui/material/FilledInput";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
-import InputAdornment from "@mui/material/InputAdornment";
-import FormHelperText from "@mui/material/FormHelperText";
-import FormControl from "@mui/material/FormControl";
-import TextField from "@mui/material/TextField";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import FormControl from "@mui/material/FormControl";
+import IconButton from "@mui/material/IconButton";
+import Input from "@mui/material/Input";
+import InputAdornment from "@mui/material/InputAdornment";
+import InputLabel from "@mui/material/InputLabel";
+import * as React from "react";
 
 function CustomerRegister() {
   const [values, setValues] = React.useState({
     showPassword: false,
   });
-
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
 
   const handleClickShowPassword = () => {
     setValues({
@@ -32,117 +23,98 @@ function CustomerRegister() {
     event.preventDefault();
   };
   return (
-    <div className="flex flex-col justify-center place-items-center font-serif ">
+    <div className="flex flex-col justify-center place-items-center ">
       <form className="max-w-fit w-full mx-auto bg-white p-4  rounded-lg border-2">
-        <h1 className="text-xl font-bold text-center py-2">Sign Up</h1>
+        <h1 className="text-xl font-bold text-center py-2">Customer Sign Up</h1>
 
-        <div className="flex flex-col py-2 ">
-          <label>Fullname</label>
-        </div>
-        <div className="flex flex-row justify-around">
-          <div className="flex flex-col basis-5/12 mr-1">
-            <input
-              className="border  p-2"
-              placeholder="Enter First Name"
-              type="text"
-              required
-            />
-          </div>
-          <div className="flex flex-col basis-5/12 ml-1">
-            <input
-              className="border p-2"
-              placeholder="Enter Last Name"
-              type="text"
-              required
-            />
+        <div>
+          <div className="flex flex-row justify-between">
+            <div className="flex flex-col basis-6/12 mr-1">
+              <FormControl fullWidth sx={{ m: 1 }} variant="standard">
+                <InputLabel>First Name</InputLabel>
+                <Input />
+              </FormControl>
+            </div>
+            <div className="flex flex-col basis-6/12 ml-1">
+              <FormControl fullWidth sx={{ m: 1 }} variant="standard">
+                <InputLabel>Last Name</InputLabel>
+                <Input />
+              </FormControl>
+            </div>
           </div>
         </div>
-
         <div className="flex flex-col py-2 ">
-          <label>E-mail</label>
-          <input
-            className="border p-2 "
-            placeholder="Enter E-mail"
-            type="text"
-          />
-        </div>
-
-        <div className="flex flex-col py-2">
-          <label>Contact Number</label>
-          <input
-            className="border p-2 "
-            placeholder="Enter Contact Number"
-            type="text"
-            required
-          />
-        </div>
-
-        <div className="flex flex-col py-2">
-          <label>Address</label>
-          <input
-            className="border p-2 "
-            placeholder="Enter Address"
-            type="text"
-            required
-          />
-        </div>
-
-        <div className="flex flex-col py-2">
-          <label>Username</label>
-          <input
-            className="border p-2 "
-            placeholder="Enter Username"
-            type="text"
-            required
-          />
-        </div>
-
-        <div className="flex flex-row justify-around">
-          <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-password">
-              Password
-            </InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={values.showPassword ? "text" : "password"}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              label="Password"
-            />
+          <FormControl fullWidth sx={{ m: 1 }} variant="standard">
+            <InputLabel>Email</InputLabel>
+            <Input />
           </FormControl>
+        </div>
 
-          <FormControl sx={{ m: 1, width: "25ch" }} variant="filled">
-            <InputLabel htmlFor="filled-adornment-password">
-              Password
-            </InputLabel>
-            <FilledInput
-              id="filled-adornment-password"
-              type={values.showPassword ? "text" : "password"}
-              onChange={handleChange("password")}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
+        <div className="flex flex-col py-2">
+          <FormControl fullWidth sx={{ m: 1 }} variant="standard">
+            <InputLabel>Contact Number</InputLabel>
+            <Input />
           </FormControl>
+        </div>
+
+        <div className="flex flex-col py-2">
+          <FormControl fullWidth sx={{ m: 1 }} variant="standard">
+            <InputLabel>Address</InputLabel>
+            <Input />
+          </FormControl>
+        </div>
+
+        <div className="flex flex-col py-2">
+          <FormControl fullWidth sx={{ m: 1 }} variant="standard">
+            <InputLabel>Username</InputLabel>
+            <Input />
+          </FormControl>
+        </div>
+
+        <div className="flex flex-col justify-around">
+          <div className="flex flex-row">
+            <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
+              <InputLabel htmlFor="standard-adornment-password">
+                Password
+              </InputLabel>
+              <Input
+                id="standard-adornment-password"
+                type={values.showPassword ? "text" : "password"}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+
+            <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
+              <InputLabel htmlFor="standard-adornment-password">
+                Confirm Password
+              </InputLabel>
+              <Input
+                id="standard-adornment-password"
+                type={values.showPassword ? "text" : "password"}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+          </div>
         </div>
 
         <div className="flex items-center justify-between ">
@@ -164,12 +136,6 @@ function CustomerRegister() {
         <button className="border w-full my-5 py-2 bg-cyan-500 hover:bg-cyan-400 text-white">
           Sign Up
         </button>
-        <div className="text-center">
-          <p>Already have an account?</p>
-          <a className="text-indigo-700 right-0" href="../login/Login.jsx">
-            Sign In
-          </a>
-        </div>
       </form>
     </div>
   );
