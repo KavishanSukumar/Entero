@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import axios from "axios";
 import Home from "./pages/beforeLogin/Home";
 import UserProfile from "./pages/afterLogin/UserProfile";
 
@@ -42,8 +43,33 @@ import BusinessPolicies from "./pages/beforeLogin/businesspolicies/BusinessPolic
 import TermsCondition from "./pages/beforeLogin/termscondition/TermsCondition";
 import Appointment from "./pages/afterLogin/customer/Appointment";
 import Appointment2 from "./pages/afterLogin/customer/Appointment2";
+import { useEffect, useState } from "react";
+
+const API_URL = "http://localhost:4000/api/auth/isverify";
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const setAuth = (Boolean) => {
+    setIsAuthenticated(Boolean);
+  };
+
+  async function isAuth() {
+    try {
+      const res = await axios.get(API_URL, {
+        headers: { token: localStorage.token },
+      });
+
+      res.data === true ? setIsAuthenticated(true) : setIsAuthenticated(false);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  useEffect(() => {
+    isAuth();
+  }, []);
+
   return (
     <div className="App">
       <Routes>
@@ -60,41 +86,97 @@ function App() {
           path="/adminusercustomer"
           element={<AdminUserCustomer />}
         />
-        <Route exact path="/adminuserservice" element={<AdminUserServices />} />
-        <Route exact path="/admindashboard" element={<AdminDashboard />} />
-        <Route exact path="/adminevents" element={<AdminEvents />} />
-        <Route exact path="/adminpayment" element={<AdminPayment />} />
-        <Route exact path="/adminreports" element={<AdminReports />} />
-        <Route exact path="/admincontact" element={<AdminContact />} />
-        <Route exact path="/adminterms" element={<AdminTermsCondition />} />
+        <Route
+          exact
+          path="/adminuserservice"
+          element={isAuthenticated ? <AdminUserServices /> : <Home />}
+        />
+        <Route
+          exact
+          path="/admindashboard"
+          element={isAuthenticated ? <AdminDashboard /> : <Home />}
+        />
+        <Route
+          exact
+          path="/adminevents"
+          element={isAuthenticated ? <AdminEvents /> : <Home />}
+        />
+        <Route
+          exact
+          path="/adminpayment"
+          element={isAuthenticated ? <AdminPayment /> : <Home />}
+        />
+        <Route
+          exact
+          path="/adminreports"
+          element={isAuthenticated ? <AdminReports /> : <Home />}
+        />
+        <Route
+          exact
+          path="/admincontact"
+          element={isAuthenticated ? <AdminContact /> : <Home />}
+        />
+        <Route
+          exact
+          path="/adminterms"
+          element={isAuthenticated ? <AdminTermsCondition /> : <Home />}
+        />
         <Route
           exact
           path="/adminpolicies"
-          element={<AdminBusinessPolicies />}
+          element={isAuthenticated ? <AdminBusinessPolicies /> : <Home />}
         />
 
         {/*Customer pages */}
-        <Route exact path="/customerprofile" element={<CustomerProfile />} />
-        <Route exact path="/customerhome" element={<CustomerHome />} />
-        <Route exact path="/customerevents" element={<CustomerEvents />} />
-        <Route exact path="/customerevents2" element={<CustomerEvents2 />} />
-        <Route exact path="/customerservices" element={<CustomerServices />} />
+        <Route
+          exact
+          path="/customerprofile"
+          element={isAuthenticated ? <CustomerProfile /> : <Home />}
+        />
+        <Route
+          exact
+          path="/customerhome"
+          element={isAuthenticated ? <CustomerHome /> : <Home />}
+        />
+        <Route
+          exact
+          path="/customerevents"
+          element={isAuthenticated ? <CustomerEvents /> : <Home />}
+        />
+        <Route
+          exact
+          path="/customerevents2"
+          element={isAuthenticated ? <CustomerEvents2 /> : <Home />}
+        />
+        <Route
+          exact
+          path="/customerservices"
+          element={isAuthenticated ? <CustomerServices /> : <Home />}
+        />
         <Route
           exact
           path="/customerservices2"
-          element={<CustomerServices2 />}
+          element={isAuthenticated ? <CustomerServices2 /> : <Home />}
         />
-        <Route exact path="/customerbookings" element={<CustomerBookings />} />
+        <Route
+          exact
+          path="/customerbookings"
+          element={isAuthenticated ? <CustomerBookings /> : <Home />}
+        />
         <Route
           exact
           path="/customerappointments"
-          element={<CustomerAppointments />}
+          element={isAuthenticated ? <CustomerAppointments /> : <Home />}
         />
-        <Route exact path="/customerchat" element={<CustomerChat />} />
+        <Route
+          exact
+          path="/customerchat"
+          element={isAuthenticated ? <CustomerChat /> : <Home />}
+        />
         <Route
           exact
           path="customerserviceportfolio"
-          element={<CustomerServicePortfolio />}
+          element={isAuthenticated ? <CustomerServicePortfolio /> : <Home />}
         />
 
         {/*Service provider pages */}
@@ -102,36 +184,44 @@ function App() {
         <Route
           exact
           path="/serviceportfolio"
-          element={<ServiceProviderPortfolio />}
+          element={isAuthenticated ? <ServiceProviderPortfolio /> : <Home />}
         />
         <Route
           exact
           path="/serviceappointments"
-          element={<ServiceProviderAppointments />}
+          element={isAuthenticated ? <ServiceProviderAppointments /> : <Home />}
         />
         <Route
           exact
           path="/servicebookings"
-          element={<ServiceProviderBookings />}
+          element={isAuthenticated ? <ServiceProviderBookings /> : <Home />}
         />
-        <Route exact path="/servicechat" element={<ServiceProviderChat />} />
+        <Route
+          exact
+          path="/servicechat"
+          element={isAuthenticated ? <ServiceProviderChat /> : <Home />}
+        />
         <Route
           exact
           path="/serviceratings"
-          element={<ServiceproviderRatings />}
+          element={isAuthenticated ? <ServiceproviderRatings /> : <Home />}
         />
         <Route
           exact
           path="/servicecharges"
-          element={<ServiceProviderCharges />}
+          element={isAuthenticated ? <ServiceProviderCharges /> : <Home />}
         />
         <Route
           exact
           path="/serviceprofile"
-          element={<ServiceProviderProfile />}
+          element={isAuthenticated ? <ServiceProviderProfile /> : <Home />}
         />
 
-        <Route exact path="/userprofile" element={<UserProfile />} />
+        <Route
+          exact
+          path="/userprofile"
+          element={isAuthenticated ? <UserProfile /> : <Home />}
+        />
       </Routes>
     </div>
   );
