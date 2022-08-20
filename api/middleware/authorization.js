@@ -1,0 +1,18 @@
+import jwt from "jsonwebtoken";
+
+async function authorization(req, res, next) {
+  try {
+    const jwtToken = req.header("token");
+    if (!jwtToken) {
+      return res.status(401).json(false);
+    }
+
+    const payload = jwt.verify(jwtToken, process.env.ACCESS_TOKEN_SECRET);
+    req.user = payload.user;
+    return res.json(true);
+  } catch (error) {
+    console.log(error.message);
+    return res.status(403).json("Not Authorized");
+  }
+}
+export default authorization;
