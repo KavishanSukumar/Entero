@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import {
-  AiOutlineClose,
-  AiOutlineMenu,
   AiFillBell,
   AiFillHome,
+  AiOutlineClose,
+  AiOutlineMenu,
 } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 
 import BookIcon from "@mui/icons-material/Book";
-import EventAvailableIcon from "@mui/icons-material/EventAvailable";
-import ChatIcon from "@mui/icons-material/Chat";
 import CelebrationIcon from "@mui/icons-material/Celebration";
+import ChatIcon from "@mui/icons-material/Chat";
+import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
-import Shakir from "../../Shakir.jpg";
 
 function CustomerHeader() {
   const [nav, setNav] = useState(false);
@@ -136,7 +135,7 @@ function CustomerHeader() {
         </div>
 
         <img
-          src={Shakir}
+          src="/assets/images/Shakir.jpg"
           className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125"
           onClick={handleDropdownPic}
         />
@@ -161,7 +160,10 @@ function CustomerHeader() {
         <div className="flex flex-col items-center shadow-2xl mb-2">
           {/*The image */}
           <div className="p-2">
-            <img src={Shakir} className="w-28 h-28 rounded-full shadow-2xl " />
+            <img
+              src="/assets/images/Shakir.jpg"
+              className="w-28 h-28 rounded-full shadow-2xl "
+            />
           </div>
 
           {/*The buttons */}

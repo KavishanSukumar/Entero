@@ -46,14 +46,13 @@ function Login() {
     try {
       const res = await axios.post(API_URL, { email, password });
       localStorage.setItem("token", res.data.token);
-      console.log(res.data);
       if (res.data.status) {
-        toast("Login Successful");
+        toast("Login Successful!");
         setTimeout(() => {
           window.location.href = "/servicechat";
         }, 2000);
       } else {
-        toast("Login Failed");
+        toast("Email or Password is incorrect!");
         setTimeout(() => {
           window.location.href = "/";
         }, 2000);
