@@ -9,7 +9,7 @@ async function authorization(req, res, next) {
 
     const payload = jwt.verify(jwtToken, process.env.ACCESS_TOKEN_SECRET);
     req.user = payload.user;
-    return res.json(true);
+    return res.json({ status: true, payload: payload.user });
   } catch (error) {
     console.log(error.message);
     return res.status(403).json("Not Authorized");

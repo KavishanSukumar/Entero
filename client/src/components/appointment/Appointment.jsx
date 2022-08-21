@@ -1,14 +1,16 @@
-import * as React from "react";
-import SearchIcon from "@mui/icons-material/Search";
-import DateRangeIcon from "@mui/icons-material/DateRange";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import DateRangeIcon from "@mui/icons-material/DateRange";
+import SearchIcon from "@mui/icons-material/Search";
+import * as React from "react";
 
-import PropTypes from "prop-types";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
+import Typography from "@mui/material/Typography";
+import axios from "axios";
+import PropTypes from "prop-types";
 
+const API_URL = "http://localhost:4000/api/serviceprovider/appointment";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -42,13 +44,42 @@ function a11yProps(index) {
   };
 }
 
-function Appointment() {
+function Appointment(props) {
   const [value, setValue] = React.useState(0);
+  const [appointment, setAppointment] = React.useState([]);
+  const [id, setId] = React.useState(props.data);
+
+  async function getAppointment() {
+    const res = await axios.post(API_URL, {
+      id: id,
+    });
+    setAppointment(res.data);
+  }
+
+  async function changestatus(appointment_id, status) {
+    var confirmstatus = window.confirm(
+      "Are you sure you want to change the status?"
+    );
+    if (confirmstatus) {
+      try {
+        const res = await axios.put(API_URL, {
+          appointment_id,
+          status,
+        });
+        console.log(res);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
+  React.useEffect(() => {
+    getAppointment();
+  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
   return (
     <div className="flex flex-col w-auto  justify-around mx-6 my-3">
       <div className="flex justify-start mb-7">
@@ -110,12 +141,6 @@ function Appointment() {
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
-                        Appointment ID
-                      </th>
-                      <th
-                        scope="col"
-                        class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                      >
                         Customer Name
                       </th>
                       <th
@@ -147,33 +172,44 @@ function Appointment() {
                     </tr>
                   </thead>
                   <tbody className="">
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        A001
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Sukumar Kavishan
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        11:00:23
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        01:02:2022
-                      </td>
+                    {appointment.map(
+                      (item) =>
+                        item.status === 0 && (
+                          <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.uname}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.time}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.date}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                              {item.description}
+                            </td>
 
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                        Need to get more information regarding the packages
-                      </td>
-
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                          Accept
-                        </button>
-                        <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                          Reject
-                        </button>
-                      </td>
-                    </tr>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              <button
+                                onClick={() =>
+                                  changestatus(item.appointment_id, 1)
+                                }
+                                className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                              >
+                                Accept
+                              </button>
+                              <button
+                                onClick={() =>
+                                  changestatus(item.appointment_id, 2)
+                                }
+                                className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                              >
+                                Reject
+                              </button>
+                            </td>
+                          </tr>
+                        )
+                    )}
                   </tbody>
                 </table>
               </div>
@@ -220,12 +256,6 @@ function Appointment() {
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
-                        Appointment id
-                      </th>
-                      <th
-                        scope="col"
-                        class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                      >
                         Customer Name
                       </th>
                       <th
@@ -257,33 +287,45 @@ function Appointment() {
                     </tr>
                   </thead>
                   <tbody className="">
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        A002
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Priskila Athauda
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        09:02:32
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        30:06:2022
-                      </td>
+                    {appointment.map(
+                      (item) =>
+                        item.status === 1 && (
+                          <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.uname}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.time}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.date}
+                            </td>
 
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                        Negotiation regarding the amount
-                      </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                              {item.description}
+                            </td>
 
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                          Confirm
-                        </button>
-                        <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                          Cancel
-                        </button>
-                      </td>
-                    </tr>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              <button
+                                onClick={() =>
+                                  changestatus(item.appointment_id, 3)
+                                }
+                                className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                              >
+                                Confirm
+                              </button>
+                              <button
+                                onClick={() =>
+                                  changestatus(item.appointment_id, 4)
+                                }
+                                className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                              >
+                                Cancel
+                              </button>
+                            </td>
+                          </tr>
+                        )
+                    )}
                   </tbody>
                 </table>
               </div>
@@ -330,12 +372,6 @@ function Appointment() {
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
-                        Appointment id
-                      </th>
-                      <th
-                        scope="col"
-                        class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                      >
                         Customer Name
                       </th>
                       <th
@@ -366,27 +402,31 @@ function Appointment() {
                     </tr>
                   </thead>
                   <tbody className="">
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        A003
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Shakir Saheel
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        08:10:28
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        18:03:2022
-                      </td>
+                    {appointment.map(
+                      (item) =>
+                        item.status >= 2 && (
+                          <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.uname}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.time}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.date}
+                            </td>
 
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                        Disscuss regarding the availability of extra services
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Confirmed
-                      </td>
-                    </tr>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                              {item.description}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.status === 2 && "Rejected"}
+                              {item.status === 3 && "Confirmed"}
+                              {item.status === 4 && "Cancelled"}
+                            </td>
+                          </tr>
+                        )
+                    )}
                   </tbody>
                 </table>
               </div>
