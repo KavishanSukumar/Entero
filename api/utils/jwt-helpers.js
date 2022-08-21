@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-function jwtTokens({ userid }) {
+function jwtTokens(userid) {
   const user = { user: userid };
   const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
     // expiresIn: "15m",
