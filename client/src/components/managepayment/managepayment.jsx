@@ -8,6 +8,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { AiOutlineClose } from 'react-icons/ai'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,79 +50,212 @@ function ManagePayments() {
     setValue(newValue);
   };
 
+
+  const [showpopup, setshowpopup] = React.useState(false);
+  const handleOnClose = () => setshowpopup(false);
+  const [popup, setPopup] = React.useState(false);
+
+
+  const handlePopup = () => {
+    setPopup(!popup)
+  }
+
+
+
+
+
   return (
-    <div className="m-3  flex flex-col">
-      
-      <div className="flex justify-start ">
-      <div className="rounded-md shadow ml-8">
-                    <button
-                      type="button"
-                      className="py-2 px-4  bg-cyan-500 hover:bg-blue-400 focus:ring-cyan-900 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
-                    >
-                      Edit Packages
-                    </button>
-                  </div>
-        
+    <div className="m-10  flex flex-col">
+
+
+      <div className={popup ? "fixed overflow-y-auto flex flex-col backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  left-0 mb-5 " : "hidden"}>
+        <div className="  rounded-3xl shadow-2xl top-[0%] flex flex-col mt-3 w-full h-full p-2 bg-white ">
+          <div className="flex flex-row order-1">
+            <div className="flex ">
+
+            </div>
+            <div className="w-full inline-flex justify-end items-end">
+              <AiOutlineClose
+                className="w-6 h-6 cursor-pointer hover:text-red-500"
+                onClick={handlePopup}
+              />
+            </div>
+          </div>
+          <div className="flex order-2 flex-row  gap-10 justify-evenly ">
+            <div className="flex flex-col ">
+              <div className="py-3">
+              <p className="font-bold text-lg">Package 01</p>
+              </div>
+              
+              <div className="flex flex-col bg-slate-500 p-5 rounded-lg ">
+                <div class="mb-6">
+                  <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Name</label>
+                  <input type="text" placeholder="Free Trail" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                </div>
+                <div class="mb-6">
+                  <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Price</label>
+                  <input type="text" placeholder="Free" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                </div>
+                <div class="mb-6">
+                  <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
+                  <textarea  type="text"  placeholder="This Free trail package will give you one month free trial subscription"    id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col ">
+              <div className="py-3">
+              <p className="font-bold text-lg">Package 02</p>
+              </div>
+              
+              <div className="flex flex-col bg-slate-500 p-5 rounded-lg ">
+                <div class="mb-6">
+                  <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Name</label>
+                  <input placeholder="Starndard" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                </div>
+                <div class="mb-6">
+                  <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Price</label>
+                  <input placeholder="LKR 3,000" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                </div>
+                <div class="mb-6">
+                  <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
+                  <textarea  placeholder="This Starndard package will give you 6 months  subscription" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col ">
+              <div className="py-3">
+              <p className="font-bold text-lg">Package 03</p>
+              </div>
+              
+              <div className="flex flex-col bg-slate-500 p-5 rounded-lg ">
+                <div class="mb-6">
+                  <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Name</label>
+                  <input type="text" placeholder="Premium"   id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                </div>
+                <div class="mb-6">
+                  <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Price</label>
+                  <input type="text" placeholder="LKR 5,000" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                </div>
+                <div class="mb-6">
+                  <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
+                  <textarea  type="text" placeholder="This Premium package will give you 1 year subscription " id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+
+          <div className="flex order-3 mt-10 justify-center rounded-lg p-[10px]  bg-[#e6f8fe]  ml-2">
+            <div className="rounded-md shadow ">
+              <button
+                type="button"
+                onClick={handlePopup}
+                className="py-2 px-4  bg-cyan-500 hover:bg-blue-400 focus:ring-cyan-900 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+              >
+                Save Changes
+              </button>
+            </div>
+          </div>
+
+
+        </div>
       </div>
 
 
 
-      <div className="flex flex-col lg:flex-row overflow-x-auto">
-        <div className="basis-1/2 relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8">
-          <div className="h-auto lg:h-72 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
-            <div className="bg-white dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-12">
-              <h3 className="text-2xl uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
-                <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
-                Premium
-              </h3>
-              <p className="mt-4 text-base  leading-6 text-gray-500 w-[150px] dark:text-gray-200 mb-">
-                This premier package will give you one month free trial
-                subscription and monthly subscription
-              </p>
-            </div>
-            <div className="py-8 px-6 text-center bg-gray-50 dark:bg-gray-700 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
-              <div className="mt-4 flex items-center justify-center text-5xl leading-none font-extrabold text-gray-900 dark:text-white">
-                <span>LKR 2,000</span>
-              </div>
-              <div className="mt-6">
-                <div className="rounded-md ">
-                  {/* <p className="py-2 px-4  text-white w-full  text-center text-base font-semibold  rounded-lg ">
-                    Activated
-                  </p> */}
-                
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div className="basis-1/2 relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8">
-          <div className="h-auto lg:h-72 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
-            <div className="bg-white dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-12">
-              <h3 className="text-2xl uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
-                <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
-                Premium
-              </h3>
-              <p className="mt-4 text-base leading-6 text-gray-500 dark:text-gray-200 w-[150px] mb-">
-                This premier package will give you one month free trial subscription
-                and 6 months subscription
-              </p>
-            </div>
-            <div className="py-8 px-6 text-center bg-gray-50 dark:bg-gray-700 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
-              <div className="mt-4 flex items-center justify-center text-5xl leading-none font-extrabold text-gray-900 dark:text-white">
-                <span>LKR ll,000</span>
+
+
+      <div className=" flex justify-center rounded-lg p-[10px]  bg-[#e6f8fe] lg:mt-0 md:mt-0 sm:mt-8 mt-8">
+        <div className="rounded-md shadow ">
+          <button
+            type="button"
+            onClick={handlePopup}
+            className="py-2 px-4  bg-cyan-500 hover:bg-blue-400 focus:ring-cyan-900 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+          >
+            Edit Packages
+          </button>
+        </div>
+      </div>
+
+
+
+      <div className="flex flex-col relative gap-4 mt-5">
+        <div className="flex lg:flex-row flex-col order-1 lg:justify-between">
+          
+         
+          <div className=" relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8">
+            <div className="h-auto lg:h-60 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
+              <div className="bg-white dark:bg-gray-800 px-6 py-8 lg:w-[270px] lg:p-6">
+                <h3 className="text-xl uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
+                  <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
+                      Free Trail
+                </h3>
+                <p className="mt-4 text-base  leading-6 text-gray-500 lg:w-[150px] dark:text-gray-200 mb-">
+                  This Free Trail give you one month free trial
+                  subscription
+                </p>
               </div>
-              <div className="mt-6">
-                <div className="rounded-md ">
-                  {/* <p className="py-2 px-4  text-white w-full  text-center text-base font-semibold  rounded-lg ">
-                    Activated
-                  </p> */}
-                
+              <div className="py-8 px-6 text-center bg-gray-50 dark:bg-gray-700 lg:pt-16 ">
+                <div className="mt-7 flex items-center justify-center text-3xl leading-none font-extrabold text-gray-900 dark:text-white">
+                  <span>It's Free</span>
                 </div>
+                
               </div>
             </div>
           </div>
+          <div className=" relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8">
+            <div className="h-auto lg:h-60 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
+              <div className="bg-white dark:bg-gray-800 px-6 py-8 lg:w-[250px]  lg:p-6">
+                <h3 className="text-2xl uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
+                  <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
+                  Starndard 
+                </h3>
+                <p className="mt-4 text-base  leading-6 text-gray-500 lg:w-[150px] dark:text-gray-200 mb-">
+                  This Starndard package will give you 6 month subscription 
+                </p>
+              </div>
+              <div className="py-8 px-6 text-center bg-gray-50 dark:bg-gray-700 pt-16 ">
+                <div className="mt-4 flex items-center justify-center text-3xl leading-none font-extrabold text-gray-900 dark:text-white">
+                  <span>LKR 3,000</span>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <div className=" relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8">
+            <div className="h-auto lg:h-60 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
+              <div className="bg-white dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-6">
+                <h3 className="text-2xl uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
+                  <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
+                  Premium
+                </h3>
+                <p className="mt-4 text-base  leading-6 text-gray-500 lg:w-[150px] dark:text-gray-200 mb-">
+                  This premier package will give you 1 year subscription
+                </p>
+              </div>
+              <div className="py-8 px-6 text-center bg-gray-50 dark:bg-gray-700 pt-16">
+                <div className="mt-4 flex items-center justify-center text-3xl leading-none font-extrabold text-gray-900 dark:text-white  ">
+                  <span className="">LKR 5,000</span>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
         </div>
+      
+
+        
+        
+    
+       
+    
+        
+
+        
+        
         
       </div>
       <div className="flex mt-4">
@@ -957,3 +1091,58 @@ export default ManagePayments;
 
 
 
+// <div className="basis-1/2 relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8">
+//           <div className="h-auto lg:h-72 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
+//             <div className="bg-white dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-12">
+//               <h3 className="text-2xl uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
+//                 <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
+//                 Premium
+//               </h3>
+//               <p className="mt-4 text-base leading-6 text-gray-500 dark:text-gray-200 lg:w-[150px] mb-">
+//                 This premier package will give you one month free trial subscription
+//                 and 6 months subscription
+//               </p>
+//             </div>
+//             <div className="py-8 px-6 text-center bg-gray-50 dark:bg-gray-700 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
+//               <div className="mt-4 flex items-center justify-center text-5xl leading-none font-extrabold text-gray-900 dark:text-white">
+//                 <span>LKR ll,000</span>
+//               </div>
+//               <div className="mt-6">
+//                 <div className="rounded-md ">
+//                   {/* <p className="py-2 px-4  text-white w-full  text-center text-base font-semibold  rounded-lg ">
+//                     Activated
+//                   </p> */}
+                
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div> 
+
+// <div className="basis-1/2 relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8 lg:mr-6">
+//           <div className="h-auto lg:h-72 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
+//             <div className="bg-white dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-12">
+//               <h3 className="text-2xl uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
+//                 <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
+//                 Premium
+//               </h3>
+//               <p className="mt-4 text-base leading-6 text-gray-500 dark:text-gray-200 lg:w-[150px] mb-">
+//                 This premier package will give you one month free trial subscription
+//                 and 6 months subscription
+//               </p>
+//             </div>
+//             <div className="py-8 px-6 text-center bg-gray-50 dark:bg-gray-700 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
+//               <div className="mt-4 flex items-center justify-center text-5xl leading-none font-extrabold text-gray-900 dark:text-white">
+//                 <span>LKR ll,000</span>
+//               </div>
+//               <div className="mt-6">
+//                 <div className="rounded-md ">
+//                   {/* <p className="py-2 px-4  text-white w-full  text-center text-base font-semibold  rounded-lg ">
+//                     Activated
+//                   </p> */}
+                
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
