@@ -4,7 +4,6 @@ import ServiceProviderHeader from "../../../components/header/ServiceProviderHea
 import ServiceProviderSidebar from "../../../components/sidebar/ServiceProviderSidebar";
 
 function ServiceProviderAppointments(props) {
-  const id = props.data;
   return (
     <div>
       <ServiceProviderHeader />

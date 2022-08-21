@@ -1,11 +1,10 @@
 const express=require('express');
 const router=express.Router();
-const pool=require("../db");
+const pool=require("../db.js");
 
 router.get('/',async (req,res)=>{
-    try{
-        
-        const getCustomerAppointment= await pool.query("SELECT * FROM appointment")
+    try{    
+        const getCustomerAppointment= await pool.query("SELECT * FROM appointment");
 
         res.json(getCustomerAppointment.rows);
     }
@@ -17,7 +16,7 @@ router.get('/',async (req,res)=>{
 router.post('/',async (req,res)=>{
     try{
         const {date,time,description}=req.body;
-        const newAppointment= await pool.query("INSERT INTO appointment (date,time,description) VALUES ($1,$2,$3) RETURNING *",[date,time,description])
+        const newAppointment= await pool.query("INSERT INTO appointment (date,time,description) VALUES ($1,$2,$3) RETURNING *",[date,time,description]);
 
         res.json(newAppointment.rows[0]);
     }
@@ -30,7 +29,7 @@ router.put('/:id',async (req,res)=>{
     try{
         const {id}=req.params;
         const {reply}=req.body;
-        const updateAppointment= await pool.query("UPDATE appointment SET date=$1,time=$2,description=$3 WHERE appointment_id=$4",[date,time,description,id])
+        const updateAppointment= await pool.query("UPDATE appointment SET date=$1,time=$2,description=$3 WHERE appointment_id=$4",[date,time,description,id]);
 
         res.json("Done updating");
     }
@@ -42,7 +41,7 @@ router.put('/:id',async (req,res)=>{
 router.delete('/:id',async (req,res)=>{
     try{
         const {id}=req.params;
-        const deleteAppointment= await pool.query("DELETE FROM appointment WHERE appointment_id=$1",[id])
+        const deleteAppointment= await pool.query("DELETE FROM appointment WHERE appointment_id=$1",[id]);
 
         res.json("Done deleting");
     }
@@ -51,4 +50,4 @@ router.delete('/:id',async (req,res)=>{
     }
 })
 
-module.exports= router
+module.exports= router;
