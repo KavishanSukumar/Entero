@@ -66,6 +66,13 @@ function CustomerRegister() {
 
         <div className="flex flex-col py-2">
           <FormControl fullWidth sx={{ m: 1 }} variant="standard">
+            <InputLabel>NIC</InputLabel>
+            <Input />
+          </FormControl>
+        </div>
+
+        <div className="flex flex-col py-2">
+          <FormControl fullWidth sx={{ m: 1 }} variant="standard">
             <InputLabel>Username</InputLabel>
             <Input />
           </FormControl>

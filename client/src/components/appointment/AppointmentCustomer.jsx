@@ -66,7 +66,7 @@ function AppointmentCustomer() {
             >
               <Tab label="Pending Appointments" {...a11yProps(1)}></Tab>
               <Tab label="Past Appointments" {...a11yProps(2)}></Tab>
-              <Tab label="Cancel Appointments" {...a11yProps(3)}></Tab>
+              <Tab label="Canceled Appointments" {...a11yProps(3)}></Tab>
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
@@ -104,7 +104,7 @@ function AppointmentCustomer() {
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
-                        Customer Name
+                        Service Provider
                       </th>
                       <th
                         scope="col"
@@ -133,7 +133,7 @@ function AppointmentCustomer() {
                         A001
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Sukumar Kavishan
+                        The Fab
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         15:00:56
@@ -186,7 +186,7 @@ function AppointmentCustomer() {
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
-                        Customer Name
+                        Service Provider
                       </th>
                       <th
                         scope="col"
@@ -215,7 +215,7 @@ function AppointmentCustomer() {
                         A002
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Priskila Athauda
+                        Sarah Photography
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         14:00:56
@@ -269,7 +269,7 @@ function AppointmentCustomer() {
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
-                        Customer Name
+                        Service Provider
                       </th>
                       <th
                         scope="col"
@@ -298,7 +298,7 @@ function AppointmentCustomer() {
                         A003
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Kalana Bushan
+                        Kushan Catering
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         14:00:56

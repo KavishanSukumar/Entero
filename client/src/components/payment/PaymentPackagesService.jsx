@@ -53,10 +53,10 @@ function PaymentPackagesService() {
               </h3>
               <p className="flex flex-col justify-around mt-6 text-base leading-6 text-gray-500 dark:text-gray-200">
                 <p className="m-3">
-                  Started Date: <span>25:05:2022</span>
+                  Started Date: <span>25.05.2022</span>
                 </p>
                 <p className="m-3">
-                  Started Date: <span>25:06:2022</span>
+                  Started Date: <span>25.06.2022</span>
                 </p>
                 <p className="m-3">
                   Remaining Trial Period <span className="text-red-600">6</span>{" "}
@@ -123,7 +123,7 @@ function PaymentPackagesService() {
                 15:00:56
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                25:05:2022
+                25.05.2022
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
