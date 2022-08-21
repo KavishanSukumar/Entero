@@ -105,6 +105,12 @@ function AdminServiceProviders() {
                 scope="col"
                 class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
               >
+                Payment Package
+              </th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
                 Status
               </th>
 
@@ -124,6 +130,9 @@ function AdminServiceProviders() {
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Photography
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Premium
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Active
@@ -152,6 +161,9 @@ function AdminServiceProviders() {
                 Decorations
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Premium
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Active
               </td>
 
@@ -175,6 +187,9 @@ function AdminServiceProviders() {
                 Photography
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Premium
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Active
               </td>
 
@@ -186,7 +201,6 @@ function AdminServiceProviders() {
                   Remove
                 </button>
               </td>
-              
             </tr>
           </tbody>
         </table>
@@ -215,6 +229,12 @@ function AdminServiceProviders() {
               <th
                 scope="col"
                 class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                Category
+              </th>
+              <th
+                scope="col"
+                class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
               ></th>
               <th
                 scope="col"
@@ -230,7 +250,10 @@ function AdminServiceProviders() {
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Neol Catering
               </td>
-              
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Catering
+              </td>
+
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 <button
                   onClick={handlePopupS}
@@ -255,6 +278,9 @@ function AdminServiceProviders() {
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 HN Designers
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                Decoration
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
@@ -380,30 +406,43 @@ function AdminServiceProviders() {
             : "hidden"
         }
       >
-        <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[70%] mx-[15%] p-2">
-          <div className="w-full inline-flex justify-end items-end">
-            <AiOutlineClose
-              className="w-6 h-6 cursor-pointer"
-              onClick={handlePopupS}
-            />
+        <div className="bg-white fixed rounded-3xl top-[20%] flex flex-col w-[80%] mx-[10%] md:w-[60%] md:mx-[20%] lg:w-[40%] lg:mx-[30%] ">
+          <div className="flex flex-row w-full mb-4 border-b-2 border-cyan-500 py-2 items-center">
+            <div className="basis-1/2 flex flex-row justify-end">
+              <p className="text-center text-xl font-bold">Details</p>
+            </div>
+            <div className="basis-1/2 flex flex-row justify-end mr-2">
+              <AiOutlineClose
+                className="w-6 h-6 cursor-pointer"
+                onClick={handlePopupS}
+              />
+            </div>
           </div>
 
           <div className=" w-full">
-            <p className="text-center text-base font-medium mb-2 border-b-2">
-              Details
+            <p className="md:ml-8 px-1 text-left mb-1">
+              <b>Name:</b> Noel catering
             </p>
-            <p className="md:ml-8 px-1 text-left">
-              <b>Name:</b> Kalindu Photography
-            </p>
-            <p className="md:ml-8 px-1 text-left">
+            <p className="md:ml-8 px-1 text-left mb-1">
               <b>BR:</b> 867564980
             </p>
-            <p className="md:ml-8 px-1 text-left">
+            <p className="md:ml-8 px-1 text-left mb-1">
               <b>Address:</b> 32,Ruhuna Road, Colombo 02
             </p>
+            <p className="md:ml-8 px-1 text-left mb-1">
+              <b>Email:</b> noelcateringcolombo02@gmail.com
+            </p>
+            <p className="md:ml-8 px-1 text-left mb-1">
+              <b>Contact:</b> 0776556656
+            </p>
           </div>
-          <div className="mx-[20%] bg-red-600">
-            <p className="text-center">Document comes here</p>
+          <div className="flex justify-center w-full items-center mb-4 ">
+            <img
+              src="/assets/images/pdf.png"
+              alt="pdf"
+              className="w-20 h-14 object-cover mt-3 mr-2 "
+            />
+            <p>Noel.pdf</p>
           </div>
         </div>
       </div>
