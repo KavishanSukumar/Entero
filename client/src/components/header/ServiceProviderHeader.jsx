@@ -97,7 +97,7 @@ function ServiceProviderHeader() {
         </div>
 
         <img
-          src="/assets/images/Sindu.jpg"
+          src="/assets/images/kavishan.jpg"
           className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125"
           onClick={handleDropdownPic}
         />
@@ -123,7 +123,7 @@ function ServiceProviderHeader() {
           {/*The image */}
           <div className="p-2">
             <img
-              src="/assets/images/Shakir.jpg"
+              src="/assets/images/kavishan.jpg"
               className="w-28 h-28 rounded-full shadow-2xl "
             />
           </div>

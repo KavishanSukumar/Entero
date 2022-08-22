@@ -150,7 +150,7 @@ function AdminHeader() {
         </div>
 
         <img
-          src="/assets/images/ka.JPG"
+          src="/assets/images/sindu.jpg"
           className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125"
           onClick={handleDropdownPic}
         />

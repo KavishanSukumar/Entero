@@ -3,17 +3,16 @@ import React from "react";
 function ReviewCard(props) {
   return (
     <div className="flex flex-col m-3 shadow-inner rounded-lg">
-      
       <div className="flex flex-row m-3">
         <div className="m-3">
           <img
             class="h-16 w-16 object-cover rounded-full"
-            src="/assets/images/sindu.jpg"
+            src="/assets/images/senal.jpg"
             alt="Current profile photo"
           />
         </div>
         <div className="flex flex-col m-3">
-          <div className="font-sans text-2xl">Priskila Athauda</div>
+          <div className="font-sans text-2xl">Senal Punsara</div>
           <div>{props.data}</div>
         </div>
       </div>
