@@ -89,7 +89,7 @@ function Header() {
         <ul className="hidden md:flex">
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500 hover:rounded">
             <NavHashLink
-              
+              smooth
               to="/#carousel"
             >
               Home
@@ -98,7 +98,7 @@ function Header() {
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
             <NavHashLink
-              
+              smooth
               to="/#services"
             >
               Services
@@ -107,7 +107,7 @@ function Header() {
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
           <NavHashLink
-              
+              smooth
               to="/#events"
             >
               Events
@@ -116,7 +116,7 @@ function Header() {
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
           <NavHashLink
-              
+              smooth
               to="/#aboutus"
             >
               About Us
@@ -125,7 +125,7 @@ function Header() {
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
             <NavHashLink
-              
+              smooth
               to="/#contactus"
             >
               Contact Us
