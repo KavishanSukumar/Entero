@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 
 //The component which has the forms in UserProfile page 
-function UserProfileForms() {
+function ServiceProfileForms() {
 
    // used states to make the update profile form and password form visible in responsive
     const [passwordDiv,setPasswordDiv]=useState(false);
@@ -31,7 +31,7 @@ function UserProfileForms() {
                 <h1 className="text-xl font-bold text-center py-2">Edit profile</h1>
 
                 <div className="flex flex-col py-2 ">
-                    <label>Name</label>
+                <label className="font-medium">Name</label>
                     <input
                         className="border p-2 "
                         placeholder="kavin76@gmail.com"
@@ -39,7 +39,7 @@ function UserProfileForms() {
                     />
                 </div>
                 <div className="flex flex-col py-2 ">
-                    <label>E-mail</label>
+                <label className="font-medium">E-mail</label>
                     <input
                         className="border p-2 "
                         placeholder="kavin76@gmail.com"
@@ -48,7 +48,7 @@ function UserProfileForms() {
                 </div>
 
                 <div className="flex flex-col py-2">
-                    <label>Contact Number</label>
+                <label className="font-medium">Contact</label>
                     <input
                         className="border p-2 "
                         placeholder="0776543762"
@@ -58,7 +58,7 @@ function UserProfileForms() {
                 </div>
 
                 <div className="flex flex-col py-2">
-                    <label>Address</label>
+                <label className="font-medium">Address</label>
                     <input
                         className="border p-2 "
                         placeholder="Kolonnawa Road,Kurunegala"
@@ -135,4 +135,4 @@ function UserProfileForms() {
   )
 }
 
-export default UserProfileForms
+export default ServiceProfileForms

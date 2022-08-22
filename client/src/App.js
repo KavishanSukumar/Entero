@@ -43,9 +43,16 @@ const API_URL = "http://localhost:4000/api/auth/isverify";
 const API_URL_USER = "http://localhost:4000/api/user/";
 
 function App() {
+
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userrole, setUserrole] = useState({});
   const [id, setId] = useState(null);
+
+
+  const setAuth = (Boolean) => {
+    setIsAuthenticated(Boolean);
+  };
+
 
   async function isAuth() {
     try {
