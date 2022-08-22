@@ -1,12 +1,11 @@
 import express from "express";
-const router = express.Router();
 import pool from "../db.js";
 
-router.get("/", async (req, res) => {
-  try {
-    const getCustomerAppointment1 = await pool.query(
-      "SELECT * FROM appointment"
-    );
+const router = express.Router();
+
+router.get('/',async (req,res)=>{
+    try{    
+        const getCustomerAppointment1= await pool.query("SELECT * FROM appointment");
 
     res.json(getCustomerAppointment1.rows);
   } catch (err) {
@@ -66,10 +65,11 @@ router.delete("/:id", async (req, res) => {
       [id]
     );
 
-    res.json("Done deleting");
-  } catch (err) {
-    console.log(err.message);
-  }
-});
+        res.json("Done deleting");
+    }
+    catch(err){
+        console.log(err.message);
+    }
+})
 
 export default router;
