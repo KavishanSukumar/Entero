@@ -7,7 +7,7 @@ import pg from "pg";
 import userRouter from "./routes/userRoutes.js";
 import authRouter from "./routes/authRoutes.js";
 import serviceProviderRouter from "./routes/serviceProvicerApointments.js";
-
+import adminpaymentsRouter from "./routes/paymentRoutes.js"
 dotenv.config();
 
 let localPoolConfig = {
@@ -30,6 +30,7 @@ app.use(cors());
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/serviceprovider/appointment", serviceProviderRouter);
+app.use("/api/admin/packages",adminpaymentsRouter);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}.`);

@@ -1,5 +1,7 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+
+
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import SellIcon from "@mui/icons-material/Sell";
 import SearchIcon from "@mui/icons-material/Search";
@@ -8,10 +10,19 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { AiOutlineClose } from 'react-icons/ai'
+import { AiOutlineClose } from 'react-icons/ai';
+import axios from "axios";
+
+const API_URL = "http://localhost:4000/api/admin/packages";
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
+
+  
+
+
+
 
   return (
     <div
@@ -51,6 +62,11 @@ function ManagePayments() {
   };
 
 
+  const [name, setName] = useState("");
+  const [des, setDes] = useState("");
+  const [price, setPrice] = useState("");
+
+
   const [showpopup, setshowpopup] = React.useState(false);
   const handleOnClose = () => setshowpopup(false);
   const [popup, setPopup] = React.useState(false);
@@ -60,9 +76,42 @@ function ManagePayments() {
     setPopup(!popup)
   }
 
+  const [adminpacks, setpackage] = useState([]);
 
+  async function getpack() {
+    
+    try {
+      const res = await axios.get(API_URL)
+      setpackage(res.data);
+        
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+  useEffect(() => {
+    getpack();
+  }, []);
 
+ const onsubmitform = async (e) => {
+  e.preventDefault();
+  const x = API_URL + "/" + e.target.id.value;
+  try {
+    const res = await axios.put(x, {name,price,des})
+    
+  } catch (error) {
+    console.log(error.message);
+  }
+ }
 
+ const [isHovering, setIsHovering] = useState(false);
+
+ const handleMouseOver = () => {
+   setIsHovering(true);
+ };
+
+ const handleMouseOut = () => {
+   setIsHovering(false);
+ };
 
   return (
     <div className="m-10  flex flex-col">
@@ -82,7 +131,7 @@ function ManagePayments() {
             </div>
           </div>
           <div className="flex order-2 flex-row  gap-10 justify-evenly ">
-            <div className="flex flex-col ">
+            {/* <div className="flex flex-col ">
               <div className="py-3">
               <p className="font-bold text-lg">Package 01</p>
               </div>
@@ -101,148 +150,85 @@ function ManagePayments() {
                   <textarea  type="text"  placeholder="This Free trail package will give you one month free trial subscription"    id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                 </div>
               </div>
-            </div>
-            <div className="flex flex-col ">
-              <div className="py-3">
-              <p className="font-bold text-lg">Package 02</p>
-              </div>
+            </div> */}
+            {adminpacks && adminpacks.map((a)=>(
               
-              <div className="flex flex-col bg-slate-500 p-5 rounded-lg ">
-                <div class="mb-6">
-                  <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Name</label>
-                  <input placeholder="Starndard" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                </div>
-                <div class="mb-6">
-                  <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Price</label>
-                  <input placeholder="LKR 3,000" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                </div>
-                <div class="mb-6">
-                  <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
-                  <textarea  placeholder="This Starndard package will give you 6 months  subscription" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col ">
+            <div key={a.id}  className="flex flex-col ">
               <div className="py-3">
-              <p className="font-bold text-lg">Package 03</p>
+              <p className="font-bold text-lg">Package {a.id}</p>
               </div>
+              <form action="" onSubmit={onsubmitform}>
+                <div className="flex flex-col bg-slate-500 p-5 rounded-lg ">
+                  <div class="mb-6">
+                    <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Name</label>
+                    <input name="name" onChange={(e) => setName(e.target.value)} value={a.name} type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                  </div>
+                  <div class="mb-6">
+                    <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Price</label>
+                    <input   name="price" onChange={(e) => setPrice(e.target.value)} value={a.price} type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                  </div>
+                  <div class="mb-6">
+                    <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
+                    <textarea name="des" onChange={(e) => setDes(e.target.value)} value={a.des} type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                  </div>
+                  <input type="hidden" name="id"  value={a.id}/>
+                  <div className="flex order-3 mt-10 justify-center rounded-lg  ">
+                    <div className="rounded-md shadow ">
+                      <button
+                        type="button"
+                        onClick={handlePopup}
+                        className="py-2 px-4  bg-cyan-500 hover:bg-blue-400 focus:ring-cyan-900 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                      >
+                        Save Changes
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+                </form>
               
-              <div className="flex flex-col bg-slate-500 p-5 rounded-lg ">
-                <div class="mb-6">
-                  <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Name</label>
-                  <input type="text" placeholder="Premium"   id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                </div>
-                <div class="mb-6">
-                  <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Price</label>
-                  <input type="text" placeholder="LKR 5,000" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                </div>
-                <div class="mb-6">
-                  <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
-                  <textarea  type="text" placeholder="This Premium package will give you 1 year subscription " id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                </div>
-              </div>
             </div>
+          ))}
             
             
           </div>
 
-          <div className="flex order-3 mt-10 justify-center rounded-lg p-[10px]  bg-[#e6f8fe]  ml-2">
-            <div className="rounded-md shadow ">
-              <button
-                type="button"
-                onClick={handlePopup}
-                className="py-2 px-4  bg-cyan-500 hover:bg-blue-400 focus:ring-cyan-900 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
-              >
-                Save Changes
-              </button>
-            </div>
-          </div>
+          
 
 
         </div>
       </div>
-
-
-
-
-
-
-      <div className=" flex justify-center rounded-lg p-[10px]  bg-[#e6f8fe] lg:mt-0 md:mt-0 sm:mt-8 mt-8">
-        <div className="rounded-md shadow ">
-          <button
-            type="button"
-            onClick={handlePopup}
-            className="py-2 px-4  bg-cyan-500 hover:bg-blue-400 focus:ring-cyan-900 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
-          >
-            Edit Packages
-          </button>
-        </div>
-      </div>
-
 
 
       <div className="flex flex-col relative gap-4 mt-5">
         <div className="flex lg:flex-row flex-col order-1 lg:justify-between">
           
-         
-          <div className=" relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8">
-            <div className="h-auto lg:h-60 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
-              <div className="bg-white dark:bg-gray-800 px-6 py-8 lg:w-[270px] lg:p-6">
-                <h3 className="text-xl uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
-                  <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
-                      Free Trail
-                </h3>
-                <p className="mt-4 text-base  leading-6 text-gray-500 lg:w-[150px] dark:text-gray-200 mb-">
-                  This Free Trail give you one month free trial
-                  subscription
-                </p>
-              </div>
-              <div className="py-8 px-6 text-center bg-gray-50 dark:bg-gray-700 lg:pt-16 ">
-                <div className="mt-7 flex items-center justify-center text-3xl leading-none font-extrabold text-gray-900 dark:text-white">
-                  <span>It's Free</span>
+       
+
+
+          {adminpacks && adminpacks.map((a)=>(
+                <div key={a.id}  onClick={handlePopup} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}  className=" relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8 hover:cursor-pointer  ">
+                <div className="h-auto lg:h-60 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
+                  <div className="bg-white dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-6">
+                    <h3 className="text-2xl uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
+                      <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
+                      {a.name}
+                    </h3>
+                    <p className="mt-4 text-base  leading-6 text-gray-500 lg:w-[150px] dark:text-gray-200 mb-">
+                      {a.des}
+                    </p>
+                  </div>
+                  <div className="py-8 px-6 text-center bg-gray-50 dark:bg-gray-700 pt-16">
+                    <div className="mt-4 flex items-center justify-center text-3xl leading-none font-extrabold text-gray-900 dark:text-white  ">
+                      <span className="">{a.price}</span>
+                    </div>
+                    
+                  </div>
                 </div>
-                
               </div>
-            </div>
-          </div>
-          <div className=" relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8">
-            <div className="h-auto lg:h-60 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
-              <div className="bg-white dark:bg-gray-800 px-6 py-8 lg:w-[250px]  lg:p-6">
-                <h3 className="text-2xl uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
-                  <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
-                  Starndard 
-                </h3>
-                <p className="mt-4 text-base  leading-6 text-gray-500 lg:w-[150px] dark:text-gray-200 mb-">
-                  This Starndard package will give you 6 month subscription 
-                </p>
-              </div>
-              <div className="py-8 px-6 text-center bg-gray-50 dark:bg-gray-700 pt-16 ">
-                <div className="mt-4 flex items-center justify-center text-3xl leading-none font-extrabold text-gray-900 dark:text-white">
-                  <span>LKR 3,000</span>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-          <div className=" relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8">
-            <div className="h-auto lg:h-60 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
-              <div className="bg-white dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-6">
-                <h3 className="text-2xl uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
-                  <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
-                  Premium
-                </h3>
-                <p className="mt-4 text-base  leading-6 text-gray-500 lg:w-[150px] dark:text-gray-200 mb-">
-                  This premier package will give you 1 year subscription
-                </p>
-              </div>
-              <div className="py-8 px-6 text-center bg-gray-50 dark:bg-gray-700 pt-16">
-                <div className="mt-4 flex items-center justify-center text-3xl leading-none font-extrabold text-gray-900 dark:text-white  ">
-                  <span className="">LKR 5,000</span>
-                </div>
-                
-              </div>
-            </div>
-          </div>
+             
+          ))}
+          {/* {isHovering && <h2 className="relative">Hello world</h2> } */}
 
         </div>
       
