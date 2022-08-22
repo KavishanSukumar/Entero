@@ -34,7 +34,7 @@ function UserProfileForms() {
                     <label>Name</label>
                     <input
                         className="border p-2 "
-                        placeholder="kavin76@gmail.com"
+                        value="Priskila"
                         type="text"
                     />
                 </div>
@@ -42,7 +42,7 @@ function UserProfileForms() {
                     <label>E-mail</label>
                     <input
                         className="border p-2 "
-                        placeholder="kavin76@gmail.com"
+                        value="priskilaathauda@gmail.com"
                         type="email"
                     />
                 </div>
@@ -51,7 +51,7 @@ function UserProfileForms() {
                     <label>Contact Number</label>
                     <input
                         className="border p-2 "
-                        placeholder="0776543762"
+                        placeholder="0772150504"
                         type="text"
                         required
                     />
@@ -61,7 +61,7 @@ function UserProfileForms() {
                     <label>Address</label>
                     <input
                         className="border p-2 "
-                        placeholder="Kolonnawa Road,Kurunegala"
+                        value="Katugasthota Kandy"
                         type="text"
                         required
                     />

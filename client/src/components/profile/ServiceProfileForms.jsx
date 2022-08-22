@@ -34,7 +34,7 @@ function ServiceProfileForms() {
                 <label className="font-medium">Company Name</label>
                     <input
                         className="border p-2 "
-                        placeholder="kavin76@gmail.com"
+                        value="Fabs"
                         type="text"
                     />
                 </div>
@@ -42,7 +42,7 @@ function ServiceProfileForms() {
                 <label className="font-medium">E-mail</label>
                     <input
                         className="border p-2 "
-                        placeholder="kavin76@gmail.com"
+                        value="fabs@gmail.com"
                         type="email"
                     />
                 </div>
@@ -51,7 +51,7 @@ function ServiceProfileForms() {
                 <label className="font-medium">Contact</label>
                     <input
                         className="border p-2 "
-                        placeholder="0776543762"
+                        placeholder="0770554474"
                         type="text"
                         required
                     />
@@ -61,7 +61,7 @@ function ServiceProfileForms() {
                 <label className="font-medium">Address</label>
                     <input
                         className="border p-2 "
-                        placeholder="Kolonnawa Road,Kurunegala"
+                        placeholder="Athurugiriya Oruwala"
                         type="text"
                         required
                     />
