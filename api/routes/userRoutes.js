@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
   try {
     const userid = req.body.userid;
     const newUser = await pool.query(
-      "SELECT userid, uname, email, userrole FROM login WHERE userid::text=$1",
+      "SELECT userid, uname, email, userrole FROM users WHERE userid::text=$1",
       [userid]
     );
     res.json(newUser.rows[0]);

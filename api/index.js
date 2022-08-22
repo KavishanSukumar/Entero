@@ -7,6 +7,7 @@ import pg from "pg";
 import userRouter from "./routes/userRoutes.js";
 import authRouter from "./routes/authRoutes.js";
 import serviceProviderRouter from "./routes/serviceProvicerApointments.js";
+import customerRegistrationRouter from "./routes/customerRegistrationRoutes.js";
 
 dotenv.config();
 
@@ -29,6 +30,7 @@ app.use(cors());
 
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/customer", customerRegistrationRouter);
 app.use("/api/serviceprovider/appointment", serviceProviderRouter);
 
 app.listen(PORT, () => {

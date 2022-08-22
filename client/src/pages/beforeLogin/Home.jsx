@@ -10,14 +10,14 @@ import ContactForm from "../../components/landing/ContactForm";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-function Home() {
+function Home(props) {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
 
   return (
     <div>
-      <Header />
+      <Header data={props.data} />
       {/* Have to create a division and add the page content */}
       <div data-aos="fade-in">
         <Carousel />

@@ -8,39 +8,12 @@ import authorization from "../middleware/authorization.js";
 
 const router = express.Router();
 
-//register Customer
-router.post("/register", validInfo, async (req, res) => {
-  try {
-    const { uname, email, password, userrole } = req.body;
-    const users = await pool.query("SELECT * FROM login WHERE email=$1", [
-      email,
-    ]);
-    if (users.rows.length !== 0) {
-      return res.status(401).send("User already exist");
-    }
-
-    const saltRound = 10;
-    const salt = await bcrypt.genSalt(saltRound);
-    const bcryptPassword = await bcrypt.hash(password, salt);
-    const newUser = await pool.query(
-      "INSERT INTO login (uname, email, password, userrole) VALUES ($1, $2, $3, $4) RETURNING *",
-      [uname, email, bcryptPassword, userrole]
-    );
-    const token = jwtTokens(newUser.rows[0].userid);
-
-    res.json({ token, status: true });
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).send("Server Error");
-  }
-});
-
 //register Service provider
 
 router.post("/login", validInfo, async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await pool.query("SELECT * FROM login WHERE email= $1", [
+    const user = await pool.query("SELECT * FROM users WHERE email= $1", [
       email,
     ]);
     //user exist or not

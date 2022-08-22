@@ -74,11 +74,22 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/products" element={<Home />} />
-        <Route exact path="/services" element={<Home />} />
-        <Route exact path="/aboutus" element={<Home />} />
-        <Route exact path="/contactus" element={<Home />} />
+        <Route exact path="/" element={<Home data={userrole} />} />
+        {/* Login routes */}
+        <Route
+          path="/home"
+          element={
+            userrole === "am" ? (
+              <AdminDashboard />
+            ) : userrole === "cs" ? (
+              <CustomerEvents2 />
+            ) : userrole === "sp" ? (
+              <ServiceProviderPortfolio />
+            ) : (
+              <Home />
+            )
+          }
+        />
 
         {/*Admin pages */}
         <Route path="/admin" element={<Admin />} />
