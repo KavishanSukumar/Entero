@@ -92,10 +92,14 @@ function a11yProps1(index) {
 //========================================================
 export default function SystemReports() {
 
+  //donut chart
+
   const options = { labels: ["Service Providers", "Customers"], colors: ['#67E8F9', '#0284C7'] };
   const series = [100, 400];
 
-
+  // pie chart
+  const options1 = { labels: ["Wedding", "B'day", "Engagement", "Get to gether"] };
+  const series1 = [10, 100, 20, 70];
 
 
   const [value, setValue] = React.useState(0);
@@ -122,11 +126,21 @@ export default function SystemReports() {
   const handlePopup = () => {
     setPopup(!popup)
   }
+
+  // show more in income
+
   const [showMore, setShowMore] = useState(false);
   const handlelessmore = () => {
     setShowMore(!showMore)
   }
+  // show more in events
+  const [showMore1, setShowMore1] = useState(false);
+  const handlelessmore1 = () => {
+    setShowMore1(!showMore1)
+  }
 
+
+  // bar chart props in income
   const optionsbar = {
     series: [
       {
@@ -299,7 +313,7 @@ export default function SystemReports() {
                 <div className='flex order-2 justify-center'>
 
                   <div clasName='flex flex-col'>
-                    <div className='flex order-1 justify-center shadow-lg shadow-black bg-slate-400 rounded-lg'>
+                    <div className='flex order-1 justify-center shadow-lg shadow-black bg-gray-300 rounded-lg'>
                       <p className='font-bold  lg:text-[25px] md:text-[25px] sm:text-[25px]  p-2'>Total Income: LKR 200000 (2020 - 2022)</p>
                     </div>
                     <div className=' flex order-2 justify-center flex-row gap-14 mt-6'>
@@ -380,14 +394,14 @@ export default function SystemReports() {
                       <option selected> Monthly</option>
                       <option selected> 6 months</option>
                       <option selected> Yearly</option>
-                     
+
 
 
 
                     </select>
                   </div>
                 </div>
-               
+
 
                 <div className='mt-1 ml-auto flex '>
                   <p className='font-bold  text-xl '>Income (LKR): 200000</p>
@@ -396,25 +410,25 @@ export default function SystemReports() {
 
               </div>
               <div className="flex p-1 md:px-4 py-2 order-2">
-                  <div className="relative w-full ">
+                <div className="relative w-full ">
 
-                    <label className="relative block">
-                      <span className="sr-only">Search</span>
-                      <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                        <SearchIcon
-                          className="!h-5 !w-5 fill-slate-300"
-                          viewBox="0 0 20 20"
-                        />
-                      </span>
-                      <input
-                        className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 "
-                        placeholder="Search "
-                        type="text"
-                        name="search"
+                  <label className="relative block">
+                    <span className="sr-only">Search</span>
+                    <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                      <SearchIcon
+                        className="!h-5 !w-5 fill-slate-300"
+                        viewBox="0 0 20 20"
                       />
-                    </label>
-                  </div>
+                    </span>
+                    <input
+                      className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 "
+                      placeholder="Search "
+                      type="text"
+                      name="search"
+                    />
+                  </label>
                 </div>
+              </div>
 
               <div class="flex flex-col order-3 mt-5">
                 <div className="overflow-auto justify-center w-full h-screen   ">
@@ -507,21 +521,73 @@ export default function SystemReports() {
           <div class="tab-pane fade flex flex-col gap-16   w-full" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
             <div className='flex flex-col'>
 
+              <div className='flex order-1 gap-3 mb-3 justify-center'>
+                <div className='order-1 flex mt-2'>
+                  <p className='text-lg font-bold'> Filter by </p>
+                </div>
+                <div className="relative w-40 order-2 ">
+                  <select id="years" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
+                                                dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2">
+                    <option selected>Year</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+
+                  </select>
+                </div>
+                <div className="flex  order-3">
+                  <div className="relative w-36">
+                    <select id="months" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
+                                                            dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2">
+                      <option selected> Month</option>
+                      <option value="1">January</option>
+                      <option value="2">February</option>
+                      <option value="3">March</option>
+                      <option value="4">April</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+
+                    </select>
+                  </div>
+                </div>
+              </div>
 
 
+              <div className='flex order-2 justify-center'>
 
-              <div className='flex order-1'>
-
-                <div class="flex bg-gray-300 rounded-lg py-5 px-6 mb-4 text-2xl text-black  font-bold bold  w-full justify-center" role="alert">
-                  <p>Total Number of Events : 200 </p>
+                <div class="flex flex-row gap-2 bg-gray-300 rounded-lg  shadow-lg  shadow-black w-full   py-5 px-6 mb-4 text-2xl text-black  font-bold  justify-center" >
+                  <p>Total Events : 200 </p> <p>(2020 - 2022)</p>
                 </div>
 
               </div>
 
+              <div className='flex order-3 mt-2 justify-center pl-36'>
+                <Chart options={options1} series={series1} type="pie" width="500" height="900" className='' />
+
+              </div>
+
+              <div class="flex mt-2 space-x-2 justify-center order-4">
+                <button
+                  onClick={handlelessmore1}
+                  type="button"
+                  class="inline-block p-3 bg-blue-600 text-white font-medium text-sm leading-tight  hover:bg-cyan-500 rounded-lg shadow-md"
+                >{showMore1 ? "Less details" : "More details"}</button>
+              </div>
 
 
-
-              <div className='flex order-2 flex-row w-auto mt-5'>
+              <div className={
+                showMore1
+                  ? 'flex order-5 flex-row w-auto mt-5'
+                  : 'hidden'}>
                 <div className="flex p-1 md:px-4 py-2 ">
                   <div className="relative w-36">
                     <select id="years" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
@@ -582,12 +648,15 @@ export default function SystemReports() {
                 </div>
 
 
-                <div className='mt-2  flex w-72 justify-end'>
+                <div className={'mt-2  flex w-72 justify-end'}
+
+
+                >
                   <p className='font-bold  text-xl '>Total Events : 200</p>
                 </div>
               </div>
 
-              <div className='flex order-3 mt-10'>
+              <div className={showMore1 ? 'flex order-6 mt-10' : 'hidden'}>
 
 
                 <div className="overflow-auto justify-center w-full h-screen">

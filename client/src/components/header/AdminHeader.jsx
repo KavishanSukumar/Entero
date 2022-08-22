@@ -11,7 +11,6 @@ import { BsCalendar2Check } from "react-icons/bs";
 import { MdSpaceDashboard, MdContactPhone } from "react-icons/md";
 import { FaUsers, FaUserCog } from "react-icons/fa";
 import { GiMoneyStack } from "react-icons/gi";
-import Shakir from "../../Shakir.jpg";
 import CelebrationIcon from "@mui/icons-material/Celebration";
 import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
 
@@ -176,7 +175,10 @@ function AdminHeader() {
         <div className="flex flex-col items-center shadow-2xl mb-2">
           {/*The image */}
           <div className="p-2">
-            <img src={Shakir} className="w-28 h-28 rounded-full shadow-2xl " />
+            <img
+              src="/assets/images/Shakir.jpg"
+              className="w-28 h-28 rounded-full shadow-2xl "
+            />
           </div>
 
           {/*The buttons */}

@@ -27,7 +27,7 @@ function Review() {
     <div className="flex flex-col shadow-inner rounded-lg p-3 h-auto">
       <div className="m-3">
         <div className="">
-          <p className="text-8xl">5.0</p>
+          <p className="text-5xl">5.0</p>
         </div>
         <div>{starlist}</div>
         <div className="flex flex-row ">
@@ -41,7 +41,6 @@ function Review() {
       </div>
       <div>
         <ReviewCard data={starlist} />
-        
       </div>
     </div>
   );

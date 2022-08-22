@@ -5,8 +5,7 @@ import SendIcon from "@mui/icons-material/Send";
 
 function chat() {
   return (
-    <div className="flex flex-row mt-14 mb-10 md:mt-0 max-h-screen h-auto">
-      
+    <div className="flex flex-row mt-14 mb-10 md:mt-0 max-h-screen h-{100vh -56px}">
       <div className="hidden lg:flex flex-col basis-1/3  max-h-screen border-r-2 ">
         {/*----------------------------------- Search Bar------------------------------- */}
         <div className="mt-6 ml-3 mr-1">
@@ -35,7 +34,7 @@ function chat() {
             <div>
               <img
                 className="inline-block h-14 w-14 rounded-full ring-2 ring-gray-500"
-                src="https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/277582841_5239128016098567_5556185992353256575_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGKp4fnlNOqfC6OxI8ZuGz0AYIcaGARm5ABghxoYBGbkJ_pSaYhzhJ0teluCZKKj-kYsDS0AzDUItxxmzTiIc3k&_nc_ohc=T5QAw0otHBIAX86oCPh&tn=cj98qFRJLNhnK42a&_nc_ht=scontent-sin6-2.xx&oh=00_AT9NDQOLlJHLh61x6xsdiuwxZhlYRUl8QmY-CZndSS1wIw&oe=62FB6324"
+                src="/assets/images/fab.jpg"
                 alt=""
               />
             </div>
@@ -78,13 +77,13 @@ function chat() {
           <ArrowBackIosIcon className="!w-5 !h-10 mr-5 lg:!hidden" />
           <p className="font-serif text-2xl capitalize">Fabs</p>
         </div>
-        <div className="mt-3 overflow-auto max-h-screen">
+        <div className="mt-3 overflow-auto max-h-screen h-screen">
           {/* ------------------------------------------------------------------------------- */}
           <div className="flex flex-row p-3 m-3 items-center justify-start">
             <div>
               <img
                 className="inline-block h-9 w-9 rounded-full ring-2 ring-black"
-                src="https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/277582841_5239128016098567_5556185992353256575_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGKp4fnlNOqfC6OxI8ZuGz0AYIcaGARm5ABghxoYBGbkJ_pSaYhzhJ0teluCZKKj-kYsDS0AzDUItxxmzTiIc3k&_nc_ohc=T5QAw0otHBIAX86oCPh&tn=cj98qFRJLNhnK42a&_nc_ht=scontent-sin6-2.xx&oh=00_AT9NDQOLlJHLh61x6xsdiuwxZhlYRUl8QmY-CZndSS1wIw&oe=62FB6324"
+                src="/assets/images/fab.jpg"
                 alt=""
               />
             </div>
@@ -116,7 +115,7 @@ function chat() {
             <div>
               <img
                 className="inline-block h-9 w-9 rounded-full ring-2 ring-black"
-                src="https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/277582841_5239128016098567_5556185992353256575_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGKp4fnlNOqfC6OxI8ZuGz0AYIcaGARm5ABghxoYBGbkJ_pSaYhzhJ0teluCZKKj-kYsDS0AzDUItxxmzTiIc3k&_nc_ohc=T5QAw0otHBIAX86oCPh&tn=cj98qFRJLNhnK42a&_nc_ht=scontent-sin6-2.xx&oh=00_AT9NDQOLlJHLh61x6xsdiuwxZhlYRUl8QmY-CZndSS1wIw&oe=62FB6324"
+                src="/assets/images/fab.jpg"
                 alt=""
               />
             </div>
@@ -131,7 +130,7 @@ function chat() {
             <div>
               <img
                 className="inline-block h-9 w-9 rounded-full ring-2 ring-black"
-                src="https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/277582841_5239128016098567_5556185992353256575_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGKp4fnlNOqfC6OxI8ZuGz0AYIcaGARm5ABghxoYBGbkJ_pSaYhzhJ0teluCZKKj-kYsDS0AzDUItxxmzTiIc3k&_nc_ohc=T5QAw0otHBIAX86oCPh&tn=cj98qFRJLNhnK42a&_nc_ht=scontent-sin6-2.xx&oh=00_AT9NDQOLlJHLh61x6xsdiuwxZhlYRUl8QmY-CZndSS1wIw&oe=62FB6324"
+                src="/assets/images/fab.jpg"
                 alt=""
               />
             </div>
