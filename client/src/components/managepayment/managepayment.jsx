@@ -51,7 +51,11 @@ function ManagePayments() {
 
   return (
     <div className="m-3  flex flex-col">
-      
+       <div className="flex justify-start mb-7">
+        <h2 className="text-2xl font-bold leading-7 font-serif text-gray-900 sm:text-3xl">
+          Service Charges
+        </h2>
+      </div>
       <div className="flex justify-start ">
       <div className="rounded-md shadow ml-8">
                     <button
@@ -328,6 +332,7 @@ function ManagePayments() {
         </TabPanel>
         <TabPanel value={value} index={1}>
         <div className="flex p-1 md:px-4 py-2 ">
+          
                       <div className="relative w-[500px]">
 
                         <label className="relative block">

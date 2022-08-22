@@ -80,6 +80,7 @@ function AdminServiceProviders() {
   const serviceData = (
     <>
       <div className="overflow-auto justify-center w-full h-screen">
+        
         <table class="min-w-full z-0">
           <thead class="bg-white border-b sticky top-0">
             <tr>
@@ -303,6 +304,11 @@ function AdminServiceProviders() {
   );
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
+       <div className="flex justify-start mb-7">
+        <h2 className="text-2xl font-bold leading-7 font-serif text-gray-900 sm:text-3xl">
+          Service Provider Details
+        </h2>
+      </div>
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs

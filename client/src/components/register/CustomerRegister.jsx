@@ -25,7 +25,7 @@ function CustomerRegister() {
   return (
     <div className="flex flex-col justify-center place-items-center ">
       <form className="max-w-fit w-full mx-auto bg-white p-4  rounded-lg border-2">
-        <h1 className="text-xl font-bold text-center py-2">Customer Sign Up</h1>
+        <h1 className="text-xl font-bold text-center py-2 text-slate-500">Customer Sign Up</h1>
 
         <div>
           <div className="flex flex-row justify-between">

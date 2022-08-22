@@ -6,6 +6,7 @@ import SendIcon from "@mui/icons-material/Send";
 function chat() {
   return (
     <div className="flex flex-row mt-14 mb-10 md:mt-0 max-h-screen h-auto">
+      
       <div className="hidden lg:flex flex-col basis-1/3  max-h-screen border-r-2 ">
         {/*----------------------------------- Search Bar------------------------------- */}
         <div className="mt-6 ml-3 mr-1">

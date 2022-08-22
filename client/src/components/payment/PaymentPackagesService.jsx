@@ -5,22 +5,27 @@ import SellIcon from "@mui/icons-material/Sell";
 function PaymentPackagesService() {
   return (
     <div className="m-3 flex flex-col">
+       <div className="flex justify-start mb-7">
+        <h2 className="text-2xl font-bold leading-7 font-serif text-gray-900 sm:text-3xl">
+          Service Charge
+        </h2>
+      </div>
       <div className="flex flex-col lg:flex-row">
         <div className="basis-1/2 relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8">
           <div className="h-auto lg:h-72 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
             <div className="bg-white dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-12">
               <h3 className="text-2xl uppercase leading-8 font-extrabold text-gray-900 sm:text-2xl sm:leading-9 dark:text-white">
                 <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
-                Premium
+                Trial
               </h3>
               <p className="mt-6 text-base leading-6 text-gray-500 dark:text-gray-200">
-                This premier package will give you one month free trial
-                subscription and monthly subscription
+                This Trial package will give you <b>one month free trial </b>
+                subscription
               </p>
             </div>
             <div className="py-8 px-6 text-center bg-gray-50 dark:bg-gray-700 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
               <div className="mt-4 flex items-center justify-center text-5xl leading-none font-extrabold text-gray-900 dark:text-white">
-                <span>LKR 2000</span>
+                <span>Free Trial</span>
               </div>
               <div className="mt-6">
                 <div className="rounded-md ">
@@ -53,10 +58,10 @@ function PaymentPackagesService() {
               </h3>
               <p className="flex flex-col justify-around mt-6 text-base leading-6 text-gray-500 dark:text-gray-200">
                 <p className="m-3">
-                  Started Date: <span>25.05.2022</span>
+                  Started Date: <span>25.07.2022</span>
                 </p>
                 <p className="m-3">
-                  Started Date: <span>25.06.2022</span>
+                  Ending Date: <span>24.08.2022</span>
                 </p>
                 <p className="m-3">
                   Remaining Trial Period <span className="text-red-600">6</span>{" "}
@@ -113,7 +118,7 @@ function PaymentPackagesService() {
               </th>
             </tr>
           </thead>
-          <tbody className="">
+          {/* <tbody className="">
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                 P001
@@ -123,7 +128,7 @@ function PaymentPackagesService() {
                 15:00:56
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                25.05.2022
+                30.07.2022
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
@@ -136,7 +141,7 @@ function PaymentPackagesService() {
                 Visa
               </td>
             </tr>
-          </tbody>
+          </tbody> */}
         </table>
       </div>
     </div>

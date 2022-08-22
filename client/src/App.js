@@ -31,6 +31,7 @@ import ServiceProviderCharges from "./pages/afterLogin/serviceProvider/ServicePr
 import ServiceproviderRatings from "./pages/afterLogin/serviceProvider/ServiceproviderRatings";
 import ServiceProviderBookings from "./pages/afterLogin/serviceProvider/ServiceProviderBookings";
 import ServiceProviderProfile from "./pages/afterLogin/serviceProvider/ServiceProviderProfile";
+import ChoosePackage from "./components/payment/ChoosePackage";
 
 import CustomerServices2 from "./pages/afterLogin/customer/CustomerServices2";
 import CustomerEvents2 from "./pages/afterLogin/customer/CustomerEvents2";

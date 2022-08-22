@@ -64,7 +64,11 @@ function MessageComponent() {
     return (
         
     <div className="relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
-        
+         <div className="flex justify-start mb-7">
+        <h2 className="text-2xl font-bold leading-7 font-serif text-gray-900 sm:text-3xl">
+          Contact Us
+        </h2>
+      </div>
 
         {/*Start of the section container */}
         <div className="p-2 bg-gray-100 shadow-2xl mb-5">

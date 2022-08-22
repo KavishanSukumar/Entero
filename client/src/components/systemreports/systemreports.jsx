@@ -176,7 +176,11 @@ export default function SystemReports() {
 
   return (
     <div className=" relative p-5 w-full  md:mt-0 mb-2 h-full ">
-
+ <div className="flex justify-start mb-7">
+        <h2 className="text-2xl font-bold leading-7 font-serif text-gray-900 sm:text-3xl">
+          System Reports
+        </h2>
+      </div>
       <div
         className={
           popup

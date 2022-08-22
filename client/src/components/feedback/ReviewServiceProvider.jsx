@@ -15,7 +15,11 @@ return (
         
     <div className="relative p-5 w-full mt-14 md:mt-0 h-full">
         
-
+        <div className="flex justify-start mb-7">
+        <h2 className="text-2xl font-bold font-serif leading-7 text-gray-900 sm:text-3xl">
+          Rating And Review
+        </h2>
+      </div>
         {/*Start of the section container */}
         <div className="p-2 bg-gray-100 shadow-2xl mb-5">
             {/*section name */}

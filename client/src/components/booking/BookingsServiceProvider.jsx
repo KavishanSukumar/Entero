@@ -52,7 +52,7 @@ function BookingsServiceProvider() {
   return (
     <div className="flex flex-col w-auto  justify-around mx-6 my-3">
       <div className="flex justify-start mb-7">
-        <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl">
+        <h2 className="text-2xl font-bold leading-7 font-serif text-gray-900 sm:text-3xl">
           Booking
         </h2>
       </div>

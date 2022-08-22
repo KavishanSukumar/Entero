@@ -3,6 +3,7 @@ import React from "react";
 function ReviewCard(props) {
   return (
     <div className="flex flex-col m-3 shadow-inner rounded-lg">
+      
       <div className="flex flex-row m-3">
         <div className="m-3">
           <img
