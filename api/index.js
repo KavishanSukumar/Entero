@@ -8,6 +8,7 @@ import userRouter from "./routes/userRoutes.js";
 import authRouter from "./routes/authRoutes.js";
 import serviceProviderRouter from "./routes/serviceProvicerApointments.js";
 import customerRegistrationRouter from "./routes/customerRegistrationRoutes.js";
+import CustomerAppointmentRouter from "./routes/CustomerAppointmentRoutes";
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/customer", customerRegistrationRouter);
 app.use("/api/serviceprovider/appointment", serviceProviderRouter);
+app.use("/api/customer/appointment", CustomerAppointmentRouter);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}.`);
