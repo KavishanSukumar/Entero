@@ -44,7 +44,7 @@ function a11yProps(index) {
   };
 }
 
-function AppointmentCustomer() {
+function AppointmentCustomer(props) {
   const [value, setValue] = React.useState(0);
   const [appointment, setAppointment] = React.useState([]);
   const [id, setId] = React.useState(props.data);

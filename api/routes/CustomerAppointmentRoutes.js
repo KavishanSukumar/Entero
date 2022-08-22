@@ -4,9 +4,22 @@ const pool=require("../db.js");
 
 router.get('/',async (req,res)=>{
     try{    
-        const getCustomerAppointment= await pool.query("SELECT * FROM appointment");
+        const getCustomerAppointment1= await pool.query("SELECT * FROM appointment");
 
-        res.json(getCustomerAppointment.rows);
+        res.json(getCustomerAppointment1.rows);
+    }
+    catch(err){
+        console.log(err.message);
+    }
+})
+
+router.get('/:id',async (req,res)=>{
+    try{
+        const {id}=req.params;
+        console.log(req.params);
+        const getCustomerAppointment2= await pool.query("SELECT * FROM appointment WHERE contact_id=$1",[id])
+
+        res.json(getCustomerAppointment2.rows[0]);
     }
     catch(err){
         console.log(err.message);
