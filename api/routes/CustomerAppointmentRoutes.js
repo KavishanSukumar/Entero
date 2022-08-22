@@ -1,6 +1,8 @@
-const express=require('express');
-const router=express.Router();
-const pool=require("../db.js");
+import express from "express";
+import pool from "../db.js";
+
+
+const router = express.Router();
 
 router.get('/',async (req,res)=>{
     try{    
@@ -63,4 +65,4 @@ router.delete('/:id',async (req,res)=>{
     }
 })
 
-module.exports= router;
+export default router;

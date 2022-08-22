@@ -31,7 +31,7 @@ function ServiceProfileForms() {
                 <h1 className="text-xl font-bold text-center py-2">Edit profile</h1>
 
                 <div className="flex flex-col py-2 ">
-                <label className="font-medium">Name</label>
+                <label className="font-medium">Company Name</label>
                     <input
                         className="border p-2 "
                         placeholder="kavin76@gmail.com"
