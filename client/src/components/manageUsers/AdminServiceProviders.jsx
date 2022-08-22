@@ -354,15 +354,15 @@ function AdminServiceProviders() {
             : "hidden"
         }
       >
-        <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[70%] mx-[15%] p-2">
+        <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[80%] mx-[10%] md:w-[60%] md:mx-[20%] lg:w-[40%] lg:mx-[30%] p-2">
           <div className="w-full inline-flex justify-end items-end">
             <AiOutlineClose
-              className="w-4 h-4 cursor-pointer"
+              className="w-6 h-6 cursor-pointer"
               onClick={handlePopup}
             />
           </div>
           <div className="w-full flex flex-col lg:flex-row">
-            <div className="flex flex-col  items-center shadow-2xl mb-2 ">
+            <div className="flex flex-col  items-center  mb-2 justify-center">
               {/*The image */}
               <div className="p-2">
                 <img
@@ -377,30 +377,45 @@ function AdminServiceProviders() {
                 <button className=" border-2   p-1 mb-3 rounded bg-cyan-500 hover:bg-cyan-400 text-white">
                   Remove
                 </button>
-              </div>
-            </div>
-            <div className=" w-full">
-              <p className="text-center text-base font-medium mb-2 border-b-2">
-                Details
-              </p>
-              <p className="md:ml-8 px-1 text-left">
-                <b>Name:</b> Kalindu Photography
-              </p>
-              <p className="md:ml-8 px-1 text-left">
-                <b>BR:</b> 867564980
-              </p>
-              <p className="md:ml-8 px-1 text-left">
-                <b>Address:</b> 45,Kings Cross,Colombo 02
-              </p>
-              <div className="mx-[20%]">
-                <button className="mt-4 w-full md:ml-8 text-center p-1 text-white bg-cyan-500 hover:bg-cyan-400">
+                <button className=" border-2   p-1 mb-3 rounded bg-cyan-500 hover:bg-cyan-400 text-white">
                   View BR
                 </button>
-                <button className="mt-4 w-full md:ml-8 text-center p-1 text-white bg-cyan-500 hover:bg-cyan-400">
+                <button className=" border-2   p-1 mb-3 rounded bg-cyan-500 hover:bg-cyan-400 text-white">
                   Visit Portfolio
                 </button>
               </div>
             </div>
+            <div className=" w-full p-2">
+              <p className="text-center text-xl font-bold  mb-2 border-b-2">
+                Details
+              </p>
+              <dl class="text-gray-900 divide-y divide-gray-200 ">
+                <div class="flex flex-col pb-3">
+                  <dt class="mb-1 text-gray-500 md:text-md ">Name</dt>
+                  <dd class="text-md font-semibold">Kavin Fernando</dd>
+                </div>
+                <div class="flex flex-col pb-3">
+                  <dt class="mb-1 text-gray-500 md:text-md ">BR</dt>
+                  <dd class="text-md font-semibold">723456789V</dd>
+                </div>
+                <div class="flex flex-col pb-3">
+                  <dt class="mb-1 text-gray-500 md:text-md ">Email address</dt>
+                  <dd class="text-md font-semibold">kavintr@gmail.com</dd>
+                </div>
+                <div class="flex flex-col py-3">
+                  <dt class="mb-1 text-gray-500 md:text-md ">Address</dt>
+                  <dd class="text-md font-semibold">
+                    25, Mount Road ,Kalubowila
+                  </dd>
+                </div>
+                <div class="flex flex-col pt-3">
+                  <dt class="mb-1 text-gray-500 md:text-md ">Contact</dt>
+                  <dd class="text-md font-semibold">0772345670</dd>
+                </div>
+              </dl>
+              
+            </div>
+            
           </div>
         </div>
       </div>
@@ -424,23 +439,33 @@ function AdminServiceProviders() {
               />
             </div>
           </div>
-
-          <div className=" w-full">
-            <p className="md:ml-8 px-1 text-left mb-1">
-              <b>Name:</b> Noel catering
-            </p>
-            <p className="md:ml-8 px-1 text-left mb-1">
-              <b>BR:</b> 867564980
-            </p>
-            <p className="md:ml-8 px-1 text-left mb-1">
-              <b>Address:</b> 32,Ruhuna Road, Colombo 02
-            </p>
-            <p className="md:ml-8 px-1 text-left mb-1">
-              <b>Email:</b> noelcateringcolombo02@gmail.com
-            </p>
-            <p className="md:ml-8 px-1 text-left mb-1">
-              <b>Contact:</b> 0776556656
-            </p>
+          
+          <div className=" w-full p-4">
+            <dl class="text-gray-900 divide-y divide-gray-200 ">
+              <div class="flex flex-col pb-3">
+                <dt class="mb-1 text-gray-500 md:text-md ">Name</dt>
+                <dd class="text-md font-semibold">Noel catering</dd>
+              </div>
+              <div class="flex flex-col pb-3">
+                <dt class="mb-1 text-gray-500 md:text-md ">BR</dt>
+                <dd class="text-md font-semibold">867564980</dd>
+              </div>
+              <div class="flex flex-col pb-3">
+                <dt class="mb-1 text-gray-500 md:text-md ">Email address</dt>
+                <dd class="text-md font-semibold">noelcateringcolombo02@gmail.com</dd>
+              </div>
+              <div class="flex flex-col py-3">
+                <dt class="mb-1 text-gray-500 md:text-md ">Address</dt>
+                <dd class="text-md font-semibold">
+                32,Ruhuna Road, Colombo 02
+                </dd>
+              </div>
+              <div class="flex flex-col pt-3">
+                <dt class="mb-1 text-gray-500 md:text-md ">Contact</dt>
+                <dd class="text-md font-semibold">0772345670</dd>
+              </div>
+            </dl>
+            
           </div>
           <div className="flex justify-center w-full items-center mb-4 ">
             <img

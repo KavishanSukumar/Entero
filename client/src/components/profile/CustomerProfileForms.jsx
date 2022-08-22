@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 
 //The component which has the forms in UserProfile page 
-function UserProfileForms() {
+function CustomerProfileForms() {
 
    // used states to make the update profile form and password form visible in responsive
     const [passwordDiv,setPasswordDiv]=useState(false);
@@ -31,37 +31,37 @@ function UserProfileForms() {
                 <h1 className="text-xl font-bold text-center py-2">Edit profile</h1>
 
                 <div className="flex flex-col py-2 ">
-                    <label>Name</label>
+                    <label className="font-medium">Name</label>
                     <input
                         className="border p-2 "
-                        placeholder="kavin76@gmail.com"
+                        value="shakir"
                         type="text"
                     />
                 </div>
                 <div className="flex flex-col py-2 ">
-                    <label>E-mail</label>
+                <label className="font-medium">Email</label>
                     <input
                         className="border p-2 "
-                        placeholder="kavin76@gmail.com"
+                        value="shakirsaheel123@gmail.com"
                         type="email"
                     />
                 </div>
 
                 <div className="flex flex-col py-2">
-                    <label>Contact Number</label>
+                <label className="font-medium">Contact</label>
                     <input
                         className="border p-2 "
-                        placeholder="0776543762"
+                        value="0771979029"
                         type="text"
                         required
                     />
                 </div>
 
                 <div className="flex flex-col py-2">
-                    <label>Address</label>
+                <label className="font-medium">Address</label>
                     <input
                         className="border p-2 "
-                        placeholder="Kolonnawa Road,Kurunegala"
+                        value="Maggona,Kalutara"
                         type="text"
                         required
                     />
@@ -135,4 +135,4 @@ function UserProfileForms() {
   )
 }
 
-export default UserProfileForms
+export default CustomerProfileForms
