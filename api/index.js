@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import pg from "pg";
 import userRouter from "./routes/userRoutes.js";
 import authRouter from "./routes/authRoutes.js";
+import contactRouter from "./routes/contactRoutes.js";
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.use(cors());
 
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/contact", contactRouter);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}.`);

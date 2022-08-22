@@ -42,7 +42,7 @@ import Appointment2 from "./pages/afterLogin/customer/Appointment2";
 const API_URL = "http://localhost:4000/api/auth/isverify";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   const setAuth = (Boolean) => {
     setIsAuthenticated(Boolean);

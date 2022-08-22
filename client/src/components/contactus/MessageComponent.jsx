@@ -1,298 +1,337 @@
-import React ,{useState} from 'react';
-import {BsReplyFill} from 'react-icons/bs';
-import {AiFillDelete,AiOutlineClose} from 'react-icons/ai';
+import React, { useState, useEffect } from "react";
+import { AiOutlineClose } from "react-icons/ai";
+import axios from "axios";
 
+const API_URL = "http://localhost:4000/api/contact";
 
 function MessageComponent() {
-    const [typeReply,setTypeReply]=useState(false)
-    const [reply,setReply]=useState(false);
+  const [messages, setMessages] = useState([]);
+  const [x, setx] = useState(4);
+  const [abc, setabc] = useState();
+  const [rm, setrm] = useState();
+  const [y,sety]=useState([]);
+  const [reply,setReply]=useState('')
+  // const [time, setTime] = useState();
 
-    const handleTypeReply=()=>{
-        setTypeReply(!typeReply);
+  
+    async function fetchMessages() {
+      try {
+        const res = await axios.get(API_URL);
+        setMessages(res.data);
+        
+      } catch (error) {
+        console.error(error.message);
+      }
     }
-    const handleReply=()=>{
-        setReply(!reply);
-    }
-    const [popup,setPopup]=useState(false);
-
-    const handlePopup=()=>{
-        setPopup(!popup)
-    }
-
-    const [popupR,setPopupR]=useState(false);
-
-    const handlePopupR=()=>{
-        setPopupR(!popupR)
-    }
-
-    const typeReplyMessage=(
-        <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300 cursor-pointer">
-                    {/*Name of the sender */}
-                    
-                    <div>
-                        <textarea placeholder="Type reply here" rows="5" className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black">
-                        </textarea>
-                    </div>
-                    
-                    <div className="flex justify-center">
-                        <button className=" inline-flex items-center justify-center bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded hover:border-2 text-white font-medium mx-2 mb-2">
-                            Send
-                        </button>
-                        <button className="inline-flex items-center justify-center bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded hover:border-2 text-white font-medium mx-2 mb-2" onClick={handleTypeReply}>
-                            Cancel
-                        </button>
-                    </div>
-                    
-                </div>
-    )
-
-    const replyMessage=(
-        <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300 cursor-pointer" onClick={handleReply}>
-                    {/*Name of the sender */}
-                    <h4 className='mb-3 font-medium text-center'>The reply</h4>
-                    
-                    {/*content */}
-                    <p className="mb-7 text-gray-700">Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design..<b className="text-blue-400">Read more</b>
-                    </p>
-                    
-                    <p className="text-center text-sm text-gray-500 hover:underline" onClick={handleReply}>Click to see message</p>
-                    {/*Time recieved */}
-                    <p className="text-center text-xs text-gray-500">18 hours ago</p>
-                    
-                </div>
-    )
-    return (
-        
-    <div className="relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
-        
-
-        {/*Start of the section container */}
-        <div className="p-2 bg-gray-100 shadow-2xl mb-5">
-            {/*section name */}
-            <h3 className="border-b mb-5 border-black font-medium uppercase">New messages</h3>
-            
-            {/*grid styling to contain 4 cards per section */}
-            <div className="m-2 grid col-span-2 lg:grid-cols-2  xl:grid-cols-4 ">
-
-                    {/*The card */}
-                <div className={!typeReply?"p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300":"hidden"}>
-                    {/*Name of the sender */}
-                    <h4 className='mb-3 font-medium text-center'>Kalana Bushan</h4>
-                    
-                    {/*content */}
-                    <p className="mb-7 text-gray-700">I would like to know about the system service providers trustability.And can I make a booking without creating an account..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
-                    </p>
-                    
-                    
-                    {/*buttons for reply and discard */}
-                    <div className="flex justify-center">
-                        <button className=" inline-flex items-center w-20 justify-center bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2" onClick={handleTypeReply}>
-                            Reply
-                        </button>
-                        <button className="inline-flex items-center justify-center w-20 bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2">
-                            Discard
-                        </button>
-                    </div>
-
-                    {/*Time recieved */}
-                    <p className="text-center text-xs text-gray-500">2 hours ago</p>
-                    
-                </div>
-                    {/*end of the card */}
-                    
-                    {typeReply? typeReplyMessage:""}
-                    {/*The card */}
-                <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300">
-                    {/*Name of the sender */}
-                    <h4 className='mb-3 font-medium text-center'>Tharindu Thaathvika</h4>
-                    
-                    {/*content */}
-                    <p className="mb-7 text-gray-700">Why are the services limited to 4.I am a tailor and i want to use this system but unfortunately i have no option and..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
-                    </p>
-                    
-                    
-                    {/*buttons for reply and discard */}
-                    <div className="flex justify-center">
-                        <button className=" inline-flex items-center w-20 justify-center bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2" onClick={handleTypeReply}>
-                            Reply
-                        </button>
-                        <button className="inline-flex items-center justify-center w-20 bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2">
-                            Discard
-                        </button>
-                    </div>
-
-                    {/*Time recieved */}
-                    <p className="text-center text-xs text-gray-500">2 hours ago</p>
-                    
-                </div>
-                    {/*end of the card */}
-
-                    {/*The card */}
-                <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300">
-                    {/*Name of the sender */}
-                    <h4 className='mb-3 font-medium text-center'>Solangara Hetti</h4>
-                    
-                    {/*content */}
-                    <p className="mb-7 text-gray-700">This is a timely system and appreciate how this system will help the general public to overcome a massive issue..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
-                    </p>
-                    
-                    
-                    {/*buttons for reply and discard */}
-                    <div className="flex justify-center">
-                        <button className=" inline-flex items-center w-20 justify-center bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2" onClick={handleTypeReply}>
-                            Reply
-                        </button>
-                        <button className="inline-flex items-center justify-center w-20 bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2">
-                            Discard
-                        </button>
-                    </div>
-
-                    {/*Time recieved */}
-                    <p className="text-center text-xs text-gray-500">2 hours ago</p>
-                    
-                </div>
-                    {/*end of the card */}
-
-                    {/*The card */}
-                <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300">
-                    {/*Name of the sender */}
-                    <h4 className='mb-3 font-medium text-center'>Metha Guru</h4>
-                    
-                    {/*content */}
-                    <p className="mb-7 text-gray-700">This is a good system and i would like to know som of the functionalities that you will provide in the future..<b className="text-blue-400 cursor-pointer" onClick={handlePopup}>Read more</b>
-                    </p>
-                    
-                    
-                    {/*buttons for reply and discard */}
-                    <div className="flex justify-center">
-                        <button className=" inline-flex items-center w-20 justify-center bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2" onClick={handleTypeReply}>
-                            Reply
-                        </button>
-                        <button className="inline-flex items-center justify-center w-20 bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2">
-                            Discard
-                        </button>
-                    </div>
-
-                    {/*Time recieved */}
-                    <p className="text-center text-xs text-gray-500">2 hours ago</p>
-                    
-                </div>
-                    {/*end of the card */}
-
-
-                    
-            </div>
-            {/*end of the grid */}
-
-            <div className="p-2 flex justify-end">
-                <button className="bg-cyan-500 hover:bg-cyan-400 text-white text-center p-2 rounded-lg w-20">
-                    More
-                </button>
-            </div>
-            
-        
-        </div>
-        {/*end of the section container */}
-        <div className={popup? "fixed backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  p-4 left-0":"hidden"} >
-            <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[70%] mx-[15%] p-2">
-                <div className="w-full inline-flex justify-end items-end">
-                    <AiOutlineClose className="w-6 h-6 cursor-pointer" onClick={handlePopup}/>
-                </div>
-                <div className="w-full mb-4">
-                    <p className="text-lg text-center font-medium border-b-2 border-gray-900">Shakir <i>(shakir3789@gmail.com)</i></p>
-                </div>
-
-                <div className="w-full p-2 shadow-xl mb-10 grid grid-cols-1 lg:grid-cols-2">
-                    <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
-                        <p className="text-center font-medium">Message</p>
-                        <p>Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web designLorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web designLorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web designLorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design</p>
-                    </div>
-                    <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
-                        <p className="text-center font-medium">Type reply</p>
-                        <div>
-                            <textarea placeholder="Type reply here" rows="5" className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black">
-                            </textarea>
-                        </div>
-                    
-                        <div className="flex justify-center">
-                            <button className=" inline-flex items-center bg-cyan-500 p-2 w-30 rounded hover:border-2 hover:bg-cyan-400 font-medium mx-2 mb-2">
-                                Send
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {/*Start of The replies part section*/}
-
-        <div className="p-2 bg-gray-100 shadow-2xl mb-5">
-            {/*section name */}
-            <h3 className="border-b mb-5 border-black font-medium uppercase">Replied Messages</h3>
-            
-            {/*grid styling to contain 4 cards per section */}
-            <div className="m-2 grid col-span-2 lg:grid-cols-2  xl:grid-cols-4 ">
-                {/*The card */}
-                <div className={!reply?"p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner  hover:scale-110 transition duration-300 cursor-pointer":"hidden"}>
-                    {/*Name of the sender */}
-                    <h4 className='mb-3 font-medium text-center '>Shakir</h4>
-                    
-                    {/*content */}
-                    <p className="mb-7 text-gray-700">What inspired you guys to build such a system and will the trial period increase in the future so that we can..<b className="text-blue-400 cursor-pointer" onClick={handlePopupR}>Read more</b>
-                    </p>
-                    
-                    
-                    {/*buttons for reply and discard */}
-                    <p className="text-center text-sm text-gray-500 hover:underline" onClick={handleReply}>Click to see reply</p>
-
-                    {/*Time recieved */}
-                    <p className="text-center text-xs text-gray-500">2 hours ago</p>
-                    
-                </div>
-                    {/*end of the card */}
-                    {reply? replyMessage:""}
-                    
-
-                    
-            </div>
-            {/*end of the grid */}
-
-            {/* <div className="p-2 flex justify-end">
-                <button className="bg-cyan-500 hover:bg-cyan-400 text-white text-center p-2 rounded-lg w-20">
-                    More
-                </button>
-            </div> */}
-            
-        
-        </div>
-        {/*end of the section container */}
-        <div className={popupR? "fixed backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  p-4 left-0":"hidden"} >
-            <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[70%] mx-[15%] p-2">
-                <div className="w-full inline-flex justify-end items-end">
-                    <AiOutlineClose className="w-6 h-6 cursor-pointer" onClick={handlePopupR}/>
-                </div>
-                <div className="w-full mb-4">
-                    <p className="text-lg text-center font-medium border-b-2 border-gray-900">Shakir <i>(shakir3789@gmail.com)</i></p>
-                </div>
-
-                <div className="w-full p-2 shadow-xl mb-10 grid grid-cols-1 lg:grid-cols-2">
-                    <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
-                        <p className="text-center font-medium mb-2">Message</p>
-                        <p>Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web designLorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web designLorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web designLorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design</p>
-                    </div>
-                    <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
-                        <p className="text-center font-medium mb-2">Reply</p>
-                        <p>Lorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web designLorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web designLorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web designLorem Ipsum is a dummy or placeholder text. It's often used in laying out print, infographics, or web design</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
     
+  
+  useEffect(() => {
+    fetchMessages();
+  },[]);
 
-  )
+  const onSubmitForm1 = async (e) => {
+    e.preventDefault();
+    const contact_id = e.target.contact_id.value;
+    try {
+      const x = API_URL + "/" + contact_id;
+      const res = await axios.put(x, { reply });
+      setReply('');
+      fetchMessages();
+      
+      
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  const [popup, setPopup] = useState(false);
+
+  const handlePopup = (message) => {
+    setabc(message);
+    setPopup(!popup);
+  };
+
+  const [popupR, setPopupR] = useState(false);
+  const a = ["More", "Less"];
+  const handlePopupR = (reply) => {
+    setrm(reply);
+    setPopupR(!popupR);
+  };
+
+  const handlegre = () => {
+    if(x!=4){
+      setx(4)
+    }else{
+      setx(messages.length);
+    }
+    
+  };
+
+  const handleDelete =async (contact_id)=>{
+    
+    try {
+      const x = API_URL + "/" + contact_id;
+      const res = await axios.delete(x);
+      console.log(res.data);
+      fetchMessages();
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+
+  
+ 
+
+  
+  // const timecal=(time)=>{
+
+  //   let now = new Date()
+  //   let then = new Date(time);
+  //   let nowAdj = now.getTime()
+  //   let thenAdj = then.getTime()
+  //   let differenceInDays = (nowAdj-thenAdj)/1000;
+
+  //   switch(true){
+  //     case differenceInDays<=3600: setTime(`${Math.round(differenceInDays/60)} mins ago`);break;
+  //     case differenceInDays<=86400: setTime(`${Math.round(differenceInDays/3600)} hrs ago`);break;
+  //     default : setTime(`${Math.round(differenceInDays/86400)} days ago`);break;
+  //   }
+
+  // }
+
+  return (
+    <div className="relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
+      {/*Start of the section container */}
+      <div className="p-2 bg-gray-100 shadow-2xl mb-5">
+        {/*section name */}
+        <h3 className="border-b mb-5 border-black font-medium uppercase">
+          New messages
+        </h3>
+
+        {/*grid styling to contain 4 cards per section */}
+        <div className="m-2 grid col-span-2 lg:grid-cols-2  xl:grid-cols-4 ">
+          {messages.filter((yy) => yy.reply == null).length === 0 ? 
+            <div className="w-full col-span-4"><p className=" text-base flex justify-center italic text-gray-600">NO NEW MESSAGES</p></div>
+           : 
+            ""
+          }
+          
+          {messages &&
+            messages
+              .filter((yy) => yy.reply == null)
+              .slice(0, x)
+              .map((yy) => (
+                <div
+                  key={yy.contact_id}
+                  className="p-6 bg-white rounded-lg border min-h-fit flex flex-col border-gray-200 m-2 shadow-inner hover:scale-110 transition duration-300"
+                >
+                  <h4 className="mb-3 font-medium text-center">{yy.name}</h4>
+                  {/*content */}
+                  <p className="mb-7 text-gray-700">
+                    {yy.message.length > 130? yy.message.substring(0,130):yy.message}
+                    <b
+                      className={yy.message.length > 50 ? "text-blue-400 cursor-pointer":"hidden" }
+                      onClick={() => {
+                        handlePopup(yy);
+                      }}
+                    >
+                      Read more
+                    </b>
+                  </p>
+
+                  {/*buttons for reply and discard */}
+                  <div className="flex justify-center items-end  basis-10/12">
+                    <button
+                      className=" inline-flex items-center w-20 justify-center bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2"
+                      onClick={() => {
+                        handlePopup(yy);
+                      }}
+                    >
+                      Reply
+                    </button>
+                    <button className="inline-flex items-center justify-center w-20 bg-cyan-500 hover:bg-cyan-400 p-2 w-30 rounded text-white font-medium mx-2 mb-2" onClick={()=>handleDelete(yy.contact_id)}>
+                      Discard
+                    </button>
+                  </div>
+
+                  {/*Time recieved */}
+
+                  <p className="text-center text-xs text-gray-500">
+                    {yy.received_time}
+                  </p>
+                </div>
+              ))}
+        </div>
+
+        {/*end of the grid */}
+
+        <div className={x != 4 ? "p-2 flex justify-end" : "hidden"}>
+          <button
+            className="bg-cyan-500 hover:bg-cyan-400 text-white text-center p-2 rounded-lg w-20"
+            onClick={handlegre}
+          >
+            More
+          </button>
+        </div>
+      </div>
+      {/*end of the section container */}
+      <div
+        className={
+          popup
+            ? "fixed backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  p-4 left-0"
+            : "hidden"
+        }
+      >
+        <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[70%] mx-[15%] ">
+          <div className="flex flex-row w-full mb-4 border-b-2   border-cyan-500 py-2 items-center">
+            <div className="basis-1/2 flex flex-row justify-end">
+              <p className="text-center text-xl font-bold">{abc && abc.name} <i>({abc && abc.email})</i></p>
+            </div>
+            <div className="basis-1/2 flex flex-row justify-end mr-2">
+              <AiOutlineClose
+                className="w-6 h-6 cursor-pointer"
+                onClick={handlePopup}
+              />
+            </div>
+          </div>
+          
+
+          <div className="w-full p-2 shadow-xl mb-10 grid grid-cols-1 lg:grid-cols-2  ">
+            <div className=" p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4 border-4 ">
+              <p className="text-center font-medium mb-4">Message</p>
+              <p>{abc && abc.message}</p>
+            </div>
+            <div className="  p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4 border-4  ">
+              <p className="text-center font-medium">Type reply</p>
+              <form onSubmit={onSubmitForm1}>
+                <div>
+                  <textarea
+                    name="replyM"
+                    placeholder="Your reply"
+                    value={reply}
+                    onChange={(e) => setReply(e.target.value)}
+                    rows="5"
+                    className="ring-1 ring-gray-300 w-full mt-4 rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black"
+                  ></textarea>
+                  <input
+                    type="hidden"
+                    name="contact_id"
+                    value={abc && abc.contact_id}
+                  />
+                </div>
+
+                <div className="flex justify-center">
+                  <button className=" inline-flex items-center justify-center bg-cyan-500 text-white p-2 w-24 rounded hover:border-2 hover:bg-cyan-400 font-medium mx-2 mb-2">
+                    Send
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/*Start of The replies part section*/}
+
+      <div className="p-2 bg-gray-100 shadow-2xl mb-5">
+        {/*section name */}
+        <h3 className="border-b mb-5 border-black font-medium uppercase">
+          Replied Messages
+        </h3>
+
+        {/*grid styling to contain 4 cards per section */}
+        <div className="m-2 grid col-span-2 lg:grid-cols-2  xl:grid-cols-4 ">
+          {messages.filter((reply) => reply.reply != null).length == 0 ? 
+            <div className="w-full col-span-4"><p className=" text-base flex justify-center italic text-gray-600">NO REPLIES</p></div>
+           : 
+            ""
+          }
+          {messages &&
+            messages
+              .filter((reply) => reply.reply != null)
+              .slice(0, x)
+              .map((reply) => (
+                <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner  hover:scale-110 transition duration-300 cursor-pointer flex flex-col">
+                  <h4 className="mb-3 font-medium text-center ">
+                    {reply.name}
+                  </h4>
+
+                  <p className="mb-7 text-gray-700">
+                    {reply.message.length > 130? reply.message.substring(0,130):reply.message}
+                    <b
+                      className={reply.message.length > 130 ? "text-blue-400 cursor-pointer":"hidden" }
+                      onClick={() => {
+                        handlePopupR(reply);
+                      }}
+                    >
+                      Read more
+                    </b>
+                  </p>
+
+                  <div className="flex flex-col justify-center  basis-10/12">
+                  <p
+                    className="text-center text-sm text-gray-500 hover:underline"
+                    onClick={() => {
+                      handlePopupR(reply);
+                    }}
+                  >
+                    Click to see reply
+                  </p>
+
+                  <p className="text-center text-xs text-gray-500">
+                    2 hours ago
+                  </p>
+                  </div>
+                </div>
+              ))}
+        </div>
+        {/*end of the grid */}
+
+        <div className={x == 4 ? "p-2 flex justify-end" : "hidden"}>
+          <button
+            className="bg-cyan-500 hover:bg-cyan-400 text-white text-center p-2 rounded-lg w-20"
+            onClick={handlegre}
+          >
+            More
+          </button>
+        </div>
+      </div>
+      {/*end of the section container */}
+      <div
+        className={
+          popupR
+            ? "fixed backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  p-4 left-0"
+            : "hidden"
+        }
+      >
+        <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[70%] mx-[15%] p-2">
+          <div className="w-full inline-flex justify-end items-end">
+            <AiOutlineClose
+              className="w-6 h-6 cursor-pointer"
+              onClick={handlePopupR}
+            />
+          </div>
+          <div className="w-full mb-4">
+            <p className="text-lg text-center font-medium border-b-2 border-gray-900">
+              {rm && rm.name} <i>{rm && rm.email}</i>
+            </p>
+          </div>
+
+          <div className="w-full p-2 shadow-xl mb-10 grid grid-cols-1 lg:grid-cols-2">
+            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
+              <p className="text-center font-medium mb-2">Message</p>
+              <p>{rm && rm.message}</p>
+            </div>
+            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
+              <p className="text-center font-medium mb-2">Reply</p>
+              <p>{rm && rm.reply}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default MessageComponent
+export default MessageComponent;
