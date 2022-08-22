@@ -178,7 +178,7 @@ function Appointment(props) {
                         item.status === 0 && (
                           <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              {item.uname}
+                              {item.name}
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                               {item.time}
@@ -293,7 +293,7 @@ function Appointment(props) {
                         item.status === 1 && (
                           <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              {item.uname}
+                              {item.name}
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                               {item.time}
@@ -408,7 +408,7 @@ function Appointment(props) {
                         item.status >= 2 && (
                           <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              {item.uname}
+                              {item.name}
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                               {item.time}
