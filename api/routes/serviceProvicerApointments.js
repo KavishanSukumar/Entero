@@ -7,7 +7,7 @@ router.post("/", async (req, res) => {
   try {
     const sp_id = req.body.id;
     const appointments = await pool.query(
-      "SELECT appointment_id, to_char(date,'DD-MM-YYYY') as date, time, description, customer_id, sp_id, status, uname  FROM appointment INNER JOIN login ON customer_id=userid WHERE sp_id::text=$1",
+      "SELECT appointment_id, to_char(date,'DD-MM-YYYY') as date, time, description, customer_id, sp_id, status, name  FROM appointment INNER JOIN users ON customer_id=userid WHERE sp_id::text=$1",
       [sp_id]
     );
     res.json(appointments.rows);

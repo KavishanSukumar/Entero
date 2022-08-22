@@ -66,6 +66,7 @@ function Appointment(props) {
           appointment_id,
           status,
         });
+        window.location.href = "/serviceappointments";
         console.log(res);
       } catch (error) {
         console.log(error);
