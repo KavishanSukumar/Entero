@@ -81,7 +81,7 @@ function ServiceProviderHeader() {
       {/* header logo */}
 
       <img
-        src="/assets/images/Ss.svg"
+        src="/assets/images/fab.jpg"
         alt="logo"
         className="w-20 h-14 object-cover mt-3"
       />

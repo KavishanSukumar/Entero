@@ -375,7 +375,7 @@ function App() {
           exact
           path="/userprofile"
           element={
-            isAuthenticated && userrole === "sp" ? <UserProfile /> : <Home />
+            isAuthenticated && userrole === "am" ? <UserProfile /> : <Home />
           }
         />
       </Routes>
