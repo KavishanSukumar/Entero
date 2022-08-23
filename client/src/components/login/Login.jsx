@@ -44,8 +44,8 @@ function Login(props) {
     e.preventDefault();
     try {
       const res = await axios.post(API_URL, { email, password });
-      localStorage.setItem("token", res.data.token);
       if (res.data.status) {
+        localStorage.setItem("token", res.data.token);
         toast("Login Successful!");
         setTimeout(() => {
           window.location.href = "/home";
