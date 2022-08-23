@@ -124,7 +124,7 @@ function AdminServiceProviders() {
           <tbody className="">
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                S100001
+                SP001
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Kalindu Studio
@@ -153,7 +153,7 @@ function AdminServiceProviders() {
             </tr>
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                S100002
+                SP002
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Mewana Decorators
@@ -179,7 +179,7 @@ function AdminServiceProviders() {
             </tr>
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                S100003
+                SP003
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Muthumaal Studio
@@ -246,7 +246,7 @@ function AdminServiceProviders() {
           <tbody className="">
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                S200012
+                SP004
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Neol Catering
@@ -275,7 +275,7 @@ function AdminServiceProviders() {
 
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                S200013
+                SP005
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 HN Designers
