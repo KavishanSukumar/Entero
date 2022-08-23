@@ -225,7 +225,7 @@ function AdminHeader() {
               }
             >
               <BsCalendar2Check className="w-6 h-6 text-gray-500" />
-              <span className="ml-3">Events</span>
+              <span className="ml-3">Bookings</span>
             </NavLink>
           </li>
           <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">

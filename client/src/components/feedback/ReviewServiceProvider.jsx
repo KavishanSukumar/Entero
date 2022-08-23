@@ -38,6 +38,7 @@ function ReviewServiceProvider() {
                 <p className=" font-medium ">Shakir Saheel</p>
               </div>
 
+
               <div className="flex justify-end grow ">
                 <StarRateIcon className="text-amber-200 text-xs" />
                 <StarRateIcon className="text-amber-200 text-xs" />
@@ -45,6 +46,7 @@ function ReviewServiceProvider() {
                 <StarRateIcon className="text-amber-200 text-xs" />
                 <StarRateIcon className="text-amber-200 text-xs" />
               </div>
+
             </div>
 
             {/*content */}
@@ -61,7 +63,8 @@ function ReviewServiceProvider() {
             {/*buttons for reply and discard */}
 
             {/*Time recieved */}
-            <p className="text-center text-xs text-gray-500">3 days ago</p>
+            <p className="text-center text-xs text-gray-500">2022-07-13</p>
+            <p className="text-center text-xs text-gray-500">10:15:09</p>
           </div>
           {/*end of the card */}
         </div>
