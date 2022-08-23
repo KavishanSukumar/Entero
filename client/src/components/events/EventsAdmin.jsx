@@ -344,26 +344,18 @@ function EventsAdmin() {
             </div>
             <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
               <p className="text-center font-medium border-b-2 border-white">
-                Services
+                Service
               </p>
               <p className="text-center">
                 <b>Catering</b>
               </p>
-              <p className="text-left">
-                <b>ID:</b> 0876
-              </p>
-              <p className="text-left">
+              <p className="text-center">
                 <b>Name:</b> Royal Food
               </p>
-              <p className="text-center">
-                <b>Photography</b>
-              </p>
               <p className="text-left">
-                <b>ID:</b> 9865
+                <b>Package:</b> Dine Package
               </p>
-              <p className="text-left">
-                <b>Name:</b> Kalin Studio
-              </p>
+              
             </div>
           </div>
         </div>
