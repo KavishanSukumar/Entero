@@ -47,6 +47,9 @@ function CustomerHeader() {
       onMouseLeave={handleDropdownPic}
     >
       <ul class="py-1 text-sm text-gray-700">
+        <NavLink to="/home">
+          <li className="block py-2 px-4 hover:bg-gray-200">Home</li>
+        </NavLink>
         <NavLink to="/customerprofile">
           <li className="block py-2 px-4 hover:bg-gray-200">My Profile</li>
         </NavLink>
@@ -102,7 +105,7 @@ function CustomerHeader() {
         </div>
 
         <img
-          src="/assets/images/Sindu.jpg"
+          src="/assets/images/shakir.jpg"
           className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125"
           onClick={handleDropdownPic}
         />
@@ -147,7 +150,6 @@ function CustomerHeader() {
           </div>
         </div>
         <ul className=" text-sm">
-          
           <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
             <NavLink
               to="/"

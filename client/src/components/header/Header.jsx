@@ -88,23 +88,33 @@ function Header(props) {
         {/*header links */}
         <ul className="hidden md:flex">
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500 hover:rounded">
-            <NavHashLink to="/#carousel">Home</NavHashLink>
+            <NavHashLink to="/#carousel" smooth>
+              Home
+            </NavHashLink>
             {/* <a href="#carousel">Home</a> */}
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-            <NavHashLink to="/#services">Services</NavHashLink>
+            <NavHashLink to="/#services" smooth>
+              Services
+            </NavHashLink>
             {/* <a href="#services">Services</a> */}
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-            <NavHashLink to="/#events">Events</NavHashLink>
+            <NavHashLink to="/#events" smooth>
+              Events
+            </NavHashLink>
             {/* <a href="#events">Events</a> */}
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-            <NavHashLink to="/#aboutus">About Us</NavHashLink>
+            <NavHashLink to="/#aboutus" smooth>
+              About Us
+            </NavHashLink>
             {/* <a href="#aboutus">About Us</a> */}
           </li>
           <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-            <NavHashLink to="/#contactus">Contact Us</NavHashLink>
+            <NavHashLink to="/#contactus" smooth>
+              Contact Us
+            </NavHashLink>
             {/* <a href="#contactus">Contact Us</a> */}
           </li>
         </ul>

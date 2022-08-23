@@ -18,7 +18,7 @@ router.post("/", validInfo, async (req, res) => {
       email,
     ]);
     if (users.rows.length !== 0) {
-      return res.status(401).send("User already exist");
+      return res.json({ status: false });
     }
 
     const saltRound = 10;

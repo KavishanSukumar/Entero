@@ -19,7 +19,7 @@ function Home(props) {
     <div>
       <Header data={props.data} />
       {/* Have to create a division and add the page content */}
-      <div id ="carousel" data-aos="fade-in">
+      <div id="carousel" data-aos="fade-in">
         <Carousel />
       </div>
       <div id="services" data-aos="slide-up">
@@ -31,7 +31,7 @@ function Home(props) {
       <div id="aboutus" data-aos="slide-up">
         <AboutUs />
       </div>
-      <div id="contactus"data-aos="slide-up">
+      <div id="contactus" data-aos="slide-up">
         <ContactForm />
       </div>
 
