@@ -11,13 +11,17 @@ function ContactForm() {
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
+    const x=new Date()
+    const {received_date}= x.getFullYear +'-' + x.getMonth +  '-'+x.getDate;
+    const {received_time}=x.getHours+':'+x.getMinutes+':'+x.getSeconds;
     
     try {
-      const res = await axios.post(API_URL, { name, email, message });
+      const res = await axios.post(API_URL, { name, email, message,received_date,received_time });
       setName('');
       setEmail('');
       setMessage('');
       console.log(res.data);
+      alert('Message sent')
     } catch (error) {
       console.error(error.message);
     }

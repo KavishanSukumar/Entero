@@ -312,7 +312,7 @@ function EventsAdmin() {
           </div>
           <div className="w-full mb-4">
             <p className="text-lg text-center font-medium border-b-2 border-gray-900">
-              #3456 (Pending)
+              #B003 (Pending)
             </p>
           </div>
 

@@ -58,7 +58,8 @@ return (
                    
 
                     {/*Time recieved */}
-                    <p className="text-center text-xs text-gray-500">2 hours ago</p>
+                    <p className="text-center text-xs text-gray-500">2022-07-13</p>
+                    <p className="text-center text-xs text-gray-500">10:15:09</p>
                     
                 </div>
                     {/*end of the card */}

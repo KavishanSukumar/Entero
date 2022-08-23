@@ -7,6 +7,7 @@ const API_URL = "http://localhost:4000/api/contact";
 function MessageComponent() {
   const [messages, setMessages] = useState([]);
   const [x, setx] = useState(4);
+  const [c,setc]=useState(4);
   const [abc, setabc] = useState();
   const [rm, setrm] = useState();
   const [y,sety]=useState([]);
@@ -17,13 +18,13 @@ function MessageComponent() {
     async function fetchMessages() {
       try {
         const res = await axios.get(API_URL);
-        setMessages(res.data);
-        
+        setMessages(res.data.filter((g) => g.reply == null));
+        sety(res.data.filter((g) => g.reply != null))
       } catch (error) {
         console.error(error.message);
       }
     }
-    
+    console.log(messages)
   
   useEffect(() => {
     fetchMessages();
@@ -37,6 +38,8 @@ function MessageComponent() {
       const res = await axios.put(x, { reply });
       setReply('');
       fetchMessages();
+      handlePopup();
+      alert('reply sent')
       
       
     } catch (error) {
@@ -67,6 +70,15 @@ function MessageComponent() {
     
   };
 
+  const handlegrec = () => {
+    if(c!=4){
+      setc(4)
+    }else{
+      setc(y.length);
+    }
+    
+  };
+
   const handleDelete =async (contact_id)=>{
     
     try {
@@ -74,6 +86,7 @@ function MessageComponent() {
       const res = await axios.delete(x);
       console.log(res.data);
       fetchMessages();
+      alert('Message discarded')
     } catch (error) {
       console.error(error.message);
     }
@@ -119,7 +132,7 @@ function MessageComponent() {
 
         {/*grid styling to contain 4 cards per section */}
         <div className="m-2 grid col-span-2 lg:grid-cols-2  xl:grid-cols-4 ">
-          {messages.filter((yy) => yy.reply == null).length === 0 ? 
+          {messages.length === 0 ? 
             <div className="w-full col-span-4"><p className=" text-base flex justify-center italic text-gray-600">NO NEW MESSAGES</p></div>
            : 
             ""
@@ -166,7 +179,10 @@ function MessageComponent() {
                   {/*Time recieved */}
 
                   <p className="text-center text-xs text-gray-500">
-                    {yy.received_time}
+                    {yy.received_date.substring(0,10)}
+                  </p>
+                  <p className="text-center text-xs text-gray-500">
+                    {yy.received_time.substring(0,8)}
                   </p>
                 </div>
               ))}
@@ -174,12 +190,20 @@ function MessageComponent() {
 
         {/*end of the grid */}
 
-        <div className={x != 4 ? "p-2 flex justify-end" : "hidden"}>
+        <div className={messages.length > 4 && x==4 ? "p-2 flex justify-end" : "hidden"}>
           <button
             className="bg-cyan-500 hover:bg-cyan-400 text-white text-center p-2 rounded-lg w-20"
             onClick={handlegre}
           >
             More
+          </button>
+        </div>
+        <div className={x != 4 ? "p-2 flex justify-end" : "hidden"}>
+          <button
+            className="bg-cyan-500 hover:bg-cyan-400 text-white text-center p-2 rounded-lg w-20"
+            onClick={handlegre}
+          >
+            Less
           </button>
         </div>
       </div>
@@ -250,15 +274,15 @@ function MessageComponent() {
 
         {/*grid styling to contain 4 cards per section */}
         <div className="m-2 grid col-span-2 lg:grid-cols-2  xl:grid-cols-4 ">
-          {messages.filter((reply) => reply.reply != null).length == 0 ? 
+          {y.length == 0 ? 
             <div className="w-full col-span-4"><p className=" text-base flex justify-center italic text-gray-600">NO REPLIES</p></div>
            : 
             ""
           }
-          {messages &&
-            messages
+          {y &&
+            y
               .filter((reply) => reply.reply != null)
-              .slice(0, x)
+              .slice(0, c)
               .map((reply) => (
                 <div className="p-6 bg-white rounded-lg border min-h-fit  border-gray-200 m-2 shadow-inner  hover:scale-110 transition duration-300 cursor-pointer flex flex-col">
                   <h4 className="mb-3 font-medium text-center ">
@@ -279,7 +303,7 @@ function MessageComponent() {
 
                   <div className="flex flex-col justify-center  basis-10/12">
                   <p
-                    className="text-center text-sm text-gray-500 hover:underline"
+                    className="text-center text-sm text-gray-500 hover:underline mb-2"
                     onClick={() => {
                       handlePopupR(reply);
                     }}
@@ -288,7 +312,10 @@ function MessageComponent() {
                   </p>
 
                   <p className="text-center text-xs text-gray-500">
-                    2 hours ago
+                    {reply.reply_date.substring(0,10)}
+                  </p>
+                  <p className="text-center text-xs text-gray-500">
+                    {reply.reply_time.substring(0,8)}
                   </p>
                   </div>
                 </div>
@@ -296,12 +323,20 @@ function MessageComponent() {
         </div>
         {/*end of the grid */}
 
-        <div className={x == 4 ? "p-2 flex justify-end" : "hidden"}>
+        <div className={y.length > 4 && c==4 ? "p-2 flex justify-end" : "hidden"}>
           <button
             className="bg-cyan-500 hover:bg-cyan-400 text-white text-center p-2 rounded-lg w-20"
-            onClick={handlegre}
+            onClick={handlegrec}
           >
             More
+          </button>
+        </div>
+        <div className={c!=4 ? "p-2 flex justify-end" : "hidden"}>
+          <button
+            className="bg-cyan-500 hover:bg-cyan-400 text-white text-center p-2 rounded-lg w-20"
+            onClick={handlegrec}
+          >
+            Less
           </button>
         </div>
       </div>
