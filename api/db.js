@@ -2,8 +2,8 @@ import pg from "pg";
 const { Pool } = pg;
 
 let localPoolConfig = {
-  user: "kavi",
-  password: "Kavi",
+  user: "postgres",
+  password: "123",
   host: "localhost",
   port: "5432",
   database: "entero",
