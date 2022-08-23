@@ -42,8 +42,6 @@ function ServiceRegister() {
           </FormControl>
         </div>
 
-       
-
         <div className="flex flex-col text-slate-500">
           <FormControl fullWidth sx={{ m: 1 }} variant="standard">
             <InputLabel>Business Registration Number</InputLabel>
@@ -70,6 +68,17 @@ function ServiceRegister() {
             <FormControlLabel control={<Checkbox />} label="Decoration" />
             <FormControlLabel control={<Checkbox />} label="Photography" />
             <FormControlLabel control={<Checkbox />} label="Hall Services" />
+          </FormGroup>
+        </div>
+
+        <div className="flex flex-col py-5 px-2 text-slate-500">
+          <label>Events</label>
+          <FormGroup className="px-3">
+            <FormControlLabel control={<Checkbox />} label="Birthday" />
+            <FormControlLabel control={<Checkbox />} label="Reception" />
+            <FormControlLabel control={<Checkbox />} label="Wedding" />
+            <FormControlLabel control={<Checkbox />} label="Engagement" />
+            <FormControlLabel control={<Checkbox />} label="Other Occasion" />
           </FormGroup>
         </div>
 

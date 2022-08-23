@@ -329,6 +329,7 @@ function ManagePayments() {
             >
               <Tab label="Past Service Charges" {...a11yProps(0)} />
               <Tab label="Pending Service Charges" {...a11yProps(1)} />
+              <Tab label="Trials" {...a11yProps(2)} />
             </Tabs>
           </Box>
 
@@ -668,6 +669,169 @@ function ManagePayments() {
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
                       Pending
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            <div className="flex p-1 md:px-4 py-2 ">
+              <div className="relative w-[500px]">
+                <label className="relative block">
+                  <span className="sr-only">Search</span>
+                  <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                    <SearchIcon
+                      className="!h-5 !w-5 fill-slate-300"
+                      viewBox="0 0 20 20"
+                    />
+                  </span>
+                  <input
+                    className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                    placeholder="Search "
+                    type="text"
+                    name="search"
+                  />
+                </label>
+              </div>
+            </div>
+            <div className="overflow-auto justify-center w-full h-auto mt-5">
+              <table class="min-w-full z-0">
+                <thead class="bg-white border-b sticky top-0">
+                  <tr>
+                    <th
+                      scope="col"
+                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                    >
+                      User Id
+                    </th>
+
+                    <th
+                      scope="col"
+                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                    >
+                      Name
+                    </th>
+                    <th
+                      scope="col"
+                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                    >
+                      Started date
+                    </th>
+
+                    <th
+                      scope="col"
+                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                    >
+                      Ending Date
+                    </th>
+
+                    <th
+                      scope="col"
+                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                    >
+                      Status
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="">
+                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      SP001
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
+                      Kamal
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      02/04/2022
+                    </td>
+
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                      02/05/2022
+                    </td>
+
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                      On going
+                    </td>
+                  </tr>
+                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      SP002
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
+                      Nimal
+                    </td>
+
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      23/05/2022
+                    </td>
+
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                      23/06/2022
+                    </td>
+
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                      On going
+                    </td>
+                  </tr>
+                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      SP003
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
+                      Bimal
+                    </td>
+
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      29/06/2022
+                    </td>
+
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                      29/07/2022
+                    </td>
+
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                      Ended
+                    </td>
+                  </tr>
+                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      SP004
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
+                      Amal
+                    </td>
+
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      02/07/2022
+                    </td>
+
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                      02/08/2022
+                    </td>
+
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                      On going
+                    </td>
+                  </tr>
+                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      SP005
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
+                      Sunil
+                    </td>
+
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      03/08/2022
+                    </td>
+
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                      03/09/2022
+                    </td>
+
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                      Ended
                     </td>
                   </tr>
                 </tbody>
