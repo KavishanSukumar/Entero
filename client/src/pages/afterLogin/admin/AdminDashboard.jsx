@@ -12,8 +12,118 @@ import { SparklineAreaData } from "../../../documents/dummy";
 import AdminHeader from "../../../components/header/AdminHeader";
 import AdminSidebar from "../../../components/sidebar/AdminSidebar";
 import Footer from "../../../components/footer/Footer";
+import Chart from "react-apexcharts";
+
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+
 const AdminDashboard = () => {
   //  const { currentColor } = useStateContext();
+
+  const options1 = {
+    labels: ["Catering", "Hall", "Decoration", "Photography"],
+  };
+  const series1 = [17, 25, 10, 15];
+
+  const optionsbar = {
+    series: [
+      {
+        data: [111, 127, 143, 159, 99, 80, 100],
+        name: "Caterings",
+      },
+      {
+        data: [81, 87, 93, 59, 89, 99, 79],
+        name: "Halls",
+      },
+      {
+        data: [21, 17, 63, 69, 69, 15, 19],
+        name: "Decorations",
+      },
+      {
+        data: [38, 31, 44, 55, 21, 67, 15],
+        name: "Photography",
+      },
+    ],
+    chart: {
+      type: "bar",
+      height: 350,
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        horizontal: false,
+      },
+    },
+    dataLabels: {
+      enabled: true,
+    },
+
+    xaxis: {
+      categories: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+      ],
+    },
+  };
+
+  const optionsbar2 = {
+    series: [
+      {
+        data: [111, 127, 143, 159, 99, 80, 100, 0, 0, 0, 0, 0],
+        name: "Caterings",
+      },
+      {
+        data: [81, 87, 93, 59, 89, 99, 79, 0, 0, 0, 0, 0],
+        name: "Halls",
+      },
+      {
+        data: [21, 17, 63, 69, 69, 15, 19, 0, 0, 0, 0, 0],
+        name: "Decorations",
+      },
+      {
+        data: [38, 31, 44, 55, 21, 67, 15, 0, 0, 0, 0, 0],
+        name: "Photography",
+      },
+    ],
+    chart: {
+      type: "bar",
+      height: 350,
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        horizontal: false,
+      },
+    },
+    dataLabels: {
+      enabled: true,
+    },
+
+    xaxis: {
+      categories: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ],
+    },
+  };
 
   return (
     <div>
@@ -164,8 +274,45 @@ const AdminDashboard = () => {
                         />
                       </div>
                     </div>
-                    <div>
+                    {/* <div>
                       <Stacked width="360px" height="360px" />
+                    </div> */}
+                    {/* <div className="flex order-2 mt-10 justify-center pl-30">
+                      <Chart
+                        options={optionsbar}
+                        series={optionsbar.series}
+                        type="bar"
+                        className="lineChartVerticleStyle   lg:w-[700px] lg:h-[500] md:w-[700px] md:h-[400]  md:ml-1  sm:w-[505px] sm:h-[300px]  xs:w-[200px]     bg-cyan-100 rounded-lg"
+                      />
+                    </div> */}
+
+                    <div className="flex order-2 mt-10 justify-center pl-30">
+                      <Chart
+                        options={optionsbar2}
+                        series={optionsbar2.series}
+                        type="bar"
+                        className="lineChartVerticleStyle   lg:w-[700px] lg:h-[500] md:w-[700px] md:h-[400]  md:ml-1  sm:w-[505px] sm:h-[300px]  xs:w-[200px]     bg-cyan-100 rounded-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex justify-center mt-12">
+                    <div>
+                    <p className="font-semibold text-black text-xl">
+                      Service Providers
+                    </p>
+                    </div>
+                   
+
+                    
+                    <div className="flex justify-center">
+                      <Chart
+                        options={options1}
+                        series={series1}
+                        type="pie"
+                        width="500"
+                        height="900"
+                        className=""
+                      />
                     </div>
                   </div>
                 </div>
