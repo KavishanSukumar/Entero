@@ -13,7 +13,6 @@ function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
-    
     <div
       role="tabpanel"
       hidden={value !== index}
@@ -85,73 +84,67 @@ function EventsAdmin() {
           </tr>
         </thead>
         <tbody className="">
-            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+          <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+              B006
+            </td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              Kavin Fernando
+            </td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              Birthday
+            </td>
 
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <button
+                onClick={handlePopup}
+                className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+              >
+                View
+              </button>
+            </td>
+          </tr>
+          <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+              B007
+            </td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              Fasheen Cooray
+            </td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              Birthday
+            </td>
 
-                B006
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <button
+                onClick={handlePopup}
+                className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+              >
+                View
+              </button>
+            </td>
+          </tr>
+          <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+              B008
+            </td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              Milki Dayah
+            </td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              Wedding
+            </td>
 
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Kavin Fernando
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Birthday
-              </td>
-              
-
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button
-                  onClick={handlePopup}
-                  className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                >
-                  View
-                </button>
-              </td>
-            </tr>
-            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                B007
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Fasheen Cooray
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Birthday
-              </td>
-              
-
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button
-                  onClick={handlePopup}
-                  className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                >
-                  View
-                </button>
-              </td>
-            </tr>
-            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                B008
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Milki Dayah
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Wedding
-              </td>
-              
-
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button
-                  onClick={handlePopup}
-                  className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                >
-                  View
-                </button>
-              </td>
-            </tr>
-          </tbody>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <button
+                onClick={handlePopup}
+                className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+              >
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   );
@@ -185,29 +178,27 @@ function EventsAdmin() {
           </tr>
         </thead>
         <tbody className="">
-            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                B003
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Devin Fernando
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Birthday
-              </td>
-              
+          <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+              B003
+            </td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              Devin Fernando
+            </td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              Birthday
+            </td>
 
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button
-                  onClick={handlePopup}
-                  className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                >
-                  View
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <button
+                onClick={handlePopup}
+                className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+              >
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   );
@@ -242,38 +233,36 @@ function EventsAdmin() {
           </tr>
         </thead>
         <tbody className="">
-            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                B005
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Hasini Perera
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Reception
-              </td>
-              
+          <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+              B005
+            </td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              Hasini Perera
+            </td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              Reception
+            </td>
 
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button
-                  onClick={handlePopup}
-                  className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                >
-                  View
-                </button>
-              </td>
-            </tr>
-          </tbody>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <button
+                onClick={handlePopup}
+                className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+              >
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   );
 
   return (
     <div className=" relative  p-5 w-full mt-14 md:mt-0 mb-2 h-full">
-      
       <div className="flex justify-start mb-7">
         <h2 className="text-2xl font-bold leading-7 font-serif text-gray-900 sm:text-3xl">
-          Event Bookings
+          Bookings
         </h2>
       </div>
       <div className="flex p-1 md:px-4 py-2 ">
