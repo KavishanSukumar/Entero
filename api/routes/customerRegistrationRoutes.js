@@ -18,14 +18,14 @@ router.post("/", validInfo, async (req, res) => {
       email,
     ]);
     if (users.rows.length !== 0) {
-      return res.status(401).send("User already exist");
+      return res.json({ status: false });
     }
 
     const saltRound = 10;
     const salt = await bcrypt.genSalt(saltRound);
     const bcryptPassword = await bcrypt.hash(password, salt);
     const newUser = await pool.query(
-      "INSERT INTO users (uname, email, password, name, contact_number, address, userrole) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      "INSERT INTO users (uname, email, password, name, contact_number, address, usersrole) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
       [uname, email, bcryptPassword, name, contactNum, address, "cs"]
     );
     const token = jwtTokens(newUser.rows[0].userid);

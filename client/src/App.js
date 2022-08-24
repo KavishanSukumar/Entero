@@ -47,6 +47,10 @@ function App() {
   const [userrole, setUserrole] = useState({});
   const [id, setId] = useState(null);
 
+  const setAuth = (Boolean) => {
+    setIsAuthenticated(Boolean);
+  };
+
   async function isAuth() {
     try {
       const res = await axios.get(API_URL, {
@@ -197,14 +201,14 @@ function App() {
         />
         <Route
           exact
-          path="/customerevents"
+          path="/customerevents1"
           element={
             isAuthenticated && userrole === "cs" ? <CustomerEvents /> : <Home />
           }
         />
         <Route
           exact
-          path="/customerevents2"
+          path="/customerevents"
           element={
             isAuthenticated && userrole === "cs" ? (
               <CustomerEvents2 />
@@ -371,7 +375,7 @@ function App() {
           exact
           path="/userprofile"
           element={
-            isAuthenticated && userrole === "sp" ? <UserProfile /> : <Home />
+            isAuthenticated && userrole === "am" ? <UserProfile /> : <Home />
           }
         />
       </Routes>

@@ -18,7 +18,7 @@ import avatar3 from "../../documents/avatar3.png";
 import avatar4 from "../../documents/avatar4.jpg";
 import avatar5 from "../../documents/avatar5.jpg";
 
-import Rate from "../rate/Rate"
+import Rate from "../rate/Rate";
 
 import cate1 from "../../documents/cate1.jpg";
 import cate2 from "../../documents/cate2.png";
@@ -47,7 +47,6 @@ import dec6 from "../../documents/dec6.jpg";
 import dec7 from "../../documents/dec7.jpg";
 import dec8 from "../../documents/dec8.jpg";
 
-
 import pho1 from "../../documents/pho1.jpeg";
 import pho2 from "../../documents/pho2.jpg";
 import pho3 from "../../documents/pho3.jpg";
@@ -56,6 +55,7 @@ import pho5 from "../../documents/pho5.jpg";
 import pho6 from "../../documents/pho6.jpg";
 import pho7 from "../../documents/pho7.jpg";
 import pho8 from "../../documents/pho8.jpg";
+import { Link } from "react-router-dom";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -125,7 +125,6 @@ function EventsCustomer() {
     }
   };
 
-
   const cateData = (
     <>
       <div
@@ -136,7 +135,7 @@ function EventsCustomer() {
           <a href="#">
             <img
               class="rounded-t-lg"
-              src={cate1}
+              src="/assets/images/fabcake.jpg"
               alt=""
               className=" w-72 h-60"
             />
@@ -144,21 +143,19 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Zain Catering Service
+                The Fab
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
             <Rate />
-            <a
-              href="#"
+            <Link
+              to="/customerserviceportfolio"
               class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
             >
               See Portfolio
               <svg
-                aria-hidden="true"
                 class="ml-2 -mr-1 w-4 h-4"
+                aria-hidden="true"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -169,7 +166,7 @@ function EventsCustomer() {
                   clip-rule="evenodd"
                 ></path>
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -185,12 +182,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Sinro Caterers
+                Sinro Caterers
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700  ">
-              Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700  ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -226,12 +221,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              A. H. Caters
+                A. H. Caters
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700">
-              Trial
-            </p>
+            <p class="mb-3 font-normal text-gray-700">Trial</p>
             <Rate />
             <a
               href="#"
@@ -267,12 +260,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Raffles Catering
+                Raffles Catering
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -296,7 +287,6 @@ function EventsCustomer() {
           </div>
         </div>
 
-
         <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
@@ -309,12 +299,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Colombo Catering
+                Colombo Catering
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Trial
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
             <Rate />
             <a
               href="#"
@@ -350,12 +338,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Food, Function & Catering
+                Food, Function & Catering
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -391,12 +377,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Jayamal Caterers
+                Jayamal Caterers
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Trial
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
             <Rate />
             <a
               href="#"
@@ -432,12 +416,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-             Newsiri Caters
+                Newsiri Caters
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -460,7 +442,6 @@ function EventsCustomer() {
             </a>
           </div>
         </div>
-
       </div>
     </>
   );
@@ -483,12 +464,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Marino Beach Colombo
+                Marino Beach Colombo
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -524,12 +503,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Pegasus Reef Hotel
+                Pegasus Reef Hotel
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-              Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -565,12 +542,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Galadari Hotel
+                Galadari Hotel
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Trial
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
             <Rate />
             <a
               href="#"
@@ -606,12 +581,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Mandarina Colombo
+                Mandarina Colombo
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -635,7 +608,6 @@ function EventsCustomer() {
           </div>
         </div>
 
-
         <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
@@ -648,12 +620,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Cinnamon Red Colombo
+                Cinnamon Red Colombo
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Trial
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
             <Rate />
             <a
               href="#"
@@ -689,12 +659,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Cinnamon Grand Colombo
+                Cinnamon Grand Colombo
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700">
-            Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700">Premium</p>
             <Rate />
             <a
               href="#"
@@ -730,12 +698,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Galle Face Hotel
+                Galle Face Hotel
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Trial
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
             <Rate />
             <a
               href="#"
@@ -771,12 +737,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              ME Colombo
+                ME Colombo
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700">
-            Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700">Premium</p>
             <Rate />
             <a
               href="#"
@@ -799,7 +763,6 @@ function EventsCustomer() {
             </a>
           </div>
         </div>
-
       </div>
     </>
   );
@@ -821,12 +784,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Smart Flora
+                Smart Flora
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700  ">
-            Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700  ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -862,12 +823,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Wedding Carpet
+                Wedding Carpet
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-              Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -903,12 +862,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Olu Flora
+                Olu Flora
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Trial
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
             <Rate />
             <a
               href="#"
@@ -944,12 +901,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Manahara Flora
+                Manahara Flora
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700  ">
-            Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700  ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -973,7 +928,6 @@ function EventsCustomer() {
           </div>
         </div>
 
-
         <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
           <a href="#">
             <img
@@ -986,12 +940,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-              2nd Chance Flowers
+                2nd Chance Flowers
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Trial
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
             <Rate />
             <a
               href="#"
@@ -1027,12 +979,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight ">
-              Lassana Flora
+                Lassana Flora
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -1068,12 +1018,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900  ">
-              Wedding Dream Flora
+                Wedding Dream Flora
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700  ">
-            Trial
-            </p>
+            <p class="mb-3 font-normal text-gray-700  ">Trial</p>
             <Rate />
             <a
               href="#"
@@ -1109,12 +1057,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Shamins Deorations
+                Shamins Deorations
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -1137,7 +1083,6 @@ function EventsCustomer() {
             </a>
           </div>
         </div>
-
       </div>
     </>
   );
@@ -1160,12 +1105,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Shine Photography
+                Shine Photography
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700  ">
-            Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700  ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -1201,12 +1144,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              CHE Studio
+                CHE Studio
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-              Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -1242,12 +1183,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Foto Station
+                Foto Station
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-              Trial
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
             <Rate />
             <a
               href="#"
@@ -1283,12 +1222,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              PhotoLk
+                PhotoLk
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -1312,7 +1249,6 @@ function EventsCustomer() {
           </div>
         </div>
 
-
         <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
           <a href="#">
             <img
@@ -1325,12 +1261,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Roocine Studio
+                Roocine Studio
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Trial
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
             <Rate />
             <a
               href="#"
@@ -1366,12 +1300,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Dark Room Photography
+                Dark Room Photography
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -1407,12 +1339,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              Video7 Studio
+                Video7 Studio
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Trial
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
             <Rate />
             <a
               href="#"
@@ -1448,12 +1378,10 @@ function EventsCustomer() {
           <div class="p-5">
             <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-              PassionArt Wedding Photographhy
+                PassionArt Wedding Photographhy
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 ">
-            Premium
-            </p>
+            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
             <Rate />
             <a
               href="#"
@@ -1476,35 +1404,30 @@ function EventsCustomer() {
             </a>
           </div>
         </div>
-
       </div>
     </>
   );
 
-
-
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
-     
       {/* <div className={serviceRegister ? "hidden" : "flex p-1 md:px-4 py-2 "}> */}
-        <div className="relative w-64 mt-6 mb-6">
-        
-          <label className="relative block">
-            <span className="sr-only">Search</span>
-            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-              <SearchIcon
-                className="!h-5 !w-5 fill-slate-300"
-                viewBox="0 0 20 20"
-              />
-            </span>
-            <input
-              className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-              placeholder="Search for Services..."
-              type="text"
-              name="search"
+      <div className="relative w-64 mt-6 mb-6">
+        <label className="relative block">
+          <span className="sr-only">Search</span>
+          <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+            <SearchIcon
+              className="!h-5 !w-5 fill-slate-300"
+              viewBox="0 0 20 20"
             />
-          </label>
-        </div>
+          </span>
+          <input
+            className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+            placeholder="Search for Services..."
+            type="text"
+            name="search"
+          />
+        </label>
+      </div>
       {/* </div> */}
       {/* tabs at the top of table
       <div className="w-full mt-2 md:w-[80%] md:mx-[10%] lg:w-[60%] lg:mx-[20%] text-[10px] md:text-xs">
@@ -1546,9 +1469,8 @@ function EventsCustomer() {
             <Tab label="RECEPTION" {...a11yProps(2)} />
             <Tab label="ENGAGEMENT" {...a11yProps(3)} />
             <Tab label="OTHER OCCASION" {...a11yProps(4)} />
-       
 
-{/* <div className="ml-28">
+            {/* <div className="ml-28">
 <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
     <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
         <div class="flex items-center pl-3">
@@ -1576,94 +1498,164 @@ function EventsCustomer() {
     </li>
 </ul>
 </div> */}
-</Tabs>
-
-
-
+          </Tabs>
         </Box>
 
         <div className="flex flex-wrap lg:flex-nowrap justify-center">
-        {/* <div
+          {/* <div
           className="flex flex-wrap
          gap-1"
         > */}
-<div>
+          <div>
+            <br />
+            <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+              Services
+            </h3>
+            <ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+              <li class="w-full rounded-t-lg border-b border-gray-200 ">
+                <div class="flex items-center pl-3">
+                  <input
+                    id="Caterings-checkbox"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                    checked
+                  />
+                  <label
+                    for="Caterings-checkbox"
+                    class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    Caterings
+                  </label>
+                </div>
+              </li>
+              <li class="w-full rounded-t-lg border-b border-gray-200 ">
+                <div class="flex items-center pl-3">
+                  <input
+                    id="Halls-checkbox"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label
+                    for="Halls-checkbox"
+                    class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    Halls
+                  </label>
+                </div>
+              </li>
+              <li class="w-full rounded-t-lg border-b border-gray-200 ">
+                <div class="flex items-center pl-3">
+                  <input
+                    id="Decoration-checkbox"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label
+                    for="Decoration-checkbox"
+                    class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    Decoration
+                  </label>
+                </div>
+              </li>
+              <li class="w-full rounded-t-lg border-b border-gray-200 ">
+                <div class="flex items-center pl-3">
+                  <input
+                    id="Photography-checkbox"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label
+                    for="Photography-checkbox"
+                    class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    Photography
+                  </label>
+                </div>
+              </li>
+            </ul>
 
-<br />
-<h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Services</h3>
-<ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-    <li class="w-full rounded-t-lg border-b border-gray-200 ">
-        <div class="flex items-center pl-3">
-            <input id="Caterings-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-            <label for="Caterings-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Caterings</label>
-        </div>
-    </li>
-    <li class="w-full rounded-t-lg border-b border-gray-200 ">
-        <div class="flex items-center pl-3">
-            <input id="Halls-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-            <label for="Halls-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Halls</label>
-        </div>
-    </li>
-    <li class="w-full rounded-t-lg border-b border-gray-200 ">
-        <div class="flex items-center pl-3">
-            <input id="Decoration-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-            <label for="Decoration-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Decoration</label>
-        </div>
-    </li>
-    <li class="w-full rounded-t-lg border-b border-gray-200 ">
-        <div class="flex items-center pl-3">
-            <input id="Photography-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" checked/>
-            <label for="Photography-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Photography</label>
-        </div>
-    </li>
-</ul>
-
-<br />
-<h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Status</h3>
-<ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-    <li class="w-full rounded-t-lg border-b border-gray-200">
-        <div class="flex items-center pl-3">
-            <input id="premium-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-            <label for="premium-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Premium</label>
-        </div>
-    </li>
-    <li class="w-full rounded-t-lg border-b border-gray-200">
-        <div class="flex items-center pl-3">
-            <input id="trial-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-            <label for="trial-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Trial</label>
-        </div>
-    </li>
-</ul>
-
-</div>
-<div>
-
-<TabPanel value={value} index={0}>
-        {cateData}
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-        {cateData}{serviceRegisterData}{decData}{phoData}
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-        {decData}{phoData}
-        </TabPanel>
-        <TabPanel value={value} index={3}>
-        {phoData}
-        </TabPanel>
-</div>
-
-
-          {/* </div> */}
+            <br />
+            <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+              Status
+            </h3>
+            <ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+              <li class="w-full rounded-t-lg border-b border-gray-200">
+                <div class="flex items-center pl-3">
+                  <input
+                    id="premium-checkbox"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label
+                    for="premium-checkbox"
+                    class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    Premium
+                  </label>
+                </div>
+              </li>
+              <li class="w-full rounded-t-lg border-b border-gray-200">
+                <div class="flex items-center pl-3">
+                  <input
+                    id="trial-checkbox"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label
+                    for="trial-checkbox"
+                    class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    Standard
+                  </label>
+                </div>
+              </li>
+              <li class="w-full rounded-t-lg border-b border-gray-200">
+                <div class="flex items-center pl-3">
+                  <input
+                    id="trial-checkbox"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label
+                    for="trial-checkbox"
+                    class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    Trial
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <TabPanel value={value} index={0}>
+              {cateData}
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+              {cateData}
+              {serviceRegisterData}
+              {decData}
+              {phoData}
+            </TabPanel>
+            <TabPanel value={value} index={2}>
+              {decData}
+              {phoData}
+            </TabPanel>
+            <TabPanel value={value} index={3}>
+              {phoData}
+            </TabPanel>
           </div>
 
-
-
-
-
-       
+          {/* </div> */}
+        </div>
       </Box>
-
-
 
       {/* <div
         className={

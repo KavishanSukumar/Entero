@@ -126,7 +126,7 @@ function AdminSidebar() {
                   : "hidden"
               }
             >
-              Events
+              Bookings
             </span>
           </div>
           <div className="relative inline-flex items-center mb-4">

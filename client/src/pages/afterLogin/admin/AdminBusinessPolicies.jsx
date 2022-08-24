@@ -6,8 +6,8 @@ import {
   Link,
   QuickToolbar,
   RichTextEditorComponent,
-  Toolbar
-} from '@syncfusion/ej2-react-richtexteditor';
+  Toolbar,
+} from "@syncfusion/ej2-react-richtexteditor";
 
 import { EditorData } from "../../../documents/dummy";
 import PageHeader from "../../../components/PagesHeader/PageHeader";
@@ -52,16 +52,16 @@ const AdminBusinessPolicies = () => {
                 </div>
               </div>
             </div>
- 
+            <EditorData />
 
-
+            {/* 
             <RichTextEditorComponent>   
             <EditorData />
               <Inject
                 services={[HtmlEditor, Toolbar, Image, Link, QuickToolbar]}
               />
               
-            </RichTextEditorComponent>
+            </RichTextEditorComponent> */}
           </div>
 
           {/* ---only admin can this div-(end)--- */}

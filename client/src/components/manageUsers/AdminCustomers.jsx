@@ -85,15 +85,15 @@ function AdminCustomers() {
             : "hidden"
         }
       >
-        <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[70%] mx-[15%] p-2">
+        <div className="overflow-y-auto bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[80%] mx-[10%] md:w-[60%] md:mx-[20%] lg:w-[40%] lg:mx-[30%] p-2">
           <div className="w-full inline-flex justify-end items-end">
             <AiOutlineClose
-              className="w-4 h-4 cursor-pointer"
+              className="w-6 h-6 cursor-pointer"
               onClick={handlePopup}
             />
           </div>
-          <div className="w-full flex flex-col lg:flex-row">
-            <div className="flex flex-col  items-center shadow-2xl mb-2 ">
+          <div className="w-full flex flex-col lg:flex-row ">
+            <div className="flex flex-col  items-center  mb-2 justify-center">
               {/*The image */}
               <div className="p-2">
                 <img
@@ -110,31 +110,40 @@ function AdminCustomers() {
                 </button>
               </div>
             </div>
-            <div className=" w-full">
-              <p className="text-center text-base font-medium mb-2 border-b-2">
+            <div className=" w-full p-2">
+              <p className="text-center text-xl font-bold  mb-2 border-b-2">
                 Details
               </p>
-              <p className="md:ml-8 px-1 text-left ">
-                <b>Name:</b> Kavin Fernando
-              </p>
-              <p className="md:ml-8 px-1 text-left">
-                <b>NIC:</b> 723456789V
-              </p>
-              <p className="md:ml-8 px-1 text-left">
-                <b>Address:</b> Shangrila Hotel Colombo 02
-              </p>
-              <p className="md:ml-8 px-1 text-left">
-                <b>Email:</b> kavingghyre@gmail.com
-              </p>
-              <p className="md:ml-8 px-1 text-left">
-                <b>Contact:</b> 0778965432
-              </p>
+              <dl class="text-gray-900 divide-y divide-gray-200 ">
+                <div class="flex flex-col pb-3">
+                  <dt class="mb-1 text-gray-500 md:text-md ">Name</dt>
+                  <dd class="text-md font-semibold">Kavin Fernando</dd>
+                </div>
+                <div class="flex flex-col pb-3">
+                  <dt class="mb-1 text-gray-500 md:text-md ">NIC</dt>
+                  <dd class="text-md font-semibold">723456789V</dd>
+                </div>
+                <div class="flex flex-col pb-3">
+                  <dt class="mb-1 text-gray-500 md:text-md ">Email address</dt>
+                  <dd class="text-md font-semibold">kavintr@gmail.com</dd>
+                </div>
+                <div class="flex flex-col py-3">
+                  <dt class="mb-1 text-gray-500 md:text-md ">Address</dt>
+                  <dd class="text-md font-semibold">
+                    25, Mount Road ,Kalubowila
+                  </dd>
+                </div>
+                <div class="flex flex-col pt-3">
+                  <dt class="mb-1 text-gray-500 md:text-md ">Contact</dt>
+                  <dd class="text-md font-semibold">0772345670</dd>
+                </div>
+              </dl>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="overflow-auto justify-center w-full h-screen">
+      <div className="overflow-x-auto justify-center w-full h-screen">
         <table class="min-w-full z-0">
           <thead class="bg-white border-b sticky top-0">
             <tr>
@@ -242,7 +251,6 @@ function AdminCustomers() {
                   Remove
                 </button>
               </td>
-              
             </tr>
           </tbody>
         </table>
