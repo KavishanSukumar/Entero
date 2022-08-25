@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { AiOutlineClose, AiOutlineMenu, AiFillBell } from "react-icons/ai";
-import SnippetFolderIcon from "@mui/icons-material/SnippetFolder";
 import BookIcon from "@mui/icons-material/Book";
-import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import ChatIcon from "@mui/icons-material/Chat";
-import ReviewsIcon from "@mui/icons-material/Reviews";
+import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import PaymentsIcon from "@mui/icons-material/Payments";
-import Shakir from "../../Shakir.jpg";
+import ReviewsIcon from "@mui/icons-material/Reviews";
+import SnippetFolderIcon from "@mui/icons-material/SnippetFolder";
+import React, { useState } from "react";
+import { AiFillBell, AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 
 function ServiceProviderHeader() {
   const [nav, setNav] = useState(false);
@@ -82,7 +81,7 @@ function ServiceProviderHeader() {
       {/* header logo */}
 
       <img
-        src="/assets/images/Ss.svg"
+        src="/assets/images/fab.jpg"
         alt="logo"
         className="w-20 h-14 object-cover mt-3"
       />
@@ -98,7 +97,7 @@ function ServiceProviderHeader() {
         </div>
 
         <img
-          src="https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/277582841_5239128016098567_5556185992353256575_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGKp4fnlNOqfC6OxI8ZuGz0AYIcaGARm5ABghxoYBGbkJ_pSaYhzhJ0teluCZKKj-kYsDS0AzDUItxxmzTiIc3k&_nc_ohc=T5QAw0otHBIAX86oCPh&tn=cj98qFRJLNhnK42a&_nc_ht=scontent-sin6-2.xx&oh=00_AT9NDQOLlJHLh61x6xsdiuwxZhlYRUl8QmY-CZndSS1wIw&oe=62FB6324"
+          src="/assets/images/fab.jpg"
           className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125"
           onClick={handleDropdownPic}
         />
@@ -123,7 +122,10 @@ function ServiceProviderHeader() {
         <div className="flex flex-col items-center shadow-2xl mb-2">
           {/*The image */}
           <div className="p-2">
-            <img src={Shakir} className="w-28 h-28 rounded-full shadow-2xl " />
+            <img
+              src="/assets/images/fab.jpg"
+              className="w-28 h-28 rounded-full shadow-2xl "
+            />
           </div>
 
           {/*The buttons */}

@@ -3,6 +3,7 @@ import React from 'react'
 const Rate = () => {
   return (
     <div>
+      
        <div class="flex items-center mt-2.5 mb-5">
                               <svg
                                 aria-hidden="true"

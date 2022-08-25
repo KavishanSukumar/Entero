@@ -5,23 +5,37 @@ import AboutUs from "./AboutUs";
 import Packages from "./Packages";
 import Review from "./Review";
 import Contact from "./Contact";
+import { Link } from "react-router-dom";
 
 function PortFolio() {
   const [activeTab, setActiveTab] = React.useState(<AboutUs />);
+  const [activeTabIndex, setActiveTabIndex] = React.useState(0);
 
   const handleChange = (id) => {
     switch (id) {
       case "aboutus":
-        setActiveTab(<AboutUs />);
+        {
+          setActiveTab(<AboutUs />);
+          setActiveTabIndex(0);
+        }
         break;
       case "packages":
-        setActiveTab(<Packages />);
+        {
+          setActiveTab(<Packages />);
+          setActiveTabIndex(1);
+        }
         break;
       case "review":
-        setActiveTab(<Review />);
+        {
+          setActiveTab(<Review />);
+          setActiveTabIndex(2);
+        }
         break;
       case "contact":
-        setActiveTab(<Contact />);
+        {
+          setActiveTab(<Contact />);
+          setActiveTabIndex(3);
+        }
         break;
       default:
         break;
@@ -50,9 +64,8 @@ function PortFolio() {
     <div className="flex flex-col m-3 shadow-inner rounded-lg">
       <div className="flex flex-row m-3">
         <div className="flex justify-left mx-3  basis-1/12">
-
           <img
-            src="https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/277582841_5239128016098567_5556185992353256575_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGKp4fnlNOqfC6OxI8ZuGz0AYIcaGARm5ABghxoYBGbkJ_pSaYhzhJ0teluCZKKj-kYsDS0AzDUItxxmzTiIc3k&_nc_ohc=T5QAw0otHBIAX86oCPh&tn=cj98qFRJLNhnK42a&_nc_ht=scontent-sin6-2.xx&oh=00_AT9NDQOLlJHLh61x6xsdiuwxZhlYRUl8QmY-CZndSS1wIw&oe=62FB6324"
+            src="/assets/images/fab.jpg"
             alt=""
             className="w-36 h-36 object-contain m-3 shadow-inner"
           />
@@ -66,25 +79,41 @@ function PortFolio() {
             <nav className="flex justify-start space-x-18">
               <p
                 onClick={() => handleChange("aboutus")}
-                className="cursor-pointer font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+                className={
+                  activeTabIndex == 0
+                    ? "cursor-pointer font-bold px-3 py-2 rounded-lg bg-slate-100 text-slate-900"
+                    : "cursor-pointer font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900 "
+                }
               >
                 About Us
               </p>
               <p
                 onClick={() => handleChange("packages")}
-                className="cursor-pointer font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+                className={
+                  activeTabIndex == 1
+                    ? "cursor-pointer font-bold px-3 py-2 rounded-lg bg-slate-100 text-slate-900"
+                    : "cursor-pointer font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900 "
+                }
               >
                 Packages
               </p>
               <p
                 onClick={() => handleChange("review")}
-                className="cursor-pointer font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+                className={
+                  activeTabIndex == 2
+                    ? "cursor-pointer font-bold px-3 py-2 rounded-lg bg-slate-100 text-slate-900"
+                    : "cursor-pointer font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900 "
+                }
               >
                 Reviews
               </p>
               <p
                 onClick={() => handleChange("contact")}
-                className="cursor-pointer font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+                className={
+                  activeTabIndex == 3
+                    ? "cursor-pointer font-bold px-3 py-2 rounded-lg bg-slate-100 text-slate-900"
+                    : "cursor-pointer font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900 "
+                }
               >
                 Contact
               </p>
@@ -93,12 +122,12 @@ function PortFolio() {
         </div>
         <div className="basis-5/12 flex justify-end m-3">
           <div>
-            <a
-              href="/CustomerServices"
+            <Link
+              to="/customerevents"
               className=" bg-cyan-500 text-white hover:bg-blue-400 py-2 px-3 rounded mr-1 cursor-pointer"
             >
               Back
-            </a>
+            </Link>
           </div>
         </div>
       </div>

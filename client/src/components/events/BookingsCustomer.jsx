@@ -280,7 +280,11 @@ function BookingsCustomer() {
   )
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
-        
+        <div className="flex justify-start mb-7">
+        <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl">
+          Booking
+        </h2>
+      </div>
         <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs
@@ -288,11 +292,12 @@ function BookingsCustomer() {
             onChange={handleChange}
             aria-label="basic tabs example"
           >
-            <Tab label="PRESENT" {...a11yProps(0)} />
-            <Tab label="PAST" {...a11yProps(1)} />
-            <Tab label="CANCELLED" {...a11yProps(2)} />
+            <Tab label="PRESENT BOOKINGS" {...a11yProps(0)} />
+            <Tab label="PAST BOOKINGS" {...a11yProps(1)} />
+            <Tab label="CANCELLED BOOKINGS" {...a11yProps(2)} />
           </Tabs>
         </Box>
+        
         <TabPanel value={value} index={0}>
         
           {presentData}

@@ -13,6 +13,7 @@ function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
+    
     <div
       role="tabpanel"
       hidden={value !== index}
@@ -270,7 +271,11 @@ function EventsAdmin() {
   return (
     <div className=" relative  p-5 w-full mt-14 md:mt-0 mb-2 h-full">
       
-
+      <div className="flex justify-start mb-7">
+        <h2 className="text-2xl font-bold leading-7 font-serif text-gray-900 sm:text-3xl">
+          Event Bookings
+        </h2>
+      </div>
       <div className="flex p-1 md:px-4 py-2 ">
         <div className="relative w-64">
           <label className="relative block">
@@ -307,7 +312,7 @@ function EventsAdmin() {
           </div>
           <div className="w-full mb-4">
             <p className="text-lg text-center font-medium border-b-2 border-gray-900">
-              #3456 (Pending)
+              #B003 (Pending)
             </p>
           </div>
 
@@ -339,26 +344,18 @@ function EventsAdmin() {
             </div>
             <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
               <p className="text-center font-medium border-b-2 border-white">
-                Services
+                Service
               </p>
               <p className="text-center">
                 <b>Catering</b>
               </p>
-              <p className="text-left">
-                <b>ID:</b> 0876
-              </p>
-              <p className="text-left">
+              <p className="text-center">
                 <b>Name:</b> Royal Food
               </p>
-              <p className="text-center">
-                <b>Photography</b>
-              </p>
               <p className="text-left">
-                <b>ID:</b> 9865
+                <b>Package:</b> Dine Package
               </p>
-              <p className="text-left">
-                <b>Name:</b> Kalin Studio
-              </p>
+              
             </div>
           </div>
         </div>

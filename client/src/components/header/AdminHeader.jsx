@@ -11,7 +11,6 @@ import { BsCalendar2Check } from "react-icons/bs";
 import { MdSpaceDashboard, MdContactPhone } from "react-icons/md";
 import { FaUsers, FaUserCog } from "react-icons/fa";
 import { GiMoneyStack } from "react-icons/gi";
-import Shakir from "../../Shakir.jpg";
 import CelebrationIcon from "@mui/icons-material/Celebration";
 import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
 
@@ -96,7 +95,7 @@ function AdminHeader() {
   );
 
   return (
-    <div className="fixed w-full flex items-center top-0  h-14  text-black bg-white shadow-lg justify-between z-10">
+    <div className="fixed w-full flex items-center top-0 h-14 text-black bg-white shadow-lg justify-between z-10">
       {/* After login styles */}
       {/* header logo */}
 
@@ -105,42 +104,8 @@ function AdminHeader() {
         alt="logo"
         className="w-20 h-14 object-cover mt-3"
       />
-      {/*header links */}
-      <ul className="hidden md:flex">
-        <li className="px-6 lg:px-8 py-3 hover:text-cyan-500 hover:rounded">
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "text-cyan-500 hover:text-black" : ""
-            }
-            to="/customerhome"
-          >
-            Home
-          </NavLink>
-        </li>
-        <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "text-cyan-500 hover:text-black" : ""
-            }
-            to="/customerservices"
-          >
-            Services
-          </NavLink>
-        </li>
-        <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "text-cyan-500 hover:text-black" : ""
-            }
-            to="/customerevents"
-          >
-            Events
-          </NavLink>
-        </li>
-      </ul>
 
       {/* After login components*/}
-
       <div className="hidden md:inline-flex items-center ">
         <div className="p-3">
           <AiFillBell
@@ -151,7 +116,7 @@ function AdminHeader() {
         </div>
 
         <img
-          src="/assets/images/ka.JPG"
+          src="/assets/images/sindu.jpg"
           className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125"
           onClick={handleDropdownPic}
         />
@@ -176,7 +141,10 @@ function AdminHeader() {
         <div className="flex flex-col items-center shadow-2xl mb-2">
           {/*The image */}
           <div className="p-2">
-            <img src={Shakir} className="w-28 h-28 rounded-full shadow-2xl " />
+            <img
+              src="/assets/images/sindu.jpg"
+              className="w-28 h-28 rounded-full shadow-2xl "
+            />
           </div>
 
           {/*The buttons */}
@@ -257,7 +225,7 @@ function AdminHeader() {
               }
             >
               <BsCalendar2Check className="w-6 h-6 text-gray-500" />
-              <span className="ml-3">Events</span>
+              <span className="ml-3">Bookings</span>
             </NavLink>
           </li>
           <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
@@ -299,45 +267,7 @@ function AdminHeader() {
               <span className="ml-3">Contact</span>
             </NavLink>
           </li>
-          <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-            <NavLink
-              to="/customerhome"
-              className={({ isActive }) =>
-                isActive
-                  ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                  : "inline-flex items-center "
-              }
-            >
-              <AiFillHome className="w-6 h-6 text-gray-500" />
-              <span className="ml-3">Customer Home</span>
-            </NavLink>
-          </li>
-          <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-            <NavLink
-              to="/customerhome"
-              className={({ isActive }) =>
-                isActive
-                  ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                  : "inline-flex items-center "
-              }
-            >
-              <CelebrationIcon className="w-6 h-6 text-gray-500" />
-              <span className="ml-3">Customer Events</span>
-            </NavLink>
-          </li>
-          <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-            <NavLink
-              to="/customerhome"
-              className={({ isActive }) =>
-                isActive
-                  ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                  : "inline-flex items-center "
-              }
-            >
-              <MiscellaneousServicesIcon className="w-6 h-6 text-gray-500" />
-              <span className="ml-3">Customer Services</span>
-            </NavLink>
-          </li>
+          
         </ul>
       </div>
     </div>

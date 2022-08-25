@@ -80,6 +80,7 @@ function AdminServiceProviders() {
   const serviceData = (
     <>
       <div className="overflow-auto justify-center w-full h-screen">
+        
         <table class="min-w-full z-0">
           <thead class="bg-white border-b sticky top-0">
             <tr>
@@ -123,7 +124,7 @@ function AdminServiceProviders() {
           <tbody className="">
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                S100001
+                SP001
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Kalindu Studio
@@ -152,7 +153,7 @@ function AdminServiceProviders() {
             </tr>
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                S100002
+                SP002
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Mewana Decorators
@@ -178,7 +179,7 @@ function AdminServiceProviders() {
             </tr>
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                S100003
+                SP003
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Muthumaal Studio
@@ -245,7 +246,7 @@ function AdminServiceProviders() {
           <tbody className="">
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                S200012
+                SP004
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Neol Catering
@@ -274,7 +275,7 @@ function AdminServiceProviders() {
 
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                S200013
+                SP005
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 HN Designers
@@ -303,6 +304,11 @@ function AdminServiceProviders() {
   );
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
+       <div className="flex justify-start mb-7">
+        <h2 className="text-2xl font-bold leading-7 font-serif text-gray-900 sm:text-3xl">
+          Service Provider Details
+        </h2>
+      </div>
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs

@@ -13,7 +13,7 @@ import MockData from './monthlypay.json'
 import SearchIcon from "@mui/icons-material/Search";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import {AiOutlineClose} from 'react-icons/ai'
+import { AiOutlineClose } from 'react-icons/ai'
 import Shakir from '../../Shakir.jpg';
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
@@ -92,9 +92,14 @@ function a11yProps1(index) {
 //========================================================
 export default function SystemReports() {
 
-  const options = { labels: ["Customers", "Service Providers"] };
-  const series = [400, 100];
+  //donut chart
 
+  const options = { labels: ["Service Providers", "Customers"], colors: ['#67E8F9', '#0284C7'] };
+  const series = [100, 400];
+
+  // pie chart
+  const options1 = { labels: ["Wedding", "B'day", "Engagement", "Get to gether"] };
+  const series1 = [10, 100, 20, 70];
 
 
   const [value, setValue] = React.useState(0);
@@ -115,44 +120,82 @@ export default function SystemReports() {
   const [serdata, setdata4] = useState(ser);
   const [showpopup, setshowpopup] = useState(false);
   const handleOnClose = () => setshowpopup(false);
-  const [popup,setPopup]=useState(false);
-   
-
-    const handlePopup=()=>{
-        setPopup(!popup)
-    }
-
-  const lineChartValues = {
-    options: {
-      chart: {
-        id: "basic-bar",
-        height: 500,
-        width: 700
-      },
-      xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Aprail', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-      },
-      markers: {
-        size: [7]
-      },
-      
+  const [popup, setPopup] = useState(false);
 
 
-    },
+  const handlePopup = () => {
+    setPopup(!popup)
+  }
+
+  // show more in income
+
+  const [showMore, setShowMore] = useState(false);
+  const handlelessmore = () => {
+    setShowMore(!showMore)
+  }
+  // show more in events
+  const [showMore1, setShowMore1] = useState(false);
+  const handlelessmore1 = () => {
+    setShowMore1(!showMore1)
+  }
+
+
+  // bar chart props in income
+  const optionsbar = {
     series: [
       {
-        name: "Rs",
-        data: [30, 40, 45, 50, 49, 60, 55, 62, 40, 50, 55, 60]
-      }
-    ]
+        data: [300, 430, 148, 270],
+        name: 'monthly'
 
+      },
+      {
+        data: [200, 330, 248, 270],
+        name: '6 months'
+      },
+      {
+        data: [250, 130, 548, 170],
+        name: 'Annually'
+      },
+
+
+    ],
+    chart: {
+      type: 'bar',
+      height: 350
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        horizontal: false,
+
+
+      }
+    },
+    dataLabels: {
+      enabled: true
+    },
+
+
+    xaxis: {
+      categories: ['Caterings', 'Halls', 'Decorations', 'Photography'
+      ],
+
+    }
   };
 
 
+
+
+
+
   return (
-    <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full ">
-   
-   <div
+    <div className=" relative p-5 w-full  md:mt-0 mb-2 h-full ">
+ <div className="flex justify-start mb-7">
+        <h2 className="text-2xl font-bold leading-7 font-serif text-gray-900 sm:text-3xl">
+          System Reports
+        </h2>
+      </div>
+      <div
         className={
           popup
             ? "fixed backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  p-4 left-0"
@@ -230,7 +273,7 @@ export default function SystemReports() {
 
 
       <Box sx={{ width: "100%" }}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }} className=' lg:mt-0 md:mt-0 sm:mt-10'>
           <Tabs
             value={value}
             onChange={handleChange}
@@ -242,96 +285,152 @@ export default function SystemReports() {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          <div className='flex flex-col gap-16 mt-[-50px]  w-full' >
+          <div className='flex flex-col gap-16 mt-1'  >
             <div className='flex flex-col order-1'>
-              <div className='flex flex-row order-1  mr-3 lg:ml-52 lg:w-[700px] gap-20'>
-                <div className="flex p-1 md:px-4 py-2 ">
-                  <div className="relative lg:w-64 md:w-52 ">
-                    <select id="years" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
+
+              <div className="flex order-1 p-1 flex-col py-2 gap-4">
+                <div className='flex order-1 flex-row justify-center  '>
+                  <div className='flex order-1 gap-3 '>
+                    <div className='order-1 flex mt-2'>
+                      <p className='text-lg font-bold'> Filter by </p>
+                    </div>
+                    <div className="relative w-40 order-2 ">
+                      <select id="years" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
                                                 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2">
-                      <option selected>Year</option>
-                      <option value="2022">2022</option>
-                      <option value="2021">2021</option>
-                      <option value="2020">2020</option>
-                      <option value="2019">2019</option>
-                      <option value="2018">2018</option>
-                      <option value="2017">2017</option>
+                        <option selected>Year</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
 
-                    </select>
+                      </select>
+                    </div>
                   </div>
-                </div>
 
-                <div className='mt-2 lg:ml-auto xl:justify-end md:ml-28 sm:ml-20 justify-end '>
-                  <p className='font-bold  text-lg  sm:ml-24 '>Income (LKR): 2000</p>
+                </div>
+                <div className='flex order-2 justify-center'>
+
+                  <div clasName='flex flex-col'>
+                    <div className='flex order-1 justify-center shadow-lg shadow-black bg-gray-300 rounded-lg'>
+                      <p className='font-bold  lg:text-[25px] md:text-[25px] sm:text-[25px]  p-2'>Total Income: LKR 200000 (2020 - 2022)</p>
+                    </div>
+                    <div className=' flex order-2 justify-center flex-row gap-14 mt-6'>
+                      <p className='font-bold  lg:text-[21px] md:text-[21px] sm:text-[20px] shadow-lg bg-slate-200 rounded-lg p-2'>Catering: LKR 200000</p>
+                      <p className='font-bold  lg:text-[21px] md:text-[21px] sm:text-[20px] shadow-lg bg-slate-200 rounded-lg p-2'>Halls: LKR 200000</p>
+                      <p className='font-bold  lg:text-[21px] md:text-[21px] sm:text-[20px] shadow-lg bg-slate-200 rounded-lg p-2'>Decoration: LKR 200000</p>
+                      <p className='font-bold  lg:text-[21px] md:text-[21px] sm:text-[20px] shadow-lg bg-slate-200 rounded-lg p-2'>Photography: LKR 200000</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className='flex order-2 mt-10 md:'>
+
+
+
+              <div className='flex order-2 mt-10 justify-center pl-30'>
                 <Chart
-                  options={lineChartValues.options}
-                  series={lineChartValues.series}
-                  type="line"
-                  className="lineChartVerticleStyle lg:ml-52  lg:w-[700px] lg:h-[500] md:w-[700px] md:h-[400]  md:ml-1  sm:w-[505px] sm:h-[300px]  xs:w-[200px]     bg-cyan-100 rounded-lg"
-                  
-                  
+                  options={optionsbar}
+                  series={optionsbar.series}
+                  type="bar"
+                  className="lineChartVerticleStyle   lg:w-[700px] lg:h-[500] md:w-[700px] md:h-[400]  md:ml-1  sm:w-[505px] sm:h-[300px]  xs:w-[200px]     bg-cyan-100 rounded-lg"
+
+
                 />
               </div>
             </div>
-            <br></br> <br />
 
-            <div className='flex flex-col order-2'>
-              <div className='flex flex-row order-1 mt-7 mr-3 ml-3'>
+            <div className='flex order-2 justify-center'>
+              <div class="flex  space-x-2 justify-center">
+                <button
+                  onClick={handlelessmore}
+                  type="button"
+                  class="inline-block p-3 bg-blue-600 text-white font-medium text-sm leading-tight  hover:bg-cyan-500 rounded-lg shadow-md"
+                >{showMore ? "Less details" : "More details"}</button>
+              </div>
+            </div>
 
+            <div className={
+              showMore
+                ? 'flex flex-col order-3'
+                : 'hidden'
+            }
+            >
+              <div className='flex flex-row order-1  mr-3 ml-3'>
+                <div className="relative w-36 mt-2">
+                  <select id="years" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
+                                                dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2">
+                    <option selected>Year</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+
+                  </select>
+                </div>
                 <div className="flex p-1 md:px-4 py-2 ">
-                  <div className="relative lg:w-64 md:w-36 sm:w-28">
-                    <select id="months" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5 
+                  <div className="relative lg:w-36 md:w-36 sm:w-28">
+                    <select id="cat" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5 
                                                             dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2">
-                      <option selected> Month</option>
-                      <option value="1">January</option>
-                      <option value="2">February</option>
-                      <option value="3">March</option>
-                      <option value="4">April</option>
-                      <option value="5">May</option>
-                      <option value="6">June</option>
-                      <option value="7">July</option>
-                      <option value="8">August</option>
-                      <option value="9">September</option>
-                      <option value="10">October</option>
-                      <option value="11">November</option>
-                      <option value="12">December</option>
+                      <option selected> Catergoty</option>
+                      <option selected> Hall</option>
+                      <option selected> Catering</option>
+                      <option selected> Decoration</option>
+                      <option selected> Photography</option>
+
+
 
                     </select>
                   </div>
                 </div>
                 <div className="flex p-1 md:px-4 py-2 ">
-                  <div className="relative lg:w-[500px] md:w-[400px]">
+                  <div className="relative lg:w-36 md:w-36 sm:w-28">
+                    <select id="cat" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5 
+                                                            dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2">
+                      <option selected> Package</option>
+                      <option selected> Monthly</option>
+                      <option selected> 6 months</option>
+                      <option selected> Yearly</option>
 
-                    <label className="relative block">
-                      <span className="sr-only">Search</span>
-                      <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                        <SearchIcon
-                          className="!h-5 !w-5 fill-slate-300"
-                          viewBox="0 0 20 20"
-                        />
-                      </span>
-                      <input
-                        className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                        placeholder="Search "
-                        type="text"
-                        name="search"
-                      />
-                    </label>
+
+
+
+                    </select>
                   </div>
                 </div>
 
-                <div className='mt-2 ml-auto flex '>
+
+                <div className='mt-1 ml-auto flex '>
                   <p className='font-bold  text-xl '>Income (LKR): 200000</p>
                 </div>
 
 
               </div>
+              <div className="flex p-1 md:px-4 py-2 order-2">
+                <div className="relative w-full ">
 
-              <div class="flex flex-col order-2 mt-5">
+                  <label className="relative block">
+                    <span className="sr-only">Search</span>
+                    <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                      <SearchIcon
+                        className="!h-5 !w-5 fill-slate-300"
+                        viewBox="0 0 20 20"
+                      />
+                    </span>
+                    <input
+                      className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 "
+                      placeholder="Search "
+                      type="text"
+                      name="search"
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <div class="flex flex-col order-3 mt-5">
                 <div className="overflow-auto justify-center w-full h-screen   ">
                   <table class="min-w-full z-0  mr-10 ">
                     <thead class="bg-white border-b sticky top-0">
@@ -348,6 +447,19 @@ export default function SystemReports() {
                         >
                           Service Provider
                         </th>
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Catergory
+                        </th>
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Package
+                        </th>
+
                         <th
                           scope="col"
                           class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
@@ -371,6 +483,8 @@ export default function SystemReports() {
                           <tr key={d.ID} className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.ID}</td>
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.ServiceProvider}</td>
+                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.cat}</td>
+                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.type}</td>
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.Amount}</td>
 
 
@@ -407,21 +521,73 @@ export default function SystemReports() {
           <div class="tab-pane fade flex flex-col gap-16   w-full" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
             <div className='flex flex-col'>
 
+              <div className='flex order-1 gap-3 mb-3 justify-center'>
+                <div className='order-1 flex mt-2'>
+                  <p className='text-lg font-bold'> Filter by </p>
+                </div>
+                <div className="relative w-40 order-2 ">
+                  <select id="years" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
+                                                dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2">
+                    <option selected>Year</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+
+                  </select>
+                </div>
+                <div className="flex  order-3">
+                  <div className="relative w-36">
+                    <select id="months" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
+                                                            dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2">
+                      <option selected> Month</option>
+                      <option value="1">January</option>
+                      <option value="2">February</option>
+                      <option value="3">March</option>
+                      <option value="4">April</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+
+                    </select>
+                  </div>
+                </div>
+              </div>
 
 
+              <div className='flex order-2 justify-center'>
 
-              <div className='flex order-1'>
-
-                <div class="flex bg-gray-300 rounded-lg py-5 px-6 mb-4 text-2xl text-black  font-bold bold  w-full justify-center" role="alert">
-                  <p>Total Number of Events : 200 </p>
+                <div class="flex flex-row gap-2 bg-gray-300 rounded-lg  shadow-lg  shadow-black w-full   py-5 px-6 mb-4 text-2xl text-black  font-bold  justify-center" >
+                  <p>Total Events : 200 </p> <p>(2020 - 2022)</p>
                 </div>
 
               </div>
 
+              <div className='flex order-3 mt-2 justify-center pl-36'>
+                <Chart options={options1} series={series1} type="pie" width="500" height="900" className='' />
+
+              </div>
+
+              <div class="flex mt-2 space-x-2 justify-center order-4">
+                <button
+                  onClick={handlelessmore1}
+                  type="button"
+                  class="inline-block p-3 bg-blue-600 text-white font-medium text-sm leading-tight  hover:bg-cyan-500 rounded-lg shadow-md"
+                >{showMore1 ? "Less details" : "More details"}</button>
+              </div>
 
 
-
-              <div className='flex order-2 flex-row w-auto mt-5'>
+              <div className={
+                showMore1
+                  ? 'flex order-5 flex-row w-auto mt-5'
+                  : 'hidden'}>
                 <div className="flex p-1 md:px-4 py-2 ">
                   <div className="relative w-36">
                     <select id="years" class="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
@@ -482,12 +648,15 @@ export default function SystemReports() {
                 </div>
 
 
-                <div className='mt-2  flex w-72 justify-end'>
+                <div className={'mt-2  flex w-72 justify-end'}
+
+
+                >
                   <p className='font-bold  text-xl '>Total Events : 200</p>
                 </div>
               </div>
 
-              <div className='flex order-3 mt-10'>
+              <div className={showMore1 ? 'flex order-6 mt-10' : 'hidden'}>
 
 
                 <div className="overflow-auto justify-center w-full h-screen">
@@ -525,7 +694,7 @@ export default function SystemReports() {
                         >
                           Ended date
                         </th>
-                       
+
 
 
                       </tr>
@@ -550,7 +719,7 @@ export default function SystemReports() {
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.enddate}</td>
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                               <button onClick={handlePopup}
-                              className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md
+                                className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md
                                hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                               >
                                 More Details
@@ -606,7 +775,7 @@ export default function SystemReports() {
 
               </div>
               <div className=" order-2  ml-[380px]">
-                <Chart options={options} series={series} type="pie" width="500" height="900" />
+                <Chart options={options} series={series} type="donut" width="500" height="900" />
               </div>
 
             </div>

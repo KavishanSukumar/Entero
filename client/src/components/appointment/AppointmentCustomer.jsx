@@ -8,7 +8,9 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import axios from "axios";
 
+const API_URL = "http://localhost:4000/api/customer/appointment";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -42,8 +44,21 @@ function a11yProps(index) {
   };
 }
 
-function AppointmentCustomer() {
+function AppointmentCustomer(props) {
   const [value, setValue] = React.useState(0);
+  const [appointment, setAppointment] = React.useState([]);
+  const [id, setId] = React.useState(props.data);
+
+  async function getAppointment() {
+    const res = await axios.post(API_URL, {
+      id: id,
+    });
+    setAppointment(res.data);
+  }
+
+  React.useEffect(() => {
+    getAppointment();
+  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -66,7 +81,7 @@ function AppointmentCustomer() {
             >
               <Tab label="Pending Appointments" {...a11yProps(1)}></Tab>
               <Tab label="Past Appointments" {...a11yProps(2)}></Tab>
-              <Tab label="Cancel Appointments" {...a11yProps(3)}></Tab>
+              <Tab label="Canceled Appointments" {...a11yProps(3)}></Tab>
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
@@ -104,7 +119,7 @@ function AppointmentCustomer() {
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
-                        Customer Name
+                        Service Provider
                       </th>
                       <th
                         scope="col"
@@ -128,24 +143,29 @@ function AppointmentCustomer() {
                     </tr>
                   </thead>
                   <tbody className="">
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        A001
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Sukumar Kavishan
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        15:00:56
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        25:05:2022
-                      </td>
+                    {appointment.map(
+                      (item) =>
+                        item.status === 1 && (
+                          <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                              {item.appointment_id}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.uname}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.time}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.date}
+                            </td>
 
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                        Discuss about catering service
-                      </td>
-                    </tr>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                              {item.description}
+                            </td>
+                          </tr>
+                        )
+                    )}
                   </tbody>
                 </table>
               </div>
@@ -186,7 +206,7 @@ function AppointmentCustomer() {
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
-                        Customer Name
+                        Service Provider
                       </th>
                       <th
                         scope="col"
@@ -210,24 +230,29 @@ function AppointmentCustomer() {
                     </tr>
                   </thead>
                   <tbody className="">
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        A002
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Priskila Athauda
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        14:00:56
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        20:03:2022
-                      </td>
+                    {appointment.map(
+                      (item) =>
+                        item.status === 2 && (
+                          <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                              {item.appointment_id}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.uname}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.time}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.date}
+                            </td>
 
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                        Get more information regarding the service
-                      </td>
-                    </tr>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                              {item.description}
+                            </td>
+                          </tr>
+                        )
+                    )}
                   </tbody>
                 </table>
               </div>
@@ -269,7 +294,7 @@ function AppointmentCustomer() {
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
-                        Customer Name
+                        Service Provider
                       </th>
                       <th
                         scope="col"
@@ -293,24 +318,29 @@ function AppointmentCustomer() {
                     </tr>
                   </thead>
                   <tbody className="">
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        A003
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Kalana Bushan
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        14:00:56
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        20:03:2022
-                      </td>
+                    {appointment.map(
+                      (item) =>
+                        item.status >= 2 && (
+                          <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                              {item.appointment_id}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.uname}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.time}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.date}
+                            </td>
 
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                        Need to negotiate the amount
-                      </td>
-                    </tr>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                              {item.description}
+                            </td>
+                          </tr>
+                        )
+                    )}
                   </tbody>
                 </table>
               </div>

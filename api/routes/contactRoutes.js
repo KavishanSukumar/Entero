@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/',async (req,res)=>{
     try{
         
-        const getContact= await pool.query("SELECT * FROM contact ORDER BY received_time DESC")
+        const getContact= await pool.query("SELECT * FROM contact ORDER BY received_date DESC")
 
         res.json(getContact.rows);
     }
@@ -31,7 +31,7 @@ router.get('/',async (req,res)=>{
 router.post('/',async (req,res)=>{
     try{
         const {name,email,message}=req.body;
-        const newContact= await pool.query("INSERT INTO contact (name,email,message,received_time) VALUES ($1,$2,$3,LOCALTIMESTAMP) RETURNING *",[name,email,message])
+        const newContact= await pool.query("INSERT INTO contact (name,email,message,received_date,received_time) VALUES ($1,$2,$3,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP) RETURNING *",[name,email,message])
 
         res.json(newContact.rows[0]);
     }
@@ -44,7 +44,7 @@ router.put('/:id',async (req,res)=>{
     try{
         const {id}=req.params;
         const {reply}=req.body;
-        const updateContact= await pool.query("UPDATE contact SET reply=$1,reply_time=LOCALTIMESTAMP WHERE contact_id=$2 RETURNING *",[reply,id])
+        const updateContact= await pool.query("UPDATE contact SET reply=$1,reply_date=CURRENT_DATE,reply_time=CURRENT_TIME WHERE contact_id=$2 RETURNING *",[reply,id])
 
         res.json(updateContact.rows[0]);
     }
