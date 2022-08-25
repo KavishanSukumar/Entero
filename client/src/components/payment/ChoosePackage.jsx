@@ -4,15 +4,14 @@ import SellIcon from "@mui/icons-material/Sell";
 
 function ChoosePackage() {
   return (
-    
     <div>
       <div className="text-2xl font-serif text-center mt-10 text-gray-700">
         <h1>Choose your payment package</h1>
       </div>
       <div className="m-3 flex flex-col lg:flex-row">
-        <div >
+        <div>
           <div className="basis-1/3 mt-9 relative max-w-screen-xl my-1 px-4 sm:px-6 lg:px-8">
-            <div className="h-auto lg:h-52 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
+            <div className="h-auto lg:h-64 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
               <div className="bg-white  dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-4">
                 <h3 className="text-2xl uppercase  leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
                   <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
@@ -44,7 +43,7 @@ function ChoosePackage() {
 
         <div>
           <div className="basis-1/3 mt-9 relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8">
-            <div className="h-auto lg:h-52 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
+            <div className="h-auto lg:h-64 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
               <div className="bg-white  dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-4">
                 <h3 className="text-2xl uppercase  leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
                   <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
@@ -74,9 +73,9 @@ function ChoosePackage() {
           </div>
         </div>
 
-        <div >
+        <div>
           <div className="basis-1/3 mt-9 relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8">
-            <div className="h-auto lg:h-52 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
+            <div className="h-auto lg:h-64 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
               <div className="bg-white  dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-4">
                 <h3 className="text-2xl uppercase  leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
                   <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />

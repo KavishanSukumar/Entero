@@ -310,14 +310,6 @@ function Appointment(props) {
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                               <button
                                 onClick={() =>
-                                  changestatus(item.appointment_id, 3)
-                                }
-                                className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                              >
-                                Confirm
-                              </button>
-                              <button
-                                onClick={() =>
                                   changestatus(item.appointment_id, 4)
                                 }
                                 className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
@@ -406,7 +398,7 @@ function Appointment(props) {
                   <tbody className="">
                     {appointment.map(
                       (item) =>
-                        item.status >= 2 && (
+                        item.status === 3 && (
                           <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                               {item.name}
@@ -422,9 +414,7 @@ function Appointment(props) {
                               {item.description}
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              {item.status === 2 && "Rejected"}
                               {item.status === 3 && "Confirmed"}
-                              {item.status === 4 && "Cancelled"}
                             </td>
                           </tr>
                         )
@@ -507,7 +497,7 @@ function Appointment(props) {
                   <tbody className="">
                     {appointment.map(
                       (item) =>
-                        item.status >= 2 && (
+                        (item.status == 2 || item.status == 4) && (
                           <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                               {item.name}
