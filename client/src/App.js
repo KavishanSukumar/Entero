@@ -31,6 +31,9 @@ import ServiceProviderCharges from "./pages/afterLogin/serviceProvider/ServicePr
 import ServiceProviderChat from "./pages/afterLogin/serviceProvider/ServiceProviderChat";
 import ServiceProviderPortfolio from "./pages/afterLogin/serviceProvider/ServiceProviderPortfolio";
 import ServiceProviderProfile from "./pages/afterLogin/serviceProvider/ServiceProviderProfile";
+
+import ChoosePackage from "./components/payment/ChoosePackage";
+
 import ServiceproviderRatings from "./pages/afterLogin/serviceProvider/ServiceproviderRatings";
 
 import CustomerEvents2 from "./pages/afterLogin/customer/CustomerEvents2";
@@ -43,6 +46,10 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userrole, setUserrole] = useState({});
   const [id, setId] = useState(null);
+
+  const setAuth = (Boolean) => {
+    setIsAuthenticated(Boolean);
+  };
 
   async function isAuth() {
     try {
@@ -74,11 +81,22 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/products" element={<Home />} />
-        <Route exact path="/services" element={<Home />} />
-        <Route exact path="/aboutus" element={<Home />} />
-        <Route exact path="/contactus" element={<Home />} />
+        <Route exact path="/" element={<Home data={userrole} />} />
+        {/* Login routes */}
+        <Route
+          path="/home"
+          element={
+            userrole === "am" ? (
+              <AdminDashboard />
+            ) : userrole === "cs" ? (
+              <CustomerEvents2 />
+            ) : userrole === "sp" ? (
+              <ServiceProviderPortfolio />
+            ) : (
+              <Home />
+            )
+          }
+        />
 
         {/*Admin pages */}
         <Route path="/admin" element={<Admin />} />
@@ -183,14 +201,14 @@ function App() {
         />
         <Route
           exact
-          path="/customerevents"
+          path="/customerevents1"
           element={
             isAuthenticated && userrole === "cs" ? <CustomerEvents /> : <Home />
           }
         />
         <Route
           exact
-          path="/customerevents2"
+          path="/customerevents"
           element={
             isAuthenticated && userrole === "cs" ? (
               <CustomerEvents2 />
@@ -357,7 +375,7 @@ function App() {
           exact
           path="/userprofile"
           element={
-            isAuthenticated && userrole === "sp" ? <UserProfile /> : <Home />
+            isAuthenticated && userrole === "am" ? <UserProfile /> : <Home />
           }
         />
       </Routes>

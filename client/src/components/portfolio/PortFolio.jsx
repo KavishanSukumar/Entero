@@ -5,6 +5,7 @@ import AboutUs from "./AboutUs";
 import Packages from "./Packages";
 import Review from "./Review";
 import Contact from "./Contact";
+import { Link } from "react-router-dom";
 
 function PortFolio() {
   const [activeTab, setActiveTab] = React.useState(<AboutUs />);
@@ -121,12 +122,12 @@ function PortFolio() {
         </div>
         <div className="basis-5/12 flex justify-end m-3">
           <div>
-            <a
-              href="/CustomerServices"
+            <Link
+              to="/customerevents"
               className=" bg-cyan-500 text-white hover:bg-blue-400 py-2 px-3 rounded mr-1 cursor-pointer"
             >
               Back
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -47,6 +47,9 @@ function CustomerHeader() {
       onMouseLeave={handleDropdownPic}
     >
       <ul class="py-1 text-sm text-gray-700">
+        <NavLink to="/home">
+          <li className="block py-2 px-4 hover:bg-gray-200">Home</li>
+        </NavLink>
         <NavLink to="/customerprofile">
           <li className="block py-2 px-4 hover:bg-gray-200">My Profile</li>
         </NavLink>
@@ -81,7 +84,7 @@ function CustomerHeader() {
   );
 
   return (
-    <div className="fixed w-full flex items-center top-0  h-14 text-black bg-white shadow-lg justify-between z-10">
+    <div className="fixed w-full flex items-center top-0 h-14 text-black bg-white shadow-lg justify-between z-10">
       {/* After login styles */}
       {/* header logo */}
 
@@ -90,39 +93,6 @@ function CustomerHeader() {
         alt="logo"
         className="w-20 h-14 object-cover mt-3"
       />
-      {/*header links */}
-      <ul className="hidden md:flex">
-        <li className="px-6 lg:px-8 py-3 hover:text-cyan-500 hover:rounded">
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "text-cyan-500 hover:text-black" : ""
-            }
-            to="/customerhome"
-          >
-            Home
-          </NavLink>
-        </li>
-        <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "text-cyan-500 hover:text-black" : ""
-            }
-            to="/customerservices"
-          >
-            Services
-          </NavLink>
-        </li>
-        <li className="px-6 lg:px-8 py-3 hover:text-cyan-500  hover:rounded">
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "text-cyan-500 hover:text-black" : ""
-            }
-            to="/customerevents"
-          >
-            Events
-          </NavLink>
-        </li>
-      </ul>
 
       {/* After login components*/}
       <div className="hidden md:inline-flex items-center ">
@@ -135,7 +105,7 @@ function CustomerHeader() {
         </div>
 
         <img
-          src="/assets/images/Shakir.jpg"
+          src="/assets/images/shakir.jpg"
           className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125"
           onClick={handleDropdownPic}
         />
@@ -180,19 +150,6 @@ function CustomerHeader() {
           </div>
         </div>
         <ul className=" text-sm">
-          <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-            <NavLink
-              to="/customerhome"
-              className={({ isActive }) =>
-                isActive
-                  ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                  : "inline-flex items-center "
-              }
-            >
-              <AiFillHome className="w-6 h-6 text-gray-500" />
-              <span className="ml-3">Home</span>
-            </NavLink>
-          </li>
           <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
             <NavLink
               to="/"

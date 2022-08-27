@@ -107,13 +107,13 @@ function ManagePayments() {
     setValue1(newValue);
   };
 
- // to update packages
+  // to update packages
   const [name, setName] = useState("");
   const [des, setDes] = useState("");
   const [price, setPrice] = useState("");
 
 
-// handle popups
+  // handle popups
   const [showpopup, setshowpopup] = React.useState(false);
   const handleOnClose = () => setshowpopup(false);
   const [popup, setPopup] = React.useState(false);
@@ -122,26 +122,26 @@ function ManagePayments() {
 
   const handlePopup = () => {
     setPopup(!popup);
-    
+
   }
-  
+
 
   // package icons
 
-   function setIDIcon(id){
+  function setIDIcon(id) {
     if (id == 1) {
-      return(
+      return (
         <SellIcon className="text-green-500 !h-10 !w-10" />
       )
-    } else if(id == 2){
-      return(
+    } else if (id == 2) {
+      return (
         <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
       )
-      
-    } else{
-      return(
+
+    } else {
+      return (
         <DiamondIcon className="text-blue-500 !h-10 !w-10" />
-       )
+      )
     }
   }
 
@@ -187,16 +187,16 @@ function ManagePayments() {
   const fil = adminpacks.find(obj => {
     return obj.country === thepackageid;
   });
-console.log(adminpacks);
-function setpackageid(id){
-  thepackageid = id;
-   return thepackageid;
-}
+  console.log(adminpacks);
+  function setpackageid(id) {
+    thepackageid = id;
+    return thepackageid;
+  }
 
 
   return (
     <div className="m-10  flex flex-col">
-       {console.log('i am in popup'+thepackageid)}
+      {console.log('i am in popup' + thepackageid)}
       {/* popup for update packages */}
       <div className={popup ? "fixed overflow-y-auto flex flex-col backdrop-blur-[1px] bg-black/95 top-0 w-full h-full z-50  left-0 mb-5 " : "hidden"}>
         <div className="  rounded-3xl shadow-2xl top-[0%] flex flex-col mt-3 w-full h-full p-2 ">
@@ -212,14 +212,14 @@ function setpackageid(id){
             </div>
           </div>
           <div className="flex order-2 flex-row  gap-10 justify-center mt-10 ">
-            
-            {console.log('this is package id in popup ------'+thepackageid)}
-            
+
+            {console.log('this is package id in popup ------' + thepackageid)}
+
 
             {adminpacks.filter(pack => pack.id === thepackageid).map((a) => (
-               
+
               <div key={a.id} className="flex flex-col gap-1">
-               {console.log('this is package id in popup test2 ------'+thepackageid)}
+                {console.log('this is package id in popup test2 ------' + thepackageid)}
                 <div className="flex py-3 justify-center bg-white   rounded-lg">
                   <p className="font-bold text-lg ">Package {a.id}</p>
                 </div>
@@ -281,600 +281,600 @@ function setpackageid(id){
         </Box>
 
         <TabPanel1 value={value1} index={0}>
-        <div className="flex flex-col relative gap-4 ">
-        <div className="flex  order-1 justify-center text-3xl font-bold    p-2 rounded-md mb-4">
-          <p className="flex  hover:cursor-default px-24 rounded-lg py-4 border-y-2 shadow-sm lg:text-3xl md:text-3xl sm:text-3xl text-xl " title="click a package">
-            Edit Packages
-          </p>
-        </div>
-
-
-
-        <div className="flex lg:flex-row flex-col order-1 lg:justify-between lg:mt-8">
-        
-          {adminpacks && adminpacks.map((a) => (
-         
-            <div key={a.id} title="Click here to edit the package"  onClick={() => {handlePopup(); setthepackageid(a.id);}}   onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className=" relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8 hover:cursor-pointer order-2 ">
-              <div className="h-auto lg:h-60 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
-                <div className="bg-white dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-6">
-                  <h3 className="text-2xl uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
-                    {setIDIcon(a.id)}
-                    
-                    {a.name}
-                  </h3>
-                  <p className="mt-4 text-base  leading-6 text-gray-500 lg:w-[150px] dark:text-gray-200 mb-">
-                    {a.des}
-                  </p>
-                </div>
-                <div className="py-8 px-6 text-center bg-gray-50 dark:bg-gray-700 pt-16">
-                  <div className="mt-4 flex items-center justify-center text-3xl leading-none font-extrabold text-gray-900 dark:text-white  ">
-
-                    <span className="">{a.price}</span>
-
-
-                  </div>
-
-                </div>
-              </div>
-              <input type="hidden" value={a.id} />
+          <div className="flex flex-col relative gap-4 ">
+            <div className="flex  order-1 justify-center text-3xl font-bold    p-2 rounded-md mb-4">
+              <p className="flex  hover:cursor-default px-24 rounded-lg py-4 border-y-2 shadow-sm lg:text-3xl md:text-3xl sm:text-3xl text-xl " title="click a package">
+                Edit Packages
+              </p>
             </div>
 
-          ))}
-          {/* {isHovering && <h2 className="relative">Hello world</h2> } */}
 
-        </div>
 
-      </div>
+            <div className="flex lg:flex-row flex-col order-1 lg:justify-between lg:mt-8">
+
+              {adminpacks && adminpacks.map((a) => (
+
+                <div key={a.id} title="Click here to edit the package" onClick={() => { handlePopup(); setthepackageid(a.id); }} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className=" relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8 hover:cursor-pointer order-2 ">
+                  <div className="h-auto lg:h-60 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
+                    <div className="bg-white dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-6">
+                      <h3 className="text-2xl uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
+                        {setIDIcon(a.id)}
+
+                        {a.name}
+                      </h3>
+                      <p className="mt-4 text-base  leading-6 text-gray-500 lg:w-[150px] dark:text-gray-200 mb-">
+                        {a.des}
+                      </p>
+                    </div>
+                    <div className="py-8 px-6 text-center bg-gray-50 dark:bg-gray-700 pt-16">
+                      <div className="mt-4 flex items-center justify-center text-3xl leading-none font-extrabold text-gray-900 dark:text-white  ">
+
+                        <span className="">{a.price}</span>
+
+
+                      </div>
+
+                    </div>
+                  </div>
+                  <input type="hidden" value={a.id} />
+                </div>
+
+              ))}
+              {/* {isHovering && <h2 className="relative">Hello world</h2> } */}
+
+            </div>
+
+          </div>
 
         </TabPanel1>
-        
+
         <TabPanel1 value={value1} index={1}>
 
-        <div className="flex mt-4">
-        <Box sx={{ width: "100%" }}>
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              aria-label="basic tabs example"
-            >
-              <Tab label="Past Service Charges" {...a11yProps(0)} />
-              <Tab label="Pending Service Charges" {...a11yProps(1)} />
-              <Tab label="Trails" {...a11yProps(2)} />
+          <div className="flex mt-4">
+            <Box sx={{ width: "100%" }}>
+              <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                <Tabs
+                  value={value}
+                  onChange={handleChange}
+                  aria-label="basic tabs example"
+                >
+                  <Tab label="Past Service Charges" {...a11yProps(0)} />
+                  <Tab label="Pending Service Charges" {...a11yProps(1)} />
+                  <Tab label="Trails" {...a11yProps(2)} />
 
-            </Tabs>
-          </Box>
+                </Tabs>
+              </Box>
 
-          <TabPanel value={value} index={0}>
-            <div className="flex p-1 md:px-4 py-2 ">
-              <div className="relative w-[500px]">
+              <TabPanel value={value} index={0}>
+                <div className="flex p-1 md:px-4 py-2 ">
+                  <div className="relative w-[500px]">
 
-                <label className="relative block">
-                  <span className="sr-only">Search</span>
-                  <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                    <SearchIcon
-                      className="!h-5 !w-5 fill-slate-300"
-                      viewBox="0 0 20 20"
-                    />
-                  </span>
-                  <input
-                    className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                    placeholder="Search "
-                    type="text"
-                    name="search"
-                  />
-                </label>
-              </div>
-            </div>
-            <div className="overflow-auto justify-center w-full h-auto mt-5">
-              <table class="min-w-full z-0">
-                <thead class="bg-white border-b sticky top-0">
-                  <tr>
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                    >
-                      Payment_ID
-                    </th>
+                    <label className="relative block">
+                      <span className="sr-only">Search</span>
+                      <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                        <SearchIcon
+                          className="!h-5 !w-5 fill-slate-300"
+                          viewBox="0 0 20 20"
+                        />
+                      </span>
+                      <input
+                        className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                        placeholder="Search "
+                        type="text"
+                        name="search"
+                      />
+                    </label>
+                  </div>
+                </div>
+                <div className="overflow-auto justify-center w-full h-auto mt-5">
+                  <table class="min-w-full z-0">
+                    <thead class="bg-white border-b sticky top-0">
+                      <tr>
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Payment_ID
+                        </th>
 
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                    >
-                      Time
-                    </th>
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                    >
-                      Date
-                    </th>
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Time
+                        </th>
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Date
+                        </th>
 
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                    >
-                      Package Name
-                    </th>
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Package Name
+                        </th>
 
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                    >
-                      Amount
-                    </th>
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                    >
-                      Payment Method
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="">
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      P001
-                    </td>
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Amount
+                        </th>
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Payment Method
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="">
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          P001
+                        </td>
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      12:00:56
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      25/04/2022
-                    </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          12:00:56
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          25/04/2022
+                        </td>
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Premium
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      LKR 7000
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Visa
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      P002
-                    </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Premium
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          LKR 7000
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Visa
+                        </td>
+                      </tr>
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          P002
+                        </td>
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      14:00:00
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      23/04/2022
-                    </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          14:00:00
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          23/04/2022
+                        </td>
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Premium
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      LKR 7000
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Visa
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      P003
-                    </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Premium
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          LKR 7000
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Visa
+                        </td>
+                      </tr>
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          P003
+                        </td>
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      13:00:56
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      25/03/2022
-                    </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          13:00:56
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          25/03/2022
+                        </td>
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Standard
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      LKR 4000
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Master Card
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      P004
-                    </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Standard
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          LKR 4000
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Master Card
+                        </td>
+                      </tr>
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          P004
+                        </td>
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      10:00:56
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      05/02/2022
-                    </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          10:00:56
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          05/02/2022
+                        </td>
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Standard
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      LKR 4000
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Visa
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      P005
-                    </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Standard
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          LKR 4000
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Visa
+                        </td>
+                      </tr>
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          P005
+                        </td>
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      15:00:56
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      19/02/2022
-                    </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          15:00:56
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          19/02/2022
+                        </td>
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Premium
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      LKR 7000
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Master Card
-                    </td>
-                  </tr>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Premium
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          LKR 7000
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Master Card
+                        </td>
+                      </tr>
 
 
 
-                </tbody>
-              </table>
-            </div>
-  {/* =======================================================================================================================================
+                    </tbody>
+                  </table>
+                </div>
+                {/* =======================================================================================================================================
                                                  pending service charges
  ======================================================================================================================================= */}
 
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            <div className="flex p-1 md:px-4 py-2 ">
-              <div className="relative w-[500px]">
+              </TabPanel>
+              <TabPanel value={value} index={1}>
+                <div className="flex p-1 md:px-4 py-2 ">
+                  <div className="relative w-[500px]">
 
-                <label className="relative block">
-                  <span className="sr-only">Search</span>
-                  <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                    <SearchIcon
-                      className="!h-5 !w-5 fill-slate-300"
-                      viewBox="0 0 20 20"
-                    />
-                  </span>
-                  <input
-                    className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                    placeholder="Search "
-                    type="text"
-                    name="search"
-                  />
-                </label>
-              </div>
-            </div>
-            <div className="overflow-auto justify-center w-full h-auto mt-5">
-              <table class="min-w-full z-0">
-                <thead class="bg-white border-b sticky top-0">
-                  <tr>
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                    >
-                      Payment_ID
-                    </th>
-
-
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                    >
-                      Due Date
-                    </th>
-
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                    >
-                      Package Name
-                    </th>
-
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                    >
-                      Amount
-                    </th>
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                    >
-                      Status
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="">
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      P001
-                    </td>
-
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      02/04/2022
-                    </td>
+                    <label className="relative block">
+                      <span className="sr-only">Search</span>
+                      <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                        <SearchIcon
+                          className="!h-5 !w-5 fill-slate-300"
+                          viewBox="0 0 20 20"
+                        />
+                      </span>
+                      <input
+                        className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                        placeholder="Search "
+                        type="text"
+                        name="search"
+                      />
+                    </label>
+                  </div>
+                </div>
+                <div className="overflow-auto justify-center w-full h-auto mt-5">
+                  <table class="min-w-full z-0">
+                    <thead class="bg-white border-b sticky top-0">
+                      <tr>
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Payment_ID
+                        </th>
 
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Premium
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      LKR 7000
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Pending
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      P002
-                    </td>
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Due Date
+                        </th>
+
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Package Name
+                        </th>
+
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Amount
+                        </th>
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Status
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="">
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          P001
+                        </td>
+
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          02/04/2022
+                        </td>
 
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      23:05:2022
-                    </td>
-
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Premium
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      LKR 7000
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Pending
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      P003
-                    </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Premium
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          LKR 7000
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Pending
+                        </td>
+                      </tr>
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          P002
+                        </td>
 
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      29/06/2022
-                    </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          23:05:2022
+                        </td>
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Standard
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      LKR 4000
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Pending
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      P004
-                    </td>
-
-
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      02/07/2022
-                    </td>
-
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Standard
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      LKR 4000
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Pending
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      P005
-                    </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Premium
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          LKR 7000
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Pending
+                        </td>
+                      </tr>
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          P003
+                        </td>
 
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      03/08/2022
-                    </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          29/06/2022
+                        </td>
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Standard
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      LKR 4000
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Pending
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-          </TabPanel>
-          <TabPanel value={value} index={2}>
-            <div className="flex p-1 md:px-4 py-2 ">
-              <div className="relative w-[500px]">
-
-                <label className="relative block">
-                  <span className="sr-only">Search</span>
-                  <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                    <SearchIcon
-                      className="!h-5 !w-5 fill-slate-300"
-                      viewBox="0 0 20 20"
-                    />
-                  </span>
-                  <input
-                    className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                    placeholder="Search "
-                    type="text"
-                    name="search"
-                  />
-                </label>
-              </div>
-            </div>
-            <div className="overflow-auto justify-center w-full h-auto mt-5">
-              <table class="min-w-full z-0">
-                <thead class="bg-white border-b sticky top-0">
-                  <tr>
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                    >
-                      User Id
-                    </th>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Standard
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          LKR 4000
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Pending
+                        </td>
+                      </tr>
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          P004
+                        </td>
 
 
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                    >
-                      Name
-                    </th>
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                    >
-                      Started date
-                    </th>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          02/07/2022
+                        </td>
 
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                    >
-                      Ending Date
-                    </th>
-
-
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                    >
-                      Status
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="">
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      SP001
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
-                      Kamal
-                    </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      02/04/2022
-                    </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Standard
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          LKR 4000
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Pending
+                        </td>
+                      </tr>
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          P005
+                        </td>
 
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      02/05/2022
-                    </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          03/08/2022
+                        </td>
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      On going
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      SP002
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
-                      Nimal
-                    </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Standard
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          LKR 4000
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Pending
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      23/05/2022
-                    </td>
+              </TabPanel>
+              <TabPanel value={value} index={2}>
+                <div className="flex p-1 md:px-4 py-2 ">
+                  <div className="relative w-[500px]">
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      23/06/2022
-                    </td>
-
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      On going
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      SP003
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
-                      Bimal
-                    </td>
-
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      29/06/2022
-                    </td>
-
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      29/07/2022
-                    </td>
-
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Ended
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      SP004
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
-                      Amal
-                    </td>
-
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      02/07/2022
-                    </td>
-
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      02/08/2022
-                    </td>
-
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      On going
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      SP005
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
-                      Sunil
-                    </td>
-
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      03/08/2022
-                    </td>
-
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      03/09/2022
-                    </td>
-
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      Ended
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-          </TabPanel>
+                    <label className="relative block">
+                      <span className="sr-only">Search</span>
+                      <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                        <SearchIcon
+                          className="!h-5 !w-5 fill-slate-300"
+                          viewBox="0 0 20 20"
+                        />
+                      </span>
+                      <input
+                        className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                        placeholder="Search "
+                        type="text"
+                        name="search"
+                      />
+                    </label>
+                  </div>
+                </div>
+                <div className="overflow-auto justify-center w-full h-auto mt-5">
+                  <table class="min-w-full z-0">
+                    <thead class="bg-white border-b sticky top-0">
+                      <tr>
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          User Id
+                        </th>
 
 
-        </Box>
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Name
+                        </th>
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Started date
+                        </th>
+
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Ending Date
+                        </th>
+
+
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Status
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="">
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          SP001
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
+                          Kamal
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          02/04/2022
+                        </td>
+
+
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          02/05/2022
+                        </td>
+
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          On going
+                        </td>
+                      </tr>
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          SP002
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
+                          Nimal
+                        </td>
+
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          23/05/2022
+                        </td>
+
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          23/06/2022
+                        </td>
+
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          On going
+                        </td>
+                      </tr>
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          SP003
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
+                          Bimal
+                        </td>
+
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          29/06/2022
+                        </td>
+
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          29/07/2022
+                        </td>
+
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Ended
+                        </td>
+                      </tr>
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          SP004
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
+                          Amal
+                        </td>
+
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          02/07/2022
+                        </td>
+
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          02/08/2022
+                        </td>
+
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          On going
+                        </td>
+                      </tr>
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          SP005
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
+                          Sunil
+                        </td>
+
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          03/08/2022
+                        </td>
+
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          03/09/2022
+                        </td>
+
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          Ended
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </TabPanel>
+
+
+            </Box>
 
 
 
-      </div>
+          </div>
 
         </TabPanel1>
 

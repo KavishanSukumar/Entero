@@ -14,14 +14,13 @@ import IconButton from "@mui/material/IconButton";
 
 const API_URL = "http://localhost:4000/api/auth/login";
 
-function Login() {
+function Login(props) {
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
   });
-
   const { email, password } = inputs;
-
+  console.log(props.data);
   const onChangeInputs = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
@@ -49,7 +48,7 @@ function Login() {
       if (res.data.status) {
         toast("Login Successful!");
         setTimeout(() => {
-          window.location.href = "/servicechat";
+          window.location.href = "/home";
         }, 2000);
       } else {
         toast("Email or Password is incorrect!");
@@ -79,6 +78,7 @@ function Login() {
             <FormControl sx={{ m: 1 }} variant="standard">
               <InputLabel>Email</InputLabel>
               <Input
+                required
                 type="email"
                 name="email"
                 value={email}
@@ -93,6 +93,7 @@ function Login() {
                 Password
               </InputLabel>
               <Input
+                required
                 name="password"
                 value={password}
                 onChange={(e) => onChangeInputs(e)}

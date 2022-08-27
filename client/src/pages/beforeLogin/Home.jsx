@@ -10,28 +10,28 @@ import ContactForm from "../../components/landing/ContactForm";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-function Home() {
+function Home(props) {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
 
   return (
     <div>
-      <Header />
+      <Header data={props.data} />
       {/* Have to create a division and add the page content */}
-      <div data-aos="fade-in">
+      <div id="carousel" data-aos="fade-in">
         <Carousel />
       </div>
-      <div data-aos="slide-up">
+      <div id="services" data-aos="slide-up">
         <Services />
       </div>
-      <div data-aos="slide-up">
+      <div id="events" data-aos="slide-up">
         <Events />
       </div>
-      <div data-aos="slide-up">
+      <div id="aboutus" data-aos="slide-up">
         <AboutUs />
       </div>
-      <div data-aos="slide-up">
+      <div id="contactus" data-aos="slide-up">
         <ContactForm />
       </div>
 
