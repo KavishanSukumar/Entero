@@ -7,9 +7,9 @@ const router = express.Router();
 router.get('/',async (req,res)=>{
     try{
         
-        const getContact= await pool.query("SELECT * FROM adminpackages")
+        const getallpackages= await pool.query("SELECT * FROM adminpackages ORDER BY id ASC;");
 
-        res.json(getContact.rows);
+        res.json(getallpackages.rows);
     }
     catch(err){
         console.log(err.message);
