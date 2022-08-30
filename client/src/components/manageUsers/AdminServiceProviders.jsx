@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import axios from 'axios';
 import Shakir from "../../Shakir.jpg";
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -46,8 +47,8 @@ function a11yProps(index) {
 function AdminServiceProviders() {
   const [popup, setPopup] = useState(false);
   const [popupS, setPopupS] = useState(false);
-  const [service, setService] = useState(false);
-  const [serviceRegister, setServiceRegister] = useState(true);
+  const [services, setServices] = useState([]);
+  const [serviceRegister, setServiceRegister] = useState([]);
 
   const [value, setValue] = React.useState(0);
 
@@ -61,22 +62,22 @@ function AdminServiceProviders() {
   const handlePopupS = () => {
     setPopupS(!popupS);
   };
-  const handleService = () => {
-    if (!service) {
-      setService(!service);
+
+  async function fetchServices() {
+    try {
+      const res = await axios.get(API_URL);
+      setServices(res.data.filter((service) => service.status ==='a' ))
+      setServiceRegister(res.data.filter((service) => service.status === 'n'));
+    } catch (error) {
+      console.error(error.message);
     }
-    if (serviceRegister) {
-      setServiceRegister(!serviceRegister);
-    }
-  };
-  const handleServiceRegister = () => {
-    if (!serviceRegister) {
-      setServiceRegister(!serviceRegister);
-    }
-    if (service) {
-      setService(!service);
-    }
-  };
+  }
+  
+
+  useEffect(() => {
+    fetchServices();
+  },[]);
+
   const serviceData = (
     <>
       <div className="overflow-auto justify-center w-full h-screen">

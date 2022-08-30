@@ -20,7 +20,7 @@ router.put('/:id',async (req,res)=>{
         const {id}=req.params;
         
         
-        const updatecustomer= await pool.query("UPDATE customer SET status='d' WHERE userid=$2 RETURNING *",[id])
+        const updatecustomer= await pool.query("UPDATE customer SET status='d' WHERE userid=$1 RETURNING *",[id])
 
         res.json(updatecustomer.rows[0]);
     }
