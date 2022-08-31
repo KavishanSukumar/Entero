@@ -25,6 +25,8 @@ function AdminCustomers() {
     fetchCustomers();
   },[]);
 
+  console.log(customers)
+
   const handlePopup = (customer) => {
     setCustomerDetail(customer);
     setPopup(!popup);
@@ -113,21 +115,21 @@ function AdminCustomers() {
               <dl class="text-gray-900 divide-y divide-gray-200 ">
                 <div class="flex flex-col pb-3">
                   <dt class="mb-1 text-gray-500 md:text-md ">Name</dt>
-                  <dd class="text-md font-semibold">{customerDetail.name}</dd>
+                  <dd class="text-md font-semibold">{customerDetail && customerDetail.name}</dd>
                 </div>
                 <div class="flex flex-col pb-3">
                   <dt class="mb-1 text-gray-500 md:text-md ">Email address</dt>
-                  <dd class="text-md font-semibold">{customerDetail.email}</dd>
+                  <dd class="text-md font-semibold">{customerDetail && customerDetail.email}</dd>
                 </div>
                 <div class="flex flex-col py-3">
                   <dt class="mb-1 text-gray-500 md:text-md ">Address</dt>
                   <dd class="text-md font-semibold">
-                    {customerDetail.address}
+                    {customerDetail && customerDetail.address}
                   </dd>
                 </div>
                 <div class="flex flex-col pt-3">
                   <dt class="mb-1 text-gray-500 md:text-md ">Contact</dt>
-                  <dd class="text-md font-semibold">{customerDetail.contact}</dd>
+                  <dd class="text-md font-semibold">{customerDetail && customerDetail.contact_number}</dd>
                 </div>
               </dl>
             </div>
