@@ -69,6 +69,7 @@ function AdminServiceProviders() {
     setPopupS(!popupS);
   };
 
+
   async function fetchServices() {
     try {
       const res = await axios.get(API_URL);
@@ -96,6 +97,7 @@ function AdminServiceProviders() {
     }
 
   }
+
 
 
   return (
