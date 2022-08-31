@@ -21,11 +21,13 @@ router.put('/:id', async(req,res)=>{
     try {
         const {id}=req.params;
         const {name,price,des} = req.body;
-        const updatepayment = await pool.query("update adminpackages set name=$1, price=$2, des=$3 where id=$4 RETURNING *" , [name,price,des,id]);
-        res.json(updatepayment.rows[0]);
+        const updatepackage = await pool.query("update adminpackages set name=$1, price=$2, des=$3 where id=$4 RETURNING *" , [name,price,des,id]);
+        res.json(updatepackage.rows[0]);
+        console.log('successfully updated the package (from paymentRoutes)');
         
     } catch (error) {
       console.log(error.message)
+      console.log('error in updating package (from paymentRoutes)');
     }
 })
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import ServiceProviderHeader from '../../../components/header/ServiceProviderHeader';
 import ServiceProviderSidebar from '../../../components/sidebar/ServiceProviderSidebar';
-import ServiceProviderEditPortfolio from '../../../components/portfolio/EditPortfolio';
+import ServiceProviderEditPortfolio from '../../../components/editPortfolio/EditPortfolio';
 
 
 

@@ -153,6 +153,7 @@ function ManagePayments() {
     try {
       const res = await axios.get(API_URL)
       setpackage(res.data);
+      
 
     } catch (error) {
       console.error(error.message);
@@ -167,10 +168,13 @@ function ManagePayments() {
     const x = API_URL + "/" + e.target.id.value;
     try {
       const res = await axios.put(x, { name, price, des })
+      console.log(res);
 
     } catch (error) {
-      console.log(error.message);
+      console.log('this is error ----->'+error.message);
     }
+    alert('updated');
+    window.location = '/adminpayment';
   }
 
   const [isHovering, setIsHovering] = useState(false);
@@ -184,15 +188,15 @@ function ManagePayments() {
   };
   const [thepackageid, setthepackageid] = useState(0);
 
-  const fil = adminpacks.find(obj => {
-    return obj.country === thepackageid;
-  });
-  console.log(adminpacks);
-  function setpackageid(id) {
-    thepackageid = id;
-    return thepackageid;
-  }
+function selectpack(id){
 
+  let item=adminpacks[id-1];
+  setName(item.name);
+  setDes(item.des);
+  setPrice(item.price);
+
+
+}
 
   return (
     <div className="m-10  flex flex-col">
@@ -216,32 +220,32 @@ function ManagePayments() {
             {console.log('this is package id in popup ------' + thepackageid)}
 
 
-            {adminpacks.filter(pack => pack.id === thepackageid).map((a) => (
+           
 
-              <div key={a.id} className="flex flex-col gap-1">
+              <div  className="flex flex-col gap-1">
                 {console.log('this is package id in popup test2 ------' + thepackageid)}
                 <div className="flex py-3 justify-center bg-white   rounded-lg">
-                  <p className="font-bold text-lg ">Package {a.id}</p>
+                  <p className="font-bold text-lg "> Edit Package </p>
                 </div>
                 <form action="" onSubmit={onsubmitform}>
                   <div className="flex flex-col bg-slate-500 p-5 rounded-lg ">
                     <div class="mb-6">
                       <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Name</label>
-                      <input name="name" onChange={(e) => setName(e.target.value)} value={a.name} type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                      <input name="name" onChange={(e) => setName(e.target.value)} value={name} type="text"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                     </div>
                     <div class="mb-6">
                       <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Price</label>
-                      <input name="price" onChange={(e) => setPrice(e.target.value)} value={a.price} type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                      <input name="price" onChange={(e) => setPrice(e.target.value)} value={price} type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                     </div>
                     <div class="mb-6">
                       <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
-                      <textarea name="des" onChange={(e) => setDes(e.target.value)} value={a.des} type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                      <textarea name="des" onChange={(e) => setDes(e.target.value)} value={des} type="text"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                     </div>
-                    <input type="hidden" name="id" value={a.id} />
+                    <input type="hidden" name="id" value={thepackageid} />
                     <div className="flex order-3 mt-10 justify-center rounded-lg  ">
                       <div className="rounded-md shadow ">
                         <button
-                          type="button"
+                          type="onSubmit"
                           onClick={handlePopup}
                           className="py-2 px-4  bg-cyan-500 hover:bg-blue-400 focus:ring-cyan-900 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                         >
@@ -254,7 +258,7 @@ function ManagePayments() {
                 </form>
 
               </div>
-            ))}
+           
 
 
           </div>
@@ -290,26 +294,26 @@ function ManagePayments() {
 
 
 
-            <div className="flex lg:flex-row flex-col order-1 lg:justify-between lg:mt-8">
+            <div className="grid xl:grid-cols-2 gap-y-8 lg:grid-cols-2   md:grid-cols-1  sm:grid-cols-1 grid-cols-1    order-1 lg:justify-between lg:mt-8">
 
               {adminpacks && adminpacks.map((a) => (
 
-                <div key={a.id} title="Click here to edit the package" onClick={() => { handlePopup(); setthepackageid(a.id); }} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className=" relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8 hover:cursor-pointer order-2 ">
-                  <div className="h-auto lg:h-60 pricing-box max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
-                    <div className="bg-white dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-6">
-                      <h3 className="text-2xl uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
+                <div key={a.id} title="Click here to edit the package" onClick={() => { handlePopup(); setthepackageid(a.id); selectpack(a.id) }} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className=" relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8 hover:cursor-pointer order-2 ">
+                  <div className="h-auto lg:h-52   pricing-box    mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
+                    <div className="bg-white w-full dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-6">
+                      <h3 className="text-2xl flex justify-center  uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
                         {setIDIcon(a.id)}
 
                         {a.name}
                       </h3>
-                      <p className="mt-4 text-base  leading-6 text-gray-500 lg:w-[150px] dark:text-gray-200 mb-">
+                      <p className="mt-4 text-base flex justify-center leading-6 text-gray-500 lg:w-[250px] dark:text-gray-200 mb-">
                         {a.des}
                       </p>
                     </div>
                     <div className="py-8 px-6 text-center bg-gray-50 dark:bg-gray-700 pt-16">
-                      <div className="mt-4 flex items-center justify-center text-3xl leading-none font-extrabold text-gray-900 dark:text-white  ">
+                      <div className=" flex  items-center justify-center text-3xl leading-none font-extrabold text-gray-900 dark:text-white  ">
 
-                        <span className="">{a.price}</span>
+                        {a.price}
 
 
                       </div>
@@ -367,108 +371,108 @@ function ManagePayments() {
                   </div>
                 </div>
                 <div className="overflow-auto justify-center w-full h-auto mt-5">
-                  <table class="min-w-full z-0">
-                    <thead class="bg-white border-b sticky top-0">
+                  <table className="min-w-full z-0">
+                    <thead classNmae="bg-white border-b sticky top-0">
                       <tr>
                         <th
                           scope="col"
-                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                         className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
                           Payment_ID
                         </th>
 
                         <th
                           scope="col"
-                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
                           Time
                         </th>
                         <th
                           scope="col"
-                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
                           Date
                         </th>
 
                         <th
                           scope="col"
-                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
                           Package Name
                         </th>
 
                         <th
                           scope="col"
-                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
                           Amount
                         </th>
                         <th
                           scope="col"
-                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
                           Payment Method
                         </th>
                       </tr>
                     </thead>
                     <tbody className="">
-                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                           P001
                         </td>
 
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           12:00:56
                         </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           25/04/2022
                         </td>
 
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
                           Premium
                         </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
                           LKR 7000
                         </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
                           Visa
                         </td>
                       </tr>
-                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                           P002
                         </td>
 
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           14:00:00
                         </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           23/04/2022
                         </td>
 
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
                           Premium
                         </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
                           LKR 7000
                         </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
                           Visa
                         </td>
                       </tr>
-                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                           P003
                         </td>
 
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           13:00:56
                         </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           25/03/2022
                         </td>
 
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
                           Standard
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
