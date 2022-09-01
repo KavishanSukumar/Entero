@@ -1,9 +1,10 @@
 import pg from "pg";
 const { Pool } = pg;
+import * as dotenv from "dotenv";
+dotenv.config();
 
 const poolConfig = {
-  connectionString:
-    "postgres://pgadmin:Entero@2022@enterodb.postgres.database.azure.com/entero?sslmode=require",
+  connectionString: process.env.DATABASE_URL,
   ssl: true,
 };
 
