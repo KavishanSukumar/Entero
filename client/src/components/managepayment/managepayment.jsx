@@ -201,6 +201,7 @@ function selectpack(id){
   return (
     <div className="m-10  flex flex-col">
       {console.log('i am in popup' + thepackageid)}
+      {console.log(adminpacks)}
       {/* popup for update packages */}
       <div className={popup ? "fixed overflow-y-auto flex flex-col backdrop-blur-[1px] bg-black/95 top-0 w-full h-full z-50  left-0 mb-5 " : "hidden"}>
         <div className="  rounded-3xl shadow-2xl top-[0%] flex flex-col mt-3 w-full h-full p-2 ">
@@ -231,15 +232,15 @@ function selectpack(id){
                   <div className="flex flex-col bg-slate-500 p-5 rounded-lg ">
                     <div class="mb-6">
                       <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Name</label>
-                      <input name="name" onChange={(e) => setName(e.target.value)} value={name} type="text"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                      <input name="name" onChange={(e) => setName(e.target.value)} value={name} type="text"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required/>
                     </div>
                     <div class="mb-6">
                       <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Price</label>
-                      <input name="price" onChange={(e) => setPrice(e.target.value)} value={price} type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                      <input name="price" onChange={(e) => setPrice(e.target.value)}   placeholder='LKR XXXX'  value={price} type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required/>
                     </div>
                     <div class="mb-6">
                       <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
-                      <textarea name="des" onChange={(e) => setDes(e.target.value)} value={des} type="text"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                      <textarea name="des" onChange={(e) => setDes(e.target.value)} value={des} type="text"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required/>
                     </div>
                     <input type="hidden" name="id" value={thepackageid} />
                     <div className="flex order-3 mt-10 justify-center rounded-lg  ">
@@ -287,7 +288,7 @@ function selectpack(id){
         <TabPanel1 value={value1} index={0}>
           <div className="flex flex-col relative gap-4 ">
             <div className="flex  order-1 justify-center text-3xl font-bold    p-2 rounded-md mb-4">
-              <p className="flex  hover:cursor-default px-24 rounded-lg py-4 border-y-2 shadow-sm lg:text-3xl md:text-3xl sm:text-3xl text-xl " title="click a package">
+              <p className="flex  hover:cursor-default px-20 rounded-lg py-4 border-y-2 shadow-sm lg:text-3xl md:text-3xl sm:text-2xl text-lg" title="click a package">
                 Edit Packages
               </p>
             </div>
@@ -298,11 +299,11 @@ function selectpack(id){
 
               {adminpacks && adminpacks.map((a) => (
 
-                <div key={a.id} title="Click here to edit the package" onClick={() => { handlePopup(); setthepackageid(a.id); selectpack(a.id) }} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className=" relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8 hover:cursor-pointer order-2 ">
+                <div key={a.sub_packageid} title="Click here to edit the package" onClick={() => { handlePopup(); setthepackageid(a.sub_packageid); selectpack(a.sub_packageid) }} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className=" relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8 hover:cursor-pointer order-2 ">
                   <div className="h-auto lg:h-52   pricing-box    mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
                     <div className="bg-white w-full dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-6">
                       <h3 className="text-2xl flex justify-center  uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
-                        {setIDIcon(a.id)}
+                        {setIDIcon(a.sub_packageid)}
 
                         {a.name}
                       </h3>
@@ -320,7 +321,7 @@ function selectpack(id){
 
                     </div>
                   </div>
-                  <input type="hidden" value={a.id} />
+                  <input type="hidden" value={a.sub_packageid} />
                 </div>
 
               ))}

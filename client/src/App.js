@@ -43,7 +43,7 @@ const API_URL = "http://localhost:4000/api/auth/isverify";
 const API_URL_USER = "http://localhost:4000/api/user/";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userrole, setUserrole] = useState({});
   const [id, setId] = useState(null);
 
@@ -140,14 +140,14 @@ function App() {
           exact
           path="/adminpayment"
           element={
-            isAuthenticated ? <AdminPayment /> : <Home />
+            isAuthenticated && userrole === "am" ? <AdminPayment /> : <Home />
           }
         />
         <Route
           exact
           path="/adminreports"
           element={
-            isAuthenticated ? <AdminReports /> : <Home />
+            isAuthenticated && userrole === "am" ? <AdminReports /> : <Home />
           }
         />
         <Route
@@ -185,7 +185,7 @@ function App() {
           exact
           path="/customerprofile"
           element={
-            isAuthenticated ? (
+            isAuthenticated && userrole === "cs" ? (
               <CustomerProfile />
             ) : (
               <Home />
@@ -243,7 +243,7 @@ function App() {
           exact
           path="/customerbookings"
           element={
-            isAuthenticated  ? (
+            isAuthenticated && userrole === "cs" ? (
               <CustomerBookings />
             ) : (
               <Home />
@@ -297,7 +297,7 @@ function App() {
           exact
           path="/serviceportfolio"
           element={
-            isAuthenticated ? (
+            isAuthenticated && userrole === "sp" ? (
               <ServiceProviderPortfolio />
             ) : (
               <Home />
@@ -352,7 +352,7 @@ function App() {
           exact
           path="/servicecharges"
           element={
-            isAuthenticated ? (
+            isAuthenticated && userrole === "sp" ? (
               <ServiceProviderCharges />
             ) : (
               <Home />

@@ -85,16 +85,7 @@ function PortFolio() {
             </nav>
           </div>
         </div>
-        <div className="basis-5/12 flex justify-end m-3 mt-32">
-          <div>
-            <a
-              href=""
-              className=" bg-cyan-500 text-white hover:bg-blue-400 py-2 px-3 rounded mr-1 cursor-pointer"
-            >
-              Edit
-            </a>
-          </div>
-        </div>
+        
       </div>
       <div className="m-3">{activeTab}</div>
     </div>
