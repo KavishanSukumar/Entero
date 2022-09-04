@@ -1,4 +1,6 @@
 import jwt from "jsonwebtoken";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 async function authorization(req, res, next) {
   try {
