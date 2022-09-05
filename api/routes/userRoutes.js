@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    const users = await pool.query("SELECT * FROM login");
+    const users = await pool.query("SELECT * FROM users");
     res.json({ users: users.rows });
   } catch (error) {
     console.error(error.message);
@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
   try {
     const userid = req.body.userid;
     const newUser = await pool.query(
-      "SELECT userid, uname, email, userrole FROM users WHERE userid::text=$1",
+      "SELECT userid, email, userrole FROM users WHERE userid::text=$1",
       [userid]
     );
     res.json(newUser.rows[0]);
