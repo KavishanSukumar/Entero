@@ -9,7 +9,7 @@ import authRouter from "./routes/authRoutes.js";
 import serviceProviderRouter from "./routes/serviceProvicerApointments.js";
 import adminpaymentsRouter from "./routes/paymentRoutes.js"
 import customerRegistrationRouter from "./routes/customerRegistrationRoutes.js";
-import CustomerAppointmentRouter from "./routes/CustomerAppointmentRoutes";
+import CustomerAppointmentRouter from "./routes/CustomerAppointmentRoutes.js";
 
 dotenv.config();
 

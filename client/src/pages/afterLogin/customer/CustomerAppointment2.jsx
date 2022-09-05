@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import {
   ScheduleComponent,
   Day,
@@ -15,7 +16,32 @@ import scheduleData from "../../../documents/dummy";
 import PageHeader from "../../../components/PagesHeader/PageHeader";
 import Button from "../../../components/button/Button";
 
+const API_URL = "http://localhost:4000/api/customer/appointment";
+
 const CustomerAppointment2 = () => {
+
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [description, setDescription] = useState("");
+
+  const onSubmitForm = async (e) => {
+    e.preventDefault();
+    const x=new Date()
+    const {date}= x.getFullYear +'-' + x.getMonth +  '-'+x.getDate;
+    const {time}=x.getHours+':'+x.getMinutes+':'+x.getSeconds;
+    
+    try {
+      const res = await axios.post(API_URL, { date, time, description});
+      setDate('');
+      setTime('');
+      setDescription('');
+      console.log(res.data);
+      alert('Appointment Request sent')
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   return (
     <div
       className="w-full p-2 pb-48
@@ -35,7 +61,7 @@ const CustomerAppointment2 = () => {
            
             <div>
               {/* <div className="bg-white bg-opacity-90 rounded-xl shadow-lg p-8 md:w-80"> */}
-              <form className="flex flex-col space-y-4 ">
+              <form className="flex flex-col space-y-4" onSubmit={onSubmitForm}>
                 <h3>
                   <b>Create an Appointment</b>
                 </h3>
@@ -49,6 +75,9 @@ const CustomerAppointment2 = () => {
                   <input
                     type="date"
                     placeholder="Date"
+                    name="date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
                     className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black"
                   ></input>
                 </div>
@@ -63,13 +92,19 @@ const CustomerAppointment2 = () => {
                   <input
                     type="time"
                     placeholder="Time"
+                    name="time"
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
                     className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black"
                   ></input>
                 </div>
 
                 <div>
                   <textarea
+                  name="description"
                     placeholder="Description"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                     rows="5"
                     className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black"
                   ></textarea>
