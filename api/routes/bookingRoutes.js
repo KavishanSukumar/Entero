@@ -6,9 +6,9 @@ const router = express.Router();
 router.get('/',async (req,res)=>{
     try{
         
-        const getContact= await pool.query("")
+        const getBooking= await pool.query("SELECT * from booking")
 
-        res.json(getContact.rows);
+        res.json(getBooking.rows);
     }
     catch(err){
         console.log(err.message);
