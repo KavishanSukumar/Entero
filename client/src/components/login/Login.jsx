@@ -19,6 +19,9 @@ function Login(props) {
     email: "",
     password: "",
   });
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
   const { email, password } = inputs;
   console.log(props.data);
   const onChangeInputs = (e) => {
@@ -42,19 +45,35 @@ function Login(props) {
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
+    const validEmailCheck=/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+    let checkErrors = 0;
+
     try {
-      const res = await axios.post(API_URL, { email, password });
-      localStorage.setItem("token", res.data.token);
-      if (res.data.status) {
-        toast("Login Successful!");
-        setTimeout(() => {
-          window.location.href = "/home";
-        }, 2000);
-      } else {
-        toast("Email or Password is incorrect!");
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 2000);
+      if (!password.trim()) {
+        setPasswordError("Password is required");
+        checkErrors = 1;
+      }
+      if (!email.trim()) {
+        setEmailError("Email is required");
+        checkErrors = 1;
+      }else if(!validEmailCheck.test(email)){
+        setEmailError("Email is invalid");
+        checkErrors = 1;
+      }
+      if (checkErrors == 0) {
+        const res = await axios.post(API_URL, { email, password });
+        localStorage.setItem("token", res.data.token);
+        if (res.data.status) {
+          toast("Login Successful!");
+          setTimeout(() => {
+            window.location.href = "/home";
+          }, 2000);
+        } else {
+          toast("Email or Password is incorrect!");
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 2000);
+        }
       }
     } catch (error) {}
   };
@@ -78,13 +97,16 @@ function Login(props) {
             <FormControl sx={{ m: 1 }} variant="standard">
               <InputLabel>Email</InputLabel>
               <Input
-                required
-                type="email"
+                type="text"
                 name="email"
                 value={email}
-                onChange={(e) => onChangeInputs(e)}
+                onChange={(e) => {
+                  onChangeInputs(e);
+                  setEmailError("");
+                }}
               />
             </FormControl>
+            <p className="text-red-500 text-sm">{emailError}</p>
           </div>
 
           <div className="flex flex-col py-2">
@@ -93,10 +115,12 @@ function Login(props) {
                 Password
               </InputLabel>
               <Input
-                required
                 name="password"
                 value={password}
-                onChange={(e) => onChangeInputs(e)}
+                onChange={(e) => {
+                  onChangeInputs(e);
+                  setPasswordError("");
+                }}
                 id="standard-adornment-password"
                 type={values.showPassword ? "text" : "password"}
                 endAdornment={
@@ -112,6 +136,7 @@ function Login(props) {
                 }
               />
             </FormControl>
+            <p className="text-red-500 text-sm">{passwordError}</p>
           </div>
 
           <div className="flex items-center justify-between mt-3">
