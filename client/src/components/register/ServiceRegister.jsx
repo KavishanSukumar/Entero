@@ -5,8 +5,17 @@ import FormGroup from "@mui/material/FormGroup";
 import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
 import * as React from "react";
+import LoopIcon from "@mui/icons-material/Loop";
 
 function ServiceRegister() {
+  const [buttonval, setButtonval] = React.useState(
+    <button
+      type="submit"
+      className="border w-full my-5 py-2 bg-cyan-500 hover:bg-cyan-400 text-white"
+    >
+      Sign Up
+    </button>
+  );
   return (
     <div className="flex flex-row justify-center ">
       <form className=" m-3  bg-white p-4  rounded-lg border-2 w-128 ">
@@ -98,9 +107,7 @@ function ServiceRegister() {
             </label>
           </div>
         </div>
-        <button className="border w-full my-5 py-1 bg-cyan-500 hover:bg-cyan-400 text-white">
-          Sign Up
-        </button>
+        <div>{buttonval}</div>
       </form>
     </div>
   );

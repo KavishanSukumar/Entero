@@ -7,7 +7,7 @@ import pg from "pg";
 import userRouter from "./routes/userRoutes.js";
 import authRouter from "./routes/authRoutes.js";
 import serviceProviderRouter from "./routes/serviceProvicerApointments.js";
-import adminpaymentsRouter from "./routes/paymentRoutes.js"
+import adminpaymentsRouter from "./routes/paymentRoutes.js";
 import customerRegistrationRouter from "./routes/customerRegistrationRoutes.js";
 import CustomerAppointmentRouter from "./routes/CustomerAppointmentRoutes.js";
 import contactRouter from "./routes/contactRoutes.js";
@@ -33,12 +33,11 @@ app.use(cors());
 
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
-app.use("/api/customer", customerRegistrationRouter);
+app.use("/api/customerregistration", customerRegistrationRouter);
 app.use("/api/serviceprovider/appointment", serviceProviderRouter);
-app.use("/api/admin/packages",adminpaymentsRouter);
+app.use("/api/admin/packages", adminpaymentsRouter);
 app.use("/api/customer/appointment", CustomerAppointmentRouter);
 app.use("/api/contact", contactRouter);
-
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}.`);

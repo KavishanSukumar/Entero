@@ -11,6 +11,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import IconButton from "@mui/material/IconButton";
+import LoopIcon from "@mui/icons-material/Loop";
 
 const API_URL = "http://localhost:4000/api/auth/login";
 
@@ -28,6 +29,14 @@ function Login(props) {
   const [values, setValues] = React.useState({
     showPassword: false,
   });
+  const [buttonval, setButtonval] = React.useState(
+    <button
+      type="submit"
+      className="border w-full mt-8 py-2 bg-cyan-500 hover:bg-cyan-400 text-white"
+    >
+      Sign in
+    </button>
+  );
 
   const handleClickShowPassword = () => {
     setValues({
@@ -43,6 +52,16 @@ function Login(props) {
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
+      setButtonval(
+        <button
+          type="submit"
+          className="border w-full my-5 py-2 bg-cyan-500 text-white"
+          disabled
+        >
+          <LoopIcon className="animate-spin" />
+          Processing ...
+        </button>
+      );
       const res = await axios.post(API_URL, { email, password });
       if (res.data.status) {
         localStorage.setItem("token", res.data.token);
@@ -139,13 +158,7 @@ function Login(props) {
               </p>
             </div>
           </div>
-
-          <button
-            type="submit"
-            className="border w-full mt-8 py-2 bg-cyan-500 hover:bg-cyan-400 text-white"
-          >
-            Sign in
-          </button>
+          <div>{buttonval}</div>
         </div>
       </form>
     </>

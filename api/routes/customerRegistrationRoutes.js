@@ -25,8 +25,8 @@ router.post("/", validInfo, async (req, res) => {
     const salt = await bcrypt.genSalt(saltRound);
     const bcryptPassword = await bcrypt.hash(password, salt);
     const newUser = await pool.query(
-      "INSERT INTO users (email, password, name, contact_number, address, userrole) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
-      [uname, email, bcryptPassword, name, contactNum, address, "cs"]
+      "INSERT INTO users (email, password, name, contact_number, address, userrole) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+      [email, bcryptPassword, name, contactNum, address, "cs"]
     );
     const token = jwtTokens(newUser.rows[0].userid);
 
