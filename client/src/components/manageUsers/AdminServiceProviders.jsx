@@ -61,24 +61,48 @@ function AdminServiceProviders() {
   const handlePopupS = () => {
     setPopupS(!popupS);
   };
-  const handleService = () => {
-    if (!service) {
-      setService(!service);
-    }
-    if (serviceRegister) {
-      setServiceRegister(!serviceRegister);
-    }
-  };
-  const handleServiceRegister = () => {
-    if (!serviceRegister) {
-      setServiceRegister(!serviceRegister);
-    }
-    if (service) {
-      setService(!service);
-    }
-  };
-  const serviceData = (
-    <>
+
+
+  
+  return (
+    <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
+       <div className="flex justify-start mb-7">
+        <h2 className="text-2xl font-bold leading-7 font-serif text-gray-900 sm:text-3xl">
+          Service Provider Details
+        </h2>
+      </div>
+      <Box sx={{ width: "100%" }}>
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="basic tabs example"
+          >
+            <Tab label="SERVICES" {...a11yProps(0)} />
+            <Tab label="SERVICE REGISTRATIONS" {...a11yProps(1)} />
+          </Tabs>
+        </Box>
+        <TabPanel value={value} index={0}>
+          <div className="flex p-1 md:px-4 py-2 ">
+            <div className="relative w-64">
+              <label className="relative block">
+                <span className="sr-only">Search</span>
+                <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                  <SearchIcon
+                    className="!h-5 !w-5 fill-slate-300"
+                    viewBox="0 0 20 20"
+                  />
+                </span>
+                <input
+                  className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                  placeholder="Search for services"
+                  type="text"
+                  name="search"
+                />
+              </label>
+            </div>
+          </div>
+          <>
       <div className="overflow-auto justify-center w-full h-screen">
         
         <table class="min-w-full z-0">
@@ -207,10 +231,9 @@ function AdminServiceProviders() {
         </table>
       </div>
     </>
-  );
-
-  const serviceRegisterData = (
-    <>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+        <>
       <div className="overflow-auto justify-center w-full h-screen">
         <table class="min-w-full z-0">
           <thead class="bg-white border-b sticky top-0">
@@ -301,49 +324,6 @@ function AdminServiceProviders() {
         </table>
       </div>
     </>
-  );
-  return (
-    <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
-       <div className="flex justify-start mb-7">
-        <h2 className="text-2xl font-bold leading-7 font-serif text-gray-900 sm:text-3xl">
-          Service Provider Details
-        </h2>
-      </div>
-      <Box sx={{ width: "100%" }}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            aria-label="basic tabs example"
-          >
-            <Tab label="SERVICES" {...a11yProps(0)} />
-            <Tab label="SERVICE REGISTRATIONS" {...a11yProps(1)} />
-          </Tabs>
-        </Box>
-        <TabPanel value={value} index={0}>
-          <div className="flex p-1 md:px-4 py-2 ">
-            <div className="relative w-64">
-              <label className="relative block">
-                <span className="sr-only">Search</span>
-                <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                  <SearchIcon
-                    className="!h-5 !w-5 fill-slate-300"
-                    viewBox="0 0 20 20"
-                  />
-                </span>
-                <input
-                  className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                  placeholder="Search for services"
-                  type="text"
-                  name="search"
-                />
-              </label>
-            </div>
-          </div>
-          {serviceData}
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          {serviceRegisterData}
         </TabPanel>
       </Box>
 
