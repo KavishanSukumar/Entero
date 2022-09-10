@@ -5,7 +5,10 @@ import ServiceProviderEditPortfolio from '../../../components/editPortfolio/Edit
 
 
 
-function ServiceProviderPortfolio() {
+function ServiceProviderPortfolio(props) {
+  
+  const userid = props.userid;
+  console.log("this is from service provider portfolio 1====== "+userid);
   return (
     <div>
       <ServiceProviderHeader />
@@ -13,7 +16,7 @@ function ServiceProviderPortfolio() {
         
         <ServiceProviderSidebar />
         <div className="md:ml-20 md:mt-14 w-screen">
-            <ServiceProviderEditPortfolio/>
+            <ServiceProviderEditPortfolio id={userid}/>
           
           
         </div>

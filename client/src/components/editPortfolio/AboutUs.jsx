@@ -12,8 +12,13 @@ import { AiOutlineClose } from 'react-icons/ai';
 import axios from "axios";
 import AddIcon from '@mui/icons-material/Add';
 import Carousel from "./Carousel";
+const API_URL = "http://localhost:4000/api/serviceprovider/portfoliosp";
 
-function AboutUs() {
+function AboutUs(props) {
+  const [userid, setUserid] = useState(props.uid)
+
+  // const [userid, setUser] = React.useState(props.uid);
+  console.log("this is user from sp portfolio/aboutus ======" + userid);
 
 
   //popup for galary
@@ -33,8 +38,105 @@ function AboutUs() {
     setPopup1(!popup1);
 
   }
+
+  //popup for edit des
+  const [showpopup2, setshowpopup2] = React.useState(false);
+  const handleOnClose2 = () => setshowpopup2(false);
+  const [popup2, setPopup2] = React.useState(false);
+  const handlePopup2 = () => {
+    setPopup2(!popup2);
+
+  }
+
+
+  //get fortfolio info
+  const [portfolioinfo, setportfolioinfo] = useState([]);
+
+  async function getportfolioinfo(uid) {
+
+    try {
+      const res = await axios.get(API_URL, {uid })
+      setportfolioinfo(res.data);
+      console.log('job is done');
+
+    } catch (error) {
+      console.error(error.message);
+      console.log('error in about us getting portfolio info');
+    }
+  }
+  useEffect(() => {
+    getportfolioinfo(userid);
+  }, []);
+
+ 
+
+console.log(userid);
+  // console.log('this is user id -->' + portfolioinfo[0].userid);
+  // console.log('this is user des -->' + portfolioinfo[0].description);
+  //set description
+
+  const [description, setDescription] = useState("");
+
+  function setdes() {
+    setDescription(portfolioinfo[0].description);
+  }
+
+  const onsubmitform = async (e) => {
+    e.preventDefault();
+    const x = API_URL + "/" + userid;
+    try {
+      const res = await axios.put(x, { description })
+      console.log(res);
+      window.alert('updated');
+      window.location = '/home'
+     
+
+    } catch (error) {
+      console.log('this is error ----->'+error.message);
+    }
+   
+  }
+
+
   return (
-    <div>
+    <div className="">
+      {/* ---- popup for description  -------- */}
+      <div className="m-10  flex flex-col">
+        <div className={popup2 ? "fixed overflow-y-auto flex flex-col lg:px-52  md:px-40 sm:px-30 px-10      backdrop-blur-[1px] bg-black/90 top-0 w-full h-full z-50  left-0 mb-5 " : "hidden"}>
+          <div className="w-full inline-flex justify-end items-end ">
+            <AiOutlineClose
+              className="w-6 h-6 cursor-pointer bg-white rounded-2xl text-black hover:text-red-500  hover:bg-white   mt-8 "
+              onClick={handlePopup2}
+            />
+          </div>
+          <div className="flex justify-center mt-10">
+            <div className="block p-6 rounded-lg shadow-lg bg-white  xl:w-[60%] lg:w-[70%]  md:w-[90%]   w-[90%]">
+              <form className="flex justify-center  flex-col" onSubmit={onsubmitform}>
+              {/* <input type="hidden" name="id" value={userid} /> */}
+                <div className="form-group mb-6">
+                  
+                  <textarea
+                    className="  form-control  block  w-full  px-3  py-1.5  text-base  font-normal  text-gray-700 
+                     bg-white bg-clip-padding  border border-solid border-gray-300  rounded  transition  ease-in-out
+                       m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlTextarea13" 
+                       rows="10" placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)}
+                  ></textarea>
+                </div>
+                <div className="flex justify-center">
+                <button type="submit" className=" w-[30%] px-6 py-2.5 bg-cyan-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">Update</button>
+
+                </div>
+              </form>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
       {/* ---- popup for image upload  -------- */}
       <div className="m-10  flex flex-col">
         <div className={popup1 ? "fixed overflow-y-auto flex flex-col lg:px-52  md:px-40 sm:px-30 px-10      backdrop-blur-[1px] bg-black/90 top-0 w-full h-full z-50  left-0 mb-5 " : "hidden"}>
@@ -52,7 +154,7 @@ function AboutUs() {
               aria-describedby="file_input_help" id="file_input" type="file" accept="image/*" />
             <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">Image files only</p>
             <div className="flex justify-center">
-              <button className="bg-cyan-500 h-10 w-24 text-white hover:bg-blue-400  py-2  text-lg px-3 rounded mr-1 cursor-pointer"> upload</button>
+              <button className="bg-cyan-500 h-10 w-24 text-white hover:bg-blue-700  py-2  text-lg px-3 rounded mr-1 cursor-pointer"> upload</button>
             </div>
 
           </div>
@@ -81,68 +183,7 @@ function AboutUs() {
               </div>
               <div class="flex flex-wrap -m-1 md:-m-2  gap-y-3 justify-center ">
 
-
-                <div class="flex flex-wrap w-1/3 p-2">
-                  <div class="w-full p-1 md:p-1 ">
-
-                    <AiOutlineClose
-                      className="w-4 h-4 cursor-pointer bg-white rounded-2xl text-black hover:text-red-500  hover:bg-white absolute  mt-1 ml-2"
-                      onClick={handlePopup}
-                    />
-
-                    <img alt="gallery" className="block object-cover p-1 bg-white object-center w-full h-full rounded-lg"
-                      src="/assets/images/errorimage.png" />
-                  </div>
-                </div>
-                <div class="flex flex-wrap w-1/3 p-2">
-                  <div class="w-full p-1 md:p-1 ">
-
-                    <AiOutlineClose
-                      className="w-4 h-4 cursor-pointer bg-white rounded-2xl text-black hover:text-red-500  hover:bg-white absolute  mt-1 ml-2"
-                      onClick={handlePopup}
-                    />
-
-                    <img alt="gallery" className="block object-cover p-1 bg-white object-center w-full h-full rounded-lg"
-                      src="/assets/images/errorimage.png" />
-                  </div>
-                </div>
-                <div class="flex flex-wrap w-1/3 p-2">
-                  <div class="w-full p-1 md:p-1 ">
-
-                    <AiOutlineClose
-                      className="w-4 h-4 cursor-pointer bg-white rounded-2xl text-black hover:text-red-500  hover:bg-white absolute  mt-1 ml-2"
-                      onClick={handlePopup}
-                    />
-
-                    <img alt="gallery" className="block object-cover p-1 bg-white object-center w-full h-full rounded-lg"
-                      src="/assets/images/errorimage.png" />
-                  </div>
-                </div>
-                <div class="flex flex-wrap w-1/3 p-2">
-                  <div class="w-full p-1 md:p-1 ">
-
-                    <AiOutlineClose
-                      className="w-4 h-4 cursor-pointer bg-white rounded-2xl text-black hover:text-red-500  hover:bg-white absolute  mt-1 ml-2"
-                      onClick={handlePopup}
-                    />
-
-                    <img alt="gallery" className="block object-cover p-1 bg-white object-center w-full h-full rounded-lg"
-                      src="/assets/images/errorimage.png" />
-                  </div>
-                </div>
-                <div class="flex flex-wrap w-1/3 p-2">
-                  <div class="w-full p-1 md:p-1 ">
-
-                    <AiOutlineClose
-                      className="w-4 h-4 cursor-pointer bg-white rounded-2xl text-black hover:text-red-500  hover:bg-white absolute  mt-1 ml-2"
-                      onClick={handlePopup}
-                    />
-
-                    <img alt="gallery" className="block object-cover p-1 bg-white object-center w-full h-full rounded-lg"
-                      src="/assets/images/errorimage.png" />
-                  </div>
-                </div>
-                <div class="flex flex-wrap w-1/3 p-2">
+                <div class="flex flex-wrap w-1/4 p-2">
                   <div class="w-full p-1 md:p-1 ">
 
                     <AiOutlineClose
@@ -155,13 +196,95 @@ function AboutUs() {
                   </div>
                 </div>
 
+                <div class="flex flex-wrap w-1/4 p-2">
+                  <div class="w-full p-1 md:p-1 ">
+
+                    <AiOutlineClose
+                      className="w-4 h-4 cursor-pointer bg-white rounded-2xl text-black hover:text-red-500  hover:bg-white absolute  mt-1 ml-2"
+                      onClick={handlePopup}
+                    />
+
+                    <img alt="gallery" className="block object-cover p-1 bg-white object-center w-full h-full rounded-lg"
+                      src="/assets/images/errorimage.png" />
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap w-1/4 p-2">
+                  <div class="w-full p-1 md:p-1 ">
+
+                    <AiOutlineClose
+                      className="w-4 h-4 cursor-pointer bg-white rounded-2xl text-black hover:text-red-500  hover:bg-white absolute  mt-1 ml-2"
+                      onClick={handlePopup}
+                    />
+
+                    <img alt="gallery" className="block object-cover p-1 bg-white object-center w-full h-full rounded-lg"
+                      src="/assets/images/errorimage.png" />
+                  </div>
+                </div>
+                <div class="flex flex-wrap w-1/4 p-2">
+                  <div class="w-full p-1 md:p-1 ">
+
+                    <AiOutlineClose
+                      className="w-4 h-4 cursor-pointer bg-white rounded-2xl text-black hover:text-red-500  hover:bg-white absolute  mt-1 ml-2"
+                      onClick={handlePopup}
+                    />
+
+                    <img alt="gallery" className="block object-cover p-1 bg-white object-center w-full h-full rounded-lg"
+                      src="/assets/images/errorimage.png" />
+                  </div>
+                </div>
+                <div class="flex flex-wrap w-1/4 p-2">
+                  <div class="w-full p-1 md:p-1 ">
+
+                    <AiOutlineClose
+                      className="w-4 h-4 cursor-pointer bg-white rounded-2xl text-black hover:text-red-500  hover:bg-white absolute  mt-1 ml-2"
+                      onClick={handlePopup}
+                    />
+
+                    <img alt="gallery" className="block object-cover p-1 bg-white object-center w-full h-full rounded-lg"
+                      src="/assets/images/errorimage.png" />
+                  </div>
+                </div>
+                <div class="flex flex-wrap w-1/4 p-2">
+                  <div class="w-full p-1 md:p-1 ">
+
+                    <AiOutlineClose
+                      className="w-4 h-4 cursor-pointer bg-white rounded-2xl text-black hover:text-red-500  hover:bg-white absolute  mt-1 ml-2"
+                      onClick={handlePopup}
+                    />
+
+                    <img alt="gallery" className="block object-cover p-1 bg-white object-center w-full h-full rounded-lg"
+                      src="/assets/images/errorimage.png" />
+                  </div>
+                </div>
+                <div class="flex flex-wrap w-1/4 p-2">
+                  <div class="w-full p-1 md:p-1 ">
+
+                    <AiOutlineClose
+                      className="w-4 h-4 cursor-pointer bg-white rounded-2xl text-black hover:text-red-500  hover:bg-white absolute  mt-1 ml-2"
+                      onClick={handlePopup}
+                    />
+
+                    <img alt="gallery" className="block object-cover p-1 bg-white object-center w-full h-full rounded-lg"
+                      src="/assets/images/errorimage.png" />
+                  </div>
+                </div>
 
 
 
 
+                <div class="flex flex-wrap w-1/4 p-2">
+                  <div class="w-full p-1 md:p-1 ">
 
+                    <AiOutlineClose
+                      className="w-4 h-4 cursor-pointer bg-white rounded-2xl text-black hover:text-red-500  hover:bg-white absolute  mt-1 ml-2"
+                      onClick={handlePopup}
+                    />
 
-
+                    <img alt="gallery" className="block object-cover p-1 bg-white object-center w-full h-full rounded-lg"
+                      src="/assets/images/errorimage.png" />
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -170,30 +293,33 @@ function AboutUs() {
       </div>
 
 
-      <div className="flex xl:flex-row   lg:flex-row  md:flex-col  sm:flex-col  flex-col  gap-20 -mt-32">
+      <div className="flex xl:flex-row   lg:flex-row  md:flex-col  sm:flex-col  flex-col  gap-20 -mt-52">
         <div class="mb-3 ml-1 xl:ml-10 lg:ml-10 mt-8 xl:w-96 gap-1">
           <div className="flex flex-row justify-between">
             <label for="exampleFormControlTextarea1" className="form-label font-bold   inline-block mb-2 text-gray-700"
             >Description
             </label>
-            <button className="bg-cyan-500 h-6 text-white hover:bg-blue-400  px-3 rounded mr-1 cursor-pointer"> save</button>
+            <button className="bg-cyan-500 h-6 text-white hover:bg-blue-700  px-3 rounded mr-1 cursor-pointer" onClick={() =>{handlePopup2();setdes();}}> Edit</button>
           </div>
           <div>
-            <textarea
-              className=" form-control block w-full h-[360px] px-3 py-1.5 text-base font-normal text-gray-700
-       bg-white bg-clip-padding border border-solid border-gray-300 rounded transition
-        ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none resize-none "
-              id="exampleFormControlTextarea1"
-              rows="10"
-              maxLength={1000}
-
-              placeholder="Your message"
-            ></textarea>
+            {portfolioinfo && portfolioinfo.map((a) => (
+              <textarea
+            className=" form-control block w-full h-[360px] px-3 py-1.5 text-base font-normal text-gray-700
+                bgwhite bg-clip-padding border border-solid  rounded transition
+                ase-in-out m-0  border-black resize-none cursor-default "
+                id="exampleFormControlTextarea1"
+                rows="10"
+                maxLength={1000}
+                value={a.description}
+                placeholder="Your message"
+                key={a.userid}
+              ></textarea>
+            ))}
           </div>
         </div>
         <div className="basis-7/12 mx-1 lg:mt-8   gap-2 flex flex-col">
           <div className="flex justify-end">
-            <button className="bg-cyan-500  text-white hover:bg-blue-400  px-3 rounded mr-1 cursor-pointer" onClick={handlePopup}>galery</button>
+            <button className="bg-cyan-500  text-white hover:bg-blue-700  px-3 rounded mr-1 cursor-pointer" onClick={handlePopup}>galery</button>
           </div>
           <Carousel />
         </div>

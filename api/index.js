@@ -11,6 +11,8 @@ import adminpaymentsRouter from "./routes/paymentRoutes.js"
 import customerRegistrationRouter from "./routes/customerRegistrationRoutes.js";
 import CustomerAppointmentRouter from "./routes/CustomerAppointmentRoutes.js";
 import contactRouter from "./routes/contactRoutes.js";
+import portfolioSpRouter from "./routes/portfolioSpRoutes.js";
+import portfolioContact from "./routes/portfolioContact.js"
 
 dotenv.config();
 
@@ -38,6 +40,8 @@ app.use("/api/serviceprovider/appointment", serviceProviderRouter);
 app.use("/api/admin/packages",adminpaymentsRouter);
 app.use("/api/customer/appointment", CustomerAppointmentRouter);
 app.use("/api/contact", contactRouter);
+app.use("/api/serviceprovider/portfoliosp", portfolioSpRouter);
+app.use("/api/serviceprovider/portfoliocontact", portfolioContact);
 
 
 app.listen(PORT, () => {

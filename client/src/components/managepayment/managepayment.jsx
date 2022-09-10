@@ -169,11 +169,12 @@ function ManagePayments() {
     try {
       const res = await axios.put(x, { name, price, des })
       console.log(res);
+      alert('updated');
+      window.location = '/adminpayment';
 
     } catch (error) {
       console.log('this is error ----->'+error.message);
     }
-    alert('updated');
     window.location = '/adminpayment';
   }
 
