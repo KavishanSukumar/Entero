@@ -6,7 +6,8 @@ import Packages from "./Packages";
 import Review from "./Review";
 import Contact from "./Contact";
 
-function PortFolio() {
+function PortFolio(props) {
+  const id = props.data;
   const [activeTab, setActiveTab] = React.useState(<AboutUs />);
 
   const handleChange = (id) => {
@@ -21,7 +22,7 @@ function PortFolio() {
         setActiveTab(<Review />);
         break;
       case "contact":
-        setActiveTab(<Contact />);
+        setActiveTab(<Contact data={id}/>);
         break;
       default:
         break;

@@ -5,7 +5,8 @@ import ServiceProviderEditPortfolio from '../../../components/portfolio/EditPort
 
 
 
-function ServiceProviderPortfolio() {
+function ServiceProviderPortfolio(props) {
+  const id = props.data;
   return (
     <div>
       <ServiceProviderHeader />
@@ -13,7 +14,7 @@ function ServiceProviderPortfolio() {
         
         <ServiceProviderSidebar />
         <div className="md:ml-20 md:mt-14 w-screen">
-            <ServiceProviderEditPortfolio/>
+            <ServiceProviderEditPortfolio data={id}/>
           
           
         </div>

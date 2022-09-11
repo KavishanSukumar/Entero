@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragments} from "react";
 import axios from "axios";
 import {
   ScheduleComponent,
@@ -16,13 +16,15 @@ import scheduleData from "../../../documents/dummy";
 import PageHeader from "../../../components/PagesHeader/PageHeader";
 import Button from "../../../components/button/Button";
 
-const API_URL = "http://localhost:4000/api/customer/appointment";
+const API_URL = "http://localhost:4000/api/appointment";
 
 const CustomerAppointment2 = () => {
 
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [description, setDescription] = useState("");
+  const [customer_id, setCustomer_id] = useState("4");
+  const [sp_id, setSp_id] = useState("5");
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
@@ -31,12 +33,18 @@ const CustomerAppointment2 = () => {
     const {time}=x.getHours+':'+x.getMinutes+':'+x.getSeconds;
     
     try {
-      const res = await axios.post(API_URL, { date, time, description});
+      const body = {date, time, description,customer_id,sp_id};
+      const res = await fetch(API_URL, { 
+        method: "POST",
+        Headers: { "Content-Type": "application/json"},
+        body: JSON.stringify(body)
+      });
       setDate('');
       setTime('');
       setDescription('');
+
       console.log(res.data);
-      alert('Appointment Request sent')
+      alert('Appointment Request sent');
     } catch (error) {
       console.error(error.message);
     }
@@ -63,7 +71,7 @@ const CustomerAppointment2 = () => {
               {/* <div className="bg-white bg-opacity-90 rounded-xl shadow-lg p-8 md:w-80"> */}
               <form className="flex flex-col space-y-4" onSubmit={onSubmitForm}>
                 <h3>
-                  <b>Create an Appointment</b>
+                  <b>Create an Appointment2</b>
                 </h3>
                 <div>
                   <label

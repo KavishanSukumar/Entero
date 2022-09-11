@@ -91,7 +91,7 @@ function App() {
             ) : userrole === "cs" ? (
               <CustomerEvents2 />
             ) : userrole === "sp" ? (
-              <ServiceProviderPortfolio />
+              <ServiceProviderPortfolio data={id} />
             ) : (
               <Home />
             )

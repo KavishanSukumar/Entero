@@ -10,6 +10,7 @@ import serviceProviderRouter from "./routes/serviceProvicerApointments.js";
 import adminpaymentsRouter from "./routes/paymentRoutes.js"
 import customerRegistrationRouter from "./routes/customerRegistrationRoutes.js";
 import CustomerAppointmentRouter from "./routes/CustomerAppointmentRoutes.js";
+import BusinessPoliciesRouter from "./routes/Business&PoliciesRoutes.js";
 
 dotenv.config();
 
@@ -36,7 +37,7 @@ app.use("/api/customer", customerRegistrationRouter);
 app.use("/api/serviceprovider/appointment", serviceProviderRouter);
 app.use("/api/admin/packages",adminpaymentsRouter);
 app.use("/api/customer/appointment", CustomerAppointmentRouter);
-
+app.use("/api/bpolicies", BusinessPoliciesRouter);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}.`);

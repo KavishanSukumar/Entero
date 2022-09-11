@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment, useState } from "react";
 import {
   HtmlEditor,
   Image,
@@ -15,6 +15,28 @@ import Button from "../../../components/button/Button";
 import AdminHeader from "../../../components/header/AdminHeader";
 import AdminSidebar from "../../../components/sidebar/AdminSidebar";
 const AdminBusinessPolicies = () => {
+
+  const [bpolicies, setBpolicies] = useState();
+
+  const onSubmitForm = async e => {
+    e.preventDefault();
+  try {
+    const body = { bpolicies };
+    const response =await fetch("http://localhost:4000/api/bpolicies", {
+      method: "POST",
+      headers: { "Content-Type" : "application/json" },
+      body: JSON.stringify(body)
+    });
+  
+    window.location = '/';
+    console.log(response);
+  }catch (err) {
+    console.error(err.message);
+  }
+  
+  };
+
+
   return (
     <div>
       <AdminHeader />
@@ -63,7 +85,13 @@ const AdminBusinessPolicies = () => {
               
             </RichTextEditorComponent> */}
           </div>
-
+          <Fragment>
+          <h1 className="text-center mt-5">Edit from here</h1>
+          <form className="d-flex mt-5" onSubmit={onSubmitForm}>
+            <input type="text" className="form-control" value={bpolicies} onChange={e =>setBpolicies(e.target.value)} />
+            <button className="btn btn-success">Add</button>
+          </form>
+        </Fragment>
           {/* ---only admin can this div-(end)--- */}
         </div>
       </div>
