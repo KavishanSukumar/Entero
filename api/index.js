@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import pg from "pg";
 import userRouter from "./routes/userRoutes.js";
 import authRouter from "./routes/authRoutes.js";
+import setPasswordRouter from "./routes/setPasswordRoutes.js"
 import serviceProviderRouter from "./routes/serviceProvicerApointments.js";
 import adminpaymentsRouter from "./routes/paymentRoutes.js"
 import customerRegistrationRouter from "./routes/customerRegistrationRoutes.js";
@@ -33,9 +34,11 @@ const corsOptions = {
 };
 app.use(express.json());
 app.use(cors());
+app.use(express.static('files'))
 
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/setpassword", setPasswordRouter);
 app.use("/api/customer", customerRegistrationRouter);
 app.use("/api/service", serviceRegistrationRouter);
 app.use("/api/customer/appointment", CustomerAppointmentRouter);

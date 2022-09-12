@@ -1,5 +1,6 @@
 import express from "express";
 import pool from "../db.js";
+import crypto from "crypto";
 import bcrypt from "bcrypt";
 
 const router = express.Router();
@@ -20,6 +21,20 @@ router.post("/", async (req, res) => {
     const newUser = await pool.query(
       "SELECT userid, email, userrole FROM users WHERE userid::text=$1",
       [userid]
+    );
+    res.json(newUser.rows[0]);
+    return;
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
+router.post("/setpassword", async (req, res) => {
+  try {
+    const userid = req.body.userid;
+    const newUser = await pool.query(
+      "SELECT userid,name userrole FROM users WHERE email=$1",
+      [email]
     );
     res.json(newUser.rows[0]);
     return;

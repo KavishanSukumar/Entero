@@ -45,7 +45,7 @@ function Login(props) {
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
-    const validEmailCheck=/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+    const validEmailCheck = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
     let checkErrors = 0;
 
     try {
@@ -56,7 +56,7 @@ function Login(props) {
       if (!email.trim()) {
         setEmailError("Email is required");
         checkErrors = 1;
-      }else if(!validEmailCheck.test(email)){
+      } else if (!validEmailCheck.test(email)) {
         setEmailError("Email is invalid");
         checkErrors = 1;
       }
@@ -156,12 +156,14 @@ function Login(props) {
             </div>
 
             <div className="text-sm">
-              <p
-                href="#"
-                className="font-medium text-purple-600 hover:text-purple-500"
-              >
-                Forgot your password?
-              </p>
+              <Link to="/forgotpassword">
+                <p
+                  href="#"
+                  className="font-medium text-purple-600 hover:text-purple-500"
+                >
+                  Forgot your password?
+                </p>
+              </Link>
             </div>
           </div>
 

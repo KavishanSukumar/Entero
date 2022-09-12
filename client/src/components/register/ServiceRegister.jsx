@@ -18,6 +18,7 @@ function ServiceRegister() {
     address: "",
     brNo: "",
   });
+  const [emailMessage,setEmailMessage]=useState('')
   const [services, setServices] = useState([]);
   const [events, setEvents] = useState([]);
   const [file, setFile] = useState();
@@ -50,9 +51,9 @@ function ServiceRegister() {
 
   const eventList=(e)=>{
     if(events.indexOf(e.target.value)===1){
-      setServices(events.filter((g) => g !== e.target.value))
+      setEvents(events.filter((g) => g !== e.target.value))
     }else if(events.indexOf(e.target.value)===-1){
-      setServices([...events,e.target.value])
+      setEvents([...events,e.target.value])
     }
   }
 
@@ -117,10 +118,12 @@ function ServiceRegister() {
         const res = await axios.post(API_URL, formDetail, {
           headers: {
             "Content-Type": "multipart/form-data",
+            uploadType:"1",
+            
           },
         });
 
-        console.log(res.data);
+        setEmailMessage(res.data.message)
       }
     } catch (error) {
       console.log(error);
@@ -373,6 +376,7 @@ function ServiceRegister() {
         <button className="border w-full my-5 py-1 bg-cyan-500 hover:bg-cyan-400 text-white">
           Sign Up
         </button>
+        {emailMessage && <p className="text-green-700">{emailMessage}</p>}
       </form>
     </div>
   );

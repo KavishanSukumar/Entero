@@ -10,30 +10,26 @@ import axios from "axios";
 import * as React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {useParams} from "react-router-dom";
+
 
 const API_URL = "http://localhost:4000/api/customer";
-function CustomerRegister() {
+
+function ResetPasswordForm() {
+  const urlParameters=useParams()
   const [values, setValues] = React.useState({
     showPassword: false,
   });
   const [emailMessage,setEmailMessage]=useState('')
   const [inputs, setInputs] = React.useState({
-    fname: "",
-    lname: "",
-    email: "",
-    contactNum: "",
-    address: "",
     password: "",
     conf_password: "",
   });
 
-  const { fname, lname, email, contactNum, address, password, conf_password } =
+  const { password, conf_password } =
     inputs;
 
-  const [nameError, setNameError] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [contactNumError, setContactNumError] = useState("");
-  const [addressError, setAddressError] = useState("");
+ 
   const [passwordError, setPasswordError] = useState("");
 
   const onChange = (e) =>
@@ -43,27 +39,10 @@ function CustomerRegister() {
     e.preventDefault();
     let checkErrors = 0;
     const validPasswordCheck=/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[-+_!@#$%^&*.,?])/
-    const validEmailCheck = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+    
     try {
-      if (!fname.trim() && !lname.trim()) {
-        setNameError("Name is required");
-        checkErrors = 1;
-      }
-      if (!email.trim()) {
-        setEmailError("Email is required");
-        checkErrors = 1;
-      } else if (!validEmailCheck.test(email)) {
-        setEmailError("Email is invalid");
-        checkErrors = 1;
-      }
-      if (!contactNum.trim()) {
-        setContactNumError("Contact number is required");
-        checkErrors = 1;
-      }
-      if (!address.trim()) {
-        setAddressError("Address is required");
-        checkErrors = 1;
-      }
+      
+      
       if (!password.trim() || !conf_password.trim()) {
         setPasswordError("Password is required");
         checkErrors = 1;
@@ -79,17 +58,11 @@ function CustomerRegister() {
       }
 
       if (checkErrors == 0) {
-        const res = await axios.post(API_URL, {
-          fname,
-          lname,
-          email,
-          contactNum,
-          address,
-          password,
+        const res = await axios.post(`http://localhost:4000/api/setpassword/${urlParameters.userid}/${urlParameters.token}`, {
+          password
         });
-        
 
-        setEmailMessage(res.data.message)
+        window.location.href = "/home";
         
       }
     } catch (err) {
@@ -116,89 +89,8 @@ function CustomerRegister() {
           className="max-w-fit w-full mx-auto bg-white p-4  rounded-lg border-2"
         >
           <h1 className="text-xl font-bold text-center py-2">
-            Customer Sign Up
+            New Password
           </h1>
-
-          <div>
-            <div className="flex flex-row justify-between">
-              <div className="flex flex-col basis-6/12 mr-1">
-                <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-                  <InputLabel>First Name</InputLabel>
-                  <Input
-                    type="text"
-                    name="fname"
-                    onChange={(e) => {
-                      onChange(e);
-                      setNameError("");
-                    }}
-                    value={fname}
-                  />
-                </FormControl>
-              </div>
-              <div className="flex flex-col basis-6/12 ml-1">
-                <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-                  <InputLabel>Last Name</InputLabel>
-                  <Input
-                    type="text"
-                    name="lname"
-                    onChange={(e) => {
-                      onChange(e);
-                      setNameError("");
-                    }}
-                    value={lname}
-                  />
-                </FormControl>
-              </div>
-            </div>
-            <p className="text-red-500 text-sm">{nameError}</p>
-          </div>
-          <div className="flex flex-col py-2 ">
-            <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-              <InputLabel>Email</InputLabel>
-              <Input
-                type="text"
-                name="email"
-                onChange={(e) => {
-                  onChange(e);
-                  setEmailError("");
-                }}
-                value={email}
-              />
-            </FormControl>
-            <p className="text-red-500 text-sm">{emailError}</p>
-          </div>
-
-          <div className="flex flex-col py-2">
-            <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-              <InputLabel>Contact Number</InputLabel>
-              <Input
-                type="text"
-                name="contactNum"
-                onChange={(e) => {
-                  onChange(e);
-                  setContactNumError("");
-                }}
-                value={contactNum}
-              />
-            </FormControl>
-            <p className="text-red-500 text-sm">{contactNumError}</p>
-          </div>
-
-          <div className="flex flex-col py-2">
-            <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-              <InputLabel>Address</InputLabel>
-              <Input
-                type="text"
-                name="address"
-                onChange={(e) => {
-                  onChange(e);
-                  setAddressError("");
-                }}
-                value={address}
-              />
-            </FormControl>
-            <p className="text-red-500 text-sm">{addressError}</p>
-          </div>
 
           <div className="flex flex-col justify-around">
             <div className="flex flex-row">
@@ -267,33 +159,18 @@ function CustomerRegister() {
             <p className="text-red-500 text-sm">{passwordError}</p>
           </div>
 
-          <div className="flex items-center justify-between ">
-            <div className="flex items-center mt-5">
-              <input
-                id="terms"
-                name="terms"
-                type="checkbox"
-                className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
-              />
-              <label
-                htmlFor="terms"
-                className="ml-2 block top-8 text-sm text-indigo-700 right-0"
-              >
-                Accept Terms & Conditions
-              </label>
-            </div>
-          </div>
+          
           <button
             type="submit"
             className="border w-full my-5 py-2 bg-cyan-500 hover:bg-cyan-400 text-white"
           >
-            Sign Up
+            Confirm
           </button>
-          {emailMessage && <p className="text-green-700">{emailMessage}</p>}
+          <p>{emailMessage}</p>
         </form>
       </div>
     </>
   );
 }
 
-export default CustomerRegister;
+export default ResetPasswordForm;
