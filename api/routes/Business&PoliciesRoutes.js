@@ -19,17 +19,62 @@ router.post("/", async (req, res) => {
 
   
 
-router.put("/", async (req, res) => {
+
+  
+  //get all todos
+
+  router.get("/", async (req, res) => {
     try {
-      const { appointment_id, status } = req.body;
-      const update = await pool.query(
-        "UPDATE appointment SET status=$1 WHERE appointment_id::text=$2",
-        [status, appointment_id]
+      const allBpolicies = await pool.query("SELECT * FROM policies");
+      res.json(allBpolicies.rows);
+    } catch (err) {
+      console.error(err.message);
+    }
+  });
+  
+  //get a todo
+  
+  router.get("/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const policies = await pool.query("SELECT * FROM policies WHERE bpolicies_id = $1", [
+        id
+      ]);
+  
+      res.json(policies.rows[0]);
+    } catch (err) {
+      console.error(err.message);
+    }
+  });
+  
+  //update a todo
+  
+  router.put("/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { bpolicies } = req.body;
+      const updateBpolicies = await pool.query(
+        "UPDATE policies SET bpolicies = $1 WHERE bpolicies_id = $2",
+        [bpolicies, id]
       );
-      res.json({ status: true });
-    } catch (error) {
-      console.error(error.message);
-      res.status(500).send("Server Error");
+  
+      res.json("Business and Policies was updated!");
+    } catch (err) {
+      console.error(err.message);
+    }
+  });
+  
+  //delete a todo
+  
+  router.delete("/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const deleteBpolicies = await pool.query("DELETE FROM policies WHERE bpolicies_id = $1", [
+        id
+      ]);
+      res.json("Business and Policies was deleted!");
+    } catch (err) {
+      console.log(err.message);
     }
   });
   

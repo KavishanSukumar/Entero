@@ -85,7 +85,7 @@ export const EditorData = () => (
     <h3>
     {/* <p className="text-sm italic truncate overflow-hidden"> */}
     <p>
-          <h2 className="content-center text-center text-sm italic truncate overflow-hidden">Privacy Policy Entero</h2><br />
+          {/* <h2 className="content-center text-center text-sm italic truncate overflow-hidden">Privacy Policy Entero</h2><br /> */}
           {/* <h2>Privacy Policy Entero</h2><br /> */}
           <p>Protecting your private information is our priority. This Statement of Privacy applies to
 www.topbrand.co, Entero Worldwide, LLC and Entero S.A.S and governs data

@@ -1,14 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import Shakir from "../../Shakir.jpg";
 import SearchIcon from "@mui/icons-material/Search";
 
-import * as React from "react";
+// import * as React from "react";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import axios from "axios";
 
 // import PageHeader from "../../../components/PagesHeader/PageHeader";
 import Button from "../button/Button";
@@ -57,6 +58,7 @@ import pho7 from "../../documents/pho7.jpg";
 import pho8 from "../../documents/pho8.jpg";
 import { Link } from "react-router-dom";
 
+const API_URL ="http://localhost:4000/api/customerevent";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -90,13 +92,25 @@ function a11yProps(index) {
   };
 }
 
-function EventsCustomer() {
+function EventsCustomer(props) {
   const [popup, setPopup] = useState(false);
   const [popupS, setPopupS] = useState(false);
   const [service, setService] = useState(false);
   const [serviceRegister, setServiceRegister] = useState(true);
-
   const [value, setValue] = React.useState(0);
+  const [cevent, setCevent] =React.useState([]);
+  const [id, setId] = useState();
+
+  async function getCevent() {
+    const res = await axios.post(API_URL, {
+      id: id,
+    });
+    setCevent(res.data);
+  }
+
+  React.useEffect(() => {
+    getCevent();
+  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -1469,6 +1483,7 @@ function EventsCustomer() {
             <Tab label="RECEPTION" {...a11yProps(2)} />
             <Tab label="ENGAGEMENT" {...a11yProps(3)} />
             <Tab label="OTHER OCCASION" {...a11yProps(4)} />
+            <Tab label="RECEPTION Testing" {...a11yProps(5)} />
 
             {/* <div className="ml-28">
 <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
@@ -1635,7 +1650,7 @@ function EventsCustomer() {
             </ul>
           </div>
           <div>
-            <TabPanel value={value} index={0}>
+            <TabPanel value={value} index={0} >
               {cateData}
             </TabPanel>
             <TabPanel value={value} index={1}>
@@ -1650,6 +1665,101 @@ function EventsCustomer() {
             </TabPanel>
             <TabPanel value={value} index={3}>
               {phoData}
+            </TabPanel>
+            <TabPanel value={value} index={4}>
+              {/* {phoData} */}
+            </TabPanel>
+            <TabPanel value={value} index={5}>
+
+
+            <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho4}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                PhotoLk
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+
+
+            {cevent.map(
+                      (item) =>
+                        item.userid != 0 &&
+                         (  
+            <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src={pho2}
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                {/* CHE Studio */}
+                {item.userid}
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
+            <Rate />
+            <a
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+            >
+              See Portfolio
+              <svg
+                aria-hidden="true"
+                class="ml-2 -mr-1 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+ )
+ )}
+
+
             </TabPanel>
           </div>
 
