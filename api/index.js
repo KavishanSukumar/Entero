@@ -9,9 +9,14 @@ import authRouter from "./routes/authRoutes.js";
 import serviceProviderRouter from "./routes/serviceProvicerApointments.js";
 import adminpaymentsRouter from "./routes/paymentRoutes.js"
 import customerRegistrationRouter from "./routes/customerRegistrationRoutes.js";
+import serviceRegistrationRouter from "./routes/serviceRegistrationRoutes.js"
 import CustomerAppointmentRouter from "./routes/CustomerAppointmentRoutes.js";
 import BusinessPoliciesRouter from "./routes/Business&PoliciesRoutes.js";
 import CustomerEventRouter from "./routes/CustomereventRoutes.js";
+import contactRouter from "./routes/contactRoutes.js";
+import adminCustomerRouter from "./routes/adminCustomerRoutes.js";
+import adminServiceRouter from "./routes/adminServiceRoutes.js"
+
 
 dotenv.config();
 
@@ -35,11 +40,16 @@ app.use(cors());
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/customer", customerRegistrationRouter);
+app.use("/api/service", serviceRegistrationRouter);
+app.use("/api/customer/appointment", CustomerAppointmentRouter);
 app.use("/api/serviceprovider/appointment", serviceProviderRouter);
 app.use("/api/admin/packages",adminpaymentsRouter);
 app.use("/api/customer/appointment", CustomerAppointmentRouter);
 app.use("/api/bpolicies", BusinessPoliciesRouter);
 app.use("/api/customerevent", CustomerEventRouter );
+app.use("/api/contact", contactRouter);
+app.use("/api/admincustomer", adminCustomerRouter);
+app.use("/api/adminservice", adminServiceRouter);
 
 
 app.listen(PORT, () => {
