@@ -12,8 +12,10 @@ import customerRegistrationRouter from "./routes/customerRegistrationRoutes.js";
 import CustomerAppointmentRouter from "./routes/CustomerAppointmentRoutes.js";
 import contactRouter from "./routes/contactRoutes.js";
 import portfolioSpRouter from "./routes/portfolioSpRoutes.js";
-import portfolioContact from "./routes/portfolioContact.js"
-
+import portfolioContact from "./routes/portfolioContact.js";
+import spPackages from "./routes/spPackagesRoutes.js";
+import portfolioImages from "./routes/portfolioImagesRoutes.js";
+//import spPortPics from "./sp_portfolio_images/10";
 dotenv.config();
 
 let localPoolConfig = {
@@ -30,9 +32,11 @@ const corsOptions = {
   origin: "process.env.URL",
   credentials: true || "*",
 };
+
 app.use(express.json());
 app.use(cors());
-
+app.use(express.static("sp_portfolio_images"));
+//app.use("/api/sp_portfolio_images",spPortPics);
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/customer", customerRegistrationRouter);
@@ -42,7 +46,8 @@ app.use("/api/customer/appointment", CustomerAppointmentRouter);
 app.use("/api/contact", contactRouter);
 app.use("/api/serviceprovider/portfoliosp", portfolioSpRouter);
 app.use("/api/serviceprovider/portfoliocontact", portfolioContact);
-
+app.use("/api/serviceprovider/sp_packages", spPackages);
+app.use("/api/serviceprovider/portfolioimages", portfolioImages);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}.`);

@@ -298,7 +298,7 @@ console.log('this is user id'+id);
           path="/serviceportfolio"
           element={
             isAuthenticated && userrole === "sp" ? (
-              <ServiceProviderPortfolio />
+              <ServiceProviderPortfolio userid={id}/>
             ) : (
               <Home />
             )

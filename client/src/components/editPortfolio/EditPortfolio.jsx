@@ -9,12 +9,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const API_URL = "http://localhost:4000/api/serviceprovider/portfoliosp";
+const IMG_URL2 = "http://localhost:4000/api/serviceprovider/portfolioimages";
 
 function PortFolio(props) {
-  
+ 
+ 
 
   const [userid, setUser] = React.useState(props.id);
-  console.log("this is from service provider portfolio 2 ====== "+userid);
+  console.log("this is from Edit portfolio  ====== "+userid);
 
   const [portfolioinfo, setportfolioinfo] = useState([]);
  
@@ -35,12 +37,14 @@ function PortFolio(props) {
    
   }, []);
 
-  const [activeTab, setActiveTab] = React.useState(<AboutUs  uid={userid}  />);
+    
+
+  const [activeTab, setActiveTab] = React.useState(<AboutUs  uid={userid} />);
   const handleChange = (id,userid,ischeckapp,ischeckchat) => {
 
     switch (id) {
       case "aboutus":
-        setActiveTab(<AboutUs uid={userid} />);
+        setActiveTab(<AboutUs uid={userid}  />);
         break;
       case "packages":
         setActiveTab(<Packages uid={userid} />);

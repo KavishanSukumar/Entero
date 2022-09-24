@@ -11,6 +11,8 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { AiOutlineClose } from 'react-icons/ai';
 import axios from "axios";
+import ShieldIcon from '@mui/icons-material/Shield';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 const API_URL = "http://localhost:4000/api/admin/packages";
 //main tab pannel (packages,service charges)
@@ -135,14 +137,25 @@ function ManagePayments() {
       )
     } else if (id == 2) {
       return (
-        <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
+        <WorkspacePremiumIcon className="text-red-500 !h-10 !w-10" />
       )
 
-    } else {
+    } else if (id == 3) {
+      return (
+        <ShieldIcon className="text-gray-300 !h-10 !w-10" />
+      )
+    } else if (id == 4) {
+      return (
+        <Brightness7Icon className="text-yellow-500 !h-10 !w-10" />
+      )
+
+    } else if (id == 5) {
       return (
         <DiamondIcon className="text-blue-500 !h-10 !w-10" />
       )
+
     }
+
   }
 
 
@@ -153,7 +166,7 @@ function ManagePayments() {
     try {
       const res = await axios.get(API_URL)
       setpackage(res.data);
-      
+
 
     } catch (error) {
       console.error(error.message);
@@ -173,7 +186,7 @@ function ManagePayments() {
       window.location = '/adminpayment';
 
     } catch (error) {
-      console.log('this is error ----->'+error.message);
+      console.log('this is error ----->' + error.message);
     }
     window.location = '/adminpayment';
   }
@@ -189,15 +202,15 @@ function ManagePayments() {
   };
   const [thepackageid, setthepackageid] = useState(0);
 
-function selectpack(id){
+  function selectpack(id) {
 
-  let item=adminpacks[id-1];
-  setName(item.name);
-  setDes(item.des);
-  setPrice(item.price);
+    let item = adminpacks[id - 1];
+    setName(item.name);
+    setDes(item.des);
+    setPrice(item.price);
 
 
-}
+  }
 
   return (
     <div className="m-10  flex flex-col">
@@ -222,45 +235,45 @@ function selectpack(id){
             {console.log('this is package id in popup ------' + thepackageid)}
 
 
-           
 
-              <div  className="flex flex-col gap-1">
-                {console.log('this is package id in popup test2 ------' + thepackageid)}
-                <div className="flex py-3 justify-center bg-white   rounded-lg">
-                  <p className="font-bold text-lg "> Edit Package </p>
-                </div>
-                <form action="" onSubmit={onsubmitform}>
-                  <div className="flex flex-col bg-slate-500 p-5 rounded-lg ">
-                    <div class="mb-6">
-                      <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Name</label>
-                      <input name="name" onChange={(e) => setName(e.target.value)} value={name} type="text"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required/>
-                    </div>
-                    <div class="mb-6">
-                      <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Price</label>
-                      <input name="price" onChange={(e) => setPrice(e.target.value)}   placeholder='LKR XXXX'  value={price} type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required/>
-                    </div>
-                    <div class="mb-6">
-                      <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
-                      <textarea name="des" onChange={(e) => setDes(e.target.value)} value={des} type="text"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required/>
-                    </div>
-                    <input type="hidden" name="id" value={thepackageid} />
-                    <div className="flex order-3 mt-10 justify-center rounded-lg  ">
-                      <div className="rounded-md shadow ">
-                        <button
-                          type="onSubmit"
-                          onClick={handlePopup}
-                          className="py-2 px-4  bg-cyan-500 hover:bg-blue-400 focus:ring-cyan-900 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
-                        >
-                          Save Changes
-                        </button>
-                      </div>
-                    </div>
 
-                  </div>
-                </form>
-
+            <div className="flex flex-col gap-1">
+              {console.log('this is package id in popup test2 ------' + thepackageid)}
+              <div className="flex py-3 justify-center bg-white   rounded-lg">
+                <p className="font-bold text-lg "> Edit Package </p>
               </div>
-           
+              <form action="" onSubmit={onsubmitform}>
+                <div className="flex flex-col bg-slate-500 p-5 rounded-lg ">
+                  <div class="mb-6">
+                    <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Name</label>
+                    <input name="name" onChange={(e) => setName(e.target.value)} value={name} type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                  </div>
+                  <div class="mb-6">
+                    <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Package Price</label>
+                    <input name="price" onChange={(e) => setPrice(e.target.value)} placeholder='LKR XXXX' value={price} type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                  </div>
+                  <div class="mb-6">
+                    <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
+                    <textarea name="des" onChange={(e) => setDes(e.target.value)} value={des} type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[300px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                  </div>
+                  <input type="hidden" name="id" value={thepackageid} />
+                  <div className="flex order-3 mt-10 justify-center rounded-lg  ">
+                    <div className="rounded-md shadow ">
+                      <button
+                        type="onSubmit"
+                        onClick={handlePopup}
+                        className="py-2 px-4  bg-cyan-500 hover:bg-blue-400 focus:ring-cyan-900 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                      >
+                        Save Changes
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </form>
+
+            </div>
+
 
 
           </div>
@@ -303,12 +316,15 @@ function selectpack(id){
                 <div key={a.sub_packageid} title="Click here to edit the package" onClick={() => { handlePopup(); setthepackageid(a.sub_packageid); selectpack(a.sub_packageid) }} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className=" relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8 hover:cursor-pointer order-2 ">
                   <div className="h-auto lg:h-52   pricing-box    mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
                     <div className="bg-white w-full dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-6">
-                      <h3 className="text-2xl flex justify-center  uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
-                        {setIDIcon(a.sub_packageid)}
-
-                        {a.name}
+                      <h3 className="text-2xl flex justify-center gap-1  uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
+                        <span>
+                          {setIDIcon(a.sub_packageid)}
+                        </span>
+                        <span>
+                          {a.name}
+                        </span>
                       </h3>
-                      <p className="mt-4 text-base flex justify-center leading-6 text-gray-500 lg:w-[250px] dark:text-gray-200 mb-">
+                      <p className="mt-4 text-base flex justify-center leading-6 text-gray-500 lg:w-[400px] dark:text-gray-200 mb-">
                         {a.des}
                       </p>
                     </div>
@@ -378,7 +394,7 @@ function selectpack(id){
                       <tr>
                         <th
                           scope="col"
-                         className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
                           Payment_ID
                         </th>
