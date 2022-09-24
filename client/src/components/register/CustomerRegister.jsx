@@ -51,7 +51,7 @@ function CustomerRegister() {
     e.preventDefault();
     let checkErrors = 0;
     const validPasswordCheck =
-      /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,20}$/;
+      /(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[-+_!@#$%^&*.,?])/;
     const validEmailCheck = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
     try {
       if (!fname.trim() && !lname.trim()) {

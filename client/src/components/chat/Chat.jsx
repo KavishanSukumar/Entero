@@ -1,9 +1,29 @@
-import React from "react";
+import { useState, useRef, useEffect } from "react";
+import * as React from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import SendIcon from "@mui/icons-material/Send";
+import io from "socket.io-client";
+import Message from "./Message";
+import User from "./User";
+import axios from "axios";
 
-function chat() {
+const GETCHAT_URL = "http://localhost:4000/api/chat/";
+
+function Chat(props) {
+  const [userId, setUserId] = useState(props.data);
+  const [conversation, setConversation] = useState([]);
+
+  useEffect(() => {
+    const getConversation = async () => {
+      const res = await axios.get(GETCHAT_URL + userId);
+      setConversation(res.data);
+    };
+    getConversation();
+  }, [userId]);
+
+  console.log(conversation[0]);
+
   return (
     <div className="flex flex-row mt-14 mb-10 md:mt-0 max-h-screen h-{100vh -56px}">
       <div className="hidden lg:flex flex-col basis-1/3  max-h-screen border-r-2 ">
@@ -29,47 +49,10 @@ function chat() {
 
         {/* ---------------------------------Chat user-------------------------------- */}
         <div className="overflow-auto max-h-min  mt-3">
-          {/* -------------------------------------------------------------------------- */}
-          <div className="grid grid-cols-6 p-3 m-3 border-b-2">
-            <div>
-              <img
-                className="inline-block h-14 w-14 rounded-full ring-2 ring-gray-500"
-                src="/assets/images/fab.jpg"
-                alt=""
-              />
-            </div>
-            <div className="col-span-5 flex flex-col">
-              <p className="text-lg font-medium capitalize truncate">Fabs</p>
-              <p className="text-sm italic truncate overflow-hidden">
-                Thank you shakir for connecting us
-              </p>
-            </div>
-          </div>
-          {/* ------------------------------------------------------------ -------------------*/}
-
-          {/* ------------------------------------------------------------ -------------------*/}
-
-          {/* ------------------------------------------------------------ -------------------*/}
-          <div className="grid grid-cols-6 p-3 m-3 border-b-2">
-            <div>
-              <img
-                className="inline-block h-14 w-14 rounded-full ring-2 ring-black"
-                src="https://pereraandsons.com/assets/img/logo.svg"
-                alt=""
-              />
-            </div>
-            <div className="col-span-5 flex flex-col">
-              <p className="text-lg font-medium capitalize truncate">
-                Perera & Sons
-              </p>
-              <p className="text-sm italic truncate overflow-hidden">
-                Thank you shakir
-              </p>
-            </div>
-          </div>
-          {/* ------------------------------------------------------------ -------------------*/}
-
-          {/* ------------------------------------------------------------ -------------------*/}
+          <User />
+          <User />
+          <User />
+          <User />
         </div>
       </div>
       <div className=" flex flex-col lg:basis-2/3 basis-full mt-6 ml-3">
@@ -78,69 +61,10 @@ function chat() {
           <p className="font-serif text-2xl capitalize">Fabs</p>
         </div>
         <div className="mt-3 overflow-auto max-h-screen h-screen">
-          {/* ------------------------------------------------------------------------------- */}
-          <div className="flex flex-row p-3 m-3 items-center justify-start">
-            <div>
-              <img
-                className="inline-block h-9 w-9 rounded-full ring-2 ring-black"
-                src="/assets/images/fab.jpg"
-                alt=""
-              />
-            </div>
-            <div className="flex ">
-              <p className="text-sm italic ml-3 max-w-md">
-                We have package related to you requirements. and those are
-                vissible in the portfolio section. You can refer them to us for
-                more details.
-              </p>
-            </div>
-          </div>
-          {/* --------------------------------------------------------------------------------- */}
-          <div className="flex flex-row p-3 m-3 items-center justify-end">
-            <div>
-              <img
-                className="inline-block h-9 w-9 rounded-full ring-2 ring-black"
-                src="/assets/images/Shakir.jpg"
-                alt=""
-              />
-            </div>
-            <div className="flex ">
-              <p className="text-sm italic ml-3 max-w-md">
-                Thank you very much...
-              </p>
-            </div>
-          </div>
-          {/* --------------------------------------------------------------------------------- */}
-          <div className="flex flex-row p-3 m-3 items-center">
-            <div>
-              <img
-                className="inline-block h-9 w-9 rounded-full ring-2 ring-black"
-                src="/assets/images/fab.jpg"
-                alt=""
-              />
-            </div>
-            <div className="flex ">
-              <p className="text-sm italic ml-3 max-w-md">
-                If you want any futher detail please contact us
-              </p>
-            </div>
-          </div>
-          {/* --------------------------------------------------------------------------------- */}
-          <div className="flex flex-row p-3 m-3 items-center">
-            <div>
-              <img
-                className="inline-block h-9 w-9 rounded-full ring-2 ring-black"
-                src="/assets/images/fab.jpg"
-                alt=""
-              />
-            </div>
-            <div className="flex ">
-              <p className="text-sm italic ml-3 max-w-md">
-                Thank you shakir for connecting us...
-              </p>
-            </div>
-          </div>
-          {/* --------------------------------------------------------------------------------- */}
+          <Message status={true} />
+          <Message />
+          <Message status={true} />
+          <Message />
         </div>
         <div className="flex flex-row mt-5">
           <div className="basis-full">
@@ -167,4 +91,4 @@ function chat() {
   );
 }
 
-export default chat;
+export default Chat;

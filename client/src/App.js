@@ -57,7 +57,7 @@ function App() {
         headers: { token: localStorage.token },
       });
       setId(res.data.payload);
-      getUser(res.data.payload);
+      getUserrole(res.data.payload);
 
       res.data.status === true
         ? setIsAuthenticated(true)
@@ -67,7 +67,7 @@ function App() {
     }
   }
 
-  async function getUser(userid) {
+  async function getUserrole(userid) {
     const res1 = await axios.post(API_URL_USER, {
       userid,
     });
@@ -276,7 +276,11 @@ function App() {
           exact
           path="/customerchat"
           element={
-            isAuthenticated && userrole === "cs" ? <CustomerChat /> : <Home />
+            isAuthenticated && userrole === "cs" ? (
+              <CustomerChat data={id} />
+            ) : (
+              <Home />
+            )
           }
         />
         <Route
@@ -331,7 +335,7 @@ function App() {
           path="/servicechat"
           element={
             isAuthenticated && userrole === "sp" ? (
-              <ServiceProviderChat />
+              <ServiceProviderChat data={id} />
             ) : (
               <Home />
             )
