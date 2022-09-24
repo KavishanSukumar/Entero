@@ -1,0 +1,212 @@
+CREATE DATABASE entero;
+
+CREATE TABLE users(
+	userid  SERIAL NOT NULL PRIMARY KEY ,
+	email VARCHAR(100) NOT NULL UNIQUE,
+	password VARCHAR(500),
+	name VARCHAR(100) NOT NULL,
+	contact_number VARCHAR(15) NOT NULL,
+	address VARCHAR(150) NOT NULL,
+	image VARCHAR(500) ,
+	email_validated BOOLEAN DEFAULT false,
+	userrole VARCHAR(2) NOT NULL
+);
+
+
+
+CREATE TABLE customer(
+	userid INT NOT NULL PRIMARY KEY,
+	status VARCHAR(1) NOT NULL,
+	FOREIGN KEY(userid) REFERENCES users(userid) 
+);
+
+CREATE TABLE service_provider(
+	userid INT NOT NULL PRIMARY KEY,
+	br_no VARCHAR(25) NOT NULL,
+	br_file VARCHAR(500) NOT NULL,
+	dor DATE NOT NULL,
+	refreshment BOOLEAN DEFAULT false,
+	decoration BOOLEAN DEFAULT false,
+	hallservices BOOLEAN DEFAULT false,
+	photography BOOLEAN DEFAULT false,
+	birthday BOOLEAN DEFAULT false,
+	reception BOOLEAN DEFAULT false,
+	wedding BOOLEAN DEFAULT false,
+	engagement BOOLEAN DEFAULT false,
+	other BOOLEAN DEFAULT false,
+	start_date DATE NOT NULL,
+	end_date DATE NOT NULL,
+	sub_packageid INT  , 
+	status VARCHAR(1) NOT NULL,
+	FOREIGN KEY(userid) REFERENCES users(userid),
+	FOREIGN KEY(sub_packageid) REFERENCES sub_package(sub_packageid)
+);
+
+CREATE TABLE sub_package(
+	sub_packageid SERIAL not null primary key,
+	name varchar(100) not null,
+	description varchar(500) not null,
+	price varchar(50) not null
+);
+
+CREATE TABLE portfolio(
+	portfolioid SERIAL not null PRIMARY KEY,
+	description VARCHAR(1000) NOT NULL,
+	appointment_enable BOOLEAN NOT NULL DEFAULT false,
+	chat_enable BOOLEAN NOT NULL DEFAULT false,
+	userid INT  NOT NULL,
+	FOREIGN KEY(userid) REFERENCES service_provider(userid)
+);
+
+CREATE TABLE portfolio_image(
+	portfolio_imageid SERIAL not null PRIMARY KEY,
+	image VARCHAR(500),
+	portfolioid INT  not null ,
+	FOREIGN KEY(portfolioid) REFERENCES portfolio(portfolioid)
+);
+
+CREATE TABLE package(
+	package_id SERIAL PRIMARY KEY,
+	name VARCHAR(100) NOT NULL,
+	description VARCHAR(500) NOT NULL,
+	item_description VARCHAR(1500) NOT NULL,
+	price INT NOT NULL,
+	portfolioid INT NOT NULL,
+	FOREIGN KEY(portfolioid) REFERENCES portfolio(portfolioid)
+);
+
+CREATE TABLE appointment(
+	appointment_id SERIAL PRIMARY KEY,
+	date DATE NOT NULL,
+	time TIME NOT NULL,
+	description VARCHAR(1000) NOT NULL,
+	userid_c INT NOT NULL,
+	userid_s INT NOT NULL,
+	FOREIGN KEY(userid_c) REFERENCES customer(userid),
+	FOREIGN KEY(userid_s) REFERENCES service_provider(userid)
+);
+
+CREATE TABLE booking(
+	booking_id SERIAL PRIMARY KEY,
+	date DATE NOT NULL,
+	time TIME NOT NULL,
+	type varchar(10) NOT NULL,
+	location varchar(200) NOT NULL,
+	status varchar(1) NOT NULL,
+	userid_c INT NOT NULL,
+	userid_s INT NOT NULL,
+	package_id INT NOT NULL,
+	FOREIGN KEY(userid_c) REFERENCES customer(userid),
+	FOREIGN KEY(userid_s) REFERENCES service_provider(userid),
+	FOREIGN KEY(package_id) REFERENCES package(package_id)
+	
+);
+
+CREATE TABLE review(
+	review_id SERIAL PRIMARY KEY,
+	date DATE NOT NULL,
+	time TIME NOT NULL,
+	rating INT NOT NULL,
+	content varchar(500) NOT NULL,
+	userid_c INT NOT NULL,
+	userid_s INT NOT NULL,
+	FOREIGN KEY(userid_c) REFERENCES customer(userid),
+	FOREIGN KEY(userid_s) REFERENCES service_provider(userid)
+);
+
+CREATE TABLE payment(
+	paymentid SERIAL PRIMARY KEY,
+	date date not null,
+	time time not null,
+	price INT NOT NULL,
+	userid INT NOT NULL,
+	FOREIGN KEY(userid) REFERENCES service_provider(userid)
+	
+);
+
+CREATE TABLE message(
+	chat_id SERIAL PRIMARY KEY,
+	conversation_id int NOT NULL,
+	sender_id INT NOT NULL,
+	date DATE NOT NULL,
+	time TIME NOT NULL,
+	message varchar(1500) NOT NULL,
+	FOREIGN KEY(sender_id) REFERENCES users(userid),
+	FOREIGN KEY(conversation_id) REFERENCES conversation(conversation_id)
+);
+
+CREATE TABLE conversation(
+	conversation_id SERIAL PRIMARY KEY,
+	sender_id INT NOT NULL,
+	receiver_id INT NOT NULL,
+	FOREIGN KEY(sender_id) REFERENCES users(userid),
+	FOREIGN KEY(receiver_id) REFERENCES users(userid)
+);
+
+CREATE TABLE contact(
+	contact_id SERIAL PRIMARY KEY,
+	name VARCHAR(100) NOT NULL,
+	email VARCHAR(100) NOT NULL, 
+	message VARCHAR(500) NOT NULL,
+	received_date DATE NOT NULL,
+	received_time TIME NOT NULL,
+	reply VARCHAR(500),
+	reply_date DATE,
+	reply_time TIME 
+);
+
+
+
+INSERT INTO users (  email, password, name, contact_number, address,userrole) 
+VALUES ('shakirsaheel123@gmail.com','$2b$10$7LqAK9c.5BxJCHHJJDbA/OdmDmnzSfw8cPJRLZR3Oy1tmsVCC5LTO','Shakir Saheel', '0771979029', 'Maggona Kalutara','cs');
+
+INSERT INTO users (  email, password, name, contact_number, address,userrole) 
+VALUES ('senalpunsara@gmail.com','$2b$10$7LqAK9c.5BxJCHHJJDbA/OdmDmnzSfw8cPJRLZR3Oy1tmsVCC5LTO','Senal Punsara', '0770554474', ' Athurugiriya Oruwala','cs');
+
+INSERT INTO users (  email, password, name, contact_number, address,userrole) 
+VALUES ('yonali@gmail.com','$2b$10$7LqAK9c.5BxJCHHJJDbA/OdmDmnzSfw8cPJRLZR3Oy1tmsVCC5LTO','Yonali Fernando', '0770554474', ' Galle','cs');
+
+INSERT INTO users (  email, password, name, contact_number, address,userrole) 
+VALUES ('keishini@gmail.com','$2b$10$7LqAK9c.5BxJCHHJJDbA/OdmDmnzSfw8cPJRLZR3Oy1tmsVCC5LTO','Keishini Joseph', '0770554474', 'Batticaloe','cs');
+
+INSERT INTO users (  email, password, name, contact_number, address,userrole) 
+VALUES ('ninthu@gmail.com','$2b$10$7LqAK9c.5BxJCHHJJDbA/OdmDmnzSfw8cPJRLZR3Oy1tmsVCC5LTO','Ninthu Keish', '0770554474', 'Batticaloe','cs');
+
+INSERT INTO users ( email, password, name, contact_number, address,userrole) 
+VALUES ('priskilaathauda@gmail.com','$2b$10$7LqAK9c.5BxJCHHJJDbA/OdmDmnzSfw8cPJRLZR3Oy1tmsVCC5LTO','Priskila Athaudha', '0772150504', ' Katugasthota Kandy','am');
+
+INSERT INTO users (  email, password, name, contact_number, address,userrole) 
+VALUES ('fabs@gmail.com','$2b$10$7LqAK9c.5BxJCHHJJDbA/OdmDmnzSfw8cPJRLZR3Oy1tmsVCC5LTO','Fabs', '0770554474', ' Athurugiriya Oruwala','sp');
+
+/////////////////////////////////////////////////////////
+
+INSERT INTO appointment (date, time, description, customer_id, sp_id,status ) VALUES 
+('2022-09-05', '12:00:00','regarding the packages in you plan','a93b4f9c-020a-47a8-a867-bcf203970b8f',
+'88f5b56e-b5a6-4585-9047-413291a13550',0);
+
+INSERT INTO appointment (date,time,description, customer_id, sp_id,status ) VALUES 
+('2022-09-15', '09:00:00','On quantity','534b224f-b893-491c-9407-d19a4a1dbaa1',
+'88f5b56e-b5a6-4585-9047-413291a13550',0);
+
+INSERT INTO appointment (date,time,description, customer_id, sp_id,status ) VALUES 
+('2022-09-15', '13:00:00','regarding the charges in packages','77403db1-b8d7-4ee8-be2e-a337355c2944',
+'88f5b56e-b5a6-4585-9047-413291a13550',0);
+
+INSERT INTO appointment (date,time,description, customer_id, sp_id,status ) VALUES 
+('2022-09-15', '15:00:00','About the time for booking','371e1e53-00a5-4c10-a6cb-2af688883ba8',
+'88f5b56e-b5a6-4585-9047-413291a13550',0);
+
+
+
+SELECT * FROM appointment;
+
+INSERT INTO appointment (date, time, description, customer_id, sp_id,status ) VALUES 
+('2022-09-05', '12:00:00','regarding the packages in you plan','a93b4f9c-020a-47a8-a867-bcf203970b8f',
+'88f5b56e-b5a6-4585-9047-413291a13550',0);
+
+INSERT INTO appointment (date,time,description, customer_id, sp_id,status ) VALUES 
+('2022-09-15', '09:00:00','regarding the charges in packages','a93b4f9c-020a-47a8-a867-bcf203970b8f',
+'88f5b56e-b5a6-4585-9047-413291a13550',0);
+
+
+
