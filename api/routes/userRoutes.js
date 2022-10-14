@@ -18,10 +18,11 @@ router.post("/", async (req, res) => {
   try {
     const userid = req.body.userid;
     const newUser = await pool.query(
-      "SELECT userid, email, userrole FROM users WHERE userid::text=$1",
+      "SELECT * FROM users WHERE userid::text=$1",
       [userid]
     );
-    res.json(newUser.rows[0]);
+    const { password, ...user } = newUser.rows[0];
+    res.json(user);
     return;
   } catch (error) {
     res.status(500).send(error.message);

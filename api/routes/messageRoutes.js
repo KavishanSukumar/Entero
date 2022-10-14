@@ -18,14 +18,27 @@ router.post("/", async (req, res) => {
 });
 
 //get messages
-router.get("/", async (req, res) => {
-  const { conversation_id } = req.body;
+router.get("/:conversationid", async (req, res) => {
+  const { conversationid } = req.params;
   try {
     const messages = await pool.query(
-      "SELECT * FROM message WHERE conversation_id = $1",
-      [conversation_id]
+      "SELECT * FROM message WHERE conversation_id = $1 ORDER BY date ASC, time ASC",
+      [conversationid]
     );
     res.json(messages.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+router.put("/:conversationid", async (req, res) => {
+  const { conversationid } = req.params;
+  try {
+    const updateMessage = await pool.query(
+      "UPDATE message SET status = true WHERE conversation_id = $1",
+      [conversationid]
+    );
+    res.json("Message was updated!");
   } catch (err) {
     console.error(err.message);
   }

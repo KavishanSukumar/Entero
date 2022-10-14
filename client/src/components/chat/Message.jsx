@@ -1,6 +1,7 @@
 import React from "react";
+import moment from "moment";
 
-function Message({ status }) {
+function Message({ status, message }) {
   return (
     <div
       className={
@@ -24,13 +25,12 @@ function Message({ status }) {
               : "flex bg-blue-100 p-3 rounded-xl"
           }
         >
-          <p className="text-sm italic ml-3 max-w-md">
-            We have package related to you requirements. and those are vissible
-            in the portfolio section. You can refer them to us for more details.
-          </p>
+          <p className="text-sm italic ml-3 max-w-md">{message.message}</p>
         </div>
         <div className="flex">
-          <p className="text-sm italic ml-3 max-w-md">1 hour ago</p>
+          <p className="text-sm italic ml-3 max-w-md">
+            {moment(message.date, "YYYY-MM-DD").fromNow()}
+          </p>
         </div>
       </div>
     </div>
