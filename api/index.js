@@ -9,6 +9,7 @@ import authRouter from "./routes/authRoutes.js";
 import serviceProviderRouter from "./routes/serviceProvicerApointments.js";
 import adminpaymentsRouter from "./routes/paymentRoutes.js"
 import customerRegistrationRouter from "./routes/customerRegistrationRoutes.js";
+import serviceRegistrationRouter from "./routes/serviceRegistrationRoutes.js"
 import CustomerAppointmentRouter from "./routes/CustomerAppointmentRoutes.js";
 import contactRouter from "./routes/contactRoutes.js";
 import portfolioSpRouter from "./routes/portfolioSpRoutes.js";
@@ -16,6 +17,10 @@ import portfolioContact from "./routes/portfolioContact.js";
 import spPackages from "./routes/spPackagesRoutes.js";
 import portfolioImages from "./routes/portfolioImagesRoutes.js";
 //import spPortPics from "./sp_portfolio_images/10";
+import adminCustomerRouter from "./routes/adminCustomerRoutes.js";
+import adminServiceRouter from "./routes/adminServiceRoutes.js"
+
+
 dotenv.config();
 
 let localPoolConfig = {
@@ -40,14 +45,18 @@ app.use(express.static("sp_portfolio_images"));
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/customer", customerRegistrationRouter);
+app.use("/api/service", serviceRegistrationRouter);
+app.use("/api/customer/appointment", CustomerAppointmentRouter);
 app.use("/api/serviceprovider/appointment", serviceProviderRouter);
 app.use("/api/admin/packages",adminpaymentsRouter);
-app.use("/api/customer/appointment", CustomerAppointmentRouter);
 app.use("/api/contact", contactRouter);
 app.use("/api/serviceprovider/portfoliosp", portfolioSpRouter);
 app.use("/api/serviceprovider/portfoliocontact", portfolioContact);
 app.use("/api/serviceprovider/sp_packages", spPackages);
 app.use("/api/serviceprovider/portfolioimages", portfolioImages);
+app.use("/api/admincustomer", adminCustomerRouter);
+app.use("/api/adminservice", adminServiceRouter);
+
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}.`);

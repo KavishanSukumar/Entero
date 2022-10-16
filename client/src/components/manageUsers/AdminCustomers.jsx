@@ -1,55 +1,49 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import axios from 'axios';
 import Shakir from "../../Shakir.jpg";
 import SearchIcon from "@mui/icons-material/Search";
 
-import * as React from "react";
-import PropTypes from "prop-types";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
-}
+const API_URL = "http://localhost:4000/api/admincustomer"
 
 function AdminCustomers() {
+  const [customers,setCustomers]=useState([])
+  const [customerDetail,setCustomerDetail]=useState()
   const [popup, setPopup] = useState(false);
-  const [value, setValue] = React.useState(0);
 
-  const handlePopup = () => {
+  async function fetchCustomers() {
+    try {
+      const res = await axios.get(API_URL);
+      setCustomers(res.data);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+  
+
+  useEffect(() => {
+    fetchCustomers();
+  },[]);
+
+  console.log(customers)
+
+  const handlePopup = (customer) => {
+    setCustomerDetail(customer);
     setPopup(!popup);
   };
+
+  const changeStatus=async (id)=>{
+    try {
+      const x = API_URL + "/" + id;
+      const res = await axios.put(x);
+      console.log(res.data);
+      fetchCustomers();
+      alert('Status updated')
+    } catch (error) {
+      console.log(error.message)
+    }
+
+  }
 
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
@@ -105,7 +99,11 @@ function AdminCustomers() {
 
               {/*The buttons */}
               <div className="flex flex-col w-44 p-4">
-                <button className=" border-2 bg-cyan-500 hover:bg-cyan-400  p-1 mb-3 rounded text-white">
+                
+                <button className=" border-2 bg-cyan-500 hover:bg-cyan-400  p-1 mb-3 rounded text-white"
+                onClick={() => {
+                  changeStatus(customerDetail.userid);
+                }}>
                   Remove
                 </button>
               </div>
@@ -117,25 +115,21 @@ function AdminCustomers() {
               <dl class="text-gray-900 divide-y divide-gray-200 ">
                 <div class="flex flex-col pb-3">
                   <dt class="mb-1 text-gray-500 md:text-md ">Name</dt>
-                  <dd class="text-md font-semibold">Kavin Fernando</dd>
-                </div>
-                <div class="flex flex-col pb-3">
-                  <dt class="mb-1 text-gray-500 md:text-md ">NIC</dt>
-                  <dd class="text-md font-semibold">723456789V</dd>
+                  <dd class="text-md font-semibold">{customerDetail && customerDetail.name}</dd>
                 </div>
                 <div class="flex flex-col pb-3">
                   <dt class="mb-1 text-gray-500 md:text-md ">Email address</dt>
-                  <dd class="text-md font-semibold">kavintr@gmail.com</dd>
+                  <dd class="text-md font-semibold">{customerDetail && customerDetail.email}</dd>
                 </div>
                 <div class="flex flex-col py-3">
                   <dt class="mb-1 text-gray-500 md:text-md ">Address</dt>
                   <dd class="text-md font-semibold">
-                    25, Mount Road ,Kalubowila
+                    {customerDetail && customerDetail.address}
                   </dd>
                 </div>
                 <div class="flex flex-col pt-3">
                   <dt class="mb-1 text-gray-500 md:text-md ">Contact</dt>
-                  <dd class="text-md font-semibold">0772345670</dd>
+                  <dd class="text-md font-semibold">{customerDetail && customerDetail.contact_number}</dd>
                 </div>
               </dl>
             </div>
@@ -179,79 +173,48 @@ function AdminCustomers() {
             </tr>
           </thead>
           <tbody className="">
-            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                C10001
+            {customers.length === 0 ? 
+              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+              <td colSpan={4} class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">No records yet
+            </td>
+            </tr>
+            : 
+              ""
+            }
+            {customers &&
+            customers.map((customer) => (
+              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{customer.userid}
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Kavin Fernando
+                {customer.name}
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                kavingghyre@gmail.com
+                {customer.email}
               </td>
-
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Active
               </td>
-
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 <button
-                  onClick={handlePopup}
+                  onClick={() => {
+                    handlePopup(customer);
+                  }}
                   className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                 >
                   View
                 </button>
-                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                onClick={() => {
+                  changeStatus(customer.userid);
+                }}>
                   Remove
                 </button>
               </td>
             </tr>
-            <tr>
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                C10002
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Rajeev Fernando
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                rtn.silva.e@gmail.com
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Active
-              </td>
+            ))}
+            
 
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                  View
-                </button>
-                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                  Remove
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                C10003
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Sithum Pathirana
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                spm56@gmail.com
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Active
-              </td>
-
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                  View
-                </button>
-                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                  Remove
-                </button>
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>

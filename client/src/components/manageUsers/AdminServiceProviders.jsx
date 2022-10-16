@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import axios from 'axios';
 import Shakir from "../../Shakir.jpg";
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -9,6 +10,8 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+
+const API_URL = "http://localhost:4000/api/adminservice"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -46,8 +49,10 @@ function a11yProps(index) {
 function AdminServiceProviders() {
   const [popup, setPopup] = useState(false);
   const [popupS, setPopupS] = useState(false);
-  const [service, setService] = useState(false);
-  const [serviceRegister, setServiceRegister] = useState(true);
+  const [services, setServices] = useState([]);
+  const [serviceDetail,setServiceDetail]=useState();
+  const [serviceRegister, setServiceRegister] = useState([]);
+  
 
   const [value, setValue] = React.useState(0);
 
@@ -55,15 +60,46 @@ function AdminServiceProviders() {
     setValue(newValue);
   };
 
-  const handlePopup = () => {
+  const handlePopup = (service) => {
+    setServiceDetail(service);
     setPopup(!popup);
   };
-  const handlePopupS = () => {
+  const handlePopupS = (service) => {
+    setServiceDetail(service);
     setPopupS(!popupS);
   };
 
 
+  async function fetchServices() {
+    try {
+      const res = await axios.get(API_URL);
+      setServices(res.data.filter((service) => service.status ==='a' ))
+      setServiceRegister(res.data.filter((service) => service.status === 'n'));
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
   
+
+  useEffect(() => {
+    fetchServices();
+  },[]);
+
+  const changeStatus=async (id)=>{
+    try {
+      const x = API_URL + "/" + id;
+      const res = await axios.put(x);
+      console.log(res.data);
+      fetchServices();
+      alert('Status updated')
+    } catch (error) {
+      console.log(error.message)
+    }
+
+  }
+
+
+
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
        <div className="flex justify-start mb-7">
@@ -146,87 +182,44 @@ function AdminServiceProviders() {
             </tr>
           </thead>
           <tbody className="">
-            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                SP001
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Kalindu Studio
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Photography
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Premium
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Active
-              </td>
-
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button
-                  onClick={handlePopup}
-                  className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                >
-                  View
-                </button>
-                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                  Remove
-                </button>
-              </td>
-            </tr>
-            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                SP002
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Mewana Decorators
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Decorations
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Premium
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Active
-              </td>
-
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                  View
-                </button>
-                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                  Remove
-                </button>
-              </td>
-            </tr>
-            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                SP003
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Muthumaal Studio
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Photography
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Premium
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Active
-              </td>
-
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                  View
-                </button>
-                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                  Remove
-                </button>
-              </td>
-            </tr>
+            {services.map((service)=>(
+                  <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    {service.userid}
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {service.name}
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Photography
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Premium
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Active
+                  </td>
+    
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <button
+                      onClick={() => {
+                        handlePopup(service);
+                      }}
+                      className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                    >
+                      View
+                    </button>
+                    <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                    onClick={() => {
+                      changeStatus(service.userid);
+                    }}>
+                      Remove
+                    </button>
+                  </td>
+                </tr>
+            ))}
+            
+            
           </tbody>
         </table>
       </div>
@@ -267,12 +260,13 @@ function AdminServiceProviders() {
             </tr>
           </thead>
           <tbody className="">
+          {serviceRegister.map((service)=>(
             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                SP004
+                {service.userid}
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Neol Catering
+                {service.name}
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 Catering
@@ -280,8 +274,11 @@ function AdminServiceProviders() {
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 <button
-                  onClick={handlePopupS}
+                  onClick={() => {
+                    handlePopupS(service);
+                  }}
                   className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+
                 >
                   View
                 </button>
@@ -295,37 +292,16 @@ function AdminServiceProviders() {
                 </button>
               </td>
             </tr>
+          ))}
 
-            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                SP005
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                HN Designers
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Decoration
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                  View
-                </button>
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                  Accept
-                </button>
-                <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                  Reject
-                </button>
-              </td>
-            </tr>
+            
           </tbody>
         </table>
       </div>
     </>
         </TabPanel>
       </Box>
+      
 
       <div
         className={
