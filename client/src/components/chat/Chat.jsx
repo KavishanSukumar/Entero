@@ -64,7 +64,7 @@ function Chat(props) {
           {/* ---------------------------------------------------------------------------- */}
 
           {/* ---------------------------------Chat user-------------------------------- */}
-          <div className="overflow-auto max-h-min  mt-3">
+          <div className="overflow-auto max-h-[43rem] h-[43rem]  mt-3">
             {conversation.map((e) => (
               <div
                 key={e.conversation_id}

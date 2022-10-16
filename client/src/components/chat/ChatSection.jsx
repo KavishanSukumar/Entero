@@ -3,6 +3,8 @@ import Message from "./Message";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import SendIcon from "@mui/icons-material/Send";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const API_URL_MESSAGES = "http://localhost:4000/api/message/";
 const API_URL_SENDMESSAGES = "http://localhost:4000/api/message/";
@@ -53,22 +55,29 @@ function ChatSection({ conversation, userId, user }) {
 
     const conversation_id = conversation.conversation_id;
     const sender_id = userId;
-    const res = axios.post(API_URL_SENDMESSAGES, {
-      conversation_id,
-      sender_id,
-      message,
-      date,
-      time,
-    });
+    if (messageInput != "") {
+      const res = axios.post(API_URL_SENDMESSAGES, {
+        conversation_id,
+        sender_id,
+        message,
+        date,
+        time,
+      });
+      setMessageInput("");
+    } else {
+      toast("Can't Send empty messages");
+    }
   };
 
   return (
     <>
+      <ToastContainer autoClose={2000} />
+
       <div className="flex flex-row justify-start items-center border-b-2">
         <ArrowBackIosIcon className="!w-5 !h-10 mr-5 lg:!hidden" />
         <p className="font-serif text-2xl capitalize">{user.name}</p>
       </div>
-      <div className="mt-3 overflow-auto max-h-screen h-screen">
+      <div className="mt-3 overflow-auto max-h-[43rem] h-[43rem] hover:overflow-y-scroll">
         {messages.map((e) => (
           <Message status={userId == e.sender_id ? true : false} message={e} />
         ))}
@@ -82,6 +91,7 @@ function ChatSection({ conversation, userId, user }) {
               placeholder="Type a message..."
               type="text"
               name="search"
+              value={messageInput}
             />
           </label>
         </div>

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 const API_URL_USER = "http://localhost:4000/api/user/";
+const API_URL_GETNEWMESSAGE = "http://localhost:4000/api/message/";
 
 function User({ conversation, userId }) {
   const [sender, setSender] = useState(
@@ -12,8 +13,13 @@ function User({ conversation, userId }) {
       : conversation.receiver_id
   );
   const [user, setUser] = useState();
+  const [count, setCount] = useState(0);
   useEffect(() => {
     getUser();
+    getMessageCount();
+    const interval = setInterval(() => {
+      getMessageCount();
+    }, 6000);
   }, [userId]);
 
   const getUser = async () => {
@@ -21,6 +27,20 @@ function User({ conversation, userId }) {
       userid: sender,
     });
     setUser(user.data);
+  };
+
+  const getMessageCount = async () => {
+    const res = await axios.get(
+      API_URL_GETNEWMESSAGE + conversation.conversation_id
+    );
+    const messages = res.data;
+    var temp = 0;
+    messages.map((e) => {
+      if (!e.status && e.sender_id != userId) {
+        temp++;
+      }
+    });
+    setCount(temp);
   };
 
   return (
@@ -33,7 +53,18 @@ function User({ conversation, userId }) {
         />
       </div>
       <div className="col-span-5 flex flex-col justify-center">
-        <p className="text-lg font-medium capitalize truncate">{user?.name}</p>
+        <div className="flex flex=row">
+          <div>
+            <p className="text-lg font-medium capitalize truncate">
+              {user?.name}
+            </p>
+          </div>
+          <div className="flex justify-center align-middle ml-2 ">
+            <p className="text-center text-amber-700 font-bold ">
+              {count > 0 ? count : ""}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
