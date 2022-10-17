@@ -21,7 +21,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
 const API_URL = "http://localhost:4000/api/adminservice";
-const File_Url = "http://localhost:4000/";
+const File_Url = "http://localhost:4000/serviceBRDocs/";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -63,6 +63,7 @@ function AdminServiceProviders() {
   const [services, setServices] = useState([]);
   const [serviceDetail, setServiceDetail] = useState();
   const [serviceRegister, setServiceRegister] = useState([]);
+  
 
   const [value, setValue] = React.useState(0);
 
@@ -82,7 +83,7 @@ function AdminServiceProviders() {
   async function fetchServices() {
     try {
       const res = await axios.get(API_URL);
-      setServices(res.data.filter((service) => service.status === "a"));
+      setServices(res.data.filter((service) => service.status === "a" || service.status==='d'));
       setServiceRegister(res.data.filter((service) => service.status === "n"));
     } catch (error) {
       console.error(error.message);
@@ -219,7 +220,7 @@ function AdminServiceProviders() {
                         {service.package}
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Active
+                        {service.status==='a'? "Active":"Blocked"}
                       </td>
 
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
@@ -237,7 +238,7 @@ function AdminServiceProviders() {
                             changeStatus(service.userid);
                           }}
                         >
-                          Remove
+                          {service.status==='a'? "Remove":"Activate"}
                         </button>
                       </td>
                     </tr>
@@ -351,7 +352,7 @@ function AdminServiceProviders() {
             : "hidden"
         }
       >
-        <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[80%] mx-[10%] md:w-[60%] md:mx-[20%] lg:w-[40%] lg:mx-[30%] p-2">
+        <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[80%] mx-[10%] md:w-[60%] md:mx-[20%] lg:w-[40%] lg:mx-[30%] p-2 overflow-visible ">
           <div className="w-full inline-flex justify-end items-end">
             <AiOutlineClose
               className="w-6 h-6 cursor-pointer"
@@ -372,7 +373,7 @@ function AdminServiceProviders() {
               {/*The buttons */}
               <div className="flex flex-col w-44 p-4">
                 <button className=" border-2   p-1 mb-3 rounded bg-cyan-500 hover:bg-cyan-400 text-white">
-                  Remove
+                {serviceDetail && serviceDetail.status==='a'? "Remove":"Activate"}
                 </button>
 
                 <button className=" border-2   p-1 mb-3 rounded bg-cyan-500 hover:bg-cyan-400 text-white">
@@ -468,12 +469,12 @@ function AdminServiceProviders() {
               View BR
             </button>
           </div>
-          {/* <div className="w-full">
-        {serviceDetail.br_file &&<><Worker workerUrl="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js">
-          <Viewer fileUrl={File_Url+serviceDetail.br_file}
+          <div className="w-full ">
+        {serviceDetail &&<><Worker workerUrl="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js">
+          <Viewer fileUrl={File_Url + serviceDetail.br_file}
             plugins={[defaultLayoutPluginInstance]} />
       </Worker></>}
-        </div> */}
+        </div>
         </div>
       </div>
     </div>

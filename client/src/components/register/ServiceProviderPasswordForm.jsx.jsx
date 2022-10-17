@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios'
 import * as React from "react";
@@ -20,7 +20,22 @@ function ServiceproviderPasswordForm() {
   const [values, setValues] = React.useState({
     showPassword: false,
   });
-  const [emailMessage,setEmailMessage]=useState('')
+  const [message,setEmailMessage]=useState('')
+  async function messageStatus(){
+    try {
+    
+      const res = await axios.get(`http://localhost:4000/api/service/${urlParameters.userid}/${urlParameters.token}`);
+      setEmailMessage(res.data.message)
+      console.log(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    messageStatus();
+  }, []);
+  
   const [inputs, setInputs] = React.useState({
     password: "",
     conf_password: "",
@@ -61,6 +76,8 @@ function ServiceproviderPasswordForm() {
         const res = await axios.put(`http://localhost:4000/api/service/${urlParameters.userid}/${urlParameters.token}`, {
           password
         });
+        setEmailMessage(res.data.message)
+      console.log(res.data)
 
         window.location.href = "/home";
         
@@ -82,7 +99,7 @@ function ServiceproviderPasswordForm() {
   };
   return (
     <>
-      
+      {message ==="ok"?
       <div className="flex flex-col justify-center place-items-center ">
         <form
           onSubmit={onSubmitForm}
@@ -166,9 +183,9 @@ function ServiceproviderPasswordForm() {
           >
             Confirm
           </button>
-          <p>{emailMessage}</p>
+          {message && <p>{message}</p>}
         </form>
-      </div>
+      </div>: <p>Invalid link</p>}
     </>
   );
 }

@@ -194,7 +194,7 @@ console.log(id)
           path="/customerprofile"
           element={
             isAuthenticated && userrole === "cs" ? (
-              <CustomerProfile />
+              <CustomerProfile userid={id} />
             ) : (
               <Home />
             )
@@ -372,7 +372,7 @@ console.log(id)
           path="/serviceprofile"
           element={
             isAuthenticated && userrole === "sp" ? (
-              <ServiceProviderProfile />
+              <ServiceProviderProfile userid={id} />
             ) : (
               <Home />
             )
@@ -383,7 +383,7 @@ console.log(id)
           exact
           path="/userprofile"
           element={
-            isAuthenticated && userrole === "am" ? <UserProfile /> : <Home />
+            isAuthenticated && userrole === "am" ? <UserProfile userid={id} /> : <Home />
           }
         />
       </Routes>

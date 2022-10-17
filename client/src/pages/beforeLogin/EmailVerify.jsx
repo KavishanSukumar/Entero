@@ -25,8 +25,8 @@ function EmailVerify() {
 
   return (
     <div>
-      {verifyMessage && <h3>{verifyMessage}</h3>}
-      <Link to="/home">Go to the home page</Link>
+      {verifyMessage && <div><h3>{verifyMessage}</h3><Link to="/home">Go to the home page</Link></div>}
+      
     </div>
   );
 }

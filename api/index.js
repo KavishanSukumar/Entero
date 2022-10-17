@@ -6,7 +6,8 @@ import cookieParser from "cookie-parser";
 import pg from "pg";
 import userRouter from "./routes/userRoutes.js";
 import authRouter from "./routes/authRoutes.js";
-import setPasswordRouter from "./routes/setPasswordRoutes.js"
+import setPasswordRouter from "./routes/setPasswordRoutes.js";
+import profileRouter from "./routes/profileRoutes.js";
 import serviceProviderRouter from "./routes/serviceProvicerApointments.js";
 import adminpaymentsRouter from "./routes/paymentRoutes.js"
 import customerRegistrationRouter from "./routes/customerRegistrationRoutes.js";
@@ -41,6 +42,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/setpassword", setPasswordRouter);
 app.use("/api/customer", customerRegistrationRouter);
 app.use("/api/service", serviceRegistrationRouter);
+app.use("/api/profile",profileRouter);
 app.use("/api/customer/appointment", CustomerAppointmentRouter);
 app.use("/api/serviceprovider/appointment", serviceProviderRouter);
 app.use("/api/admin/packages",adminpaymentsRouter);

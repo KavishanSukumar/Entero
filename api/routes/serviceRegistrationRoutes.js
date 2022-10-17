@@ -1,6 +1,7 @@
 import express from "express";
 import pool from "../db.js";
-import upload from "../middleware/files.js"
+import upload from "../middleware/files.js";
+import bcrypt from "bcrypt";
 import mailSender from "../utils/mail-helpers.js";
 
 
@@ -93,8 +94,32 @@ router.post("/",upload.single("file"), async (req,res) => {
   }
 });
 
+router.get("/:userid/:token", async (req, res) => {
+  try {
+    
+    const { userid,token } =
+      req.params;
+      
+    
+    const users = await pool.query("SELECT * FROM password_token WHERE userid=$1 AND token=$2", [
+      userid,token
+    ]);
+    
+    if (users.rows.length === 0) {
+      return res.send({message:"Invalid link"});
+    }
+
+    return res.send({message:"ok"})
+    
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 router.put("/:userid/:token", async (req, res) => {
   try {
+    console.log("wow")
     const { userid,token } =
       req.params;
       const password=req.body.password
@@ -103,7 +128,7 @@ router.put("/:userid/:token", async (req, res) => {
       userid,token
     ]);
     if (users.rows.length === 0) {
-      return res.status(400).send({message:"Invalid link"});
+      return res.send({message:"Invalid link"});
     }
     
     

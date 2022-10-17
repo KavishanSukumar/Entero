@@ -8,7 +8,7 @@ const API_URL = "http://localhost:4000/api/setpassword";
 function ForgotPasswordForm() {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
-  const [message, setMessage] = useState ("wow");
+  const [message, setMessage] = useState ("");
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
@@ -25,12 +25,12 @@ function ForgotPasswordForm() {
       }
 
       if (checkErrors === 0) {
-        setMessage('hello');
+        
         const res = await axios.post(API_URL, {
           email,
         });
 
-        setMessage('hellos');
+        setMessage(res.data.message);
       }
     } catch (err) {
       console.log(err);
@@ -69,7 +69,7 @@ function ForgotPasswordForm() {
           >
             Send Email
           </button>
-          <p>{message}</p>
+          {message && <p>{message}</p>}
         </form>
       </div>
     

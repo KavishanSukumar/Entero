@@ -70,7 +70,7 @@ router.post("/:userid/:token", async (req, res) => {
     ]);
     if (users.rows.length === 0) {
       
-      return res.status(400).send({message:"Invalid link"});
+      return res.status(200).send({message:"Invalid link"});
     }
 
     

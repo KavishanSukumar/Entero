@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FormControl from "@mui/material/FormControl";
@@ -17,10 +17,26 @@ const API_URL = "http://localhost:4000/api/customer";
 
 function ResetPasswordForm() {
   const urlParameters=useParams()
+  const [emailMessage,setEmailMessage]=useState('')
   const [values, setValues] = React.useState({
     showPassword: false,
   });
-  const [emailMessage,setEmailMessage]=useState('')
+
+  async function messageStatus(){
+    try {
+    
+      const res = await axios.get(`http://localhost:4000/api/setpassword/${urlParameters.userid}/${urlParameters.token}`);
+      setEmailMessage(res.data.message)
+      console.log(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    messageStatus();
+  }, []);
+  
   const [inputs, setInputs] = React.useState({
     password: "",
     conf_password: "",
@@ -58,11 +74,14 @@ function ResetPasswordForm() {
       }
 
       if (checkErrors == 0) {
-        const res = await axios.post(`http://localhost:4000/api/setpassword/${urlParameters.userid}/${urlParameters.token}`, {
+        const res = await axios.put(`http://localhost:4000/api/setpassword/${urlParameters.userid}/${urlParameters.token}`, {
           password
         });
-
-        window.location.href = "/home";
+        setEmailMessage(res.data.message)
+        setTimeout(() => {
+          window.location.href = "/home";
+        }, 2000);
+        
         
       }
     } catch (err) {
@@ -82,7 +101,7 @@ function ResetPasswordForm() {
   };
   return (
     <>
-      <ToastContainer autoClose={2000} />
+      {emailMessage==="ok"? 
       <div className="flex flex-col justify-center place-items-center ">
         <form
           onSubmit={onSubmitForm}
@@ -166,9 +185,9 @@ function ResetPasswordForm() {
           >
             Confirm
           </button>
-          <p>{emailMessage}</p>
+          {emailMessage && <p>{emailMessage}</p>}
         </form>
-      </div>
+      </div>: emailMessage && <p>{emailMessage}</p>}
     </>
   );
 }
