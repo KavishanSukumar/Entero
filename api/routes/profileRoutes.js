@@ -1,6 +1,8 @@
 import express from "express";
 import pool from "../db.js";
 import bcrypt from "bcrypt";
+import upload from "../middleware/files.js";
+import fs from "fs"
 
 const router = express.Router();
 
@@ -67,6 +69,57 @@ router.put('/password/:id',async (req,res)=>{
     }
     catch(err){
         console.log(err.message);
+    }
+})
+
+router.put('/image/:id',upload.single("file"),async (req,res)=>{
+    try {
+        const {id}=req.params;
+        const profilePic=req.filename;
+
+        const checkProfilePic=await pool.query("SELECT image FROM users WHERE userid=$1", [
+            id
+          ]);
+          const path="./files/profilePics/"+checkProfilePic.rows[0].image
+          if(checkProfilePic.rows[0].image===null){
+                console.log("new pic")
+              const updatePic=await pool.query("UPDATE users SET image=$1 WHERE userid=$2",[profilePic,id])
+          }else{
+            fs.unlink(path, (err => {
+                if (err) console.log(err);
+                else {
+                  console.log(checkProfilePic.rows[0].image+"deleted successfully");
+                }
+              }))
+            console.log("woow ")
+            const updatePic=await pool.query("UPDATE users SET image=$1 WHERE userid=$2",[profilePic,id])
+          }
+    } catch (error) {
+        console.log(error.message)
+    }
+})
+
+router.put('/image/remove/:id',async (req,res)=>{
+    try {
+        const {id}=req.params;
+        const checkProfilePic=await pool.query("SELECT image FROM users WHERE userid=$1", [
+            id
+          ]);
+          const path="./files/profilePics/"+checkProfilePic.rows[0].image
+          fs.unlink(path, (err => {
+            if (err) console.log(err);
+            else {
+              console.log(checkProfilePic.rows[0].image+"deleted successfully");
+            }
+          }))
+
+        const deleteProfilePic=await pool.query("UPDATE users SET image=null WHERE userid=$1", [
+            id
+          ]);
+
+        
+    } catch (error) {
+        console.log(error.message)
     }
 })
 

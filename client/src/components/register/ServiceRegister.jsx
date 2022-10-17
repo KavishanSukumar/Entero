@@ -120,6 +120,7 @@ function ServiceRegister() {
             "Content-Type": "multipart/form-data",
             uploadType:"1",
             
+            
           },
         });
 
