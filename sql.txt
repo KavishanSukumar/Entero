@@ -80,6 +80,7 @@ CREATE TABLE appointment(
 	date DATE NOT NULL,
 	time TIME NOT NULL,
 	description VARCHAR(1000) NOT NULL,
+	status INT,
 	userid_c INT NOT NULL,
 	userid_s INT NOT NULL,
 	FOREIGN KEY(userid_c) REFERENCES customer(userid),

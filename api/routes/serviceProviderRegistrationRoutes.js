@@ -21,7 +21,7 @@ const fileStorage = multer.diskStorage({
 const upload = multer({ storage: fileStorage });
 
 //register Customer
-router.post("/", upload.single("file"), async (req, res) => {
+router.post("/", async (req, res) => {
   console.log(req.body);
 
   try {
@@ -76,14 +76,12 @@ router.post("/", upload.single("file"), async (req, res) => {
     );
     console.log(newUser.rows[0].userid);
     const userid = newUser.rows[0].userid;
-    const brFile = "./images" + req.file.filename;
 
     const newUserService = await pool.query(
-      "INSERT INTO service_provider (userid, br_no, br_file, dor, refreshment,decoration,hallservices,photography,birthday,reception,wedding,engagement,other,start_date,end_date,status) VALUES ($1, $2, $3,current_date, $4, $5,$6,$7,$8,$9,$10,$11,$12,current_date,current_date + INTERVAL '10 day','n') RETURNING *",
+      "INSERT INTO service_provider (userid, br_no, dor, refreshment,decoration,hallservices,photography,birthday,reception,wedding,engagement,other,start_date,end_date,status) VALUES ($1, $2,current_date, $3, $4,$5,$6,$7,$8,$9,$10,$11,current_date,current_date + INTERVAL '10 day','n') RETURNING *",
       [
         userid,
         brNo,
-        brFile,
         refreshment,
         decoration,
         hall,
@@ -98,7 +96,7 @@ router.post("/", upload.single("file"), async (req, res) => {
 
     // const token = jwtTokens(newUser.rows[0].userid);
 
-    res.json({ newUser, newUserService });
+    res.json({ userid, newUserService, status: true });
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server Error");

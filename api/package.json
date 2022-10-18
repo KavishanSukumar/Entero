@@ -12,7 +12,9 @@
   "author": "Team Entero",
   "license": "ISC",
   "dependencies": {
+    "@azure/storage-blob": "^12.11.0",
     "azure-storage": "^2.10.7",
+    "azure-storage-blob": "^0.0.1-security",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
