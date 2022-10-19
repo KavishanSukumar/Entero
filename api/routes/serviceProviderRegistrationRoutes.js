@@ -22,8 +22,6 @@ const upload = multer({ storage: fileStorage });
 
 //register Customer
 router.post("/", async (req, res) => {
-  console.log(req.body);
-
   try {
     const { name, email, contactNum, address, brNo, services, events } =
       req.body;
