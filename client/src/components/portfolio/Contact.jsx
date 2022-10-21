@@ -6,43 +6,87 @@ import HelpIcon from "@mui/icons-material/Help";
 import Button from "../button/Button";
 import axios from "axios";
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import Shakir from "../../Shakir.jpg";
 // import * as React from "react";
 
-const API_URL = "http://localhost:4000/api/customer/appointment";
+//const API_URL = "http://localhost:4000/api/customer/appointment";
+const API_URL = "http://localhost:4000/api/auth/isverify";
+
+let a = "http://localhost:4000/api/customer/appointment";
+
 
 export default function Contact(props) {
   // const id = props.data;
 
-  const [date, setDate] = useState("");
+//   const [date, setDate] = useState("");
+//   const [time, setTime] = useState("");
+//   const [description, setDescription] = useState("");
+//   const [customer_id, setCustomer_id] = useState("4");
+//   const [sp_id, setSp_id] = useState("5");
+//  const [id, setId] = React.useState(props.data);
+//   const [appointment, setAppointment] = React.useState([]);
+  
+//   async function getAppointment() {
+//     const res = await axios.post(API_URL, {
+//       id: id,
+//     });
+//     setAppointment(res.data);
+//   }
+
+//   const onSubmitForm = async (e) => {
+//     e.preventDefault();
+
+    
+//     try {
+//       const res = await axios.post(API_URL, { date, time, description,id, });
+//       setDate('');
+//       setTime('');
+//       setDescription('');
+
+//       console.log(res.data);
+//       alert('Appointment Request sent');
+//     } catch (error) {
+//       console.error(error.message);
+//     }
+//   };
+
+const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [description, setDescription] = useState("");
-  const [customer_id, setCustomer_id] = useState("4");
-  const [sp_id, setSp_id] = useState("5");
- const [id, setId] = React.useState(props.data);
-  const [appointment, setAppointment] = React.useState([]);
-  
-  async function getAppointment() {
-    const res = await axios.post(API_URL, {
-      id: id,
-    });
-    setAppointment(res.data);
+  const [customer_id, setCustomer_id] = useState();
+  const [sp_id, setSp_id] = useState("21");
+
+  async function isAuth() {
+    try {
+      const res = await axios.get(API_URL, {
+        headers: { token: localStorage.token },
+      });
+      setCustomer_id(res.data.payload);
+    
+    } catch (error) {
+      console.error(error.message);
+    }
   }
+
+  useEffect(() => {
+    isAuth();
+  }, []);
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
-    // const x=new Date()
-    // const {date}= x.getFullYear +'-' + x.getMonth +  '-'+x.getDate;
-    // const {time}=x.getHours+':'+x.getMinutes+':'+x.getSeconds;
+    const x=new Date()
+    const {date}= x.getFullYear +'-' + x.getMonth +  '-'+x.getDate;
+    const {time}=x.getHours+':'+x.getMinutes+':'+x.getSeconds;
     
     try {
-      // const body = {date, time, description};
-      const res = await axios.post(API_URL, { date, time, description,id, });
-      setDate('');
+      a=a+"/"+customer_id
+      const body = {date, time, description,sp_id};
+      const res = await axios.post(API_URL, {body});      setDate('');
       setTime('');
       setDescription('');
+      // setSp_id(21);
 
       console.log(res.data);
       alert('Appointment Request sent');
@@ -50,8 +94,6 @@ export default function Contact(props) {
       console.error(error.message);
     }
   };
-
-
 
   const handle = () => {
     console.log("hello");
@@ -63,6 +105,8 @@ export default function Contact(props) {
   const handlePopup = () => {
     setPopup(!popup);
   };
+
+
   return (
     <div>
       <Accordion>

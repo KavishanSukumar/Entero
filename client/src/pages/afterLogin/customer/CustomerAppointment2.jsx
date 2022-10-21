@@ -1,4 +1,4 @@
-import React, { useState, Fragments} from "react";
+import React, { useState,useEffect, Fragments} from "react";
 import axios from "axios";
 import {
   ScheduleComponent,
@@ -16,15 +16,33 @@ import scheduleData from "../../../documents/dummy";
 import PageHeader from "../../../components/PagesHeader/PageHeader";
 import Button from "../../../components/button/Button";
 
-const API_URL = "http://localhost:4000/api/appointment";
+const API_URL = "http://localhost:4000/api/auth/isverify";
+
+let a = "http://localhost:4000/api/appointment";
 
 const CustomerAppointment2 = () => {
 
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [description, setDescription] = useState("");
-  const [customer_id, setCustomer_id] = useState("4");
-  const [sp_id, setSp_id] = useState("5");
+  const [customer_id, setCustomer_id] = useState();
+  const [sp_id, setSp_id] = useState(21);
+
+  async function isAuth() {
+    try {
+      const res = await axios.get(API_URL, {
+        headers: { token: localStorage.token },
+      });
+      setCustomer_id(res.data.payload);
+    
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  useEffect(() => {
+    isAuth();
+  }, []);
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
@@ -33,13 +51,9 @@ const CustomerAppointment2 = () => {
     const {time}=x.getHours+':'+x.getMinutes+':'+x.getSeconds;
     
     try {
-      const body = {date, time, description,customer_id,sp_id};
-      const res = await fetch(API_URL, { 
-        method: "POST",
-        Headers: { "Content-Type": "application/json"},
-        body: JSON.stringify(body)
-      });
-      setDate('');
+      a=a+"/"+customer_id
+      const body = {date, time, description,sp_id};
+      const res = await axios.post(API_URL, {body});      setDate('');
       setTime('');
       setDescription('');
 
