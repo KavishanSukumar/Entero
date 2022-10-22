@@ -132,6 +132,7 @@ CREATE TABLE message(
 	date DATE NOT NULL,
 	time TIME NOT NULL,
 	message varchar(1500) NOT NULL,
+	status BOOLEAN DEFAULT false,
 	FOREIGN KEY(sender_id) REFERENCES users(userid),
 	FOREIGN KEY(conversation_id) REFERENCES conversation(conversation_id)
 );

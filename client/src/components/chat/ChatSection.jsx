@@ -20,7 +20,10 @@ function ChatSection({ conversation, userId, user }) {
 
   const readMessage = async () => {
     const res = await axios.put(
-      API_URL_MESSAGES + conversation.conversation_id
+      API_URL_MESSAGES + conversation.conversation_id,
+      {
+        sender_id: userId,
+      }
     );
   };
 
