@@ -175,12 +175,14 @@ function Login(props) {
             </div>
 
             <div className="text-sm">
-              <p
-                href="#"
-                className="font-medium text-purple-600 hover:text-purple-500"
-              >
-                Forgot your password?
-              </p>
+              <Link to="/forgotpassword">
+                <p
+                  href="#"
+                  className="font-medium text-purple-600 hover:text-purple-500"
+                >
+                  Forgot your password?
+                </p>
+              </Link>
             </div>
           </div>
           <div>{buttonval}</div>

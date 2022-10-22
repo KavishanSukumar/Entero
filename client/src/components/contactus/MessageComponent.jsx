@@ -24,7 +24,7 @@ function MessageComponent() {
       console.error(error.message);
     }
   }
-  console.log(messages);
+  
 
   useEffect(() => {
     fetchMessages();

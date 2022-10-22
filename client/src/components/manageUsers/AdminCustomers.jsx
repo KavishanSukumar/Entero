@@ -104,7 +104,7 @@ function AdminCustomers() {
                 onClick={() => {
                   changeStatus(customerDetail.userid);
                 }}>
-                  Remove
+                  {customerDetail && customerDetail.status==='a'? "Remove":"Activate"}
                 </button>
               </div>
             </div>
@@ -193,7 +193,7 @@ function AdminCustomers() {
                 {customer.email}
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                Active
+                {customer.status==='a'? "Active":"Blocked"}
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 <button
@@ -208,7 +208,7 @@ function AdminCustomers() {
                 onClick={() => {
                   changeStatus(customer.userid);
                 }}>
-                  Remove
+                  {customer && customer.status==='a'? "Remove":"Activate"}
                 </button>
               </td>
             </tr>

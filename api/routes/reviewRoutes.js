@@ -1,5 +1,6 @@
 import express from "express";
 import pool from "../db.js";
+import bad_words_filter from "../utils/bad_words_filter.js"
 
 const router = express.Router();
 
@@ -19,10 +20,21 @@ router.get('/:id',async (req,res)=>{
 
 router.post('/',async (req,res)=>{
     try{
-        const {name,email,message}=req.body;
-        const newContact= await pool.query("INSERT INTO contact (name,email,message,received_date,received_time) VALUES ($1,$2,$3,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP) RETURNING *",[name,email,message])
+        const {rateValue,message}=req.body;
+        let checkMessage=bad_words_filter(message)
+        
 
-        res.json(newContact.rows[0]);
+        if(checkMessage){
+            res.status(200).send({message:"Review sent"})
+        }else{
+            res.status(200).send({message:"Warning! This review contains word that has been blocked by AI system"})
+        }
+
+        
+
+        // const newContact= await pool.query("INSERT INTO contact (name,email,message,received_date,received_time) VALUES ($1,$2,$3,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP) RETURNING *",[rateValue,email,message])
+
+        // res.json(newContact.rows[0]);
     }
     catch(err){
         console.log(err.message);
