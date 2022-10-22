@@ -7,7 +7,6 @@ import authRouter from "./routes/authRoutes.js";
 import serviceProviderRouter from "./routes/serviceProvicerApointments.js";
 import adminpaymentsRouter from "./routes/paymentRoutes.js";
 import customerRegistrationRouter from "./routes/customerRegistrationRoutes.js";
-import serviceRegistrationRouter from "./routes/serviceRegistrationRoutes.js";
 import CustomerAppointmentRouter from "./routes/CustomerAppointmentRoutes.js";
 import contactRouter from "./routes/contactRoutes.js";
 import portfolioSpRouter from "./routes/portfolioSpRoutes.js";
@@ -21,16 +20,9 @@ import { Server } from "socket.io";
 
 import adminCustomerRouter from "./routes/adminCustomerRoutes.js";
 import adminServiceRouter from "./routes/adminServiceRoutes.js";
-import authRouter from "./routes/authRoutes.js";
 import chatRoute from "./routes/chatRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
-import contactRouter from "./routes/contactRoutes.js";
-import CustomerAppointmentRouter from "./routes/CustomerAppointmentRoutes.js";
-import customerRegistrationRouter from "./routes/customerRegistrationRoutes.js";
-import adminpaymentsRouter from "./routes/paymentRoutes.js";
-import serviceProviderRouter from "./routes/serviceProvicerApointments.js";
 import serviceProviderRegistrationRoutes from "./routes/serviceProviderRegistrationRoutes.js";
-import userRouter from "./routes/userRoutes.js";
 
 dotenv.config();
 
