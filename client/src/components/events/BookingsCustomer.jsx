@@ -12,7 +12,7 @@ import Rating from "@mui/material/Rating";
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/api/contact";
+const API_URL = "http://localhost:4000/api/review";
 
 const style = {
   position: "absolute",
@@ -64,6 +64,7 @@ function BookingsCustomer() {
   const [openForm, setOpenForm] = useState(false);
   const [message, setMessage] = useState("");
   const [messageError, setMessageError] = useState("");
+  const [successMessage,setSuccessMessage]=useState("")
   const [rateValue, setRateValue] = useState(1);
 
   const [value, setValue] = React.useState(0);
@@ -78,7 +79,9 @@ function BookingsCustomer() {
   const handleCloseForm = () => setOpenForm(false);
 
   const handleReview = async (e) => {
+
     e.preventDefault();
+    
     const x = new Date();
     const { received_date } =
       x.getFullYear + "-" + x.getMonth + "-" + x.getDate;
@@ -102,9 +105,9 @@ function BookingsCustomer() {
           received_time,
         });
         
-        setMessage("");
-        console.log(res.data);
-        alert("Message sent");
+        setSuccessMessage(res.data.message);
+        console.log(res.data.message);
+        
       }
     } catch (error) {
       console.error(error.message);
@@ -314,6 +317,7 @@ function BookingsCustomer() {
                   Submit
                 </button>
               </form>
+              {successMessage && <p className="text-green-700">{successMessage}</p>}
             </div>
           </Box>
         </Modal>

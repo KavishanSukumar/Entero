@@ -252,7 +252,7 @@ console.log(id)
           path="/customerbookings"
           element={
             isAuthenticated && userrole === "cs" ? (
-              <CustomerBookings />
+              <CustomerBookings userid={id} />
             ) : (
               <Home />
             )
