@@ -6,7 +6,7 @@ import HelpIcon from "@mui/icons-material/Help";
 import Button from "../button/Button";
 import axios from "axios";
 
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import Shakir from "../../Shakir.jpg";
 // import * as React from "react";
@@ -16,47 +16,45 @@ const API_URL = "http://localhost:4000/api/auth/isverify";
 
 let a = "http://localhost:4000/api/customer/appointment";
 
-
 export default function Contact(props) {
   // const id = props.data;
 
-//   const [date, setDate] = useState("");
-//   const [time, setTime] = useState("");
-//   const [description, setDescription] = useState("");
-//   const [customer_id, setCustomer_id] = useState("4");
-//   const [sp_id, setSp_id] = useState("5");
-//  const [id, setId] = React.useState(props.data);
-//   const [appointment, setAppointment] = React.useState([]);
-  
-//   async function getAppointment() {
-//     const res = await axios.post(API_URL, {
-//       id: id,
-//     });
-//     setAppointment(res.data);
-//   }
+  //   const [date, setDate] = useState("");
+  //   const [time, setTime] = useState("");
+  //   const [description, setDescription] = useState("");
+  //   const [customer_id, setCustomer_id] = useState("4");
+  //   const [sp_id, setSp_id] = useState("5");
+  //  const [id, setId] = React.useState(props.data);
+  //   const [appointment, setAppointment] = React.useState([]);
 
-//   const onSubmitForm = async (e) => {
-//     e.preventDefault();
+  //   async function getAppointment() {
+  //     const res = await axios.post(API_URL, {
+  //       id: id,
+  //     });
+  //     setAppointment(res.data);
+  //   }
 
-    
-//     try {
-//       const res = await axios.post(API_URL, { date, time, description,id, });
-//       setDate('');
-//       setTime('');
-//       setDescription('');
+  //   const onSubmitForm = async (e) => {
+  //     e.preventDefault();
 
-//       console.log(res.data);
-//       alert('Appointment Request sent');
-//     } catch (error) {
-//       console.error(error.message);
-//     }
-//   };
+  //     try {
+  //       const res = await axios.post(API_URL, { date, time, description,id, });
+  //       setDate('');
+  //       setTime('');
+  //       setDescription('');
 
-const [date, setDate] = useState("");
+  //       console.log(res.data);
+  //       alert('Appointment Request sent');
+  //     } catch (error) {
+  //       console.error(error.message);
+  //     }
+  //   };
+
+  const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [description, setDescription] = useState("");
   const [customer_id, setCustomer_id] = useState();
-  const [sp_id, setSp_id] = useState("21");
+  const [sp_id, setSp_id] = useState(21);
 
   async function isAuth() {
     try {
@@ -64,7 +62,6 @@ const [date, setDate] = useState("");
         headers: { token: localStorage.token },
       });
       setCustomer_id(res.data.payload);
-    
     } catch (error) {
       console.error(error.message);
     }
@@ -76,20 +73,23 @@ const [date, setDate] = useState("");
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
-    const x=new Date()
-    const {date}= x.getFullYear +'-' + x.getMonth +  '-'+x.getDate;
-    const {time}=x.getHours+':'+x.getMinutes+':'+x.getSeconds;
-    
+    // console.log("hello");
+    // console.log(date,time,description)
+    // const x=new Date()
+    // const {date}= x.getFullYear +'-' + x.getMonth +  '-'+x.getDate;
+    // const {time}=x.getHours+':'+x.getMinutes+':'+x.getSeconds;
+
     try {
-      a=a+"/"+customer_id
-      const body = {date, time, description,sp_id};
-      const res = await axios.post(API_URL, {body});      setDate('');
-      setTime('');
-      setDescription('');
+      let b = a + "/" + customer_id;
+      const body = { date, time, description, sp_id };
+      const res = await axios.post(b, body);
+      setDate("");
+      setTime("");
+      setDescription("");
       // setSp_id(21);
 
       console.log(res.data);
-      alert('Appointment Request sent');
+      alert("Appointment Request sent");
     } catch (error) {
       console.error(error.message);
     }
@@ -105,7 +105,6 @@ const [date, setDate] = useState("");
   const handlePopup = () => {
     setPopup(!popup);
   };
-
 
   return (
     <div>
@@ -152,34 +151,36 @@ const [date, setDate] = useState("");
         </AccordionDetails>
       </Accordion>
 
-      <div  className={
+      <div
+        className={
           popup
             ? "fixed backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  p-4 left-0"
             : "hidden"
-        }>
- <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[40%] mx-[30%] p-2">
+        }
+      >
+        <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[40%] mx-[30%] p-2">
           <div className="w-full inline-flex justify-end items-end">
             <AiOutlineClose
               className="w-4 h-4 cursor-pointer"
               onClick={handlePopup}
             />
           </div>
-          <div 
-          className="flex 
+          <div
+            className="flex 
           w-full 
           justify-center items-center mt-2"
-          
           >
-          {/* <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-slate-200 w-full max-w-4xl p-8 rounded-xl shadow-lg  bg-opacity-60  justify-center items-center" > */}
-          {/* <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-white w-full max-w-4xl p-8 rounded-xl shadow-lg  bg-opacity-60  justify-center items-center">
-            */}
+            {/* <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-slate-200 w-full max-w-4xl p-8 rounded-xl shadow-lg  bg-opacity-60  justify-center items-center" > */}
+            {/* <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-white w-full max-w-4xl p-8 rounded-xl shadow-lg  bg-opacity-60  justify-center items-center">
+             */}
             <div>
               {/* <div className="bg-white bg-opacity-90 rounded-xl shadow-lg p-8 md:w-80"> */}
-              <form 
-               onSubmit={onSubmitForm}
-              className="flex flex-col space-y-4 ">
+              <form
+                onSubmit={onSubmitForm}
+                className="flex flex-col space-y-4 "
+              >
                 <h3>
-                  <b>Create an Appointment</b>
+                  <b>Create an Appointmentssss</b>
                 </h3>
                 <div className="mb-2">
                   <label
@@ -217,7 +218,7 @@ const [date, setDate] = useState("");
 
                 <div className="mb-2">
                   <textarea
-                   name="description"
+                    name="description"
                     placeholder="Description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
@@ -230,27 +231,33 @@ const [date, setDate] = useState("");
                             Send
                         </button> */}
                 <div className="mt-6 justify-center items-center flex w-full">
-                  <Button
+                  <button
+                    type="submit"
                     color="white"
                     bgColor="#03C9D7"
                     //  bgColor={currentColor}
-                    text="Create"
+
                     borderRadius="10px"
                     size="md"
                     width="300px"
                     // margin-right="200px"
-                  />
+                    className=" inline-flex items-center justify-center bg-cyan-500 text-white p-2 w-24 rounded hover:border-2 hover:bg-cyan-400 font-medium mx-2 mb-2"
+                  >
+                    Create
+                  </button>
+
+                  {/* <button className=" inline-flex items-center justify-center bg-cyan-500 text-white p-2 w-24 rounded hover:border-2 hover:bg-cyan-400 font-medium mx-2 mb-2">
+                    Send
+                  </button> */}
+                  
                 </div>
               </form>
               {/* </div> */}
             </div>
-          {/* </div> */}
+            {/* </div> */}
+          </div>
         </div>
-        </div>
-        
       </div>
     </div>
-
-
   );
 }

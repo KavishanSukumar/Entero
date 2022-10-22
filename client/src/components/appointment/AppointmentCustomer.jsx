@@ -101,7 +101,7 @@ function AppointmentCustomer() {
               onChange={handleChange}
               aria-label="basic tabs example"
             >
- <Tab label="New Appointments" {...a11yProps(0)}></Tab>
+              <Tab label="New Appointments" {...a11yProps(0)}></Tab>
               <Tab label="Pending Appointments" {...a11yProps(1)}></Tab>
               <Tab label="Past Appointments" {...a11yProps(2)}></Tab>
               <Tab label="Cancelled Appointments" {...a11yProps(3)}></Tab>
@@ -140,7 +140,6 @@ function AppointmentCustomer() {
                     </button>
                   </div>
                 </div>
-
               </div>
               <div className="overflow-auto justify-center w-full h-screen">
                 <table class="min-w-full z-0">
@@ -186,28 +185,28 @@ function AppointmentCustomer() {
                     </tr>
                   </thead>
                   <tbody className="">
-                  {appointment.map(
+                    {appointment.map(
                       (item) =>
-                        item.status === 0 && (
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                      {/* <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        item.status === 0 || (
+                          <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                            {/* <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         A001
                       </td> */}
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      {item.name}
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      {item.time}
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      {item.date}
-                      </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.name}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.time}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.date}
+                            </td>
 
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      {item.description}
-                      </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                              {item.description}
+                            </td>
 
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                               <button
                                 onClick={() =>
                                   changestatus(item.appointment_id, 1)
@@ -225,15 +224,15 @@ function AppointmentCustomer() {
                                 Reject
                               </button> */}
                             </td>
-
-                    </tr>
-                    )
+                          </tr>
+                        )
                     )}
                   </tbody>
                 </table>
               </div>
             </div>
           </TabPanel>
+          s
           <TabPanel value={value} index={1}>
             <div className="shadow-md p-3 w-auto rounded-md ">
               <div className="flex flex-col lg:flex-row ">
@@ -267,8 +266,6 @@ function AppointmentCustomer() {
                     </button>
                   </div>
                 </div>
-
-
               </div>
               <div className="overflow-auto justify-center w-full h-screen">
                 <table class="min-w-full z-0">
@@ -312,32 +309,31 @@ function AppointmentCustomer() {
                       >
                         Action
                       </th>
-
                     </tr>
                   </thead>
                   <tbody className="">
-                  {appointment.map(
+                    {appointment.map(
                       (item) =>
                         item.status === 1 && (
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                      {/* <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                            {/* <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         A002
                       </td> */}
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      {item.name}
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      {item.time}
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      {item.date}
-                      </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.name}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.time}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.date}
+                            </td>
 
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      {item.description}
-                      </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                              {item.description}
+                            </td>
 
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                               <button
                                 onClick={() =>
                                   changestatus(item.appointment_id, 4)
@@ -347,18 +343,14 @@ function AppointmentCustomer() {
                                 Cancel
                               </button>
                             </td>
-
-                    </tr>
-
-)
-)}
-
+                          </tr>
+                        )
+                    )}
                   </tbody>
                 </table>
               </div>
             </div>
           </TabPanel>
-
           <TabPanel value={value} index={2}>
             <div className="shadow-md p-3 w-auto rounded-md ">
               <div className="flex flex-col lg:flex-row ">
@@ -392,7 +384,6 @@ function AppointmentCustomer() {
                     </button>
                   </div>
                 </div>
-
               </div>
               <div className="overflow-auto justify-center w-full h-screen">
                 <table class="min-w-full z-0">
@@ -436,43 +427,40 @@ function AppointmentCustomer() {
                       >
                         Status
                       </th>
-
                     </tr>
                   </thead>
                   <tbody className="">
-                  {appointment.map(
+                    {appointment.map(
                       (item) =>
                         item.status === 3 && (
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                      {/* <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                            {/* <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         A003
                       </td> */}
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      {item.name}
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      {item.time}
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      {item.date}
-                      </td>
-
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                      {item.description}
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              {item.status === 3 && "Confirmed"}
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.name}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.time}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.date}
                             </td>
 
-                    </tr>
-                       )
-                       )}
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                              {item.description}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {item.status === 3 && "Confirmed"}
+                            </td>
+                          </tr>
+                        )
+                    )}
                   </tbody>
                 </table>
               </div>
             </div>
           </TabPanel>
-
           <TabPanel value={value} index={3}>
             <div className="shadow-md p-3 w-auto rounded-md ">
               <div className="flex flex-col lg:flex-row ">
@@ -574,8 +562,6 @@ function AppointmentCustomer() {
               </div>
             </div>
           </TabPanel>
-
-
         </Box>
       </div>
     </div>
@@ -583,4 +569,3 @@ function AppointmentCustomer() {
 }
 
 export default AppointmentCustomer;
-

@@ -27,7 +27,7 @@ const AdminBusinessPoliciesEdit = ({ policies }) => {
 
   return (
     <Fragment>
-      <button
+      {/* <button
         type="button"
         className="btn border py-2 bg-cyan-500 hover:bg-cyan-400 text-white
         hover:drop-shadow-xl"
@@ -42,7 +42,7 @@ const AdminBusinessPoliciesEdit = ({ policies }) => {
        
       >
         Edit
-      </button>
+      </button> */}
 
       {/* 
         id = id10
@@ -55,7 +55,7 @@ const AdminBusinessPoliciesEdit = ({ policies }) => {
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Edit Business and Policies</h4>
+              {/* <h4 class="modal-title">Edit Business and Policies</h4>
               <button
                 type="button"
                 class="close"
@@ -63,7 +63,7 @@ const AdminBusinessPoliciesEdit = ({ policies }) => {
                 onClick={() => setBpolicies(policies.bpolicies)}
               >
                 &times;
-              </button>
+              </button> */}
             </div>
 
             <div class="modal-body">

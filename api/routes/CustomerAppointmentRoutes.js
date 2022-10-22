@@ -41,12 +41,14 @@ router.get("/:id", async (req, res) => {
 router.post("/:id", async (req, res) => {
   try {
     const { date, time, description,sp_id } = req.body;
+    console.log(date);
+
     const {id}=req.params;
     const newAppointment = await pool.query(
       "INSERT INTO appointment (date,time,description,customer_id,sp_id) VALUES ($1,$2,$3,$4,$5) RETURNING *",
       [date, time, description, id,sp_id]
     )
-
+      console.log("k")
     res.json(newAppointment.rows[0]);
   } catch (err) {
     console.log(err.message);
