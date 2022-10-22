@@ -81,13 +81,7 @@ function BookingsCustomer() {
   const handleReview = async (e) => {
 
     e.preventDefault();
-    
-    const x = new Date();
-    const { received_date } =
-      x.getFullYear + "-" + x.getMonth + "-" + x.getDate;
-    const { received_time } =
-      x.getHours + ":" + x.getMinutes + ":" + x.getSeconds;
-    
+      
     let checkErrors = 0;
     try {
       
@@ -101,12 +95,11 @@ function BookingsCustomer() {
         const res = await axios.post(API_URL, {
           rateValue,
           message,
-          received_date,
-          received_time,
+          
         });
         
         setSuccessMessage(res.data.message);
-        console.log(res.data.message);
+        console.log(res.data.message)
         
       }
     } catch (error) {

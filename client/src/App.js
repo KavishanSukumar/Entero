@@ -81,11 +81,7 @@ function App() {
   useEffect(() => {
     isAuth();
   }, []);
-<<<<<<< HEAD
 console.log('this is user id'+id);
-=======
-console.log(id)
->>>>>>> shakir
   return (
     <div className="App">
       <Routes>

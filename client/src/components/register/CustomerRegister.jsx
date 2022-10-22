@@ -51,12 +51,8 @@ function CustomerRegister() {
   const onSubmitForm = async (e) => {
     e.preventDefault();
     let checkErrors = 0;
-<<<<<<< HEAD
     const validPasswordCheck =
       /(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[-+_!@#$%^&*.,?])/;
-=======
-    const validPasswordCheck=/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[-+_!@#$%^&*.,?])/
->>>>>>> shakir
     const validEmailCheck = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
     try {
       if (!fname.trim() && !lname.trim()) {
@@ -311,17 +307,7 @@ function CustomerRegister() {
               </label>
             </div>
           </div>
-<<<<<<< HEAD
           <div>{buttonval}</div>
-=======
-          <button
-            type="submit"
-            className="border w-full my-5 py-2 bg-cyan-500 hover:bg-cyan-400 text-white"
-          >
-            Sign Up
-          </button>
-          {emailMessage && <p className="text-green-700">{emailMessage}</p>}
->>>>>>> shakir
         </form>
       </div>
     </>

@@ -21,8 +21,10 @@ router.get('/:id',async (req,res)=>{
 router.post('/',async (req,res)=>{
     try{
         const {rateValue,message}=req.body;
+        console.log(req.body)
         let checkMessage=bad_words_filter(message)
         
+        console.log(checkMessage)
 
         if(checkMessage){
             res.status(200).send({message:"Review sent"})
