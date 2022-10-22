@@ -309,12 +309,12 @@ function ManagePayments() {
 
 
 
-            <div className="grid xl:grid-cols-2 gap-y-8 lg:grid-cols-2   md:grid-cols-1  sm:grid-cols-1 grid-cols-1    order-1 lg:justify-between lg:mt-8">
+            <div className="grid xl:grid-cols-1 gap-y-8 lg:grid-cols-1   md:grid-cols-1  sm:grid-cols-1 grid-cols-1    order-1 lg:justify-between lg:mt-8">
 
               {adminpacks && adminpacks.map((a) => (
 
                 <div key={a.sub_packageid} title="Click here to edit the package" onClick={() => { handlePopup(); setthepackageid(a.sub_packageid); selectpack(a.sub_packageid) }} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className=" relative max-w-screen-xl my-3 px-4 sm:px-6 lg:px-8 hover:cursor-pointer order-2 ">
-                  <div className="h-auto lg:h-52   pricing-box    mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
+                  <div className="h-auto lg:h-52  lg:w-[700px]  pricing-box    mx-auto rounded-lg shadow-lg overflow-hidden  lg:flex">
                     <div className="bg-white w-full dark:bg-gray-800 px-6 py-8 lg:flex-shrink-1 lg:p-6">
                       <h3 className="text-2xl flex justify-center gap-1  uppercase leading-8 font-extrabold text-gray-900 sm:text-xl sm:leading-9 dark:text-white">
                         <span>
@@ -324,7 +324,7 @@ function ManagePayments() {
                           {a.name}
                         </span>
                       </h3>
-                      <p className="mt-4 text-base flex justify-center leading-6 text-gray-500 lg:w-[400px] dark:text-gray-200 mb-">
+                      <p className="mt-4 text-base flex justify-center leading-6 text-gray-500  dark:text-gray-200 mb-">
                         {a.des}
                       </p>
                     </div>

@@ -175,6 +175,8 @@ export default function Users() {
   }
 
 
+
+
   //filter by year and month ---> for service provider & customer
   const [year, setyear] = useState("year");
   const [month, setmonth] = useState("month");
@@ -249,10 +251,9 @@ export default function Users() {
   })
 
   let countcus = filtercus.length;
-
-
-
   let countsp = filtersp.length;
+
+  
   console.log('filtersp lenght----->', countsp);
 
   //filter by search (sp)
@@ -265,10 +266,24 @@ export default function Users() {
 
   let setsearchedsp = filtersp.filter((sp) => {
     var regex = new RegExp(spsearchvalue);
+    var cat = "";
 
+    if(sp.decoration){
+      cat = cat + " decoration";
+    }
+    if(sp.refreshment){
+      cat = cat + " refreshment"
+    }
+    if(sp.hallservices){
+      cat = cat + " hallservices"
+    }
+    if(sp.photography){
+      cat = cat + " photography"
+    }
+    console.log('sp catergory -->',cat);
     if (spsearchvalue == "") {
       return sp;
-    } else if (regex.test(sp.name) || regex.test(sp.userid) || regex.test(sp.date.split("T")) || regex.test("refreshment") || regex.test("decoration") || regex.test("hallservices") || regex.test("photography")) {
+    } else if (regex.test(sp.name) || regex.test(sp.userid) || regex.test(sp.date.split("T")) || regex.test(cat) ) {
       return sp;
     }
 
@@ -321,7 +336,7 @@ export default function Users() {
       )
     } else {
       return (
-        <p className=' p-4 rounded-2xl '>All Registered Users : {countsp+countcus}  (2022 - up to now)</p>
+        <p className=' p-4 rounded-2xl '>All Registered Users : {countsp + countcus}  (2022 - up to now)</p>
       )
 
     }
@@ -333,6 +348,9 @@ export default function Users() {
   const series = [countsp, countcus];
 
 
+  //set search cus or sp amount
+  let searchcuslen = setsearchedcus.length
+  let searchsplen = setsearchedsp.length
 
 
 
@@ -385,12 +403,8 @@ export default function Users() {
           </div>
         </div>
         <div className='flex flex-col order-2 justify-center '>
-          <div className="flex justify-center rounded-lg  mb-4 text-2xl text-black shadow-lg shadow-black  bg-gray-300  order-1 font-bold bold  w-full " role="alert">
+          <div className="flex justify-center rounded-lg  mb-4 text-2xl text-black shadow-lg shadow-black  bg-gray-300  order-1 font-bold bold  w-full " >
             {settopic(year, month)}
-
-
-
-
           </div>
           {/* pie chart */}
           <div className="flex order-2 justify-center pl-[170px]  mt-4">
@@ -467,7 +481,7 @@ export default function Users() {
                       </div>
                     </div> */}
                 <div className='mt-2 mb-2 flex w-auto ml-20 justify-center'>
-                  <p className='font-bold  text-xl '>Total Users : 100</p>
+                  <p className='font-bold  text-xl '>Total users according to search  : {searchsplen}</p>
                 </div>
                 <div className="flex p-1 md:px-4 py-2 ml-14 ">
                   <div className="relative w-full">
@@ -624,8 +638,8 @@ export default function Users() {
                       </select>
                     </div>
                   </div> */}
-                <div className='mt-2  flex w-72 justify-center'>
-                  <p className='font-bold  text-xl '>Total Users : 400</p>
+                <div className='mt-2  flex w-full justify-center'>
+                  <p className='font-bold  text-xl '>Total users according to search  : {searchcuslen}</p>
                 </div>
               </div>
               <div className="flex p-1 md:px-4 py-2 justify-center">
