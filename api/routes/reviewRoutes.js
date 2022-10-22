@@ -19,8 +19,11 @@ router.get('/:id',async (req,res)=>{
 
 router.post('/',async (req,res)=>{
     try{
-        const {name,email,message}=req.body;
-        const newContact= await pool.query("INSERT INTO contact (name,email,message,received_date,received_time) VALUES ($1,$2,$3,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP) RETURNING *",[name,email,message])
+        const {rateValue,message}=req.body;
+
+        
+
+        const newContact= await pool.query("INSERT INTO contact (name,email,message,received_date,received_time) VALUES ($1,$2,$3,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP) RETURNING *",[rateValue,email,message])
 
         res.json(newContact.rows[0]);
     }
