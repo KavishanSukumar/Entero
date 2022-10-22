@@ -9,6 +9,21 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import Rating from '@mui/material/Rating';
+import StarIcon from '@mui/icons-material/Star';
+
+const style = {
+  position: "absolute",
+  top: "30%",
+  left: "50%",
+  height: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "background.paper",
+  boxShadow: 24,
+  m: 3,
+  p: 4,
+};
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -46,6 +61,9 @@ function a11yProps(index) {
 function BookingsCustomer() {
   const [past, setPast] = useState(false);
   const [present, setPresent] = useState(true);
+  const [openForm, setOpenForm] = useState(false);
+  const [message, setMessage] = useState("");
+  const [rateValue,setRateValue]=useState();
 
   const [value, setValue] = React.useState(0);
 
@@ -69,6 +87,10 @@ function BookingsCustomer() {
       setPast(!past);
     }
   };
+
+  const handleOpenForm = () => setOpenForm(true);
+  const handleCloseForm = () => setOpenForm(false);
+
   const presentData = (
     <div className="overflow-auto justify-center w-full h-screen">
       <table class="min-w-full z-0">
@@ -116,7 +138,7 @@ function BookingsCustomer() {
               Hall Services
             </td>
             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              13.06.2022
+              13.06.2023
             </td>
             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
               SK Hall Service
@@ -187,7 +209,7 @@ function BookingsCustomer() {
               Photography
             </td>
             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              12.03.2020
+              12.03.2028
             </td>
             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
               Kalindu Studio
@@ -200,13 +222,69 @@ function BookingsCustomer() {
               <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                 View
               </button>
-              <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+              <button onClick={handleOpenForm} className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                 Rating
               </button>
             </td>
           </tr>
         </tbody>
       </table>
+      <div>
+        <Modal
+          open={openForm}
+          onClose={handleCloseForm}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style} className="overflow-auto h-screen">
+            <div className="flex flex-col justify-center place-items-center ">
+              <p>Rate the service</p>
+              <form
+                className=" m-3  bg-white p-4  rounded-lg border-2 w-128 "
+                //onSubmit={handleRegister}
+                encType="multipart/form-data"
+              >
+                <div className="flex justify-center">
+                <Box
+      sx={{
+        width: 200,
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      <Rating
+        name="text-feedback"
+        value={rateValue}
+        precision={0.5}
+        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+        onChange={(e) => {setRateValue(e.target.value)}}
+      />
+      
+    </Box>
+
+                </div>
+                <p>{rateValue}</p>
+                
+    <div className="mt-4">
+                <textarea
+                  name="message"
+                  placeholder="Write a review.."
+                  // value={message}
+                  // onChange={(e) => {setMessage(e.target.value);setMessageError('')}}
+                  rows="5"
+                  className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black"
+                ></textarea>
+                {/* <p className="text-red-500 text-sm">{messageError}</p> */}
+              </div>
+
+                <button type="submit" className="border w-full my-5 py-1 bg-cyan-500 hover:bg-cyan-400 text-white">
+                  Done
+                </button>
+              </form>
+            </div>
+          </Box>
+        </Modal>
+      </div>
     </div>
   );
 
