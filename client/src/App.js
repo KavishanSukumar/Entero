@@ -77,7 +77,7 @@ function App() {
   useEffect(() => {
     isAuth();
   }, []);
-
+console.log('this is user id'+id);
   return (
     <div className="App">
       <Routes>
@@ -91,7 +91,7 @@ function App() {
             ) : userrole === "cs" ? (
               <CustomerEvents2 />
             ) : userrole === "sp" ? (
-              <ServiceProviderPortfolio data={id} />
+              <ServiceProviderPortfolio userid={id}/> 
             ) : (
               <Home />
             )
@@ -298,7 +298,7 @@ function App() {
           path="/serviceportfolio"
           element={
             isAuthenticated && userrole === "sp" ? (
-              <ServiceProviderPortfolio />
+              <ServiceProviderPortfolio userid={id}/>
             ) : (
               <Home />
             )

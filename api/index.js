@@ -14,6 +14,11 @@ import CustomerAppointmentRouter from "./routes/CustomerAppointmentRoutes.js";
 import BusinessPoliciesRouter from "./routes/Business&PoliciesRoutes.js";
 import CustomerEventRouter from "./routes/CustomereventRoutes.js";
 import contactRouter from "./routes/contactRoutes.js";
+import portfolioSpRouter from "./routes/portfolioSpRoutes.js";
+import portfolioContact from "./routes/portfolioContact.js";
+import spPackages from "./routes/spPackagesRoutes.js";
+import portfolioImages from "./routes/portfolioImagesRoutes.js";
+//import spPortPics from "./sp_portfolio_images/10";
 import adminCustomerRouter from "./routes/adminCustomerRoutes.js";
 import adminServiceRouter from "./routes/adminServiceRoutes.js"
 
@@ -34,9 +39,11 @@ const corsOptions = {
   origin: "process.env.URL",
   credentials: true || "*",
 };
+
 app.use(express.json());
 app.use(cors());
-
+app.use(express.static("sp_portfolio_images"));
+//app.use("/api/sp_portfolio_images",spPortPics);
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/customer", customerRegistrationRouter);
@@ -48,6 +55,10 @@ app.use("/api/customer/appointment", CustomerAppointmentRouter);
 app.use("/api/bpolicies", BusinessPoliciesRouter);
 app.use("/api/customerevent", CustomerEventRouter );
 app.use("/api/contact", contactRouter);
+app.use("/api/serviceprovider/portfoliosp", portfolioSpRouter);
+app.use("/api/serviceprovider/portfoliocontact", portfolioContact);
+app.use("/api/serviceprovider/sp_packages", spPackages);
+app.use("/api/serviceprovider/portfolioimages", portfolioImages);
 app.use("/api/admincustomer", adminCustomerRouter);
 app.use("/api/adminservice", adminServiceRouter);
 

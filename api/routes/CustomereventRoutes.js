@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/',async (req,res)=>{
     try{
         
-        const getCustomerEvent= await pool.query("SELECT DISTINCT userid FROM service_provider")
+        const getCustomerEvent= await pool.query("SELECT name FROM service_provider")
 
         res.json(getCustomerEvent.rows);
     }
