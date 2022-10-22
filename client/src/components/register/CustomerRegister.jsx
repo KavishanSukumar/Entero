@@ -10,8 +10,9 @@ import axios from "axios";
 import * as React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LoopIcon from "@mui/icons-material/Loop";
 
-const API_URL = "http://localhost:4000/api/customer";
+const API_URL = "http://localhost:4000/api/customerregistration";
 function CustomerRegister() {
   const [values, setValues] = React.useState({
     showPassword: false,
@@ -25,6 +26,14 @@ function CustomerRegister() {
     password: "",
     conf_password: "",
   });
+  const [buttonval, setButtonval] = React.useState(
+    <button
+      type="submit"
+      className="border w-full my-5 py-2 bg-cyan-500 hover:bg-cyan-400 text-white"
+    >
+      Sign Up
+    </button>
+  );
 
   const { fname, lname, email, contactNum, address, password, conf_password } =
     inputs;
@@ -41,7 +50,8 @@ function CustomerRegister() {
   const onSubmitForm = async (e) => {
     e.preventDefault();
     let checkErrors = 0;
-    const validPasswordCheck=/^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,20}$/
+    const validPasswordCheck =
+      /(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[-+_!@#$%^&*.,?])/;
     const validEmailCheck = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
     try {
       if (!fname.trim() && !lname.trim()) {
@@ -67,17 +77,31 @@ function CustomerRegister() {
         setPasswordError("Password is required");
         checkErrors = 1;
       } else if (password.length < 8 || password.length > 16) {
-        setPasswordError("Password should be more than 8 and less than 20 characters");
+        setPasswordError(
+          "Password should be more than 8 and less than 20 characters"
+        );
         checkErrors = 1;
       } else if (password.trim() !== conf_password.trim()) {
         setPasswordError("Passwords mismatch");
         checkErrors = 1;
-      }else if (!validPasswordCheck.test(password)){
-        setPasswordError("Password must contain lower case,upper case letters, a number and a special character");
+      } else if (!validPasswordCheck.test(password)) {
+        setPasswordError(
+          "Password must contain lower case,upper case letters, a number and a special character"
+        );
         checkErrors = 1;
       }
 
       if (checkErrors == 0) {
+        setButtonval(
+          <button
+            type="submit"
+            className="border w-full my-5 py-2 bg-cyan-500 text-white"
+            disabled
+          >
+            <LoopIcon className="animate-spin" />
+            Processing ...
+          </button>
+        );
         const res = await axios.post(API_URL, {
           fname,
           lname,
@@ -291,12 +315,7 @@ function CustomerRegister() {
               </label>
             </div>
           </div>
-          <button
-            type="submit"
-            className="border w-full my-5 py-2 bg-cyan-500 hover:bg-cyan-400 text-white"
-          >
-            Sign Up
-          </button>
+          <div>{buttonval}</div>
         </form>
       </div>
     </>

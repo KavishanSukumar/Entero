@@ -9,6 +9,8 @@ import Tabs from "@mui/material/Tabs";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
 import PropTypes from "prop-types";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 const API_URL = "http://localhost:4000/api/serviceprovider/appointment";
 function TabPanel(props) {
@@ -48,6 +50,8 @@ function Appointment(props) {
   const [value, setValue] = React.useState(0);
   const [appointment, setAppointment] = React.useState([]);
   const [id, setId] = React.useState(props.data);
+  const [calendar, setCalendar] = React.useState(false);
+  const [calenderDate, setCalenderDate] = React.useState();
 
   async function getAppointment() {
     const res = await axios.post(API_URL, {
@@ -81,6 +85,15 @@ function Appointment(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const openCalender = () => {
+    setCalendar(!calendar);
+  };
+  const getDate = (e) => {
+    setCalenderDate(e);
+    console.log(calendar);
+  };
+
   return (
     <div className="flex flex-col w-auto  justify-around mx-6 my-3">
       <div className="flex justify-start mb-7">
@@ -122,17 +135,23 @@ function Appointment(props) {
                     />
                   </label>
                 </div>
-                <div className="basis-6/12 flex flex-row justify-end">
+                <div className="relative basis-6/12 flex flex-row justify-end">
                   <div className="flex  mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <DateRangeIcon /> Date Range
+                    <button
+                      onClick={openCalender}
+                      className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                    >
+                      <DateRangeIcon /> Date
                     </button>
                   </div>
-                  <div className="flex  mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <AccessTimeIcon /> Time Range
-                    </button>
-                  </div>
+                  {calendar && (
+                    <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
+                      <Calendar
+                        onChange={(e) => getDate(e)}
+                        value={calenderDate}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="overflow-auto justify-center w-full h-screen">
@@ -237,17 +256,20 @@ function Appointment(props) {
                     />
                   </label>
                 </div>
-                <div className="basis-6/12 flex flex-row justify-end">
+                <div className="relative basis-6/12 flex flex-row justify-end">
                   <div className="flex mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <DateRangeIcon /> Date Range
+                    <button
+                      onClick={openCalender}
+                      className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                    >
+                      <DateRangeIcon /> Date
                     </button>
                   </div>
-                  <div className="flex mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <AccessTimeIcon /> Time Range
-                    </button>
-                  </div>
+                  {calendar && (
+                    <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
+                      <Calendar onChange={getDate} value={calenderDate} />
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="overflow-auto justify-center w-full h-screen">
@@ -345,16 +367,19 @@ function Appointment(props) {
                     />
                   </label>
                 </div>
-                <div className="basis-6/12 flex flex-row justify-end">
+                <div className="relative basis-6/12 flex flex-row justify-end">
                   <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <AccessTimeIcon /> Time Range
+                    <button
+                      onClick={openCalender}
+                      className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                    >
+                      <DateRangeIcon /> Date
                     </button>
-                  </div>
-                  <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <DateRangeIcon /> Date Range
-                    </button>
+                    {calendar && (
+                      <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
+                        <Calendar onChange={getDate} value={calenderDate} />
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -444,16 +469,19 @@ function Appointment(props) {
                     />
                   </label>
                 </div>
-                <div className="basis-6/12 flex flex-row justify-end">
+                <div className="relative basis-6/12 flex flex-row justify-end">
                   <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <AccessTimeIcon /> Time Range
+                    <button
+                      onClick={openCalender}
+                      className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                    >
+                      <DateRangeIcon /> Date
                     </button>
-                  </div>
-                  <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <DateRangeIcon /> Date Range
-                    </button>
+                    {calendar && (
+                      <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
+                        <Calendar onChange={getDate} value={calenderDate} />
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

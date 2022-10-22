@@ -28,8 +28,8 @@ router.post("/", validInfo, async (req, res) => {
       "INSERT INTO users (email, password, name, contact_number, address, userrole) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
       [email, bcryptPassword, name, contactNum, address, "cs"]
     );
-    const userid=newUser.rows[0].userid;
-    const newUserCustomer=await pool.query(
+    const userid = newUser.rows[0].userid;
+    const newUserCustomer = await pool.query(
       "INSERT INTO customer (userid, status) VALUES ($1, 'a') RETURNING *",
       [userid]
     );
