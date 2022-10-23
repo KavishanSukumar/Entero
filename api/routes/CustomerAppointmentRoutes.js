@@ -13,7 +13,7 @@ const router = express.Router();
 // }
 
 
-router.get('/',async (req,res)=>{
+router.get("/",async (req,res)=>{
     try{    
         const getCustomerAppointment1= await pool.query("SELECT * FROM appointment")
 
