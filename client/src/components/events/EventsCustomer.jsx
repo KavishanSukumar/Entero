@@ -1,14 +1,22 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import Shakir from "../../Shakir.jpg";
 import SearchIcon from "@mui/icons-material/Search";
 
-import * as React from "react";
+// import * as React from "react";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import axios from "axios";
+
+import Checkbox from "@mui/material/Checkbox";
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormGroup from "@mui/material/FormGroup";
+import Input from "@mui/material/Input";
+import InputLabel from "@mui/material/InputLabel";
 
 // import PageHeader from "../../../components/PagesHeader/PageHeader";
 import Button from "../button/Button";
@@ -20,43 +28,12 @@ import avatar5 from "../../documents/avatar5.jpg";
 
 import Rate from "../rate/Rate";
 
-import cate1 from "../../documents/cate1.jpg";
-import cate2 from "../../documents/cate2.png";
-import cate3 from "../../documents/cate3.jpg";
-import cate4 from "../../documents/cate4.jpg";
-import cate5 from "../../documents/cate5.jpg";
-import cate6 from "../../documents/cate6.jpeg";
-import cate7 from "../../documents/cate7.jpg";
-import cate8 from "../../documents/cate8.jpg";
 
-import servicespic1 from "../../documents/servicespic1.jpg";
-import servicespic2 from "../../documents/servicespic2.jpg";
-import servicespic3 from "../../documents/servicespic3.jpeg";
-import servicespic4 from "../../documents/servicespic4.jpeg";
-import servicespic5 from "../../documents/servicespic5.jpeg";
-import servicespic6 from "../../documents/servicespic6.jpg";
-import servicespic7 from "../../documents/servicespic7.jpeg";
-import servicespic8 from "../../documents/servicespic8.jpg";
-
-import dec1 from "../../documents/dec1.jpg";
-import dec2 from "../../documents/dec2.jpg";
-import dec3 from "../../documents/dec3.jpg";
-import dec4 from "../../documents/dec4.jpg";
-import dec5 from "../../documents/dec5.jpeg";
-import dec6 from "../../documents/dec6.jpg";
-import dec7 from "../../documents/dec7.jpg";
-import dec8 from "../../documents/dec8.jpg";
-
-import pho1 from "../../documents/pho1.jpeg";
 import pho2 from "../../documents/pho2.jpg";
-import pho3 from "../../documents/pho3.jpg";
-import pho4 from "../../documents/pho4.jpg";
-import pho5 from "../../documents/pho5.jpg";
-import pho6 from "../../documents/pho6.jpg";
-import pho7 from "../../documents/pho7.jpg";
-import pho8 from "../../documents/pho8.jpg";
+
 import { Link } from "react-router-dom";
 
+const API_URL = "http://localhost:4000/api/customerevent";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -90,13 +67,77 @@ function a11yProps(index) {
   };
 }
 
-function EventsCustomer() {
+function EventsCustomer(props) {
   const [popup, setPopup] = useState(false);
   const [popupS, setPopupS] = useState(false);
-  const [service, setService] = useState(false);
-  const [serviceRegister, setServiceRegister] = useState(true);
+  //const [service, setService] = useState(false);
 
+  const [serviceRegister, setServiceRegister] = useState(true);
   const [value, setValue] = React.useState(0);
+  const [cevent, setCevent] = React.useState([]);
+  const [id, setId] = useState();
+
+  const [servicesError, setServicesError] = useState("");
+  const [eventsError, setEventsError] = useState("");
+  const [services, setServices] = useState([]);
+
+
+  const [events, setEvents] = useState([]);
+  const [events2, setEvents2] = useState([]);
+  const [eventDetail, setEventDetails] = useState();
+  // let hall = true ;
+  // let decoration = true ;
+  // let refreshment = true ;
+  // let photography = true ;
+  let hall = false;
+  let decoration = false;
+  let refreshment = false;
+  let photography = false;
+ 
+  if (services.includes("hall")) {
+    hall = true;
+   //  console.log(hall);
+   }
+   if (services.includes("decoration")) {
+    decoration = true;
+   }
+   if (services.includes("refreshment")) {
+    refreshment = true;
+   }
+   if (services.includes("photography")) {
+    photography = true;
+   }
+  async function fetchCevent() {
+    try {
+      const res = await axios.get(API_URL);
+      setEvents(res.data);
+      setEvents2(res.data);
+
+    } catch (error) {
+      console.error(error.message);
+    }
+
+    // const res = await axios.post(API_URL, {
+    //   id: id,
+    // });
+    // setCevent(res.data);
+  }
+
+  const serviceList = (e) => {
+    if (services.includes(e.target.value)) {
+       setServices(services.filter((g) => g !== e.target.value));
+
+
+    } 
+    else if (!services.includes(e.target.value)) {
+      setServices([...services, e.target.value]);
+    }
+  };
+
+
+  useEffect(() => {
+    fetchCevent();
+  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -108,1305 +149,27 @@ function EventsCustomer() {
   const handlePopupS = () => {
     setPopupS(!popupS);
   };
-  const handleService = () => {
-    if (!service) {
-      setService(!service);
-    }
-    if (serviceRegister) {
-      setServiceRegister(!serviceRegister);
-    }
-  };
-  const handleServiceRegister = () => {
-    if (!serviceRegister) {
-      setServiceRegister(!serviceRegister);
-    }
-    if (service) {
-      setService(!service);
-    }
-  };
+  // const handleService = () => {
+  //   if (!service) {
+  //     setService(!service);
+  //   }
+  //   if (serviceRegister) {
+  //     setServiceRegister(!serviceRegister);
+  //   }
+  // };
 
-  const cateData = (
-    <>
-      <div
-        className="flex m-5 flex-wrap 
-              gap-1"
-      >
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src="/assets/images/fabcake.jpg"
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                The Fab
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
-            <Rate />
-            <Link
-              to="/customerserviceportfolio"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
-            >
-              See Portfolio
-              <svg
-                class="ml-2 -mr-1 w-4 h-4"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </Link>
-          </div>
-        </div>
+  // const handleServiceRegister = () => {
+  //   if (!serviceRegister) {
+  //     setServiceRegister(!serviceRegister);
+  //   }
+  //   if (service) {
+  //     setService(!service);
+  //   }
+  // };
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={cate2}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Sinro Caterers
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700  ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
+ 
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={cate3}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                A. H. Caters
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700">Trial</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
 
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={cate4}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Raffles Catering
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={cate5}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Colombo Catering
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={cate6}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Food, Function & Catering
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class=" w-72 bg-white rounded-lg border border-gray-200 shadow-md">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={cate7}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Jayamal Caterers
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={cate8}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Newsiri Caters
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-
-  const serviceRegisterData = (
-    <>
-      <div
-        className="flex m-5 flex-wrap 
-              gap-1"
-      >
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={servicespic1}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Marino Beach Colombo
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={servicespic2}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Pegasus Reef Hotel
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={servicespic3}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Galadari Hotel
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={servicespic4}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Mandarina Colombo
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={servicespic5}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Cinnamon Red Colombo
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={servicespic6}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Cinnamon Grand Colombo
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class=" w-72 bg-white rounded-lg border border-gray-200 shadow-md">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={servicespic7}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Galle Face Hotel
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={servicespic8}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                ME Colombo
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-  const decData = (
-    <>
-      <div
-        className="flex m-5 flex-wrap 
-              gap-1"
-      >
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={dec1}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Smart Flora
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700  ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={dec2}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Wedding Carpet
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={dec3}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Olu Flora
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={dec4}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Manahara Flora
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700  ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={dec5}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                2nd Chance Flowers
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={dec6}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight ">
-                Lassana Flora
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class=" w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={dec7}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900  ">
-                Wedding Dream Flora
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700  ">Trial</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={dec8}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Shamins Deorations
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-
-  const phoData = (
-    <>
-      <div
-        className="flex m-5 flex-wrap 
-              gap-1"
-      >
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={pho1}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Shine Photography
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700  ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={pho2}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                CHE Studio
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={pho3}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Foto Station
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={pho4}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                PhotoLk
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={pho5}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Roocine Studio
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={pho6}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Dark Room Photography
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class=" w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={pho7}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Video7 Studio
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Trial</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src={pho8}
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                PassionArt Wedding Photographhy
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 ">Premium</p>
-            <Rate />
-            <a
-              href="#"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
-            >
-              See Portfolio
-              <svg
-                aria-hidden="true"
-                class="ml-2 -mr-1 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </>
-  );
 
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
@@ -1469,35 +232,9 @@ function EventsCustomer() {
             <Tab label="RECEPTION" {...a11yProps(2)} />
             <Tab label="ENGAGEMENT" {...a11yProps(3)} />
             <Tab label="OTHER OCCASION" {...a11yProps(4)} />
+            {/* <Tab label="RECEPTION Testing" {...a11yProps(5)} /> */}
 
-            {/* <div className="ml-28">
-<ul class="items-center w-full text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-        <div class="flex items-center pl-3">
-            <input id="Catering-checkbox-list" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-            <label for="Catering-checkbox-list" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Catering</label>
-        </div>
-    </li>
-    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-        <div class="flex items-center pl-3">
-            <input id="Halls-checkbox-list" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-            <label for="Halls-checkbox-list" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Halls</label>
-        </div>
-    </li>
-    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-        <div class="flex items-center pl-3">
-            <input id="Decoration-checkbox-list" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-            <label for="Decoration-checkbox-list" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Decoration</label>
-        </div>
-    </li>
-    <li class="w-full dark:border-gray-600">
-        <div class="flex items-center pl-3">
-            <input id="Photography-checkbox-list" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
-            <label for="Photography-checkbox-list" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Photography</label>
-        </div>
-    </li>
-</ul>
-</div> */}
+          
           </Tabs>
         </Box>
 
@@ -1511,7 +248,7 @@ function EventsCustomer() {
             <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
               Services
             </h3>
-            <ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+            {/* <ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
               <li class="w-full rounded-t-lg border-b border-gray-200 ">
                 <div class="flex items-center pl-3">
                   <input
@@ -1525,7 +262,8 @@ function EventsCustomer() {
                     for="Caterings-checkbox"
                     class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
-                    Caterings
+                    
+                    Refreshment
                   </label>
                 </div>
               </li>
@@ -1577,9 +315,152 @@ function EventsCustomer() {
                   </label>
                 </div>
               </li>
+            </ul> */}
+
+
+{/* <div className="flex flex-col py-5 px-2 text-slate-500">
+            <label>Service Category</label>
+            <FormGroup className="px-3">
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value="refreshment"
+                    onClick={(e) => {
+                      serviceList(e);
+                      setServicesError("");
+                    }}
+                  />
+                }
+                label="Refreshment"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value="decoration"
+                    onClick={(e) => {
+                      serviceList(e);
+                      setServicesError("");
+                    }}
+                  />
+                }
+                label="Decoration"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value="photography"
+                    onClick={(e) => {
+                      serviceList(e);
+                      setServicesError("");
+                    }}
+                  />
+                }
+                label="Photography"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value="hall"
+                    onClick={(e) => {
+                      serviceList(e);
+                      setServicesError("");
+                    }}
+                    checked
+                  />
+                }
+                label="Hall Services"
+              />
+            </FormGroup>
+            <p className="text-red-500 text-sm">{servicesError}</p>
+          </div> */}
+
+
+            <ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+              <li class="w-full rounded-t-lg border-b border-gray-200 ">
+                <div class="flex items-center pl-3">
+                  <input
+                    id="refreshment-checkbox"
+                    type="checkbox"
+                    value="1"
+                    onClick={(e) => {
+                      serviceList(e);
+                      setServicesError("");
+                    }}
+                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                    checked="true"
+                  />
+                  <label
+                    for="refreshment-checkbox"
+                    class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                   
+                    Refreshment
+                  </label>
+                </div>
+              </li>
+              <li class="w-full rounded-t-lg border-b border-gray-200 ">
+                <div class="flex items-center pl-3">
+                  <input
+                    id="Halls-checkbox"
+                    type="checkbox"
+                    value="hall"
+                    onClick={(e) => {
+                      serviceList(e);
+                      setServicesError("");
+                    }}
+                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label
+                    for="Halls-checkbox"
+                    class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    Halls
+                  </label>
+                </div>
+              </li>
+              <li class="w-full rounded-t-lg border-b border-gray-200 ">
+                <div class="flex items-center pl-3">
+                  <input
+                    id="Decoration-checkbox"
+                    type="checkbox"
+                    value="decoration"
+                    onClick={(e) => {
+                      serviceList(e);
+                      setServicesError("");
+                    }}
+                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label
+                    for="Decoration-checkbox"
+                    class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    Decoration
+                  </label>
+                </div>
+              </li>
+              <li class="w-full rounded-t-lg border-b border-gray-200 ">
+                <div class="flex items-center pl-3">
+                  <input
+                    id="Photography-checkbox"
+                    type="checkbox"
+                    value="photography"
+                    onClick={(e) => {
+                      serviceList(e);
+                      setServicesError("");
+                    }}
+                    class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label
+                    for="Photography-checkbox"
+                    class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    Photography
+                  </label>
+                </div>
+              </li>
             </ul>
 
-            <br />
+            {/* <br />
             <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
               Status
             </h3>
@@ -1632,119 +513,318 @@ function EventsCustomer() {
                   </label>
                 </div>
               </li>
-            </ul>
+            </ul> */}
           </div>
           <div>
             <TabPanel value={value} index={0}>
-              {cateData}
+            <div
+                className="flex m-5 flex-wrap 
+              gap-1"
+              >
+
+
+
+
+       <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+           <a href="#">
+             <img
+              class="rounded-t-lg"
+              src="/assets/images/fabcake.jpg"
+              alt=""
+              className=" w-72 h-60"
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                The Fab
+              </h5>
+            </a>
+            {/* <p class="mb-3 font-normal text-gray-700 ">7</p> */}
+            <Rate />
+            <Link
+              to="/customerserviceportfolio"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+            >
+              See Portfolio
+              <svg
+                class="ml-2 -mr-1 w-4 h-4"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </Link>
+          </div>
+        </div>
+
+
+
+
+                {
+                // events2.map((event2) => (
+                events.map((event) => (
+                //  console.log(refreshment,decoration,photography,hall),
+                    (event.birthday  === true) && (( (event.refreshment === true) && (refreshment === true) ) || ((event.decoration === true) && (decoration === true)) || ((event.hallservices === true) && (hall === true)) || ((event.photography === true) && (photography === true)))  &&
+              //    event.birthday  === true &&
+                 <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
+                    <a href="#">
+                      <img
+                        class="rounded-t-lg"
+                        src={pho2}
+                        alt=""
+                        className=" w-72 h-60"
+                      />
+                    </a>
+                    <div class="p-5">
+                      <a href="#">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                          {/* CHE Studio */}
+                          {event.name}
+                        </h5>
+                      </a>
+                      {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
+                      <Rate />
+                      <Link
+              to="/customerserviceportfolio"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+            >
+                        See Portfolio
+                        <svg
+                          aria-hidden="true"
+                          class="ml-2 -mr-1 w-4 h-4"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                        </Link>
+                    </div>
+                  </div>
+                  // ))
+                ))}
+              </div>
             </TabPanel>
+
             <TabPanel value={value} index={1}>
-              {cateData}
-              {serviceRegisterData}
-              {decData}
-              {phoData}
+                 <div
+                className="flex m-5 flex-wrap 
+              gap-1"
+              >
+                {events.map((event) => (
+                  (event.wedding  === true) && (( (event.refreshment === true) && (refreshment === true) ) || ((event.decoration === true) && (decoration === true)) || ((event.hallservices === true) && (hall === true)) || ((event.photography === true) && (photography === true)))  &&
+                  <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
+                    <a href="#">
+                      <img
+                        class="rounded-t-lg"
+                        src={pho2}
+                        alt=""
+                        className=" w-72 h-60"
+                      />
+                    </a>
+                    <div class="p-5">
+                      <a href="#">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                          {/* CHE Studio */}
+                          {event.name}
+                        </h5>
+                      </a>
+                      {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
+                      <Rate />
+                      <Link
+              to="/customerserviceportfolio"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+            >
+                        See Portfolio
+                        <svg
+                          aria-hidden="true"
+                          class="ml-2 -mr-1 w-4 h-4"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </TabPanel>
+
             <TabPanel value={value} index={2}>
-              {decData}
-              {phoData}
+            <div
+                className="flex m-5 flex-wrap 
+              gap-1"
+              >
+                {events.map((event) => (
+                  (event.reception  === true) && (( (event.refreshment === true) && (refreshment === true) ) || ((event.decoration === true) && (decoration === true)) || ((event.hallservices === true) && (hall === true)) || ((event.photography === true) && (photography === true)))  &&
+                  <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
+                    <a href="#">
+                      <img
+                        class="rounded-t-lg"
+                        src={pho2}
+                        alt=""
+                        className=" w-72 h-60"
+                      />
+                    </a>
+                    <div class="p-5">
+                      <a href="#">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                          {/* CHE Studio */}
+                          {event.name}
+                        </h5>
+                      </a>
+                      {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
+                      <Rate />
+                      <Link
+              to="/customerserviceportfolio"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+            >
+                        See Portfolio
+                        <svg
+                          aria-hidden="true"
+                          class="ml-2 -mr-1 w-4 h-4"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                        </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </TabPanel>
+
             <TabPanel value={value} index={3}>
-              {phoData}
+            <div
+                className="flex m-5 flex-wrap 
+              gap-1"
+              >
+                {events.map((event) => (
+                  (event.engagement === true) && (( (event.refreshment === true) && (refreshment === true) ) || ((event.decoration === true) && (decoration === true)) || ((event.hallservices === true) && (hall === true)) || ((event.photography === true) && (photography === true)))  &&
+                  <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
+                    <a href="#">
+                      <img
+                        class="rounded-t-lg"
+                        src={pho2}
+                        alt=""
+                        className=" w-72 h-60"
+                      />
+                    </a>
+                    <div class="p-5">
+                      <a href="#">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                          {/* CHE Studio */}
+                          {event.name}
+                        </h5>
+                      </a>
+                      {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
+                      <Rate />
+                      <Link
+              to="/customerserviceportfolio"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+            >
+                        See Portfolio
+                        <svg
+                          aria-hidden="true"
+                          class="ml-2 -mr-1 w-4 h-4"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                        </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </TabPanel>
+
+            <TabPanel value={value} index={4}>
+            <div
+                className="flex m-5 flex-wrap 
+              gap-1"
+              >
+                {events.map((event) => (
+                  (event.other === true) && (( (event.refreshment === true) && (refreshment === true) ) || ((event.decoration === true) && (decoration === true)) || ((event.hallservices === true) && (hall === true)) || ((event.photography === true) && (photography === true)))  &&
+                  <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
+                    <a href="#">
+                      <img
+                        class="rounded-t-lg"
+                        src={pho2}
+                        alt=""
+                        className=" w-72 h-60"
+                      />
+                    </a>
+                    <div class="p-5">
+                      <a href="#">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                          {/* CHE Studio */}
+                          {event.name}
+                        </h5>
+                      </a>
+                      {/* <p class="mb-3 font-normal text-gray-700 ">Premium</p> */}
+                      <Rate />
+                      <Link
+              to="/customerserviceportfolio"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+            >
+                        See Portfolio
+                        <svg
+                          aria-hidden="true"
+                          class="ml-2 -mr-1 w-4 h-4"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                        </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </TabPanel>
+           
           </div>
 
           {/* </div> */}
         </div>
       </Box>
 
-      {/* <div
-        className={
-          popup
-            ? "fixed backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  p-4 left-0"
-            : "hidden"
-        }
-      >
-        <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[70%] mx-[15%] p-2">
-          <div className="w-full inline-flex justify-end items-end">
-            <AiOutlineClose
-              className="w-4 h-4 cursor-pointer"
-              onClick={handlePopup}
-            />
-          </div>
-          <div className="w-full flex flex-col lg:flex-row">
-            <div className="flex flex-col  items-center shadow-2xl mb-2 ">
-            
-              <div className="p-2">
-                <img
-                  src={Shakir}
-                  alt=""
-                  className="w-28 h-28 rounded-full shadow-2xl "
-                />
-              </div>
-
-          
-              <div className="flex flex-col w-44 p-4">
-                <button className=" border-2   p-1 mb-3 rounded hover:bg-transparent hover:border-black">
-                  Remove
-                </button>
-              </div>
-            </div>
-            <div className=" w-full">
-              <p className="text-center text-base font-medium mb-2 border-b-2">
-                Details
-              </p>
-              <p className="md:ml-8 px-1 text-left">
-                <b>Name:</b> Perera and sons
-              </p>
-              <p className="md:ml-8 px-1 text-left">
-                <b>BR:</b> 867564980
-              </p>
-              <p className="md:ml-8 px-1 text-left">
-                <b>Address:</b> 45,Kings Cross,Colombo 02
-              </p>
-              <div className="mx-[20%]">
-                <button className="mt-4 w-full md:ml-8 text-center p-1 text-white bg-cyan-500 hover:bg-cyan-400">
-                  Visit Portfolio
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-      {/* <div
-        className={
-          popupS
-            ? "fixed backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  p-4 left-0"
-            : "hidden"
-        }
-      >
-        <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col  w-[70%] mx-[15%] p-2">
-          <div className="w-full inline-flex justify-end items-end">
-            <AiOutlineClose
-              className="w-6 h-6 cursor-pointer"
-              onClick={handlePopupS}
-            />
-          </div>
-
-          <div className=" w-full">
-            <p className="text-center text-base font-medium mb-2 border-b-2">
-              Details
-            </p>
-            <p className="md:ml-8 px-1 text-left">
-              <b>Name:</b> Kalindu Photography
-            </p>
-            <p className="md:ml-8 px-1 text-left">
-              <b>BR:</b> 867564980
-            </p>
-            <p className="md:ml-8 px-1 text-left">
-              <b>Address:</b> 32,Ruhuna Road, Colombo 02
-            </p>
-          </div>
-          <div className="mx-[20%] bg-red-600">
-            <p className="text-center">Document comes here</p>
-          </div>
-        </div>
-      </div> */}
+     
+    
     </div>
   );
 }
