@@ -57,9 +57,9 @@ function UserProfileImage(props) {
     let checkErrors = 0;
     try {
       if (!file) {
-        setFileError("Upload the BR document");
+        setFileError("Upload image");
         checkErrors = 1;
-      } else if (file.type != "image/jpeg") {
+      } else if (file.type != "image/jpeg" && file.type != "image/png") {
         setFileError("Only png,jpg image files are allowed");
         checkErrors = 1;
       }
@@ -106,7 +106,7 @@ function UserProfileImage(props) {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={style} className="overflow-auto h-screen">
+          <Box sx={style} className="overflow-auto ">
             <div className="flex flex-col justify-center place-items-center ">
               <form
                 className=" m-3  bg-white p-4  rounded-lg border-2 w-128 "
@@ -114,7 +114,7 @@ function UserProfileImage(props) {
                 encType="multipart/form-data"
               >
                 <div className="flex flex-col py-4 px-2 text-slate-500">
-                  <label className="mb-3">Business Registration Document</label>
+                  <label className="mb-3">Upload profile image</label>
                   <input
                     type="file"
                     name="file"

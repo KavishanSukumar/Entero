@@ -6,7 +6,7 @@ import ServiceProfileForms from "../../../components/profile/ServiceProfileForms
 
 function ServiceProviderProfile(props) {
   const id=props.userid
-  console.log(id)
+  
   return (
     <div>
       <ServiceProviderHeader />
@@ -15,10 +15,10 @@ function ServiceProviderProfile(props) {
         <div className="md:ml-[15%] lg:ml-[25%]  md:mt-8 px-8 ">
           <div className="flex flex-col  md:flex-row min-h-screen">
             {/*The image part with change and remove buttons */}
-            <UserProfileImage userId={id}/>
+            <UserProfileImage userid={id}/>
 
             {/* start of the division with the forms*/}
-            <ServiceProfileForms />
+            <ServiceProfileForms userid={id} />
             {/*End of the forms part */}
           </div>
         </div>

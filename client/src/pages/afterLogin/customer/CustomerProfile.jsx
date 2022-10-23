@@ -14,7 +14,7 @@ function CustomerProfile(props) {
   
   return (
     <div>
-      <CustomerHeader />
+      <CustomerHeader  />
       <div className="flex">
         
         
@@ -22,7 +22,7 @@ function CustomerProfile(props) {
         <div className="md:ml-[15%] lg:ml-[25%]  md:mt-8 px-8 ">
           <div className="flex flex-col  md:flex-row min-h-screen">
           {/*The image part with change and remove buttons */}
-            <UserProfileImage userid={id} />
+            <UserProfileImage  userid={id}/>
 
 
           {/* start of the division with the forms*/}
