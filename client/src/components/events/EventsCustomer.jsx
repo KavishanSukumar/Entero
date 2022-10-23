@@ -111,7 +111,7 @@ function EventsCustomer(props) {
     try {
       const res = await axios.get(API_URL);
       setEvents(res.data);
-    
+      setEvents2(res.data);
 
     } catch (error) {
       console.error(error.message);
@@ -381,7 +381,7 @@ function EventsCustomer(props) {
                   <input
                     id="refreshment-checkbox"
                     type="checkbox"
-                    value="refreshment"
+                    value="1"
                     onClick={(e) => {
                       serviceList(e);
                       setServicesError("");
@@ -567,7 +567,9 @@ function EventsCustomer(props) {
 
 
 
-                {events.map((event) => (
+                {
+                // events2.map((event2) => (
+                events.map((event) => (
                 //  console.log(refreshment,decoration,photography,hall),
                     (event.birthday  === true) && (( (event.refreshment === true) && (refreshment === true) ) || ((event.decoration === true) && (decoration === true)) || ((event.hallservices === true) && (hall === true)) || ((event.photography === true) && (photography === true)))  &&
               //    event.birthday  === true &&
@@ -610,6 +612,7 @@ function EventsCustomer(props) {
                         </Link>
                     </div>
                   </div>
+                  // ))
                 ))}
               </div>
             </TabPanel>
