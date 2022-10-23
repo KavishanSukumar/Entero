@@ -4,6 +4,8 @@ import cookieParser from "cookie-parser";
 import pg from "pg";
 import userRouter from "./routes/userRoutes.js";
 import authRouter from "./routes/authRoutes.js";
+import setPasswordRouter from "./routes/setPasswordRoutes.js";
+import profileRouter from "./routes/profileRoutes.js";
 import serviceProviderRouter from "./routes/serviceProvicerApointments.js";
 import adminpaymentsRouter from "./routes/paymentRoutes.js";
 import customerRegistrationRouter from "./routes/customerRegistrationRoutes.js";
@@ -25,6 +27,9 @@ import adminServiceRouter from "./routes/adminServiceRoutes.js";
 import chatRoute from "./routes/chatRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
 import serviceProviderRegistrationRoutes from "./routes/serviceProviderRegistrationRoutes.js";
+
+import reviewRouter from "./routes/reviewRoutes.js";
+
 
 dotenv.config();
 
@@ -56,6 +61,8 @@ io.on("connection", (socket) => {
 
 app.use(express.json());
 app.use(cors());
+
+app.use(express.static("files"));
 app.use(express.static("sp_portfolio_images"));
 //app.use("/api/sp_portfolio_images",spPortPics);
 app.use("/api/user", userRouter);
@@ -68,6 +75,9 @@ app.use("/api/serviceprovider/appointment", serviceProviderRouter);
 app.use("/api/admin/packages", adminpaymentsRouter);
 app.use("/api/customer/appointment", CustomerAppointmentRouter);
 app.use("/api/customer", serviceProviderRegistrationRoutes);
+app.use("/api/setpassword", setPasswordRouter);
+app.use("/api/profile",profileRouter);
+app.use("/api/review",reviewRouter);
 app.use("/api/customer/appointment", CustomerAppointmentRouter);
 app.use("/api/serviceprovider/appointment", serviceProviderRouter);
 app.use("/api/admin/packages",adminpaymentsRouter);

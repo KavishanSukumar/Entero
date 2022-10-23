@@ -3,6 +3,10 @@ import { useEffect, useState ,Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
 import UserProfile from "./pages/afterLogin/UserProfile";
 import Home from "./pages/beforeLogin/Home";
+import ForgotPassword from "./pages/beforeLogin/ForgotPassword";
+import ResetPassword from "./pages/beforeLogin/ResetPassword";
+import EmailVerify from "./pages/beforeLogin/EmailVerify";
+import ServiceProviderPassword from "./pages/beforeLogin/ServiceProviderPassword";
 
 import Admin from "./pages/afterLogin/admin/Admin";
 import AdminBusinessPolicies from "./pages/afterLogin/admin/AdminBusinessPolicies";
@@ -82,6 +86,10 @@ console.log('this is user id'+id);
     <div className="App">
       <Routes>
         <Route exact path="/" element={<Home data={userrole} />} />
+        <Route exact path="/forgotpassword" element={<ForgotPassword />} />
+        <Route exact path="/setpassword/:userid/:token" element={<ResetPassword />} />
+        <Route exact path="/emailverify/:userid/:token" element={<EmailVerify />} />
+        <Route exact path="/setpasswordsp/:userid/:token" element={<ServiceProviderPassword />} />
         {/* Login routes */}
         <Route
           path="/home"
@@ -186,7 +194,7 @@ console.log('this is user id'+id);
           path="/customerprofile"
           element={
             isAuthenticated && userrole === "cs" ? (
-              <CustomerProfile />
+              <CustomerProfile userid={id} />
             ) : (
               <Home />
             )
@@ -244,7 +252,7 @@ console.log('this is user id'+id);
           path="/customerbookings"
           element={
             isAuthenticated && userrole === "cs" ? (
-              <CustomerBookings />
+              <CustomerBookings userid={id} />
             ) : (
               <Home />
             )
@@ -368,7 +376,7 @@ console.log('this is user id'+id);
           path="/serviceprofile"
           element={
             isAuthenticated && userrole === "sp" ? (
-              <ServiceProviderProfile />
+              <ServiceProviderProfile userid={id} />
             ) : (
               <Home />
             )
@@ -379,7 +387,7 @@ console.log('this is user id'+id);
           exact
           path="/userprofile"
           element={
-            isAuthenticated && userrole === "am" ? <UserProfile /> : <Home />
+            isAuthenticated && userrole === "am" ? <UserProfile userid={id} /> : <Home />
           }
         />
       </Routes>

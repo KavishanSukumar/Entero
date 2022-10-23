@@ -576,57 +576,22 @@ function setpadding(val){
             </div>
           ))}
 
-          <div
-            className={
-              popup
-                ? "fixed backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  p-4 left-0"
-                : "hidden"
+<Modal
+        open={popup}
+        onClose={handlePopup}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style} className="overflow-auto h-screen">
+          {console.log('edit items',itemList1)}
+          <div className="flex flex-col gap-2">
+            <div className="flex justify-center">
+              <p className="font-bold text-lg"> Edit Package</p>
+            </div>
+            <div className="block p-6 rounded-lg shadow-lg shadow-black bg-white max-w-lg w-96 ">
 
-            }
-          >
-            <div className="bg-white fixed rounded-3xl shadow-2xl top-[20%] flex flex-col justify-center w-[40%] mx-[30%] p-2">
-              <div className="w-full inline-flex justify-end items-end">
-                <AiOutlineClose
-                  className="w-4 h-4 cursor-pointer"
-                  onClick={handlePopup}
-                />
-              </div>
-              <div
-                className="flex 
-          w-full 
-          justify-center items-center mt-2"
-              >
-                {/* <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-slate-200 w-full max-w-4xl p-8 rounded-xl shadow-lg  bg-opacity-60  justify-center items-center" > */}
-                {/* <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-white w-full max-w-4xl p-8 rounded-xl shadow-lg  bg-opacity-60  justify-center items-center">
-             */}
-                <div>
-                  {/* <div className="bg-white bg-opacity-90 rounded-xl shadow-lg p-8 md:w-80"> */}
-                  <form
-                    // onSubmit={onSubmitForm}
-                    className="flex flex-col space-y-4 "
-                  >
-                    <div>
-
-                      <h5
-                        className="flex 
-                  w-full 
-                  justify-center items-center font-serif text-xl mt-2"
-                      >
-                        <b>Book Service</b>
-                      </h5>
-                    </div>
-                    <div className="mt-12">
-
-
-
-                      <b>Choosed Service</b>
-                      <br />
-                      <h3 className=" text-gray-800">
-                        Refreshment
-                      </h3>
-
-
-                      <div className="mt-6 mb-4">
+              <form action="" onSubmit={onsubmitform1}>
+              <div className="mt-6 mb-4">
                         <label
                           for="date"
                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -668,39 +633,21 @@ function setpadding(val){
                         ></input>
                       </div>
 
-                      {/* <div>
-                  <textarea
-                    placeholder="Description"
-                    rows="5"
-                    className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black"
-                  ></textarea>
-                </div> */}
+                <button className="  w-full  px-6  py-2.5  bg-cyan-500  text-white  font-medium 
+                 text-base  leading-tight  rounded-lg  shadow-md  hover:bg-cyan-700 hover:shadow-lg
+                    focus:shadow-lg focus:outline-none focus:ring-0  active:bg-cyan-800 
+                   active:shadow-lg  transition  duration-150  ease-in-out">Update</button>
 
-                      {/* <button className="inline-block self-end bg-black text-white font-bold rounded-lg px-6 py-2 uppercase text-sm hover:bg-sky-700 ">
-                            Send
-                        </button> */}
-                      <div className="mt-6 justify-center items-center flex w-full">
-                        <Button
-                          color="white"
-                          bgColor="#03C9D7"
-                          //  bgColor={currentColor}
-                          text="Book"
-                          borderRadius="10px"
-                          size="md"
-                          width="300px"
-                        // margin-right="200px"
-                        />
-                      </div>
-                    </div>
-                  </form>
-                  {/* </div> */}
-                </div>
-                {/* </div> */}
-              </div>
+              </form>
             </div>
           </div>
+        </Box>
+      </Modal>
+
+                
+          </div>
         </div>
-      </div>
+ 
 
 
 

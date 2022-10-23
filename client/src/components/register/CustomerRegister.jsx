@@ -17,6 +17,7 @@ function CustomerRegister() {
   const [values, setValues] = React.useState({
     showPassword: false,
   });
+  const [emailMessage,setEmailMessage]=useState('')
   const [inputs, setInputs] = React.useState({
     fname: "",
     lname: "",
@@ -110,19 +111,10 @@ function CustomerRegister() {
           address,
           password,
         });
-        if (res.data.status) {
-          localStorage.setItem("token", res.data.token);
-          toast("Signup Successful !");
-          setTimeout(() => {
-            window.location.href = "/home";
-          }, 2000);
-        } else {
-          toast("Signup UnSuccessful !");
-          setTimeout(() => {
-            window.location.href = "/";
-          }, 2000);
-        }
-        console.log(res.data);
+        
+
+        setEmailMessage(res.data.message)
+        
       }
     } catch (err) {
       console.log(err);

@@ -1,10 +1,12 @@
 import React from "react";
 import ServiceProviderHeader from "../../../components/header/ServiceProviderHeader";
 import ServiceProviderSidebar from "../../../components/sidebar/ServiceProviderSidebar";
-import ServiceProfileImage from "../../../components/profile/SeviceProfileImage";
+import UserProfileImage from "../../../components/profile/UserProfileImage";
 import ServiceProfileForms from "../../../components/profile/ServiceProfileForms";
 
-function ServiceProviderProfile() {
+function ServiceProviderProfile(props) {
+  const id=props.userid
+  
   return (
     <div>
       <ServiceProviderHeader />
@@ -13,10 +15,10 @@ function ServiceProviderProfile() {
         <div className="md:ml-[15%] lg:ml-[25%]  md:mt-8 px-8 ">
           <div className="flex flex-col  md:flex-row min-h-screen">
             {/*The image part with change and remove buttons */}
-            <ServiceProfileImage />
+            <UserProfileImage userid={id}/>
 
             {/* start of the division with the forms*/}
-            <ServiceProfileForms />
+            <ServiceProfileForms userid={id} />
             {/*End of the forms part */}
           </div>
         </div>
