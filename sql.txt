@@ -59,15 +59,6 @@ CREATE TABLE portfolio(
 );
 
 
-CREATE TABLE package(
-	package_id SERIAL PRIMARY KEY,
-	name VARCHAR(100) NOT NULL,
-	description VARCHAR(500) NOT NULL,
-	item_description VARCHAR(1500) NOT NULL,
-	price INT NOT NULL,
-	portfolioid INT NOT NULL,
-	FOREIGN KEY(portfolioid) REFERENCES portfolio(portfolioid)
-);
 
 CREATE TABLE appointment(
 	appointment_id SERIAL PRIMARY KEY,
@@ -157,3 +148,26 @@ CREATE TABLE email_validate(
 	token VARCHAR (500) NOT NULL
 );
 
+
+
+appointment     
+booking         
+contact         
+conversation    
+customer        
+email_validate  
+message         
+package         
+password_token  
+payment         
+policies        
+portfolio       
+portfolio_image 
+review          
+service_provider
+sp_packages     
+sub_package     
+terms           
+users     
+
+ALTER TABLE appointment DROP CONSTRAINT appointment_userid_c_fkey;
