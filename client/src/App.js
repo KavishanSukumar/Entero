@@ -81,15 +81,27 @@ function App() {
   useEffect(() => {
     isAuth();
   }, []);
-console.log('this is user id'+id);
+  console.log("this is user id" + id);
   return (
     <div className="App">
       <Routes>
         <Route exact path="/" element={<Home data={userrole} />} />
         <Route exact path="/forgotpassword" element={<ForgotPassword />} />
-        <Route exact path="/setpassword/:userid/:token" element={<ResetPassword />} />
-        <Route exact path="/emailverify/:userid/:token" element={<EmailVerify />} />
-        <Route exact path="/setpasswordsp/:userid/:token" element={<ServiceProviderPassword />} />
+        <Route
+          exact
+          path="/setpassword/:userid/:token"
+          element={<ResetPassword />}
+        />
+        <Route
+          exact
+          path="/emailverify/:userid/:token"
+          element={<EmailVerify />}
+        />
+        <Route
+          exact
+          path="/setpasswordsp/:userid/:token"
+          element={<ServiceProviderPassword />}
+        />
         {/* Login routes */}
         <Route
           path="/home"
@@ -99,7 +111,7 @@ console.log('this is user id'+id);
             ) : userrole === "cs" ? (
               <CustomerEvents2 />
             ) : userrole === "sp" ? (
-              <ServiceProviderPortfolio userid={id}/> 
+              <ServiceProviderPortfolio userid={id} />
             ) : (
               <Home />
             )
@@ -296,7 +308,7 @@ console.log('this is user id'+id);
           path="customerserviceportfolio"
           element={
             isAuthenticated && userrole === "cs" ? (
-              <CustomerServicePortfolio />
+              <CustomerServicePortfolio userid={id} />
             ) : (
               <Home />
             )
@@ -310,7 +322,7 @@ console.log('this is user id'+id);
           path="/serviceportfolio"
           element={
             isAuthenticated && userrole === "sp" ? (
-              <ServiceProviderPortfolio userid={id}/>
+              <ServiceProviderPortfolio userid={id} />
             ) : (
               <Home />
             )
@@ -387,7 +399,11 @@ console.log('this is user id'+id);
           exact
           path="/userprofile"
           element={
-            isAuthenticated && userrole === "am" ? <UserProfile userid={id} /> : <Home />
+            isAuthenticated && userrole === "am" ? (
+              <UserProfile userid={id} />
+            ) : (
+              <Home />
+            )
           }
         />
       </Routes>

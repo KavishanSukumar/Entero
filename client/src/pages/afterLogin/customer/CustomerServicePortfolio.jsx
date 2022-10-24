@@ -1,20 +1,16 @@
-import React from 'react'
-import CustomerHeader from '../../../components/header/CustomerHeader'
-import PortFolio from '../../../components/portfolio/PortFolio'
+import React from "react";
+import CustomerHeader from "../../../components/header/CustomerHeader";
+import PortFolio from "../../../components/portfolio/PortFolio";
 
-function CustomerServicePortfolio() {
+function CustomerServicePortfolio({ userid }) {
   return (
     <div>
       <CustomerHeader />
       <div className="mt-14">
-      <PortFolio />
+        <PortFolio myuserid={userid} />
       </div>
-      
-      
-      
     </div>
-  )
-  
+  );
 }
 
-export default CustomerServicePortfolio
+export default CustomerServicePortfolio;

@@ -11,6 +11,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import moment from "moment";
 
 const API_URL = "http://localhost:4000/api/serviceprovider/appointment";
 function TabPanel(props) {
@@ -49,15 +50,18 @@ function a11yProps(index) {
 function Appointment(props) {
   const [value, setValue] = React.useState(0);
   const [appointment, setAppointment] = React.useState([]);
+  const [rawappointment, setRawAppointment] = React.useState([]);
   const [id, setId] = React.useState(props.data);
   const [calendar, setCalendar] = React.useState(false);
   const [calenderDate, setCalenderDate] = React.useState();
+  const [appointmentDates, setAppointmentDates] = React.useState([]);
 
   async function getAppointment() {
     const res = await axios.post(API_URL, {
       id: id,
     });
     setAppointment(res.data);
+    setRawAppointment(res.data);
   }
 
   async function changestatus(appointment_id, status) {
@@ -80,7 +84,18 @@ function Appointment(props) {
 
   React.useEffect(() => {
     getAppointment();
+    getAppointmentDates();
   }, []);
+
+  const getAppointmentDates = () => {
+    rawappointment.map((item) => {
+      let year = item.date.slice(6, 10);
+      let month = item.date.slice(3, 5);
+      let date = item.date.slice(0, 2);
+      let newDate = date + "-" + month + "-" + year;
+      setAppointmentDates((appointmentDates) => [...appointmentDates, newDate]);
+    });
+  };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -89,11 +104,22 @@ function Appointment(props) {
   const openCalender = () => {
     setCalendar(!calendar);
   };
-  const getDate = (e) => {
-    setCalenderDate(e);
-    console.log(calendar);
+  const getCalenderDate = (e) => {
+    setAppointment([]);
+    var date = e.getDate();
+    var month = e.getMonth() + 1;
+    var year = e.getFullYear();
+    var fulldate = year + "-" + month + "-" + date;
+    rawappointment.map((item) => {
+      if (item.date.slice(6, 10) == year) {
+        if (item.date.slice(3, 5) == month) {
+          if (item.date.slice(0, 2) == date) {
+            setAppointment((appointment) => [...appointment, item]);
+          }
+        }
+      }
+    });
   };
-
   return (
     <div className="flex flex-col w-auto  justify-around mx-6 my-3">
       <div className="flex justify-start mb-7">
@@ -147,8 +173,37 @@ function Appointment(props) {
                   {calendar && (
                     <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
                       <Calendar
-                        onChange={(e) => getDate(e)}
-                        value={calenderDate}
+                        onChange={(e) => getCalenderDate(e)}
+                        tileClassName={({ date, view }) => {
+                          // var day = date.getDate().toString();
+                          // var month = (
+                          //   new Date(date).getMonth() + 1.0
+                          // ).toString();
+                          // var year = new Date(date).getFullYear().toString();
+                          // if (date.getMonth() < 10) {
+                          //   var month = "0" + month;
+                          // }
+                          // if (date.getDate() < 10) {
+                          //   var date = "0" + date;
+                          // }
+                          // const realDate = day + "-" + month + "-" + year;
+                          // appointmentDates.map((item) => {
+                          //   if (item.slice(6, 10) === year) {
+                          //     if (item.slice(3, 5) === month) {
+                          //       if (item.slice(0, 2) === day) {
+                          //       }
+                          //     }
+                          //   }
+                          // });
+                          // return "bg-green-500 weight-700";
+                          // if (
+                          //   appointmentDates.find(
+                          //     (x) => x === moment(date).format("DD-MM-YYYY")
+                          //   )
+                          // ) {
+                          //   return "bg-green-500 weight-700";
+                          // }
+                        }}
                       />
                     </div>
                   )}
@@ -267,7 +322,7 @@ function Appointment(props) {
                   </div>
                   {calendar && (
                     <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
-                      <Calendar onChange={getDate} value={calenderDate} />
+                      <Calendar onChange={(e) => getCalenderDate(e)} />
                     </div>
                   )}
                 </div>
@@ -377,7 +432,7 @@ function Appointment(props) {
                     </button>
                     {calendar && (
                       <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
-                        <Calendar onChange={getDate} value={calenderDate} />
+                        <Calendar onChange={(e) => getCalenderDate(e)} />
                       </div>
                     )}
                   </div>
@@ -479,7 +534,7 @@ function Appointment(props) {
                     </button>
                     {calendar && (
                       <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
-                        <Calendar onChange={getDate} value={calenderDate} />
+                        <Calendar onChange={(e) => getCalenderDate(e)} />
                       </div>
                     )}
                   </div>
