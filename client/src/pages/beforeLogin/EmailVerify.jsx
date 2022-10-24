@@ -12,7 +12,8 @@ function EmailVerify() {
     useEffect(() => {
         async function verifyEmail(){
             try {
-                const res = await axios.post(`http://localhost:4000/api/customer/${urlParameters.userid}/${urlParameters.token}`);
+              
+                const res = await axios.post(`http://localhost:4000/api/customerregistration/${urlParameters.userid}/${urlParameters.token}`);
                 setVerifyMessage(res.data.message);
       
             } catch (error) {
