@@ -14,6 +14,18 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    console.log("hello")
+    const {id}=req.params;
+    const getBooking = await pool.query("SELECT * from booking where userid_c=$1",[id]);
+    console.log(getBooking.rows)
+    res.json(getBooking.rows);
+  } catch (err) {
+    console.log(err.message);
+  }
+});
+
 router.post("/", async (req, res) => {
   try {
     const {date,time,location,eventName,userid_c,userid_s,package_id,price} = req.body;

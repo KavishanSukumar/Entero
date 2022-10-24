@@ -24,7 +24,8 @@ function PortFolio(props) {
   async function getportfolioinfo(uid) {
 
     try {
-      const res = await axios.get(API_URL, {uid})
+      let y=API_URL+"/"+uid
+      const res = await axios.get(y)
       setportfolioinfo(res.data);
   
     } catch (error) {

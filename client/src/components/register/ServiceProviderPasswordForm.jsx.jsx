@@ -24,7 +24,7 @@ function ServiceproviderPasswordForm() {
   async function messageStatus() {
     try {
       const res = await axios.get(
-        `http://localhost:4000/api/setpasswordsp/${urlParameters.userid}/${urlParameters.token}`
+        `http://localhost:4000/api/serviceregistration/${urlParameters.userid}/${urlParameters.token}`
       );
       setEmailMessage(res.data.message);
       console.log(res.data);
@@ -76,7 +76,7 @@ function ServiceproviderPasswordForm() {
 
       if (checkErrors == 0) {
         const res = await axios.put(
-          `http://localhost:4000/api/service/${urlParameters.userid}/${urlParameters.token}`,
+          `http://localhost:4000/api/serviceregistration/${urlParameters.userid}/${urlParameters.token}`,
           {
             password,
           }

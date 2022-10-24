@@ -573,7 +573,7 @@ function EventsCustomer(props) {
                             {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
                             <Rate />
                             <Link
-                              to="/customerserviceportfolio"
+                              to={"/customerserviceportfolio/"+event.userid}
                               class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
                             >
                               See Portfolio
@@ -631,7 +631,7 @@ function EventsCustomer(props) {
                           {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
                           <Rate />
                           <Link
-                            to="/customerserviceportfolio"
+                            to={"/customerserviceportfolio/"+event.userid}
                             class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
                           >
                             See Portfolio
@@ -687,7 +687,7 @@ function EventsCustomer(props) {
                           {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
                           <Rate />
                           <Link
-                            to="/customerserviceportfolio"
+                            to={"/customerserviceportfolio/"+event.userid}
                             class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
                           >
                             See Portfolio
@@ -743,7 +743,7 @@ function EventsCustomer(props) {
                           {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
                           <Rate />
                           <Link
-                            to="/customerserviceportfolio"
+                            to={"/customerserviceportfolio/"+event.userid}
                             class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
                           >
                             See Portfolio
@@ -799,7 +799,7 @@ function EventsCustomer(props) {
                           {/* <p class="mb-3 font-normal text-gray-700 ">Premium</p> */}
                           <Rate />
                           <Link
-                            to="/customerserviceportfolio"
+                            to={"/customerserviceportfolio/"+event.userid}
                             class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
                           >
                             See Portfolio

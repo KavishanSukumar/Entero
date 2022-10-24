@@ -4,7 +4,7 @@ import PackagesView from "./package/PackagesView";
 function Packages() {
   return (
     <div className="flex flex-col">
-      <PackagesView />
+      <PackagesView  />
     </div>
   );
 }
