@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 
 const package_URL = "http://localhost:4000/api/serviceprovider/sp_packages";
+const booking_URL= "http://localhost:4000/api/booking"
 const style = {
   position: "absolute",
   top: "45%",
@@ -18,9 +19,9 @@ const style = {
   p: 4,
 };
 
-export default function PackagesView(props) {
+export default function PackagesView() {
   
-  const [userid, setuserid] = useState(props.uid);
+  
   const [popup, setPopup] = useState(false);
   const [date, setDate] = useState("");
   const [dateError, setDateError] = useState("");
@@ -41,10 +42,11 @@ export default function PackagesView(props) {
   //get packages
   const [packages, setpackages] = useState([]);
    
-  async function getpackages(uid) {
+  async function getpackages() {
     
     try {
-      const res = await axios.get(package_URL, { uid });
+      let y=package_URL+"/7"//have to send sp id here
+      const res = await axios.get(y);
       setpackages(res.data);
       console.log("packages are got");
     } catch (error) {
@@ -53,7 +55,7 @@ export default function PackagesView(props) {
     }
   }
   useEffect(() => {
-    getpackages(userid);
+    getpackages();
   }, []); 
 
   
@@ -67,15 +69,9 @@ export default function PackagesView(props) {
       });
       
       let userid_c=res.data.payload;
-      let userid_s=props.uid
+      let userid_s=7;
       let package_id=e.target.package_id.value
       let price=e.target.price.value
-
-      console.log(userid)
-
-    // const x=new Date()
-    // const {date}= x.getFullYear +'-' + x.getMonth +  '-'+x.getDate;
-    // const {time}=x.getHours+':'+x.getMinutes+':'+x.getSeconds;
 
     try {
       if (!date.trim()) {
@@ -92,19 +88,19 @@ export default function PackagesView(props) {
       }
 
       if(checkErrors==0){
-        console.log(eventName,date,time,location,userid_c,userid,package_id,price)
+        console.log(eventName,date,time,location,userid_c,userid_s,package_id,price)
         
       }
-      // let b = a + "/" + customer_id;
-      // const body = { date, time, description, sp_id };
-      // const res = await axios.post(b, body);
-      // setDate("");
-      // setTime("");
-      // setLocation("");
-      // setSp_id(21);
+      
+      const body = { date, time,location, eventName, userid_c,userid_s,package_id,price };
+      const res = await axios.post(booking_URL, body);
+      setDate("");
+      setTime("");
+      setLocation("");
+      
 
-      // console.log(res.data);
-      // alert("Appointment Request sent");
+      console.log(res.data);
+      alert("Booking Request sent");
     } catch (error) {
       console.error(error.message);
     }

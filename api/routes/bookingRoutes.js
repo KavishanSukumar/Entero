@@ -14,27 +14,32 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
-  try {
-    const sp_id = req.body.id;
-    const appointments = await pool.query(
-      "SELECT appointment_id, to_char(date,'DD-MM-YYYY') as date, time, description, customer_id, sp_id, status, name  FROM appointment INNER JOIN users ON customer_id=userid WHERE sp_id::text=$1",
-      [sp_id]
-    );
-    res.json(appointments.rows);
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).send("Server Error");
-  }
-});
 router.post("/", async (req, res) => {
   try {
-    const getBooking = await pool.query(
-      "INSERT INTO booking (date,time,location,type,userid_c,userid_s,package_id,amount,status) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,'0') RETURNING *",
-      [date, time, location, eventName]
+    const {date,time,location,eventName,userid_c,userid_s,package_id,price} = req.body;
+    const x = new Date();
+    const madeDate = x.getFullYear() + "-" + x.getMonth() + "-" + x.getDate();
+    const madeTime = x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
+
+    console.log(location)
+
+    const makeBooking = await pool.query(
+      "INSERT INTO booking (madeDate,madeTime,date,time,location,type,userid_c,userid_s,package_id,amount,status) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,'0') RETURNING *",
+      [
+        madeDate,
+        madeTime,
+        date,
+        time,
+        location,
+        eventName,
+        userid_c,
+        userid_s,
+        package_id,
+        price,
+      ]
     );
 
-    res.json(getBooking.rows);
+    res.json(makeBooking.rows[0]);
   } catch (err) {
     console.log(err.message);
   }

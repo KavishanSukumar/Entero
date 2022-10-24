@@ -20,7 +20,7 @@ router.get('/',async (req,res)=>{
 router.get('/:id',async (req,res)=>{
     try{
         const {id}=req.params;
-        const getallpackages = await pool.query("SELECT * FROM sp_packages WHERE uid=$1 ORDER BY package_id ASC;",[id]);
+        const getallpackages = await pool.query("SELECT * FROM sp_packages WHERE userid=$1 ORDER BY package_id ASC;",[id]);
 
         res.json(getallpackages.rows);
     }

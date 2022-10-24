@@ -51,8 +51,7 @@ function CustomerRegister() {
   const onSubmitForm = async (e) => {
     e.preventDefault();
     let checkErrors = 0;
-    const validPasswordCheck =
-      /(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[-+_!@#$%^&*.,?])/;
+    const validPasswordCheck =/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[-+_!@#$%^&*.,?])/;
     const validEmailCheck = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
     try {
       if (!fname.trim() && !lname.trim()) {

@@ -17,6 +17,7 @@ import portfolioSpRouter from "./routes/portfolioSpRoutes.js";
 import portfolioContact from "./routes/portfolioContact.js";
 import spPackages from "./routes/spPackagesRoutes.js";
 import portfolioImages from "./routes/portfolioImagesRoutes.js";
+import bookingsRouter from "./routes/bookingRoutes.js"
 //import spPortPics from "./sp_portfolio_images/10";
 import express from "express";
 import { createServer } from "http";
@@ -89,6 +90,7 @@ app.use("/api/serviceprovider/sp_packages", spPackages);
 app.use("/api/serviceprovider/portfolioimages", portfolioImages);
 app.use("/api/admincustomer", adminCustomerRouter);
 app.use("/api/adminservice", adminServiceRouter);
+app.use("/api/booking",bookingsRouter)
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}.`);
