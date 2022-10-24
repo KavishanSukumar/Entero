@@ -9,16 +9,7 @@ import multer from "multer";
 
 const router = express.Router();
 
-const fileStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./images");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
 
-const upload = multer({ storage: fileStorage });
 
 //register Customer
 router.post("/", async (req, res) => {

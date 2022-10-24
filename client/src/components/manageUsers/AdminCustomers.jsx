@@ -91,12 +91,12 @@ function AdminCustomers() {
             <div className="flex flex-col  items-center  mb-2 justify-center">
               {/*The image */}
               <div className="p-2">
-                {customerDetail && customerDetail.image===null?(<img
+              {customerDetail && customerDetail.image===null?(<img
                   src="/assets/images/userAvatar.png"
                   alt=""
                   className="w-28 h-28 rounded-full shadow-2xl "
                 />):(<img
-                  src={File_Url + customerDetail.image}
+                  src={File_Url + (customerDetail && customerDetail.image)}
                   alt=""
                   className="w-28 h-28 rounded-full shadow-2xl "
                 />)}

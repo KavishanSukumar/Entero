@@ -21,7 +21,6 @@ router.post("/", async (req, res) => {
     const madeDate = x.getFullYear() + "-" + x.getMonth() + "-" + x.getDate();
     const madeTime = x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
 
-    console.log(location)
 
     const makeBooking = await pool.query(
       "INSERT INTO booking (madeDate,madeTime,date,time,location,type,userid_c,userid_s,package_id,amount,status) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,'0') RETURNING *",
