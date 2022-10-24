@@ -33,10 +33,12 @@ router.get("/:conversationid", async (req, res) => {
 
 router.put("/:conversationid", async (req, res) => {
   const { conversationid } = req.params;
+  const { sender_id } = req.body;
+  console.log(sender_id);
   try {
     const updateMessage = await pool.query(
-      "UPDATE message SET status = true WHERE conversation_id = $1",
-      [conversationid]
+      "UPDATE message SET status = true WHERE conversation_id = $1 AND NOT sender_id = $2",
+      [conversationid, sender_id]
     );
     res.json("Message was updated!");
   } catch (err) {
