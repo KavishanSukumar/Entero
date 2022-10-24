@@ -9,13 +9,19 @@ import multer from "multer";
 
 const router = express.Router();
 
-
-
 //register Customer
 router.post("/", async (req, res) => {
   try {
-    const { name, email, contactNum, address, brNo, services, events } =
-      req.body;
+    const {
+      name,
+      email,
+      contactNum,
+      address,
+      brNo,
+      services,
+      events,
+      system_fee_type,
+    } = req.body;
     let hall = false;
     let decoration = false;
     let refreshment = false;
@@ -67,7 +73,7 @@ router.post("/", async (req, res) => {
     const userid = newUser.rows[0].userid;
 
     const newUserService = await pool.query(
-      "INSERT INTO service_provider (userid, br_no, dor, refreshment,decoration,hallservices,photography,birthday,reception,wedding,engagement,other,start_date,end_date,status) VALUES ($1, $2,current_date, $3, $4,$5,$6,$7,$8,$9,$10,$11,current_date,current_date + INTERVAL '10 day','n') RETURNING *",
+      "INSERT INTO service_provider (userid, br_no, dor, refreshment,decoration,hallservices,photography,birthday,reception,wedding,engagement,other,start_date,end_date,status,system_fee_type) VALUES ($1, $2,current_date, $3, $4,$5,$6,$7,$8,$9,$10,$11,current_date,current_date + INTERVAL '10 day','n',$12) RETURNING *",
       [
         userid,
         brNo,
@@ -80,6 +86,7 @@ router.post("/", async (req, res) => {
         wedding,
         engagement,
         other,
+        system_fee_type,
       ]
     );
 
