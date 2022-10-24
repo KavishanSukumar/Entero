@@ -25,9 +25,7 @@ import adminServiceRouter from "./routes/adminServiceRoutes.js";
 import chatRoute from "./routes/chatRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
 import serviceProviderRegistrationRoutes from "./routes/serviceProviderRegistrationRoutes.js";
-
 import reviewRouter from "./routes/reviewRoutes.js";
-
 
 dotenv.config();
 
@@ -73,8 +71,8 @@ app.use("/api/admin/packages", adminpaymentsRouter);
 app.use("/api/customer/appointment", CustomerAppointmentRouter);
 app.use("/api/customer", serviceProviderRegistrationRoutes);
 app.use("/api/setpassword", setPasswordRouter);
-app.use("/api/profile",profileRouter);
-app.use("/api/review",reviewRouter);
+app.use("/api/profile", profileRouter);
+app.use("/api/review", reviewRouter);
 app.use("/api/customer/appointment", CustomerAppointmentRouter);
 app.use("/api/admin/packages", adminpaymentsRouter);
 app.use("/api/contact", contactRouter);

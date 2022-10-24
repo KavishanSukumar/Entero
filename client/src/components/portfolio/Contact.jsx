@@ -9,18 +9,46 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import Shakir from "../../Shakir.jpg";
+import { useEffect } from "react";
+import axios from "axios";
 // import * as React from "react";
-
-export default function Contact() {
+const CHAT_URL = "http://localhost:4000/api/chat";
+export default function Contact({ data, myuserid, userid }) {
   const handle = () => {
     console.log("hello");
   };
-
   const [popup, setPopup] = useState(false);
   const [value, setValue] = React.useState(0);
+  const [appointment, setAppointment] = useState();
+  const [chat, setChat] = useState();
   const handlePopup = () => {
     setPopup(!popup);
   };
+  useEffect(() => {
+    if (data) {
+      handleAppointment();
+      handleChat();
+    }
+  }, []);
+
+  const handleAppointment = () => {
+    setAppointment(data.appointment_enable);
+    // setAppointment(true);
+  };
+  const handleChat = () => {
+    // setChat(data.chat_enable);
+    setChat(true);
+  };
+  const CreateChat = async () => {
+    const res = await axios.post(CHAT_URL, {
+      senderId: myuserid,
+      receiverId: userid,
+    });
+    if (res.data) {
+      window.location = "/customerchat";
+    }
+  };
+  console.log(userid);
   return (
     <div>
       <Accordion>
@@ -30,6 +58,7 @@ export default function Contact() {
               to=""
               onClick={handlePopup}
               className=" w-32 bg-cyan-500 text-white hover:bg-blue-400 py-2 px-3 rounded mr-1 cursor-pointer"
+              disabled={!appointment}
             >
               Appointment
             </button>
@@ -37,9 +66,9 @@ export default function Contact() {
         </AccordionSummary>
         <AccordionDetails>
           <p className="italic text-sm">
-            In order to contact the service provider you can use the appointment
-            option to schedule a time slot. you are able to pick out your
-            convinient time from the calender.
+            {appointment
+              ? "In order to contact the service provider you can use the appointment option to schedule a time slot. you are able to pick out your convinient time from the calender."
+              : "Appointment is disabled by the service provider"}
           </p>
         </AccordionDetails>
       </Accordion>
@@ -50,20 +79,21 @@ export default function Contact() {
           id="panel2a-header"
         >
           <div>
-            <Link to="/customerchat">
-              <button
-                to=""
-                className="w-32 bg-cyan-500 text-white hover:bg-blue-400 py-2 px-3 rounded mr-1 cursor-pointer"
-              >
-                Chat
-              </button>
-            </Link>
+            <button
+              onClick={CreateChat}
+              to=""
+              className="w-32 bg-cyan-500 text-white hover:bg-blue-400 py-2 px-3 rounded mr-1 cursor-pointer"
+              disabled={!chat}
+            >
+              Chat
+            </button>
           </div>
         </AccordionSummary>
         <AccordionDetails>
           <p className="italic text-sm">
-            In order to contact with the service provider you can use the chat
-            option.
+            {chat
+              ? "In order to contact with the service provider you can use the chat option."
+              : "Chat is disabled by the service provider"}
           </p>
         </AccordionDetails>
       </Accordion>

@@ -58,12 +58,6 @@ CREATE TABLE portfolio(
 	FOREIGN KEY(userid) REFERENCES service_provider(userid)
 );
 
-CREATE TABLE portfolio_image(
-	portfolio_imageid SERIAL not null PRIMARY KEY,
-	image VARCHAR(500),
-	portfolioid INT  not null ,
-	FOREIGN KEY(portfolioid) REFERENCES portfolio(portfolioid)
-);
 
 CREATE TABLE package(
 	package_id SERIAL PRIMARY KEY,
@@ -137,11 +131,12 @@ CREATE TABLE message(
 );
 
 CREATE TABLE conversation(
-	conversation_id SERIAL PRIMARY KEY,
+	conversation_id SERIAL ,
 	sender_id INT NOT NULL,
 	receiver_id INT NOT NULL,
 	FOREIGN KEY(sender_id) REFERENCES users(userid),
-	FOREIGN KEY(receiver_id) REFERENCES users(userid)
+	FOREIGN KEY(receiver_id) REFERENCES users(userid),
+	PRIMARY KEY(sender_id, receiver_id)
 );
 
 CREATE TABLE contact(
@@ -156,58 +151,8 @@ CREATE TABLE contact(
 	reply_time TIME 
 );
 
-
-
-INSERT INTO users (  email, password, name, contact_number, address,userrole) 
-VALUES ('shakirsaheel123@gmail.com','$2b$10$7LqAK9c.5BxJCHHJJDbA/OdmDmnzSfw8cPJRLZR3Oy1tmsVCC5LTO','Shakir Saheel', '0771979029', 'Maggona Kalutara','cs');
-
-INSERT INTO users (  email, password, name, contact_number, address,userrole) 
-VALUES ('senalpunsara@gmail.com','$2b$10$7LqAK9c.5BxJCHHJJDbA/OdmDmnzSfw8cPJRLZR3Oy1tmsVCC5LTO','Senal Punsara', '0770554474', ' Athurugiriya Oruwala','cs');
-
-INSERT INTO users (  email, password, name, contact_number, address,userrole) 
-VALUES ('yonali@gmail.com','$2b$10$7LqAK9c.5BxJCHHJJDbA/OdmDmnzSfw8cPJRLZR3Oy1tmsVCC5LTO','Yonali Fernando', '0770554474', ' Galle','cs');
-
-INSERT INTO users (  email, password, name, contact_number, address,userrole) 
-VALUES ('keishini@gmail.com','$2b$10$7LqAK9c.5BxJCHHJJDbA/OdmDmnzSfw8cPJRLZR3Oy1tmsVCC5LTO','Keishini Joseph', '0770554474', 'Batticaloe','cs');
-
-INSERT INTO users (  email, password, name, contact_number, address,userrole) 
-VALUES ('ninthu@gmail.com','$2b$10$7LqAK9c.5BxJCHHJJDbA/OdmDmnzSfw8cPJRLZR3Oy1tmsVCC5LTO','Ninthu Keish', '0770554474', 'Batticaloe','cs');
-
-INSERT INTO users ( email, password, name, contact_number, address,userrole) 
-VALUES ('priskilaathauda@gmail.com','$2b$10$7LqAK9c.5BxJCHHJJDbA/OdmDmnzSfw8cPJRLZR3Oy1tmsVCC5LTO','Priskila Athaudha', '0772150504', ' Katugasthota Kandy','am');
-
-INSERT INTO users (  email, password, name, contact_number, address,userrole) 
-VALUES ('fabs@gmail.com','$2b$10$7LqAK9c.5BxJCHHJJDbA/OdmDmnzSfw8cPJRLZR3Oy1tmsVCC5LTO','Fabs', '0770554474', ' Athurugiriya Oruwala','sp');
-
-/////////////////////////////////////////////////////////
-
-INSERT INTO appointment (date, time, description, customer_id, sp_id,status ) VALUES 
-('2022-09-05', '12:00:00','regarding the packages in you plan','a93b4f9c-020a-47a8-a867-bcf203970b8f',
-'88f5b56e-b5a6-4585-9047-413291a13550',0);
-
-INSERT INTO appointment (date,time,description, customer_id, sp_id,status ) VALUES 
-('2022-09-15', '09:00:00','On quantity','534b224f-b893-491c-9407-d19a4a1dbaa1',
-'88f5b56e-b5a6-4585-9047-413291a13550',0);
-
-INSERT INTO appointment (date,time,description, customer_id, sp_id,status ) VALUES 
-('2022-09-15', '13:00:00','regarding the charges in packages','77403db1-b8d7-4ee8-be2e-a337355c2944',
-'88f5b56e-b5a6-4585-9047-413291a13550',0);
-
-INSERT INTO appointment (date,time,description, customer_id, sp_id,status ) VALUES 
-('2022-09-15', '15:00:00','About the time for booking','371e1e53-00a5-4c10-a6cb-2af688883ba8',
-'88f5b56e-b5a6-4585-9047-413291a13550',0);
-
-
-
-SELECT * FROM appointment;
-
-INSERT INTO appointment (date, time, description, customer_id, sp_id,status ) VALUES 
-('2022-09-05', '12:00:00','regarding the packages in you plan','a93b4f9c-020a-47a8-a867-bcf203970b8f',
-'88f5b56e-b5a6-4585-9047-413291a13550',0);
-
-INSERT INTO appointment (date,time,description, customer_id, sp_id,status ) VALUES 
-('2022-09-15', '09:00:00','regarding the charges in packages','a93b4f9c-020a-47a8-a867-bcf203970b8f',
-'88f5b56e-b5a6-4585-9047-413291a13550',0);
-
-
+CREATE TABLE email_validate(
+	userid INT PRIMARY KEY,
+	token VARCHAR (500) NOT NULL
+);
 
