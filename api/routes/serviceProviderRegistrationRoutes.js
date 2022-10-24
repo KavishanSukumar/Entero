@@ -1,11 +1,8 @@
 import express from "express";
 import pool from "../db.js";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import jwtTokens from "../utils/jwt-helpers.js";
-import validInfo from "../middleware/validInfo.js";
-import authorization from "../middleware/authorization.js";
-import multer from "multer";
+import mailSender from "../utils/mail-helpers.js";
+
 
 const router = express.Router();
 
@@ -82,10 +79,76 @@ router.post("/", async (req, res) => {
         other,
       ]
     );
+    const subject="Registration Form Received";
+    
+    
+    
+    const html="<p>Thank you for registering for our system.We will process your registration form and reach within 7 working days.</p>"
 
-    // const token = jwtTokens(newUser.rows[0].userid);
+    const mail=await mailSender(email,subject,html)
 
     res.json({ userid, newUserService, status: true });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+router.get("/:userid/:token", async (req, res) => {
+  try {
+    
+    const { userid,token } =
+      req.params;
+      
+    
+    const users = await pool.query("SELECT * FROM password_token WHERE userid=$1 AND token=$2", [
+      userid,token
+    ]);
+    
+    if (users.rows.length === 0) {
+      return res.send({message:"Invalid link"});
+    }
+
+    return res.send({message:"ok"})
+    
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+router.put("/:userid/:token", async (req, res) => {
+  try {
+    console.log("wow")
+    const { userid,token } =
+      req.params;
+      const password=req.body.password
+    
+    const users = await pool.query("SELECT * FROM password_token WHERE userid=$1 AND token=$2", [
+      userid,token
+    ]);
+    if (users.rows.length === 0) {
+      return res.send({message:"Invalid link"});
+    }
+    
+    
+    const deleteToken=await pool.query(
+      "DELETE FROM  password_token WHERE userid=$1",
+      [userid]
+    );
+    const saltRound = 10;
+  const salt = await bcrypt.genSalt(saltRound);
+  const bcryptPassword = await bcrypt.hash(password, salt);
+
+  const updatePassword=await pool.query("UPDATE users SET password=$1 WHERE userid=$2",[bcryptPassword,userid])
+  const updateStatus=await pool.query("UPDATE service_provider SET status='a' WHERE userid=$1",[userid])
+
+  const portfolio=await pool.query("INSERT INTO portfolio (description, userid) VALUES ('Type your description here',$5) RETURNING userid")
+  
+
+    res.status(200).send({message:"Password set"});
+
+
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server Error");

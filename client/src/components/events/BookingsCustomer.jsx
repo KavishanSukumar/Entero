@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 import * as React from "react";
 import PropTypes from "prop-types";
@@ -12,6 +12,7 @@ import StarIcon from "@mui/icons-material/Star";
 import axios from "axios";
 
 const API_URL = "http://localhost:4000/api/review";
+const booking_URL= "http://localhost:4000/api/booking/57"
 
 const style = {
   position: "absolute",
@@ -64,8 +65,23 @@ function BookingsCustomer() {
   const [messageError, setMessageError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [rateValue, setRateValue] = useState(1);
+  const [bookings, setBookings]=useState([]);
 
   const [value, setValue] = React.useState(0);
+
+  async function fetchBookings() {
+    try {
+      const res = await axios.get(booking_URL);
+      setBookings(res.data);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+  
+
+  useEffect(() => {
+    fetchBookings();
+  },[]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -112,9 +128,11 @@ function BookingsCustomer() {
             onChange={handleChange}
             aria-label="basic tabs example"
           >
-            <Tab label="PRESENT BOOKINGS" {...a11yProps(0)} />
-            <Tab label="PAST BOOKINGS" {...a11yProps(1)} />
-            <Tab label="CANCELLED BOOKINGS" {...a11yProps(2)} />
+            <Tab label="NEW BOOKINGS" {...a11yProps(0)} />
+            <Tab label="PENDING BOOKINGS" {...a11yProps(1)} />
+            <Tab label="PRESENT BOOKINGS" {...a11yProps(2)} />
+            <Tab label="PAST BOOKINGS" {...a11yProps(3)} />
+            <Tab label="CANCELLED BOOKINGS" {...a11yProps(4)} />
           </Tabs>
         </Box>
 
@@ -158,29 +176,34 @@ function BookingsCustomer() {
                 </tr>
               </thead>
               <tbody className="">
-                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    B002
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Hall Services
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    13.06.2023
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    SK Hall Service
-                  </td>
-
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      View
-                    </button>
-                    <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      Cancel
-                    </button>
-                  </td>
-                </tr>
+                {bookings.map((booking)=>(
+                  booking.status==0&&(
+                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      B002
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      Hall Services
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      13.06.2023
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      SK Hall Service
+                    </td>
+  
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                        View
+                      </button>
+                      <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                        Cancel
+                      </button>
+                    </td>
+                  </tr>
+                  )
+                ))}
+                
               </tbody>
             </table>
           </div>
@@ -225,11 +248,13 @@ function BookingsCustomer() {
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                  ></th>
+                  >Action</th>
                 </tr>
               </thead>
               <tbody className="">
-                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                {bookings.map((booking)=>(
+                  booking.status==1 && (
+                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     B001
                   </td>
@@ -251,13 +276,21 @@ function BookingsCustomer() {
                       View
                     </button>
                     <button
-                      onClick={handleOpenForm}
+                      
                       className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                    >
-                      Rating
+                      >
+                      Cancel
+                    </button>
+                    <button
+                      
+                      className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                      >
+                      Pay
                     </button>
                   </td>
                 </tr>
+              )
+              ))}
               </tbody>
             </table>
             <div>
@@ -372,11 +405,14 @@ function BookingsCustomer() {
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                  ></th>
+                  >Action</th>
                 </tr>
               </thead>
               <tbody className="">
-                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                {bookings.map((booking)=>(
+                  booking.status==2&&(
+
+                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     B003
                   </td>
@@ -392,10 +428,170 @@ function BookingsCustomer() {
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                     Cancelled
                   </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                   <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                     View
                   </button>
+                  <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                    Cancel
+                  </button>
+                  </td>
+                  
                 </tr>
+                  )
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+          <div className="overflow-auto justify-center w-full h-screen">
+            <table class="min-w-full z-0">
+              <thead class="bg-white border-b sticky top-0">
+                <tr>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    Booking_ID
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    Category
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    Date
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    Service provider
+                  </th>
+
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    Status
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >Action</th>
+                </tr>
+              </thead>
+              <tbody className="">
+                {bookings.map((booking)=>{
+                  booking.status==3 &&(
+
+                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    B003
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Photography
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    12.03.2022
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Melaka Studio
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Cancelled
+                  </td>
+                  <td>
+                  <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                    View
+                  </button>
+                  <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                    Rating
+                  </button>
+                  </td>
+                  
+                </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        </TabPanel>
+        <TabPanel value={value} index={4}>
+          <div className="overflow-auto justify-center w-full h-screen">
+            <table class="min-w-full z-0">
+              <thead class="bg-white border-b sticky top-0">
+                <tr>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    Booking_ID
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    Category
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    Date
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    Service provider
+                  </th>
+
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    Status
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >Action</th>
+                </tr>
+              </thead>
+              <tbody className="">
+                {bookings.map((booking)=>(
+                  booking.status==4(
+
+                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    B003
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Photography
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    12.03.2022
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Melaka Studio
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Cancelled
+                  </td>
+                  <td>
+                  <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                    View
+                  </button>
+                  </td>
+                </tr>
+                  )
+                ))}
               </tbody>
             </table>
           </div>

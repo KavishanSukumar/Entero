@@ -2,10 +2,15 @@ import React, { useEffect, useState } from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
+const PORTFOLIOURL = "http://localhost:4000/api/serviceprovider/portfoliosp/";
 const IMG_URL2 = "http://localhost:4000/api/serviceprovider/portfolioimages";
 
-function AboutUs({ userid, data }) {
+function AboutUs() {
+  const urlParameters=useParams();
+  const userid=urlParameters.sp_id
+  const [data, setData] = React.useState();
   const [itemData, setItemData] = useState([]);
 
   useEffect(() => {
@@ -14,8 +19,11 @@ function AboutUs({ userid, data }) {
 
   const getportfolioimages = async (uid) => {
     try {
+      
       const res = await axios.get(IMG_URL2 + "/" + uid);
       setItemData(res.data);
+      const res1 = await axios.get(PORTFOLIOURL + urlParameters.sp_id);
+      setData(res1.data[0]);
     } catch (error) {
       console.error(error.message);
     }

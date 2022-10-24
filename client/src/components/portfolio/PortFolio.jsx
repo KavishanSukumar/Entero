@@ -5,17 +5,18 @@ import AboutUs from "./AboutUs";
 import Packages from "./Packages";
 import Review from "./Review";
 import Contact from "./Contact";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import axios from "axios";
 
-const PORTFOLIOURL = "http://localhost:4000/api/serviceprovider/portfoliosp/";
 const API_URL_USER = "http://localhost:4000/api/user/";
+const PORTFOLIOURL = "http://localhost:4000/api/serviceprovider/portfoliosp/";
 
 function PortFolio({ myuserid }) {
+  const urlParameters=useParams()
   const [activeTabIndex, setActiveTabIndex] = React.useState(0);
-  const [userid, setUserId] = React.useState(7);
-  const [portFolio, setPortFolio] = React.useState();
+  const [userid, setUserId] = React.useState(urlParameters.sp_id);
   const [User, setUser] = React.useState();
+  const [data,setData]=React.useState()
 
   React.useEffect(() => {
     getPortFolio();
@@ -23,45 +24,45 @@ function PortFolio({ myuserid }) {
 
   const getPortFolio = async () => {
     try {
-      const res1 = await axios.get(PORTFOLIOURL + userid);
-      setPortFolio(res1.data[0]);
+      const res1 = await axios.get(PORTFOLIOURL + urlParameters.sp_id);
+      setData(res1.data[0]);
       const res2 = await axios.post(API_URL_USER, {
         userid,
       });
-      setPortFolio(res1.data[0]);
+      
       setUser(res2.data);
     } catch (error) {
       console.log(error);
     }
   };
   const [activeTab, setActiveTab] = React.useState(
-    <AboutUs userid={userid} data={portFolio} />
+    <AboutUs  />
   );
-
+console.log(data)
   const handleChange = (id) => {
     switch (id) {
       case "aboutus":
         {
-          setActiveTab(<AboutUs userid={userid} data={portFolio} />);
+          setActiveTab(<AboutUs  />);
           setActiveTabIndex(0);
         }
         break;
       case "packages":
         {
-          setActiveTab(<Packages userid={userid} data={portFolio} />);
+          setActiveTab(<Packages />);
           setActiveTabIndex(1);
         }
         break;
       case "review":
         {
-          setActiveTab(<Review userid={userid} data={portFolio} />);
+          setActiveTab(<Review userid={userid}  />);
           setActiveTabIndex(2);
         }
         break;
       case "contact":
         {
           setActiveTab(
-            <Contact userid={userid} myuserid={myuserid} data={portFolio} />
+            <Contact userid={userid} myuserid={myuserid} data={data} />
           );
           setActiveTabIndex(3);
         }
