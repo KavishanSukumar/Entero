@@ -61,7 +61,8 @@ function AdminServiceProviders() {
   const [popup, setPopup] = useState(false);
   const [popupS, setPopupS] = useState(false);
   const [services, setServices] = useState([]);
-  const [serviceDetail, setServiceDetail] = useState();
+  const [rawServices, setRawServices] = useState([]);
+  const [serviceDetail, setServiceDetail] = useState([]);
   const [serviceRegister, setServiceRegister] = useState([]);
 
   const [value, setValue] = React.useState(0);
@@ -83,6 +84,11 @@ function AdminServiceProviders() {
     try {
       const res = await axios.get(API_URL);
       setServices(
+        res.data.filter(
+          (service) => service.status === "a" || service.status === "d"
+        )
+      );
+      setRawServices(
         res.data.filter(
           (service) => service.status === "a" || service.status === "d"
         )
@@ -124,6 +130,22 @@ function AdminServiceProviders() {
     }
   };
 
+  const searchByNames = (e) => {
+    if (e.target.value === "") {
+      setServices(rawServices);
+    } else {
+      setServices([]);
+      rawServices.map((item) => {
+        if (
+          item.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
+          item.userid === e.target.value
+        ) {
+          setServices((service) => [...service, item]);
+        }
+      });
+    }
+  };
+
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
       <div className="flex justify-start mb-7">
@@ -158,6 +180,9 @@ function AdminServiceProviders() {
                   placeholder="Search for services"
                   type="text"
                   name="search"
+                  onChange={(e) => {
+                    searchByNames(e);
+                  }}
                 />
               </label>
             </div>
