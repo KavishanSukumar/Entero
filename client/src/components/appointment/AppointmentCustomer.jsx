@@ -232,7 +232,7 @@ function AppointmentCustomer() {
               </div>
             </div>
           </TabPanel>
-          s
+          
           <TabPanel value={value} index={1}>
             <div className="shadow-md p-3 w-auto rounded-md ">
               <div className="flex flex-col lg:flex-row ">

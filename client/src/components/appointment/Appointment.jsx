@@ -16,7 +16,7 @@ import moment from "moment";
 const API_URL = "http://localhost:4000/api/serviceprovider/appointment";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
+  const id = props.data;
   return (
     <div
       role="tabpanel"
@@ -120,6 +120,21 @@ function Appointment(props) {
       }
     });
   };
+  console.log(rawappointment);
+  console.log(appointment);
+  const getAppointmentByName = (e) => {
+    if (e.target.value == "") {
+      setAppointment(rawappointment);
+    } else {
+      setAppointment([]);
+      rawappointment.map((item) => {
+        if (item.name.toLowerCase().includes(e.target.value.toLowerCase())) {
+          setAppointment((appointment) => [...appointment, item]);
+        }
+      });
+    }
+  };
+
   return (
     <div className="flex flex-col w-auto  justify-around mx-6 my-3">
       <div className="flex justify-start mb-7">
@@ -158,6 +173,9 @@ function Appointment(props) {
                       placeholder="Search by name..."
                       type="text"
                       name="search"
+                      onChange={(e) => {
+                        getAppointmentByName(e);
+                      }}
                     />
                   </label>
                 </div>
@@ -308,6 +326,9 @@ function Appointment(props) {
                       placeholder="Search by name..."
                       type="text"
                       name="search"
+                      onChange={(e) => {
+                        getAppointmentByName(e);
+                      }}
                     />
                   </label>
                 </div>
@@ -419,6 +440,9 @@ function Appointment(props) {
                       placeholder="Search by name..."
                       type="text"
                       name="search"
+                      onChange={(e) => {
+                        getAppointmentByName(e);
+                      }}
                     />
                   </label>
                 </div>
@@ -521,6 +545,9 @@ function Appointment(props) {
                       placeholder="Search by name..."
                       type="text"
                       name="search"
+                      onChange={(e) => {
+                        getAppointmentByName(e);
+                      }}
                     />
                   </label>
                 </div>
