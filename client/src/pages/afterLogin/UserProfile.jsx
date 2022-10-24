@@ -7,7 +7,7 @@ import UserProfileForms from "../../components/profile/UserProfileForms";
 
 function UserProfile(props) {
   const id=props.userid
-  console.log(id)
+  
  return (
   <div>
       <AdminHeader />
@@ -20,12 +20,12 @@ function UserProfile(props) {
         <div className="md:ml-[15%] lg:ml-[25%]  md:mt-8 px-8 ">
           <div className="flex flex-col  md:flex-row min-h-screen">
           {/*The image part with change and remove buttons */}
-            <UserProfileImage userId={id}/>
+            <UserProfileImage userid={id}/>
             
 
 
           {/* start of the division with the forms*/}
-            <UserProfileForms adminId={id}/>
+            <UserProfileForms userid={id}/>
             
            {/*End of the forms part */}
 

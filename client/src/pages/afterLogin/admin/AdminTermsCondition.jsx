@@ -22,13 +22,13 @@ const AdminTermsCondition = () => {
       <div className="flex">
         <AdminSidebar />
         <div
-          className="w-full p-2 pb-48 pt-12 pl-24
-    bg-slate-100"
+          className=" p-2 pb-48 pt-12 pl-24 mt-5 m- 
+          bg-white"
         >
           {/* ---only admin can this div-(start)--- */}
           <div
-            className="m-2 md:m-10 mt-24 p-2 
-      md:p-10 bg-white rounded-3xl"
+            className="mr-96 ml-256 md:m-10 mt-2 p-48
+            md:p-10 bg-white rounded-3xl"
           >
             <div
               className="flex m-5 flex-wrap 
@@ -40,16 +40,24 @@ const AdminTermsCondition = () => {
 
               <div className="ml-20 flex flex-wrap lg:flex-nowrap justify-center">
                 <div className="justify-center">
-                  <Button
+                  {/* <Button
                     color="white"
                     bgColor="#03C9D7"
-                    //  bgColor={currentColor}
                     text="Edit"
                     borderRadius="10px"
                     size="md"
                     width="300px"
-                    // margin-right="200px"
-                  />
+                
+                  /> */}
+                   <input
+            type="file"
+            className="block w-full text-sm text-slate-500
+            file:mr-4 file:py-1 file:px-4
+            file:rounded-full file:border-0
+            file:text-sm file:font-semibold
+            file:bg-cyan-500 file:text-white
+            hover:file:bg-cyan-400"
+          />
                 </div>
               </div>
             </div>

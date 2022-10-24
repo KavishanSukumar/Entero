@@ -4,16 +4,100 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import HelpIcon from "@mui/icons-material/Help";
 import Button from "../button/Button";
-import { Link } from "react-router-dom";
+import axios from "axios";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import Shakir from "../../Shakir.jpg";
 import { useEffect } from "react";
 import axios from "axios";
 // import * as React from "react";
 const CHAT_URL = "http://localhost:4000/api/chat";
-export default function Contact({ data, myuserid, userid }) {
+
+//const API_URL = "http://localhost:4000/api/customer/appointment";
+const API_URL = "http://localhost:4000/api/auth/isverify";
+
+let a = "http://localhost:4000/api/customer/appointment";
+
+export default function Contact(props) {
+  // const id = props.data;
+
+  //   const [date, setDate] = useState("");
+  //   const [time, setTime] = useState("");
+  //   const [description, setDescription] = useState("");
+  //   const [customer_id, setCustomer_id] = useState("4");
+  //   const [sp_id, setSp_id] = useState("5");
+  //  const [id, setId] = React.useState(props.data);
+  //   const [appointment, setAppointment] = React.useState([]);
+
+  //   async function getAppointment() {
+  //     const res = await axios.post(API_URL, {
+  //       id: id,
+  //     });
+  //     setAppointment(res.data);
+  //   }
+
+  //   const onSubmitForm = async (e) => {
+  //     e.preventDefault();
+
+  //     try {
+  //       const res = await axios.post(API_URL, { date, time, description,id, });
+  //       setDate('');
+  //       setTime('');
+  //       setDescription('');
+
+  //       console.log(res.data);
+  //       alert('Appointment Request sent');
+  //     } catch (error) {
+  //       console.error(error.message);
+  //     }
+  //   };
+
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [description, setDescription] = useState("");
+  const [customer_id, setCustomer_id] = useState();
+  const [sp_id, setSp_id] = useState(21);
+
+  async function isAuth() {
+    try {
+      const res = await axios.get(API_URL, {
+        headers: { token: localStorage.token },
+      });
+      setCustomer_id(res.data.payload);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  useEffect(() => {
+    isAuth();
+  }, []);
+
+  const onSubmitForm = async (e) => {
+    e.preventDefault();
+    // console.log("hello");
+    // console.log(date,time,description)
+    // const x=new Date()
+    // const {date}= x.getFullYear +'-' + x.getMonth +  '-'+x.getDate;
+    // const {time}=x.getHours+':'+x.getMinutes+':'+x.getSeconds;
+
+    try {
+      let b = a + "/" + customer_id;
+      const body = { date, time, description, sp_id };
+      const res = await axios.post(b, body);
+      setDate("");
+      setTime("");
+      setDescription("");
+      // setSp_id(21);
+
+      console.log(res.data);
+      alert("Appointment Request sent");
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   const handle = () => {
     console.log("hello");
   };
@@ -21,9 +105,7 @@ export default function Contact({ data, myuserid, userid }) {
   const [value, setValue] = React.useState(0);
   const [appointment, setAppointment] = useState();
   const [chat, setChat] = useState();
-  const handlePopup = () => {
-    setPopup(!popup);
-  };
+
   useEffect(() => {
     if (data) {
       handleAppointment();
@@ -49,6 +131,11 @@ export default function Contact({ data, myuserid, userid }) {
     }
   };
   console.log(userid);
+
+  const handlePopup = () => {
+    setPopup(!popup);
+  };
+
   return (
     <div>
       <Accordion>
@@ -123,11 +210,11 @@ export default function Contact({ data, myuserid, userid }) {
             <div>
               {/* <div className="bg-white bg-opacity-90 rounded-xl shadow-lg p-8 md:w-80"> */}
               <form
-                // onSubmit={onSubmitForm}
+                onSubmit={onSubmitForm}
                 className="flex flex-col space-y-4 "
               >
                 <h3>
-                  <b>Create an Appointment</b>
+                  <b>Create an Appointmentssss</b>
                 </h3>
                 <div className="mb-2">
                   <label
@@ -139,6 +226,9 @@ export default function Contact({ data, myuserid, userid }) {
                   <input
                     type="date"
                     placeholder="Date"
+                    name="date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
                     className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black"
                   ></input>
                 </div>
@@ -153,13 +243,19 @@ export default function Contact({ data, myuserid, userid }) {
                   <input
                     type="time"
                     placeholder="Time"
+                    name="time"
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
                     className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black"
                   ></input>
                 </div>
 
                 <div className="mb-2">
                   <textarea
+                    name="description"
                     placeholder="Description"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                     rows="5"
                     className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black"
                   ></textarea>
@@ -169,16 +265,24 @@ export default function Contact({ data, myuserid, userid }) {
                             Send
                         </button> */}
                 <div className="mt-6 justify-center items-center flex w-full">
-                  <Button
+                  <button
+                    type="submit"
                     color="white"
                     bgColor="#03C9D7"
                     //  bgColor={currentColor}
-                    text="Create"
+
                     borderRadius="10px"
                     size="md"
                     width="300px"
                     // margin-right="200px"
-                  />
+                    className=" inline-flex items-center justify-center bg-cyan-500 text-white p-2 w-24 rounded hover:border-2 hover:bg-cyan-400 font-medium mx-2 mb-2"
+                  >
+                    Create
+                  </button>
+
+                  {/* <button className=" inline-flex items-center justify-center bg-cyan-500 text-white p-2 w-24 rounded hover:border-2 hover:bg-cyan-400 font-medium mx-2 mb-2">
+                    Send
+                  </button> */}
                 </div>
               </form>
               {/* </div> */}

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import axios from "axios"
 import {
   AiOutlineClose,
   AiOutlineMenu,
@@ -14,11 +15,38 @@ import { GiMoneyStack } from "react-icons/gi";
 import CelebrationIcon from "@mui/icons-material/Celebration";
 import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
 
+const API_URL = "http://localhost:4000/api/profile/";
+const File_Url = "http://localhost:4000/profilePics/";
+
 {
   /* Admin header is created because the menu in responsive layout will change to the admin sidebar,not home,contact us pages */
 }
 function AdminHeader() {
   const [nav, setNav] = useState(false);
+  const [image, setImage] = useState();
+  const [id, setId] = useState();
+
+  async function isAuth() {
+    try {
+      const res = await axios.get("http://localhost:4000/api/auth/isverify", {
+        headers: { token: localStorage.token },
+      });
+      
+      setId(res.data.payload);
+
+      let x = API_URL + res.data.payload;
+
+      const res2 = await axios.get(x);
+      setImage(res2.data.image);
+      
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  useEffect(() => {
+    isAuth();
+  }, []);
 
   const handleNav = () => {
     setNav(!nav);
@@ -115,11 +143,19 @@ function AdminHeader() {
           />
         </div>
 
-        <img
-          src="/assets/images/sindu.jpg"
-          className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125"
-          onClick={handleDropdownPic}
-        />
+        {image === null ? (
+          <img
+            src="/assets/images/userAvatar.png"
+            className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125"
+            onClick={handleDropdownPic}
+          />
+        ) : (
+          <img
+            src={File_Url + image}
+            className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125"
+            onClick={handleDropdownPic}
+          />
+        )}
       </div>
 
       {dropdownPic ? picDropdown : ""}
@@ -141,10 +177,16 @@ function AdminHeader() {
         <div className="flex flex-col items-center shadow-2xl mb-2">
           {/*The image */}
           <div className="p-2">
+          {image === null ? (
             <img
-              src="/assets/images/sindu.jpg"
+              src="/assets/images/userAvatar.png"
+              className="w-28 h-28 rounded-full shadow-2xl "
+            />):(
+              <img
+              src={File_Url + image}
               className="w-28 h-28 rounded-full shadow-2xl "
             />
+            )}
           </div>
 
           {/*The buttons */}
