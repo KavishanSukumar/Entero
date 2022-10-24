@@ -9,17 +9,15 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import Shakir from "../../Shakir.jpg";
-import { useEffect } from "react";
-import axios from "axios";
+
 // import * as React from "react";
 const CHAT_URL = "http://localhost:4000/api/chat";
+export default function Contact({ data, myuserid, userid }) {
+  //const API_URL = "http://localhost:4000/api/customer/appointment";
+  const API_URL = "http://localhost:4000/api/auth/isverify";
 
-//const API_URL = "http://localhost:4000/api/customer/appointment";
-const API_URL = "http://localhost:4000/api/auth/isverify";
+  let a = "http://localhost:4000/api/customer/appointment";
 
-let a = "http://localhost:4000/api/customer/appointment";
-
-export default function Contact(props) {
   // const id = props.data;
 
   //   const [date, setDate] = useState("");
@@ -105,7 +103,9 @@ export default function Contact(props) {
   const [value, setValue] = React.useState(0);
   const [appointment, setAppointment] = useState();
   const [chat, setChat] = useState();
-
+  const handlePopup = () => {
+    setPopup(!popup);
+  };
   useEffect(() => {
     if (data) {
       handleAppointment();
@@ -131,10 +131,6 @@ export default function Contact(props) {
     }
   };
   console.log(userid);
-
-  const handlePopup = () => {
-    setPopup(!popup);
-  };
 
   return (
     <div>
