@@ -46,7 +46,7 @@ function ServiceRegister() {
     </button>
   );
 
-  const [emailMessage,setEmailMessage]=useState('')
+  const [emailMessage, setEmailMessage] = useState("");
 
   const [services, setServices] = useState([]);
   const [events, setEvents] = useState([]);
@@ -78,13 +78,11 @@ function ServiceRegister() {
     }
   };
 
-
   const eventList = (e) => {
     if (events.indexOf(e.target.value) === 1) {
       setEvents(events.filter((g) => g !== e.target.value));
     } else if (events.indexOf(e.target.value) === -1) {
       setEvents([...events, e.target.value]);
-
     }
   };
 
@@ -144,7 +142,6 @@ function ServiceRegister() {
         formDetail.append("services", services);
         formDetail.append("events", events);
 
-
         setButtonval(
           <button
             type="submit"
@@ -185,7 +182,6 @@ function ServiceRegister() {
             window.location.href = "/";
           }, 2000);
         }
-
       }
     } catch (error) {
       console.log(error);
