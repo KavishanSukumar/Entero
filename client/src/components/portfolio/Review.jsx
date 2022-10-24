@@ -4,7 +4,8 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import PersonIcon from "@mui/icons-material/Person";
 
-function Review() {
+function Review({ userid }) {
+  console.log(userid);
   let stars = 5;
   const starlist = [];
 

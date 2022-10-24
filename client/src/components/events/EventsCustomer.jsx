@@ -28,7 +28,6 @@ import avatar5 from "../../documents/avatar5.jpg";
 
 import Rate from "../rate/Rate";
 
-
 import pho2 from "../../documents/pho2.jpg";
 
 import { Link } from "react-router-dom";
@@ -81,7 +80,6 @@ function EventsCustomer(props) {
   const [eventsError, setEventsError] = useState("");
   const [services, setServices] = useState([]);
 
-
   const [events, setEvents] = useState([]);
   const [events2, setEvents2] = useState([]);
   const [eventDetail, setEventDetails] = useState();
@@ -93,26 +91,25 @@ function EventsCustomer(props) {
   let decoration = false;
   let refreshment = false;
   let photography = false;
- 
+
   if (services.includes("hall")) {
     hall = true;
-   //  console.log(hall);
-   }
-   if (services.includes("decoration")) {
+    //  console.log(hall);
+  }
+  if (services.includes("decoration")) {
     decoration = true;
-   }
-   if (services.includes("refreshment")) {
+  }
+  if (services.includes("refreshment")) {
     refreshment = true;
-   }
-   if (services.includes("photography")) {
+  }
+  if (services.includes("photography")) {
     photography = true;
-   }
+  }
   async function fetchCevent() {
     try {
       const res = await axios.get(API_URL);
       setEvents(res.data);
       setEvents2(res.data);
-
     } catch (error) {
       console.error(error.message);
     }
@@ -125,15 +122,11 @@ function EventsCustomer(props) {
 
   const serviceList = (e) => {
     if (services.includes(e.target.value)) {
-       setServices(services.filter((g) => g !== e.target.value));
-
-
-    } 
-    else if (!services.includes(e.target.value)) {
+      setServices(services.filter((g) => g !== e.target.value));
+    } else if (!services.includes(e.target.value)) {
       setServices([...services, e.target.value]);
     }
   };
-
 
   useEffect(() => {
     fetchCevent();
@@ -149,27 +142,18 @@ function EventsCustomer(props) {
   const handlePopupS = () => {
     setPopupS(!popupS);
   };
-  // const handleService = () => {
-  //   if (!service) {
-  //     setService(!service);
-  //   }
-  //   if (serviceRegister) {
-  //     setServiceRegister(!serviceRegister);
-  //   }
-  // };
-
-  // const handleServiceRegister = () => {
-  //   if (!serviceRegister) {
-  //     setServiceRegister(!serviceRegister);
-  //   }
-  //   if (service) {
-  //     setService(!service);
-  //   }
-  // };
-
- 
-
-
+  const getEventByName = (e) => {
+    if (e.target.value == "") {
+      setEvents(events2);
+    } else {
+      setEvents([]);
+      events2.map((item) => {
+        if (item.name.toLowerCase().includes(e.target.value.toLowerCase())) {
+          setEvents((events) => [...events, item]);
+        }
+      });
+    }
+  };
 
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
@@ -188,6 +172,9 @@ function EventsCustomer(props) {
             placeholder="Search for Services..."
             type="text"
             name="search"
+            onChange={(e) => {
+              getEventByName(e);
+            }}
           />
         </label>
       </div>
@@ -233,8 +220,6 @@ function EventsCustomer(props) {
             <Tab label="ENGAGEMENT" {...a11yProps(3)} />
             <Tab label="OTHER OCCASION" {...a11yProps(4)} />
             {/* <Tab label="RECEPTION Testing" {...a11yProps(5)} /> */}
-
-          
           </Tabs>
         </Box>
 
@@ -317,8 +302,7 @@ function EventsCustomer(props) {
               </li>
             </ul> */}
 
-
-{/* <div className="flex flex-col py-5 px-2 text-slate-500">
+            {/* <div className="flex flex-col py-5 px-2 text-slate-500">
             <label>Service Category</label>
             <FormGroup className="px-3">
               <FormControlLabel
@@ -374,7 +358,6 @@ function EventsCustomer(props) {
             <p className="text-red-500 text-sm">{servicesError}</p>
           </div> */}
 
-
             <ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
               <li class="w-full rounded-t-lg border-b border-gray-200 ">
                 <div class="flex items-center pl-3">
@@ -393,7 +376,6 @@ function EventsCustomer(props) {
                     for="refreshment-checkbox"
                     class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
-                   
                     Refreshment
                   </label>
                 </div>
@@ -517,314 +499,335 @@ function EventsCustomer(props) {
           </div>
           <div>
             <TabPanel value={value} index={0}>
-            <div
+              <div
                 className="flex m-5 flex-wrap 
               gap-1"
               >
-
-
-
-
-       <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
-           <a href="#">
-             <img
-              class="rounded-t-lg"
-              src="/assets/images/fabcake.jpg"
-              alt=""
-              className=" w-72 h-60"
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                The Fab
-              </h5>
-            </a>
-            {/* <p class="mb-3 font-normal text-gray-700 ">7</p> */}
-            <Rate />
-            <Link
-              to="/customerserviceportfolio"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
-            >
-              See Portfolio
-              <svg
-                class="ml-2 -mr-1 w-4 h-4"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </Link>
-          </div>
-        </div>
-
-
-
+                <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md ">
+                  <a href="#">
+                    <img
+                      class="rounded-t-lg"
+                      src="/assets/images/fabcake.jpg"
+                      alt=""
+                      className=" w-72 h-60"
+                    />
+                  </a>
+                  <div class="p-5">
+                    <a href="#">
+                      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                        The Fab
+                      </h5>
+                    </a>
+                    {/* <p class="mb-3 font-normal text-gray-700 ">7</p> */}
+                    <Rate />
+                    <Link
+                      to="/customerserviceportfolio"
+                      class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                    >
+                      See Portfolio
+                      <svg
+                        class="ml-2 -mr-1 w-4 h-4"
+                        aria-hidden="true"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </Link>
+                  </div>
+                </div>
 
                 {
-                // events2.map((event2) => (
-                events.map((event) => (
-                //  console.log(refreshment,decoration,photography,hall),
-                    (event.birthday  === true) && (( (event.refreshment === true) && (refreshment === true) ) || ((event.decoration === true) && (decoration === true)) || ((event.hallservices === true) && (hall === true)) || ((event.photography === true) && (photography === true)))  &&
-              //    event.birthday  === true &&
-                 <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
-                    <a href="#">
-                      <img
-                        class="rounded-t-lg"
-                        src={pho2}
-                        alt=""
-                        className=" w-72 h-60"
-                      />
-                    </a>
-                    <div class="p-5">
-                      <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                          {/* CHE Studio */}
-                          {event.name}
-                        </h5>
-                      </a>
-                      {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
-                      <Rate />
-                      <Link
-              to="/customerserviceportfolio"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
-            >
-                        See Portfolio
-                        <svg
-                          aria-hidden="true"
-                          class="ml-2 -mr-1 w-4 h-4"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                        </Link>
-                    </div>
-                  </div>
-                  // ))
-                ))}
+                  // events2.map((event2) => (
+                  events.map(
+                    (event) =>
+                      //  console.log(refreshment,decoration,photography,hall),
+                      event.birthday === true &&
+                      ((event.refreshment === true && refreshment === true) ||
+                        (event.decoration === true && decoration === true) ||
+                        (event.hallservices === true && hall === true) ||
+                        (event.photography === true &&
+                          photography === true)) && (
+                        //    event.birthday  === true &&
+                        <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
+                          <a href="#">
+                            <img
+                              class="rounded-t-lg"
+                              src={pho2}
+                              alt=""
+                              className=" w-72 h-60"
+                            />
+                          </a>
+                          <div class="p-5">
+                            <a href="#">
+                              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                                {/* CHE Studio */}
+                                {event.name}
+                              </h5>
+                            </a>
+                            {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
+                            <Rate />
+                            <Link
+                              to="/customerserviceportfolio"
+                              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                            >
+                              See Portfolio
+                              <svg
+                                aria-hidden="true"
+                                class="ml-2 -mr-1 w-4 h-4"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                            </Link>
+                          </div>
+                        </div>
+                      )
+                    // ))
+                  )
+                }
               </div>
             </TabPanel>
 
             <TabPanel value={value} index={1}>
-                 <div
+              <div
                 className="flex m-5 flex-wrap 
               gap-1"
               >
-                {events.map((event) => (
-                  (event.wedding  === true) && (( (event.refreshment === true) && (refreshment === true) ) || ((event.decoration === true) && (decoration === true)) || ((event.hallservices === true) && (hall === true)) || ((event.photography === true) && (photography === true)))  &&
-                  <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
-                    <a href="#">
-                      <img
-                        class="rounded-t-lg"
-                        src={pho2}
-                        alt=""
-                        className=" w-72 h-60"
-                      />
-                    </a>
-                    <div class="p-5">
-                      <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                          {/* CHE Studio */}
-                          {event.name}
-                        </h5>
-                      </a>
-                      {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
-                      <Rate />
-                      <Link
-              to="/customerserviceportfolio"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
-            >
-                        See Portfolio
-                        <svg
-                          aria-hidden="true"
-                          class="ml-2 -mr-1 w-4 h-4"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </Link>
-                    </div>
-                  </div>
-                ))}
+                {events.map(
+                  (event) =>
+                    event.wedding === true &&
+                    ((event.refreshment === true && refreshment === true) ||
+                      (event.decoration === true && decoration === true) ||
+                      (event.hallservices === true && hall === true) ||
+                      (event.photography === true && photography === true)) && (
+                      <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
+                        <a href="#">
+                          <img
+                            class="rounded-t-lg"
+                            src={pho2}
+                            alt=""
+                            className=" w-72 h-60"
+                          />
+                        </a>
+                        <div class="p-5">
+                          <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                              {/* CHE Studio */}
+                              {event.name}
+                            </h5>
+                          </a>
+                          {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
+                          <Rate />
+                          <Link
+                            to="/customerserviceportfolio"
+                            class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                          >
+                            See Portfolio
+                            <svg
+                              aria-hidden="true"
+                              class="ml-2 -mr-1 w-4 h-4"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </Link>
+                        </div>
+                      </div>
+                    )
+                )}
               </div>
             </TabPanel>
 
             <TabPanel value={value} index={2}>
-            <div
+              <div
                 className="flex m-5 flex-wrap 
               gap-1"
               >
-                {events.map((event) => (
-                  (event.reception  === true) && (( (event.refreshment === true) && (refreshment === true) ) || ((event.decoration === true) && (decoration === true)) || ((event.hallservices === true) && (hall === true)) || ((event.photography === true) && (photography === true)))  &&
-                  <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
-                    <a href="#">
-                      <img
-                        class="rounded-t-lg"
-                        src={pho2}
-                        alt=""
-                        className=" w-72 h-60"
-                      />
-                    </a>
-                    <div class="p-5">
-                      <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                          {/* CHE Studio */}
-                          {event.name}
-                        </h5>
-                      </a>
-                      {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
-                      <Rate />
-                      <Link
-              to="/customerserviceportfolio"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
-            >
-                        See Portfolio
-                        <svg
-                          aria-hidden="true"
-                          class="ml-2 -mr-1 w-4 h-4"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                        </Link>
-                    </div>
-                  </div>
-                ))}
+                {events.map(
+                  (event) =>
+                    event.reception === true &&
+                    ((event.refreshment === true && refreshment === true) ||
+                      (event.decoration === true && decoration === true) ||
+                      (event.hallservices === true && hall === true) ||
+                      (event.photography === true && photography === true)) && (
+                      <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
+                        <a href="#">
+                          <img
+                            class="rounded-t-lg"
+                            src={pho2}
+                            alt=""
+                            className=" w-72 h-60"
+                          />
+                        </a>
+                        <div class="p-5">
+                          <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                              {/* CHE Studio */}
+                              {event.name}
+                            </h5>
+                          </a>
+                          {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
+                          <Rate />
+                          <Link
+                            to="/customerserviceportfolio"
+                            class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                          >
+                            See Portfolio
+                            <svg
+                              aria-hidden="true"
+                              class="ml-2 -mr-1 w-4 h-4"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </Link>
+                        </div>
+                      </div>
+                    )
+                )}
               </div>
             </TabPanel>
 
             <TabPanel value={value} index={3}>
-            <div
+              <div
                 className="flex m-5 flex-wrap 
               gap-1"
               >
-                {events.map((event) => (
-                  (event.engagement === true) && (( (event.refreshment === true) && (refreshment === true) ) || ((event.decoration === true) && (decoration === true)) || ((event.hallservices === true) && (hall === true)) || ((event.photography === true) && (photography === true)))  &&
-                  <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
-                    <a href="#">
-                      <img
-                        class="rounded-t-lg"
-                        src={pho2}
-                        alt=""
-                        className=" w-72 h-60"
-                      />
-                    </a>
-                    <div class="p-5">
-                      <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                          {/* CHE Studio */}
-                          {event.name}
-                        </h5>
-                      </a>
-                      {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
-                      <Rate />
-                      <Link
-              to="/customerserviceportfolio"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
-            >
-                        See Portfolio
-                        <svg
-                          aria-hidden="true"
-                          class="ml-2 -mr-1 w-4 h-4"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                        </Link>
-                    </div>
-                  </div>
-                ))}
+                {events.map(
+                  (event) =>
+                    event.engagement === true &&
+                    ((event.refreshment === true && refreshment === true) ||
+                      (event.decoration === true && decoration === true) ||
+                      (event.hallservices === true && hall === true) ||
+                      (event.photography === true && photography === true)) && (
+                      <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
+                        <a href="#">
+                          <img
+                            class="rounded-t-lg"
+                            src={pho2}
+                            alt=""
+                            className=" w-72 h-60"
+                          />
+                        </a>
+                        <div class="p-5">
+                          <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                              {/* CHE Studio */}
+                              {event.name}
+                            </h5>
+                          </a>
+                          {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
+                          <Rate />
+                          <Link
+                            to="/customerserviceportfolio"
+                            class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                          >
+                            See Portfolio
+                            <svg
+                              aria-hidden="true"
+                              class="ml-2 -mr-1 w-4 h-4"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </Link>
+                        </div>
+                      </div>
+                    )
+                )}
               </div>
             </TabPanel>
 
             <TabPanel value={value} index={4}>
-            <div
+              <div
                 className="flex m-5 flex-wrap 
               gap-1"
               >
-                {events.map((event) => (
-                  (event.other === true) && (( (event.refreshment === true) && (refreshment === true) ) || ((event.decoration === true) && (decoration === true)) || ((event.hallservices === true) && (hall === true)) || ((event.photography === true) && (photography === true)))  &&
-                  <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
-                    <a href="#">
-                      <img
-                        class="rounded-t-lg"
-                        src={pho2}
-                        alt=""
-                        className=" w-72 h-60"
-                      />
-                    </a>
-                    <div class="p-5">
-                      <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                          {/* CHE Studio */}
-                          {event.name}
-                        </h5>
-                      </a>
-                      {/* <p class="mb-3 font-normal text-gray-700 ">Premium</p> */}
-                      <Rate />
-                      <Link
-              to="/customerserviceportfolio"
-              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
-            >
-                        See Portfolio
-                        <svg
-                          aria-hidden="true"
-                          class="ml-2 -mr-1 w-4 h-4"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                        </Link>
-                    </div>
-                  </div>
-                ))}
+                {events.map(
+                  (event) =>
+                    event.other === true &&
+                    ((event.refreshment === true && refreshment === true) ||
+                      (event.decoration === true && decoration === true) ||
+                      (event.hallservices === true && hall === true) ||
+                      (event.photography === true && photography === true)) && (
+                      <div class="w-72 bg-white rounded-lg border border-gray-200 shadow-md">
+                        <a href="#">
+                          <img
+                            class="rounded-t-lg"
+                            src={pho2}
+                            alt=""
+                            className=" w-72 h-60"
+                          />
+                        </a>
+                        <div class="p-5">
+                          <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                              {/* CHE Studio */}
+                              {event.name}
+                            </h5>
+                          </a>
+                          {/* <p class="mb-3 font-normal text-gray-700 ">Premium</p> */}
+                          <Rate />
+                          <Link
+                            to="/customerserviceportfolio"
+                            class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                          >
+                            See Portfolio
+                            <svg
+                              aria-hidden="true"
+                              class="ml-2 -mr-1 w-4 h-4"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </Link>
+                        </div>
+                      </div>
+                    )
+                )}
               </div>
             </TabPanel>
-           
           </div>
 
           {/* </div> */}
         </div>
       </Box>
-
-     
-    
     </div>
   );
 }

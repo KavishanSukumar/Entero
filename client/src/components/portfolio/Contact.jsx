@@ -9,14 +9,15 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import Shakir from "../../Shakir.jpg";
+
 // import * as React from "react";
+const CHAT_URL = "http://localhost:4000/api/chat";
+export default function Contact({ data, myuserid, userid }) {
+  //const API_URL = "http://localhost:4000/api/customer/appointment";
+  const API_URL = "http://localhost:4000/api/auth/isverify";
 
-//const API_URL = "http://localhost:4000/api/customer/appointment";
-const API_URL = "http://localhost:4000/api/auth/isverify";
+  let a = "http://localhost:4000/api/customer/appointment";
 
-let a = "http://localhost:4000/api/customer/appointment";
-
-export default function Contact(props) {
   // const id = props.data;
 
   //   const [date, setDate] = useState("");
@@ -98,13 +99,38 @@ export default function Contact(props) {
   const handle = () => {
     console.log("hello");
   };
-
   const [popup, setPopup] = useState(false);
   const [value, setValue] = React.useState(0);
-
+  const [appointment, setAppointment] = useState();
+  const [chat, setChat] = useState();
   const handlePopup = () => {
     setPopup(!popup);
   };
+  useEffect(() => {
+    if (data) {
+      handleAppointment();
+      handleChat();
+    }
+  }, []);
+
+  const handleAppointment = () => {
+    setAppointment(data.appointment_enable);
+    // setAppointment(true);
+  };
+  const handleChat = () => {
+    // setChat(data.chat_enable);
+    setChat(true);
+  };
+  const CreateChat = async () => {
+    const res = await axios.post(CHAT_URL, {
+      senderId: myuserid,
+      receiverId: userid,
+    });
+    if (res.data) {
+      window.location = "/customerchat";
+    }
+  };
+  console.log(userid);
 
   return (
     <div>
@@ -115,6 +141,7 @@ export default function Contact(props) {
               to=""
               onClick={handlePopup}
               className=" w-32 bg-cyan-500 text-white hover:bg-blue-400 py-2 px-3 rounded mr-1 cursor-pointer"
+              disabled={!appointment}
             >
               Appointment
             </button>
@@ -122,9 +149,9 @@ export default function Contact(props) {
         </AccordionSummary>
         <AccordionDetails>
           <p className="italic text-sm">
-            In order to contact the service provider you can use the appointment
-            option to schedule a time slot. you are able to pick out your
-            convinient time from the calender.
+            {appointment
+              ? "In order to contact the service provider you can use the appointment option to schedule a time slot. you are able to pick out your convinient time from the calender."
+              : "Appointment is disabled by the service provider"}
           </p>
         </AccordionDetails>
       </Accordion>
@@ -136,8 +163,10 @@ export default function Contact(props) {
         >
           <div>
             <button
+              onClick={CreateChat}
               to=""
               className="w-32 bg-cyan-500 text-white hover:bg-blue-400 py-2 px-3 rounded mr-1 cursor-pointer"
+              disabled={!chat}
             >
               Chat
             </button>
@@ -145,8 +174,9 @@ export default function Contact(props) {
         </AccordionSummary>
         <AccordionDetails>
           <p className="italic text-sm">
-            In order to contact with the service provider you can use the chat
-            option.
+            {chat
+              ? "In order to contact with the service provider you can use the chat option."
+              : "Chat is disabled by the service provider"}
           </p>
         </AccordionDetails>
       </Accordion>
@@ -249,7 +279,6 @@ export default function Contact(props) {
                   {/* <button className=" inline-flex items-center justify-center bg-cyan-500 text-white p-2 w-24 rounded hover:border-2 hover:bg-cyan-400 font-medium mx-2 mb-2">
                     Send
                   </button> */}
-                  
                 </div>
               </form>
               {/* </div> */}

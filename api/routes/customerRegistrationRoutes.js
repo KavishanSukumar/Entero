@@ -15,7 +15,7 @@ const router = express.Router();
 //register Customer
 router.post("/", validInfo, async (req, res) => {
   try {
-    const { fname, lname, email, contactNum, address, uname, password } =
+    const { fname, lname, email, contactNum, address, password } =
       req.body;
     const name = fname + " " + lname;
     const users = await pool.query("SELECT * FROM users WHERE email=$1", [

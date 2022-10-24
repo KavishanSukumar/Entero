@@ -4,30 +4,45 @@ import pool from "../db.js";
 
 const router = express.Router();
 
-router.get('/',async (req,res)=>{
-    try{
-        
-        const getBooking= await pool.query("SELECT * from booking")
+router.get("/", async (req, res) => {
+  try {
+    const getBooking = await pool.query("SELECT * from booking");
 
-        res.json(getBooking.rows);
-    }
-    catch(err){
-        console.log(err.message);
-    }
-})
+    res.json(getBooking.rows);
+  } catch (err) {
+    console.log(err.message);
+  }
+});
 
-router.post('/',async (req,res)=>{
-    try{
-        
-        const getBooking= await pool.query("INSERT INTO booking (date,time,location,type,userid_c,userid_s,package_id,amount,status) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,'0') RETURNING *",[date,time,location,eventName,])
+router.post("/", async (req, res) => {
+  try {
+    const {date,time,location,eventName,userid_c,userid_s,package_id,price} = req.body;
+    const x = new Date();
+    const madeDate = x.getFullYear() + "-" + x.getMonth() + "-" + x.getDate();
+    const madeTime = x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
 
-        res.json(getBooking.rows);
-    }
-    catch(err){
-        console.log(err.message);
-    }
-})
+    console.log(location)
 
+    const makeBooking = await pool.query(
+      "INSERT INTO booking (madeDate,madeTime,date,time,location,type,userid_c,userid_s,package_id,amount,status) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,'0') RETURNING *",
+      [
+        madeDate,
+        madeTime,
+        date,
+        time,
+        location,
+        eventName,
+        userid_c,
+        userid_s,
+        package_id,
+        price,
+      ]
+    );
 
+    res.json(makeBooking.rows[0]);
+  } catch (err) {
+    console.log(err.message);
+  }
+});
 
 export default router;

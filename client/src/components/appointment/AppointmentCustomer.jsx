@@ -242,7 +242,11 @@ function AppointmentCustomer() {
               </div>
             </div>
           </TabPanel>
+<<<<<<< HEAD
          
+=======
+          
+>>>>>>> 7effca04d6413c4c1713cf6b0606ef3d593d6f6b
           <TabPanel value={value} index={1}>
             <div className="shadow-md p-3 w-auto rounded-md ">
               <div className="flex flex-col lg:flex-row ">

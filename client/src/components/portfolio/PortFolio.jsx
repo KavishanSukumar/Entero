@@ -6,34 +6,63 @@ import Packages from "./Packages";
 import Review from "./Review";
 import Contact from "./Contact";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-function PortFolio() {
-  const [activeTab, setActiveTab] = React.useState(<AboutUs />);
+const PORTFOLIOURL = "http://localhost:4000/api/serviceprovider/portfoliosp/";
+const API_URL_USER = "http://localhost:4000/api/user/";
+
+function PortFolio({ myuserid }) {
   const [activeTabIndex, setActiveTabIndex] = React.useState(0);
+  const [userid, setUserId] = React.useState(7);
+  const [portFolio, setPortFolio] = React.useState();
+  const [User, setUser] = React.useState();
+
+  React.useEffect(() => {
+    getPortFolio();
+  }, [userid]);
+
+  const getPortFolio = async () => {
+    try {
+      const res1 = await axios.get(PORTFOLIOURL + userid);
+      setPortFolio(res1.data[0]);
+      const res2 = await axios.post(API_URL_USER, {
+        userid,
+      });
+      setPortFolio(res1.data[0]);
+      setUser(res2.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const [activeTab, setActiveTab] = React.useState(
+    <AboutUs userid={userid} data={portFolio} />
+  );
 
   const handleChange = (id) => {
     switch (id) {
       case "aboutus":
         {
-          setActiveTab(<AboutUs />);
+          setActiveTab(<AboutUs userid={userid} data={portFolio} />);
           setActiveTabIndex(0);
         }
         break;
       case "packages":
         {
-          setActiveTab(<Packages />);
+          setActiveTab(<Packages userid={userid} data={portFolio} />);
           setActiveTabIndex(1);
         }
         break;
       case "review":
         {
-          setActiveTab(<Review />);
+          setActiveTab(<Review userid={userid} data={portFolio} />);
           setActiveTabIndex(2);
         }
         break;
       case "contact":
         {
-          setActiveTab(<Contact />);
+          setActiveTab(
+            <Contact userid={userid} myuserid={myuserid} data={portFolio} />
+          );
           setActiveTabIndex(3);
         }
         break;
@@ -72,7 +101,7 @@ function PortFolio() {
         </div>
         <div className="flex flex-col justify-center m-3 basis-6/12">
           <div>
-            <p className="font-sans text-2xl max-w-sm">The Fab</p>
+            <p className="font-sans text-2xl max-w-sm">{User?.name}</p>
           </div>
           <div className="">{starlist}</div>
           <div className="my-3">

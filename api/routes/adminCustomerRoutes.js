@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/',async (req,res)=>{
     try{
         
-        const getCustomer= await pool.query("SELECT users.userid,users.name,users.address,users.email,users.contact_number,customer.status FROM users INNER JOIN customer ON users.userid=customer.userid WHERE users.userrole='cs' ORDER BY users.name")
+        const getCustomer= await pool.query("SELECT users.userid,users.name,users.address,users.email,users.image,users.contact_number,customer.status FROM users INNER JOIN customer ON users.userid=customer.userid WHERE users.userrole='cs' ORDER BY users.name")
 
         res.json(getCustomer.rows);
     }

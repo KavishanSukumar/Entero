@@ -5,6 +5,7 @@ import Shakir from "../../Shakir.jpg";
 import SearchIcon from "@mui/icons-material/Search";
 
 const API_URL = "http://localhost:4000/api/admincustomer"
+const File_Url = "http://localhost:4000/profilePics/";
 
 function AdminCustomers() {
   const [customers,setCustomers]=useState([])
@@ -90,11 +91,16 @@ function AdminCustomers() {
             <div className="flex flex-col  items-center  mb-2 justify-center">
               {/*The image */}
               <div className="p-2">
-                <img
-                  src={Shakir}
+                {customerDetail && customerDetail.image===null?(<img
+                  src="/assets/images/userAvatar.png"
                   alt=""
                   className="w-28 h-28 rounded-full shadow-2xl "
-                />
+                />):(<img
+                  src={File_Url + customerDetail.image}
+                  alt=""
+                  className="w-28 h-28 rounded-full shadow-2xl "
+                />)}
+                
               </div>
 
               {/*The buttons */}
