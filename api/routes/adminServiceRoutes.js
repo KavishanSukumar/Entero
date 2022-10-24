@@ -9,7 +9,7 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const getsp = await pool.query(
-      "SELECT users.userid,users.name,users.address,users.email,users.contact_number,service_provider.br_no, service_provider.br_file,service_provider.refreshment,service_provider.decoration,service_provider.hallservices,service_provider.photography,service_provider.birthday,service_provider.reception,service_provider.engagement,service_provider.wedding,service_provider.other,service_provider.status FROM users INNER JOIN service_provider ON users.userid=service_provider.userid"
+      "SELECT users.userid,users.name,users.address,users.email,users.contact_number,service_provider.br_no,service_provider.refreshment,service_provider.decoration,service_provider.hallservices,service_provider.photography,service_provider.birthday,service_provider.reception,service_provider.engagement,service_provider.wedding,service_provider.other,service_provider.status FROM users INNER JOIN service_provider ON users.userid=service_provider.userid"
     );
 
     res.json(getsp.rows);
