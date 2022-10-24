@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AiFillBell,
   AiFillHome,
@@ -6,15 +6,42 @@ import {
   AiOutlineMenu,
 } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
-
+import axios from "axios";
 import BookIcon from "@mui/icons-material/Book";
 import CelebrationIcon from "@mui/icons-material/Celebration";
 import ChatIcon from "@mui/icons-material/Chat";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
 
+const API_URL = "http://localhost:4000/api/profile/";
+const File_Url = "http://localhost:4000/profilePics/";
+
 function CustomerHeader() {
   const [nav, setNav] = useState(false);
+  const [image, setImage] = useState();
+  const [id, setId] = useState();
+
+  async function isAuth() {
+    try {
+      const res = await axios.get("http://localhost:4000/api/auth/isverify", {
+        headers: { token: localStorage.token },
+      });
+      
+      setId(res.data.payload);
+
+      let x = API_URL + res.data.payload;
+
+      const res2 = await axios.get(x);
+      setImage(res2.data.image);
+      
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  useEffect(() => {
+    isAuth();
+  }, []);
 
   const logoutHandler = () => {
     localStorage.removeItem("token");
@@ -103,12 +130,19 @@ function CustomerHeader() {
             onClick={handleDropdownBell}
           />
         </div>
-
-        <img
-          src="/assets/images/shakir.jpg"
-          className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125"
-          onClick={handleDropdownPic}
-        />
+        {image === null ? (
+          <img
+            src="/assets/images/userAvatar.png"
+            className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125"
+            onClick={handleDropdownPic}
+          />
+        ) : (
+          <img
+            src={File_Url + image}
+            className="w-8 h-8 rounded-full mx-2 cursor-pointer hover:scale-125"
+            onClick={handleDropdownPic}
+          />
+        )}
       </div>
 
       {dropdownPic ? picDropdown : ""}
@@ -129,11 +163,18 @@ function CustomerHeader() {
       >
         <div className="flex flex-col items-center shadow-2xl mb-2">
           {/*The image */}
+          
           <div className="p-2">
+          {image === null ? (
             <img
-              src="/assets/images/Shakir.jpg"
+              src="/assets/images/userAvatar.png"
+              className="w-28 h-28 rounded-full shadow-2xl "
+            />):(
+              <img
+              src={File_Url + image}
               className="w-28 h-28 rounded-full shadow-2xl "
             />
+            )}
           </div>
 
           {/*The buttons */}

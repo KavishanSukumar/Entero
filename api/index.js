@@ -62,6 +62,7 @@ io.on("connection", (socket) => {
 app.use(express.json());
 app.use(cors());
 
+app.use(express.static("files"));
 app.use(express.static("sp_portfolio_images"));
 //app.use("/api/sp_portfolio_images",spPortPics);
 app.use("/api/user", userRouter);
