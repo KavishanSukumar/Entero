@@ -128,29 +128,39 @@ function AppointmentCustomer() {
                   </label>
                 </div>
 
-                <div className="basis-6/12 flex flex-row justify-end">
+                <div className="relarive basis-6/12 flex flex-row justify-end">
                   <div className="flex  mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <DateRangeIcon /> Date Range
+                    <button 
+                    
+                    className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                      <DateRangeIcon /> Date
                     </button>
                   </div>
-                  <div className="flex  mx-3 my-3 justify-start lg:justify-end">
+                  {/* <div className="flex  mx-3 my-3 justify-start lg:justify-end">
                     <button className="py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                       <AccessTimeIcon /> Time Range
                     </button>
-                  </div>
+                  </div> */}
+                  {/* {calendar && (
+                    <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
+                      <Calendar
+                        onChange={(e) => getDate(e)}
+                        value={calenderDate}
+                      />
+                    </div>
+                  )} */}
                 </div>
               </div>
               <div className="overflow-auto justify-center w-full h-screen">
                 <table class="min-w-full z-0">
                   <thead class="bg-white border-b sticky top-0">
                     <tr>
-                      <th
+                      {/* <th
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
                         Appointment id
-                      </th>
+                      </th> */}
                       <th
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
@@ -232,7 +242,7 @@ function AppointmentCustomer() {
               </div>
             </div>
           </TabPanel>
-          s
+         
           <TabPanel value={value} index={1}>
             <div className="shadow-md p-3 w-auto rounded-md ">
               <div className="flex flex-col lg:flex-row ">
@@ -257,14 +267,19 @@ function AppointmentCustomer() {
                 <div className="basis-6/12 flex flex-row justify-end">
                   <div className="flex mx-3 my-3 justify-start lg:justify-end">
                     <button className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <DateRangeIcon /> Date Range
+                      <DateRangeIcon /> Date
                     </button>
                   </div>
-                  <div className="flex mx-3 my-3 justify-start lg:justify-end">
+                  {/* <div className="flex mx-3 my-3 justify-start lg:justify-end">
                     <button className="py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                       <AccessTimeIcon /> Time Range
                     </button>
-                  </div>
+                  </div> */}
+                   {/* {calendar && (
+                    <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
+                      <Calendar onChange={getDate} value={calenderDate} />
+                    </div>
+                  )} */}
                 </div>
               </div>
               <div className="overflow-auto justify-center w-full h-screen">
@@ -373,16 +388,21 @@ function AppointmentCustomer() {
                 </div>
 
                 <div className="basis-6/12 flex flex-row justify-end">
-                  <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
+                  {/* <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
                     <button className="py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                       <AccessTimeIcon /> Time Range
                     </button>
-                  </div>
+                  </div> */}
                   <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
                     <button className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <DateRangeIcon /> Date Range
+                      <DateRangeIcon /> Date
                     </button>
                   </div>
+                   {/* {calendar && (
+                      <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
+                        <Calendar onChange={getDate} value={calenderDate} />
+                      </div>
+                    )} */}
                 </div>
               </div>
               <div className="overflow-auto justify-center w-full h-screen">
@@ -482,16 +502,22 @@ function AppointmentCustomer() {
                   </label>
                 </div>
                 <div className="basis-6/12 flex flex-row justify-end">
+                  
                   <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
+                    <button className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                      <DateRangeIcon /> Date
+                    </button>
+                  </div>
+                  {/* <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
                     <button className="py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                       <AccessTimeIcon /> Time Range
                     </button>
-                  </div>
-                  <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <DateRangeIcon /> Date Range
-                    </button>
-                  </div>
+                  </div> */}
+                   {/* {calendar && (
+                      <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
+                        <Calendar onChange={getDate} value={calenderDate} />
+                      </div>
+                    )} */}
                 </div>
               </div>
               <div className="overflow-auto justify-center w-full h-screen">
