@@ -23,8 +23,8 @@ import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 
-import adminCustomerRouter from "./routes/adminCustomerRoutes.js";
-import adminServiceRouter from "./routes/adminServiceRoutes.js";
+
+
 import chatRoute from "./routes/chatRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
 import serviceProviderRegistrationRoutes from "./routes/serviceProviderRegistrationRoutes.js";
@@ -107,7 +107,6 @@ app.use("/api/allcus", getAllCusRouter);
 app.use("/api/allsp", getAllSpRouter);
 app.use("/api/reportbooking", reportBookingsRouter);
 app.use("/api/subscriptionincome", subIncomeRouter);
-
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}.`);
