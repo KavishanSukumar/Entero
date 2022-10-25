@@ -15,6 +15,7 @@ import Carousel from "./Carousel";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { FileUploader } from "react-drag-drop-files";
 import ImageUploading from 'react-images-uploading';
+import errorimage from "./errorimage.png"
 const API_URL = "http://localhost:4000/api/serviceprovider/portfoliosp";
 const IMG_URL2 = "http://localhost:4000/api/serviceprovider/portfolioimages";
 
@@ -286,7 +287,10 @@ function AboutUs(props) {
                 <div class="flex flex-wrap -m-1 md:-m-2  w-[90%] gap-y-3 justify-center ">
                   {portfolio_images.length === 0 ?
 
-                    <div><p>empty</p></div>
+                    <div>
+                      <img src={errorimage} alt="errorimage.png" className="block  p-1 bg-white object-center w-full   xl:h-[330px] lg:h-[250px] md:h-[200px] sm:h-[150px]  h-[100px]  rounded-lg" />
+                    </div>
+                    
                     :
                     portfolio_images && portfolio_images.map((a) => (
                       <div class="flex flex-wrap w-1/2     p-2">
@@ -298,7 +302,7 @@ function AboutUs(props) {
 
                             />
                           </div>
-                          <img alt="/assets/images/errorimage.png" className="block  p-1 bg-white object-center w-full   xl:h-[330px] lg:h-[250px] md:h-[200px] sm:h-[150px]  h-[100px]  rounded-lg"
+                          <img alt="./assets/images/errorimage.png" className="block  p-1 bg-white object-center w-full   xl:h-[330px] lg:h-[250px] md:h-[200px] sm:h-[150px]  h-[100px]  rounded-lg"
                             src={'http://localhost:4000/' + userid + '/' + a} />
                         </div>
                       </div>
