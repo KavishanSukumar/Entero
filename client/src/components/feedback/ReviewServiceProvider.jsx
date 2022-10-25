@@ -3,12 +3,14 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 import { AiOutlineClose } from "react-icons/ai";
 import Shakir from "../../Shakir.jpg";
 
-function ReviewServiceProvider() {
+function ReviewServiceProvider({ userid }) {
   const [popup, setPopup] = useState(false);
 
   const handlePopup = () => {
     setPopup(!popup);
   };
+
+  console.log(userid);
   return (
     <div className="relative p-5 w-full mt-14 md:mt-0 h-full">
       <div className="flex justify-start mb-7">
@@ -38,7 +40,6 @@ function ReviewServiceProvider() {
                 <p className=" font-medium ">Shakir Saheel</p>
               </div>
 
-
               <div className="flex justify-end grow ">
                 <StarRateIcon className="text-amber-200 text-xs" />
                 <StarRateIcon className="text-amber-200 text-xs" />
@@ -46,7 +47,6 @@ function ReviewServiceProvider() {
                 <StarRateIcon className="text-amber-200 text-xs" />
                 <StarRateIcon className="text-amber-200 text-xs" />
               </div>
-
             </div>
 
             {/*content */}

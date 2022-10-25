@@ -366,7 +366,7 @@ function App() {
           path="/serviceratings"
           element={
             isAuthenticated && userrole === "sp" ? (
-              <ServiceproviderRatings />
+              <ServiceproviderRatings userid={id} />
             ) : (
               <Home />
             )

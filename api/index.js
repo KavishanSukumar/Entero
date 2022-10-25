@@ -30,7 +30,7 @@ import messageRoutes from "./routes/messageRoutes.js";
 import serviceProviderRegistrationRoutes from "./routes/serviceProviderRegistrationRoutes.js";
 import reviewRouter from "./routes/reviewRoutes.js";
 import serviceProviderServicePayment from "./routes/ServiceProviderServicePayment.js";
-
+import userProfilePicRoutes from "./routes/userProfilePicRoutes.js";
 dotenv.config();
 
 let localPoolConfig = {
@@ -93,6 +93,7 @@ app.use("/api/admincustomer", adminCustomerRouter);
 app.use("/api/adminservice", adminServiceRouter);
 app.use("/api/booking", bookingsRouter);
 app.use("/api/serviceprovider/servicepayment", serviceProviderServicePayment);
+app.use("/api/users/profilepicture", userProfilePicRoutes);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}.`);

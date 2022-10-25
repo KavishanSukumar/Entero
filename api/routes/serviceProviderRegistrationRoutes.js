@@ -3,7 +3,6 @@ import pool from "../db.js";
 import bcrypt from "bcrypt";
 import mailSender from "../utils/mail-helpers.js";
 
-
 const router = express.Router();
 
 //register Customer
@@ -86,13 +85,12 @@ router.post("/", async (req, res) => {
         system_fee_type,
       ]
     );
-    const subject="Registration Form Received";
-    
-    
-    
-    const html="<p>Thank you for registering for our system.We will process your registration form and reach within 7 working days.</p>"
+    const subject = "Registration Form Received";
 
-    const mail=await mailSender(email,subject,html)
+    const html =
+      "<p>Thank you for registering for our system.We will process your registration form and reach within 7 working days.</p>";
+
+    const mail = await mailSender(email, subject, html);
 
     res.json({ userid, newUserService, status: true });
   } catch (error) {
@@ -103,21 +101,18 @@ router.post("/", async (req, res) => {
 
 router.get("/:userid/:token", async (req, res) => {
   try {
-    
-    const { userid,token } =
-      req.params;
-      
-    
-    const users = await pool.query("SELECT * FROM password_token WHERE userid=$1 AND token=$2", [
-      userid,token
-    ]);
-    
+    const { userid, token } = req.params;
+
+    const users = await pool.query(
+      "SELECT * FROM password_token WHERE userid=$1 AND token=$2",
+      [userid, token]
+    );
+
     if (users.rows.length === 0) {
-      return res.send({message:"Invalid link"});
+      return res.send({ message: "Invalid link" });
     }
 
-    return res.send({message:"ok"})
-    
+    return res.send({ message: "ok" });
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server Error");
@@ -126,36 +121,41 @@ router.get("/:userid/:token", async (req, res) => {
 
 router.put("/:userid/:token", async (req, res) => {
   try {
-    console.log("wow")
-    const { userid,token } =
-      req.params;
-      const password=req.body.password
-    
-    const users = await pool.query("SELECT * FROM password_token WHERE userid=$1 AND token=$2", [
-      userid,token
-    ]);
+    console.log("wow");
+    const { userid, token } = req.params;
+    const password = req.body.password;
+
+    const users = await pool.query(
+      "SELECT * FROM password_token WHERE userid=$1 AND token=$2",
+      [userid, token]
+    );
     if (users.rows.length === 0) {
-      return res.send({message:"Invalid link"});
+      return res.send({ message: "Invalid link" });
     }
-    
-    
-    const deleteToken=await pool.query(
+
+    const deleteToken = await pool.query(
       "DELETE FROM  password_token WHERE userid=$1",
       [userid]
     );
     const saltRound = 10;
-  const salt = await bcrypt.genSalt(saltRound);
-  const bcryptPassword = await bcrypt.hash(password, salt);
+    const salt = await bcrypt.genSalt(saltRound);
+    const bcryptPassword = await bcrypt.hash(password, salt);
 
-  const updatePassword=await pool.query("UPDATE users SET password=$1 WHERE userid=$2",[bcryptPassword,userid])
-  const updateStatus=await pool.query("UPDATE service_provider SET status='a' WHERE userid=$1",[userid])
+    const updatePassword = await pool.query(
+      "UPDATE users SET password=$1 WHERE userid=$2",
+      [bcryptPassword, userid]
+    );
+    const updateStatus = await pool.query(
+      "UPDATE service_provider SET status='a' WHERE userid=$1",
+      [userid]
+    );
 
-  const portfolio=await pool.query("INSERT INTO portfolio (description, userid) VALUES ('Type your description here',$5) RETURNING userid")
-  
+    const portfolio = await pool.query(
+      "INSERT INTO portfolio (description, userid) VALUES ('Type your description here',$1) RETURNING userid",
+      [userid]
+    );
 
-    res.status(200).send({message:"Password set"});
-
-
+    res.status(200).send({ message: "Password set" });
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server Error");

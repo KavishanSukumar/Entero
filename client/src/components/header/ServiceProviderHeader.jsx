@@ -4,10 +4,10 @@ import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import SnippetFolderIcon from "@mui/icons-material/SnippetFolder";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { AiFillBell, AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 
 const API_URL = "http://localhost:4000/api/profile/";
 const File_Url = "http://localhost:4000/profilePics/";
@@ -22,14 +22,13 @@ function ServiceProviderHeader() {
       const res = await axios.get("http://localhost:4000/api/auth/isverify", {
         headers: { token: localStorage.token },
       });
-      
+
       setId(res.data.payload);
 
       let x = API_URL + res.data.payload;
 
       const res2 = await axios.get(x);
       setImage(res2.data.image);
-      
     } catch (error) {
       console.error(error.message);
     }
@@ -108,7 +107,7 @@ function ServiceProviderHeader() {
       {/* header logo */}
 
       <img
-        src="/assets/images/fab.jpg"
+        src="/assets/images/Ss.svg"
         alt="logo"
         className="w-20 h-14 object-cover mt-3"
       />
@@ -157,15 +156,16 @@ function ServiceProviderHeader() {
         <div className="flex flex-col items-center shadow-2xl mb-2">
           {/*The image */}
           <div className="p-2">
-          {image === null ? (
-            <img
-              src="/assets/images/userAvatar.png"
-              className="w-28 h-28 rounded-full shadow-2xl "
-            />):(
+            {image === null ? (
               <img
-              src={File_Url + image}
-              className="w-28 h-28 rounded-full shadow-2xl "
-            />
+                src="/assets/images/userAvatar.png"
+                className="w-28 h-28 rounded-full shadow-2xl "
+              />
+            ) : (
+              <img
+                src={File_Url + image}
+                className="w-28 h-28 rounded-full shadow-2xl "
+              />
             )}
           </div>
 
