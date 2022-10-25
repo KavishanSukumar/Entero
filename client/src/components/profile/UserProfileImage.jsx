@@ -21,18 +21,16 @@ function UserProfileImage(props) {
   const [openForm, setOpenForm] = useState(false);
   const [a, setA] = useState(1);
   const [image, setImage] = useState();
-  const [file,setFile]=useState();
-  const [fileError,setFileError]=useState("")
+  const [file, setFile] = useState();
+  const [fileError, setFileError] = useState("");
 
   async function getDetails() {
     try {
       let x = API_URL + props.userid;
-      
 
       const res = await axios.get(x);
       setImage(res.data.image);
       setA(2);
-      
     } catch (error) {
       console.error(error.message);
     }
@@ -46,10 +44,9 @@ function UserProfileImage(props) {
   const handleCloseForm = () => setOpenForm(false);
 
   const fileChange = (e) => {
-    
     setFile(e.target.files[0]);
-    
-    setFileError("")
+
+    setFileError("");
   };
 
   const handleRegister = async (e) => {
@@ -68,34 +65,30 @@ function UserProfileImage(props) {
         const formDetail = new FormData();
 
         formDetail.append("file", file);
-        let y = API_URL +"image/"+ props.userid;
-        
+        let y = API_URL + "image/" + props.userid;
 
         const res = await axios.put(y, formDetail, {
           headers: {
             "Content-Type": "multipart/form-data",
-            uploadType:"2",
-            
-            
+            uploadType: "2",
           },
         });
         getDetails();
-
-        
-    } }catch (error) {
-      console.log(error)
+      }
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
 
-  const removePic=async (e)=>{
+  const removePic = async (e) => {
     try {
-      let y = API_URL +"image/remove/"+ props.userid;
-      const res = await axios.put(y)
+      let y = API_URL + "image/remove/" + props.userid;
+      const res = await axios.put(y);
       getDetails();
     } catch (error) {
-      console.log(error) 
+      console.log(error);
     }
-  }
+  };
 
   return (
     <>
@@ -129,7 +122,10 @@ function UserProfileImage(props) {
                   <p className="text-red-500 text-sm">{fileError}</p>
                 </div>
 
-                <button type="submit" className="border w-full my-5 py-1 bg-cyan-500 hover:bg-cyan-400 text-white">
+                <button
+                  type="submit"
+                  className="border w-full my-5 py-1 bg-cyan-500 hover:bg-cyan-400 text-white"
+                >
                   Done
                 </button>
               </form>
@@ -152,8 +148,11 @@ function UserProfileImage(props) {
             </div>
           ) : (
             <div className="p-1 flex justify-center items-center mb-4">
-              <img src={File_Url+image} alt="whatever" className="w-36 h-36 md:w-24 md:h-24 lg:w-36 lg:h-36 xl:w-48 xl:h-48 rounded-full shadow-2xl hover:transform hover:scale-110 transition duration-200"/>
-              
+              <img
+                src={File_Url + image}
+                alt="whatever"
+                className="w-36 h-36 md:w-24 md:h-24 lg:w-36 lg:h-36 xl:w-48 xl:h-48 rounded-full shadow-2xl hover:transform hover:scale-110 transition duration-200"
+              />
             </div>
           )}
 
@@ -167,7 +166,10 @@ function UserProfileImage(props) {
               {image === null ? "Add photo" : "Update photo"}
             </button>
             {image !== null ? (
-              <button onClick={removePic} className="p-2 w-24 lg:w-36 bg-cyan-500 border-2 text-xs  lg:text-base rounded hover:bg-cyan-400 text-white lg:mt-0 ">
+              <button
+                onClick={removePic}
+                className="p-2 w-24 lg:w-36 bg-cyan-500 border-2 text-xs  lg:text-base rounded hover:bg-cyan-400 text-white lg:mt-0 "
+              >
                 Remove
               </button>
             ) : (

@@ -1,25 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import AboutUs from "./AboutUs";
 import Packages from "./Packages";
 import Review from "./Review";
 import Contact from "./Contact";
-import { Link,useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import Box from "@mui/material/Box";
+import Rating from "@mui/material/Rating";
 
 const API_URL_USER = "http://localhost:4000/api/user/";
 const PORTFOLIOURL = "http://localhost:4000/api/serviceprovider/portfoliosp/";
+const File_Url = "http://localhost:4000/profilePics/";
+const URL_REVIEW_AVG =
+  "http://localhost:4000/api/review/serviceprovider/reviewcount/";
 
 function PortFolio({ myuserid }) {
-  const urlParameters=useParams()
+  const urlParameters = useParams();
   const [activeTabIndex, setActiveTabIndex] = React.useState(0);
   const [userid, setUserId] = React.useState(urlParameters.sp_id);
   const [User, setUser] = React.useState();
-  const [data,setData]=React.useState()
+  const [data, setData] = React.useState();
+  const [averageRating, setAverageRating] = useState(0);
 
   React.useEffect(() => {
     getPortFolio();
+    getAllTheAverage();
   }, [userid]);
 
   const getPortFolio = async () => {
@@ -29,21 +36,25 @@ function PortFolio({ myuserid }) {
       const res2 = await axios.post(API_URL_USER, {
         userid,
       });
-      
+
       setUser(res2.data);
     } catch (error) {
       console.log(error);
     }
   };
-  const [activeTab, setActiveTab] = React.useState(
-    <AboutUs  />
-  );
-console.log(data)
+  const getAllTheAverage = async () => {
+    const res = await axios.get(URL_REVIEW_AVG + userid);
+    setAverageRating(res.data.average);
+  };
+  console.log(User);
+
+  const [activeTab, setActiveTab] = React.useState(<AboutUs />);
+  console.log(data);
   const handleChange = (id) => {
     switch (id) {
       case "aboutus":
         {
-          setActiveTab(<AboutUs  />);
+          setActiveTab(<AboutUs />);
           setActiveTabIndex(0);
         }
         break;
@@ -55,7 +66,7 @@ console.log(data)
         break;
       case "review":
         {
-          setActiveTab(<Review userid={userid}  />);
+          setActiveTab(<Review userid={userid} />);
           setActiveTabIndex(2);
         }
         break;
@@ -72,30 +83,12 @@ console.log(data)
     }
   };
 
-  let stars = 5;
-  const starlist = [];
-
-  for (let i = 1; i <= 5; i++) {
-    if (stars > 0) {
-      starlist.push(
-        <StarRateIcon key={i} className="text-amber-200 text-xs" />
-      );
-      stars--;
-    } else if (!Number.isInteger(stars)) {
-      starlist.push(
-        <StarHalfIcon key={i} className="text-amber-200 text-xs" />
-      );
-      stars = 0;
-    } else {
-      starlist.push(<StarRateIcon key={i} className="text-xs" />);
-    }
-  }
   return (
     <div className="flex flex-col m-3 shadow-inner rounded-lg">
       <div className="flex flex-row m-3">
         <div className="flex justify-left mx-3  basis-1/12">
           <img
-            src="/assets/images/fab.jpg"
+            src={File_Url + User.image}
             alt=""
             className="w-36 h-36 object-contain m-3 shadow-inner"
           />
@@ -104,7 +97,15 @@ console.log(data)
           <div>
             <p className="font-sans text-2xl max-w-sm">{User?.name}</p>
           </div>
-          <div className="">{starlist}</div>
+          <div className="">
+            <Box
+              sx={{
+                "& > legend": { mt: 2 },
+              }}
+            >
+              <Rating name="read-only" value={averageRating} readOnly />
+            </Box>
+          </div>
           <div className="my-3">
             <nav className="flex justify-start space-x-18">
               <p
