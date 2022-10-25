@@ -12,6 +12,7 @@ import { MdSpaceDashboard, MdContactPhone } from "react-icons/md";
 
 function ServiceProviderSidebar() {
   const [portfolioLabel, setPortfolioLabel] = useState(false);
+  const [dashboardlabel,setDashboardLabel]=useState(false);
   const [bookingLabel, setBookingLabel] = useState(false);
   const [appointmentLabel, setAppointmentLabel] = useState(false);
   const [chatLabel, setChatLabel] = useState(false);
@@ -38,6 +39,9 @@ function ServiceProviderSidebar() {
       case 6:
         setChargeLabel(!chargeLabel);
         break;
+        case 7:
+          setDashboardLabel(!dashboardlabel);
+          break;
       default:
         break;
     }
@@ -71,15 +75,15 @@ function ServiceProviderSidebar() {
             <NavLink
               to="/servicedashboard"
               className="cursor-pointer"
-              onMouseEnter={() => handleLabel(2)}
-              onMouseLeave={() => handleLabel(2)}
+              onMouseEnter={() => handleLabel(7)}
+              onMouseLeave={() => handleLabel(7)}
             >
               <MdSpaceDashboard className="!w-12 !h-12 text-fuchsia-800 bg-fuchsia-100 hover:scale-110 rounded-full p-3" />
             </NavLink>
 
             <span
               className={
-                bookingLabel
+                dashboardlabel
                   ? "absolute ml-[55px] w-28 text-center rounded-md bg-black text-white"
                   : "hidden"
               }

@@ -48,7 +48,7 @@ const AdminBusinessPoliciesEdit = ({ policies }) => {
         id = id10
       */}
       <div
-        class="modal"
+        class="modal ml-5"
         id={`id${policies.bpolicies_id}`}
         onClick={() => setBpolicies(policies.bpolicies)}
       >
@@ -68,21 +68,27 @@ const AdminBusinessPoliciesEdit = ({ policies }) => {
 
             <div class="modal-body">
               <textarea
-                type="text"
-                className="form-control w-full"
-                rows="5"
-                columns="50"
+                // type="text"
+                // className="form-control w-full"
+                // rows="5"
+                // columns="50"
+                // className="form-control  block  w-full  px-3  py-1.5  text-base  font-normal  text-gray-700 
+                //      bg-white bg-clip-padding  border border-solid border-gray-300  rounded  transition  ease-in-out
+                //        m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlTextarea13"
+                //     
+                className="ring-1 ring-gray-300 w-full rounded-md px-4 py-6 outline-none focus:ring-2 focus:ring-teal-300  text-black"
+                rows="10" 
+                 cols="50"
                 value={bpolicies}
                 onChange={(e) => setBpolicies(e.target.value)}
               />
             </div>
 
-            <div class="modal-footer">
+            <div className="modal-footer justify-center ">
               <button
                  type="button"
-                 className="btn border py-2 bg-cyan-500 hover:bg-cyan-400 text-white
-                 hover:drop-shadow-xl"
-                
+                 className="justify-center inline-block self-end bg-cyan-500 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm hover:bg-cyan-400 "
+                 
                 data-dismiss="modal"
                 onClick={(e) => updatepolicies(e)}
               >

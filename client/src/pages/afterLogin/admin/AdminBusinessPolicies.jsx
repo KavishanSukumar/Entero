@@ -53,8 +53,8 @@ const AdminBusinessPolicies = () => {
           md:p-10 bg-white rounded-3xl"
           >
             <div
-              className="flex m-5 flex-wrap 
-            gap-1"
+            //   className="flex m-5 flex-wrap 
+            // gap-1"
             >
               <div>
                 <PageHeader title="Edit Business Policies" />
@@ -72,8 +72,8 @@ const AdminBusinessPolicies = () => {
                     width="300px"
                     // margin-right="200px"
                   /> */}
-   {/* -----------add policies------------------- */}
-        {/* <Fragment>
+                  {/* -----------add policies------------------- */}
+                  {/* <Fragment>
           <div className="flex ml-12 ">
             <h1 className="text-center mt-5">Edit from here</h1>
             <form className="d-flex mt-5" onSubmit={onSubmitForm}>
@@ -88,16 +88,18 @@ const AdminBusinessPolicies = () => {
           </div>       
           <AdminBusinessPoliciesList />
         </Fragment> */}
-        {/* -----------add policies------------------- */}
+                  {/* -----------add policies------------------- */}
 
-
-{/* -----------only add ------------------- */}
-        <AdminBusinessPoliciesList />    
-{/* -----------only add ------------------- */}
+                  {/* <AdminBusinessPoliciesList />     */}
                 </div>
               </div>
+              <div className="flex justify-center mt-10">
+                {/* -----------only add ------------------- */}
+                {/* <AdminBusinessPoliciesList /> */}
+                {/* -----------only add ------------------- */}
+              </div>
             </div>
-            
+           
             <EditorData />
 
             {/* 
@@ -111,12 +113,7 @@ const AdminBusinessPolicies = () => {
           </div>
 
           {/* ---only admin can this div-(end)--- */}
-        
-
-
-     
-        
-      </div>
+        </div>
       </div>
     </div>
   );

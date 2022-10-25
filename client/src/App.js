@@ -276,7 +276,7 @@ function App() {
           path="/customerappointments"
           element={
             isAuthenticated && userrole === "cs" ? (
-              <CustomerAppointments />
+              <CustomerAppointments data={id} />
             ) : (
               <Home />
             )
@@ -287,7 +287,7 @@ function App() {
           path="/customerappointment2"
           element={
             isAuthenticated && userrole === "cs" ? (
-              <CustomerAppointment2 />
+              <CustomerAppointment2 data={id} />
             ) : (
               <Home />
             )
@@ -334,7 +334,7 @@ function App() {
           path="/servicedashboard"
           element={
             isAuthenticated && userrole === "sp" ? (
-              <ServiceProviderPortfolio userid={id} />
+              <ServiceProviderDasboard userid={id} />
             ) : (
               <Home />
             )
