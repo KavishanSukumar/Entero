@@ -44,9 +44,9 @@ router.post("/", async (req, res) => {
     const customerEmail=await pool.query("SELECT email FROM users WHERE userid=$1",[newReview.rows[0].userid_c])
     console.log(customerEmail.rows[0]);
 
-    // const subject="Review sent";
-    // const html="<p>We will let you know when your booking is accepted.</p>"
-    // const mail=await mailSender(customerEmail.rows[0].email,subject,html)
+    const subject="Review sent";
+    const html="<p>We will let you know when your booking is accepted.</p>"
+    const mail=await mailSender(customerEmail.rows[0].email,subject,html)
 
     res.status(200).send({ message: "Review sent" });
     } else {
@@ -106,9 +106,9 @@ router.put("/:id", async (req, res) => {
     const customerEmail=await pool.query("SELECT email FROM users WHERE userid=$1",[updateReview.rows[0].userid_c])
 
 
-    // const subject="Review updated";
-    // const html=`<p>We will let you know when your booking is accepted.</p><br><p>${updateReview.rows[0].content}</p>`
-    // const mail=await mailSender(customerEmail.rows[0].email,subject,html)
+    const subject="Review updated";
+    const html=`<p>We will let you know when your booking is accepted.</p><br><p>${updateReview.rows[0].content}</p>`
+    const mail=await mailSender(customerEmail.rows[0].email,subject,html)
 
     res.status(200).send({ message: "Review updated" });
     } else {
