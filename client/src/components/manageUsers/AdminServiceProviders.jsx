@@ -61,9 +61,9 @@ function AdminServiceProviders() {
   const [popup, setPopup] = useState(false);
   const [popupS, setPopupS] = useState(false);
   const [services, setServices] = useState([]);
-  const [serviceDetail, setServiceDetail] = useState();
+  const [rawServices, setRawServices] = useState([]);
+  const [serviceDetail, setServiceDetail] = useState([]);
   const [serviceRegister, setServiceRegister] = useState([]);
-  
 
   const [value, setValue] = React.useState(0);
 
@@ -83,7 +83,16 @@ function AdminServiceProviders() {
   async function fetchServices() {
     try {
       const res = await axios.get(API_URL);
-      setServices(res.data.filter((service) => service.status === "a" || service.status==='d'));
+      setServices(
+        res.data.filter(
+          (service) => service.status === "a" || service.status === "d"
+        )
+      );
+      setRawServices(
+        res.data.filter(
+          (service) => service.status === "a" || service.status === "d"
+        )
+      );
       setServiceRegister(res.data.filter((service) => service.status === "n"));
     } catch (error) {
       console.error(error.message);
@@ -121,6 +130,22 @@ function AdminServiceProviders() {
     }
   };
 
+  const searchByNames = (e) => {
+    if (e.target.value === "") {
+      setServices(rawServices);
+    } else {
+      setServices([]);
+      rawServices.map((item) => {
+        if (
+          item.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
+          item.userid === e.target.value
+        ) {
+          setServices((service) => [...service, item]);
+        }
+      });
+    }
+  };
+
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
       <div className="flex justify-start mb-7">
@@ -155,6 +180,9 @@ function AdminServiceProviders() {
                   placeholder="Search for services"
                   type="text"
                   name="search"
+                  onChange={(e) => {
+                    searchByNames(e);
+                  }}
                 />
               </label>
             </div>
@@ -220,7 +248,7 @@ function AdminServiceProviders() {
                         {service.package}
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {service.status==='a'? "Active":"Blocked"}
+                        {service.status === "a" ? "Active" : "Blocked"}
                       </td>
 
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
@@ -238,7 +266,7 @@ function AdminServiceProviders() {
                             changeStatus(service.userid);
                           }}
                         >
-                          {service.status==='a'? "Remove":"Activate"}
+                          {service.status === "a" ? "Remove" : "Activate"}
                         </button>
                       </td>
                     </tr>
@@ -373,7 +401,9 @@ function AdminServiceProviders() {
               {/*The buttons */}
               <div className="flex flex-col w-44 p-4">
                 <button className=" border-2   p-1 mb-3 rounded bg-cyan-500 hover:bg-cyan-400 text-white">
-                {serviceDetail && serviceDetail.status==='a'? "Remove":"Activate"}
+                  {serviceDetail && serviceDetail.status === "a"
+                    ? "Remove"
+                    : "Activate"}
                 </button>
 
                 <button className=" border-2   p-1 mb-3 rounded bg-cyan-500 hover:bg-cyan-400 text-white">
@@ -388,15 +418,21 @@ function AdminServiceProviders() {
               <dl class="text-gray-900 divide-y divide-gray-200 ">
                 <div class="flex flex-col pb-3">
                   <dt class="mb-1 text-gray-500 md:text-md ">Name</dt>
-                  <dd class="text-md font-semibold">{serviceDetail && serviceDetail.name}</dd>
+                  <dd class="text-md font-semibold">
+                    {serviceDetail && serviceDetail.name}
+                  </dd>
                 </div>
                 <div class="flex flex-col pb-3">
                   <dt class="mb-1 text-gray-500 md:text-md ">BR</dt>
-                  <dd class="text-md font-semibold">{serviceDetail && serviceDetail.br_no}</dd>
+                  <dd class="text-md font-semibold">
+                    {serviceDetail && serviceDetail.br_no}
+                  </dd>
                 </div>
                 <div class="flex flex-col pb-3">
                   <dt class="mb-1 text-gray-500 md:text-md ">Email address</dt>
-                  <dd class="text-md font-semibold">{serviceDetail && serviceDetail.email}</dd>
+                  <dd class="text-md font-semibold">
+                    {serviceDetail && serviceDetail.email}
+                  </dd>
                 </div>
                 <div class="flex flex-col py-3">
                   <dt class="mb-1 text-gray-500 md:text-md ">Address</dt>
@@ -406,7 +442,9 @@ function AdminServiceProviders() {
                 </div>
                 <div class="flex flex-col pt-3">
                   <dt class="mb-1 text-gray-500 md:text-md ">Contact</dt>
-                  <dd class="text-md font-semibold">{serviceDetail && serviceDetail.contact_number}</dd>
+                  <dd class="text-md font-semibold">
+                    {serviceDetail && serviceDetail.contact_number}
+                  </dd>
                 </div>
               </dl>
             </div>
@@ -437,23 +475,29 @@ function AdminServiceProviders() {
           <div className=" w-full p-4">
             <dl class="text-gray-900 divide-y divide-gray-200 ">
               <div class="flex flex-col pb-3">
-                  <dt class="mb-1 text-gray-500 md:text-md ">Name</dt>
-                  <dd class="text-md font-semibold">{serviceDetail && serviceDetail.name}</dd>
-                </div>
-                <div class="flex flex-col pb-3">
-                  <dt class="mb-1 text-gray-500 md:text-md ">BR</dt>
-                  <dd class="text-md font-semibold">{serviceDetail && serviceDetail.br_no}</dd>
-                </div>
-                <div class="flex flex-col pb-3">
-                  <dt class="mb-1 text-gray-500 md:text-md ">Email address</dt>
-                  <dd class="text-md font-semibold">{serviceDetail && serviceDetail.email}</dd>
-                </div>
-                <div class="flex flex-col py-3">
-                  <dt class="mb-1 text-gray-500 md:text-md ">Address</dt>
-                  <dd class="text-md font-semibold">
-                    {serviceDetail && serviceDetail.address}
-                  </dd>
-                </div>
+                <dt class="mb-1 text-gray-500 md:text-md ">Name</dt>
+                <dd class="text-md font-semibold">
+                  {serviceDetail && serviceDetail.name}
+                </dd>
+              </div>
+              <div class="flex flex-col pb-3">
+                <dt class="mb-1 text-gray-500 md:text-md ">BR</dt>
+                <dd class="text-md font-semibold">
+                  {serviceDetail && serviceDetail.br_no}
+                </dd>
+              </div>
+              <div class="flex flex-col pb-3">
+                <dt class="mb-1 text-gray-500 md:text-md ">Email address</dt>
+                <dd class="text-md font-semibold">
+                  {serviceDetail && serviceDetail.email}
+                </dd>
+              </div>
+              <div class="flex flex-col py-3">
+                <dt class="mb-1 text-gray-500 md:text-md ">Address</dt>
+                <dd class="text-md font-semibold">
+                  {serviceDetail && serviceDetail.address}
+                </dd>
+              </div>
             </dl>
           </div>
           <div className="flex justify-center w-full items-center mb-4 ">
@@ -470,11 +514,20 @@ function AdminServiceProviders() {
             </button>
           </div>
           <div className="w-full ">
-        {serviceDetail &&<><Worker workerUrl="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js">
-          <Viewer fileUrl={File_Url + serviceDetail.br_file}
-            plugins={[defaultLayoutPluginInstance]} />
-      </Worker></>}
-        </div>
+            {serviceDetail && (
+              <>
+                <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js">
+                  <Viewer
+                    fileUrl={
+                      "https://enterofilestorage.blob.core.windows.net/enterofiles/" +
+                      serviceDetail.userid
+                    }
+                    plugins={[defaultLayoutPluginInstance]}
+                  />
+                </Worker>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>

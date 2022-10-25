@@ -3,8 +3,9 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
-const package_URL = "http://localhost:4000/api/serviceprovider/sp_packages";
+const package_URL = "http://localhost:4000/api/serviceprovider/sp_packages/";
 const booking_URL= "http://localhost:4000/api/booking"
 const style = {
   position: "absolute",
@@ -20,7 +21,8 @@ const style = {
 };
 
 export default function PackagesView() {
-  
+  const urlParameters=useParams();
+  const userid=urlParameters.sp_id
   
   const [popup, setPopup] = useState(false);
   const [date, setDate] = useState("");
@@ -45,7 +47,8 @@ export default function PackagesView() {
   async function getpackages() {
     
     try {
-      let y=package_URL+"/7"//have to send sp id here
+      let y=package_URL+userid
+      
       const res = await axios.get(y);
       setpackages(res.data);
       console.log("packages are got");
@@ -69,7 +72,7 @@ export default function PackagesView() {
       });
       
       let userid_c=res.data.payload;
-      let userid_s=7;
+      let userid_s=userid;
       let package_id=e.target.package_id.value
       let price=e.target.price.value
 

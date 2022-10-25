@@ -54,7 +54,9 @@ export default function PackageCard(props) {
   async function getpackages(uid) {
 
     try {
-      const res = await axios.get(package_URL, { uid })
+      let y=package_URL+"/"+uid
+      const res = await axios.get(y)
+      
       setpackages(res.data);
       console.log('packages are got');
 

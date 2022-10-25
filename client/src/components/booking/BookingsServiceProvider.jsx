@@ -44,9 +44,23 @@ function a11yProps(index) {
 
 function BookingsServiceProvider() {
   const [value, setValue] = React.useState(0);
+  const [bookings, setBookings] = React.useState([]);
+  const [rawBookings, setRawBookings] = React.useState([]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const searchbyName = (e) => {
+    if (e.target.value === "") {
+      setBookings(rawBookings);
+    } else {
+      const searchValue = e.target.value;
+      const filteredBookings = rawBookings.filter((booking) => {
+        return booking.name.toLowerCase().includes(searchValue.toLowerCase());
+      });
+      setBookings(filteredBookings);
+    }
   };
 
   return (
@@ -87,6 +101,9 @@ function BookingsServiceProvider() {
                       placeholder="Search by name..."
                       type="text"
                       name="search"
+                      onChange={(e) => {
+                        searchbyName(e.target.value);
+                      }}
                     />
                   </label>
                 </div>
@@ -469,7 +486,7 @@ function BookingsServiceProvider() {
                   <tbody className="">
                     <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                       <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        4
+                        5
                       </td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         Shakir Saheel

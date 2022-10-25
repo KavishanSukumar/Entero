@@ -13,6 +13,8 @@ import Shakir from "../../Shakir.jpg";
 // import * as React from "react";
 const CHAT_URL = "http://localhost:4000/api/chat";
 export default function Contact({ data, myuserid, userid }) {
+
+  console.log(data)
   //const API_URL = "http://localhost:4000/api/customer/appointment";
   const API_URL = "http://localhost:4000/api/auth/isverify";
 
@@ -50,12 +52,12 @@ export default function Contact({ data, myuserid, userid }) {
   //       console.error(error.message);
   //     }
   //   };
-
+  
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [description, setDescription] = useState("");
   const [customer_id, setCustomer_id] = useState();
-  const [sp_id, setSp_id] = useState(21);
+  const [sp_id, setSp_id] = useState(userid);
 
   async function isAuth() {
     try {

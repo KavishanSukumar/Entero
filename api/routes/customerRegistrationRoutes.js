@@ -14,6 +14,7 @@ const router = express.Router();
 
 //register Customer
 router.post("/", validInfo, async (req, res) => {
+
   try {
     const { fname, lname, email, contactNum, address, password } =
       req.body;
@@ -21,13 +22,16 @@ router.post("/", validInfo, async (req, res) => {
     const users = await pool.query("SELECT * FROM users WHERE email=$1", [
       email,
     ]);
+    console.log("hello111")
     if (users.rows.length !== 0) {
+      console.log("hello")
       return res.json({ status: false });
     }
 
     const saltRound = 10;
     const salt = await bcrypt.genSalt(saltRound);
     const bcryptPassword = await bcrypt.hash(password, salt);
+    
     const newUser = await pool.query(
       "INSERT INTO users (email, password, name, contact_number, address,userrole) VALUES ($1, $2, $3, $4, $5, $6) RETURNING userid,email,name",
       [email, bcryptPassword, name, contactNum, address, "cs"]
@@ -39,6 +43,7 @@ router.post("/", validInfo, async (req, res) => {
 
       [userid]
     );
+    console.log("wow")
     
     const subject="Verify your account";
     const token = crypto.randomBytes(30).toString('hex');

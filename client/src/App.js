@@ -305,7 +305,7 @@ function App() {
         />
         <Route
           exact
-          path="customerserviceportfolio"
+          path="customerserviceportfolio/:sp_id"
           element={
             isAuthenticated && userrole === "cs" ? (
               <CustomerServicePortfolio userid={id} />
