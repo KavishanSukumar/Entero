@@ -30,10 +30,11 @@ import messageRoutes from "./routes/messageRoutes.js";
 import serviceProviderRegistrationRoutes from "./routes/serviceProviderRegistrationRoutes.js";
 import reviewRouter from "./routes/reviewRoutes.js";
 
-import getAllCusRouter from "./routes/getAllCusRoutes.js";
-import getAllSpRouter from "./routes/getAllSpRoutes.js";
-import reportBookingsRouter from "./routes/reportBookingRouter.js";
-import subIncomeRouter from "./routes/subscriptionRoutes.js";
+
+import getAllCusRouter from "./routes/getAllCusRoutes.js"
+import getAllSpRouter from "./routes/getAllSpRoutes.js"
+import reportBookingsRouter from "./routes/reportBookingRouter.js"
+import subIncomeRouter from "./routes/subscriptionRoutes.js"
 import serviceProviderServicePayment from "./routes/ServiceProviderServicePayment.js";
 import userProfilePicRoutes from "./routes/userProfilePicRoutes.js";
 
