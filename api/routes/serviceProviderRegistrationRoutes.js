@@ -83,7 +83,7 @@ router.post("/", async (req, res) => {
     
     
     
-    const html="<p>Thank you for registering for our system.We will process your registration form and reach within 7 working days.</p>"
+    const html="<p>Thank you for registering for our system.We will process your registration form and reach within 3 working days.</p>"
 
     const mail=await mailSender(email,subject,html)
 
