@@ -391,11 +391,19 @@ function AdminServiceProviders() {
             <div className="flex flex-col  items-center  mb-2 justify-center">
               {/*The image */}
               <div className="p-2">
-                <img
-                  src={Shakir}
-                  alt=""
-                  className="w-28 h-28 rounded-full shadow-2xl "
-                />
+                {serviceDetail && serviceDetail.image === null ? (
+                  <img
+                    src="/assets/images/userAvatar.png"
+                    alt=""
+                    className="w-28 h-28 rounded-full shadow-2xl "
+                  />
+                ) : (
+                  <img
+                    src={File_Url + (serviceDetail && serviceDetail.image)}
+                    alt=""
+                    className="w-28 h-28 rounded-full shadow-2xl "
+                  />
+                )}
               </div>
 
               {/*The buttons */}
@@ -406,9 +414,7 @@ function AdminServiceProviders() {
                     : "Activate"}
                 </button>
 
-                <button className=" border-2   p-1 mb-3 rounded bg-cyan-500 hover:bg-cyan-400 text-white">
-                  Visit Portfolio
-                </button>
+                
               </div>
             </div>
             <div className=" w-full p-2">

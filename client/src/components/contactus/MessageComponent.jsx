@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import LoopIcon from "@mui/icons-material/Loop";
 
 const API_URL = "http://localhost:4000/api/contact";
 
@@ -13,6 +16,11 @@ function MessageComponent() {
   const [y, sety] = useState([]);
   const [reply, setReply] = useState("");
   const [replyError, setReplyError] = useState("");
+  const [buttonval, setButtonval] = React.useState(
+    <button className=" inline-flex items-center justify-center bg-cyan-500 text-white p-2 w-24 rounded hover:border-2 hover:bg-cyan-400 font-medium mx-2 mb-2">
+                    Send
+                  </button>
+  );
   // const [time, setTime] = useState();
 
   async function fetchMessages() {
@@ -40,12 +48,35 @@ function MessageComponent() {
         checkErrors = 1;
       }
       if (checkErrors == 0) {
+        setButtonval(
+          <button
+
+            className=" inline-flex items-center justify-center bg-cyan-500 text-white p-2 w-36 rounded hover:border-2 hover:bg-cyan-400 font-medium mx-2 mb-2"
+            disabled
+          >
+            <LoopIcon className="animate-spin" />
+            Processing ...
+          </button>
+        );
         const x = API_URL + "/" + contact_id;
         const res = await axios.put(x, { reply });
-        setReply("");
-        fetchMessages();
-        handlePopup();
-        alert("reply sent");
+        if(res.data.status){
+          toast("Reply sent !");
+          setReply("");
+          setTimeout(() => {
+            window.location.href = "/admincontact";
+          }, 2000);
+          
+        }else{
+          toast("Reply not sent !");
+          setReply("");
+          setTimeout(() => {
+            window.location.href = "/admincontact";
+          }, 2000);
+          
+        }
+        
+        
       }
     } catch (error) {
       console.error(error.message);
@@ -240,6 +271,7 @@ function MessageComponent() {
                 onClick={handlePopup}
               />
             </div>
+            <ToastContainer autoClose={2000} />
           </div>
 
           <div className="w-full p-2 shadow-xl mb-10 grid grid-cols-1 lg:grid-cols-2  ">
@@ -271,9 +303,7 @@ function MessageComponent() {
                 </div>
 
                 <div className="flex justify-center">
-                  <button className=" inline-flex items-center justify-center bg-cyan-500 text-white p-2 w-24 rounded hover:border-2 hover:bg-cyan-400 font-medium mx-2 mb-2">
-                    Send
-                  </button>
+                  {buttonval}
                 </div>
               </form>
             </div>

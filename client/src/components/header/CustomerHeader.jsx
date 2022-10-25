@@ -123,13 +123,7 @@ function CustomerHeader() {
 
       {/* After login components*/}
       <div className="hidden md:inline-flex items-center ">
-        <div className="p-3">
-          <AiFillBell
-            size={24}
-            className="text-black hover:text-gray-300"
-            onClick={handleDropdownBell}
-          />
-        </div>
+        
         {image === null ? (
           <img
             src="/assets/images/userAvatar.png"
@@ -191,19 +185,7 @@ function CustomerHeader() {
           </div>
         </div>
         <ul className=" text-sm">
-          <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                isActive
-                  ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                  : "inline-flex items-center "
-              }
-            >
-              <AiFillBell className="w-6 h-6 text-gray-500" />
-              <span className="ml-3">Notifications</span>
-            </NavLink>
-          </li>
+          
 
           <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
             <NavLink

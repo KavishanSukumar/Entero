@@ -46,7 +46,7 @@ router.put('/:id',async (req,res)=>{
         const {reply}=req.body;
         const updateContact= await pool.query("UPDATE contact SET reply=$1,reply_date=CURRENT_DATE,reply_time=CURRENT_TIME WHERE contact_id=$2 RETURNING *",[reply,id])
 
-        res.json(updateContact.rows[0]);
+        res.json({status:true});
     }
     catch(err){
         console.log(err.message);
@@ -58,7 +58,7 @@ router.delete('/:id',async (req,res)=>{
         const {id}=req.params;
         const deleteContact= await pool.query("DELETE FROM contact WHERE contact_id=$1",[id])
 
-        res.json("Done deleting");
+        res.json({status:true});
     }
     catch(err){
         console.log(err.message);
