@@ -134,11 +134,6 @@ function AppointmentCustomer() {
                       <DateRangeIcon /> Date Range
                     </button>
                   </div>
-                  <div className="flex  mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <AccessTimeIcon /> Time Range
-                    </button>
-                  </div>
                 </div>
               </div>
               <div className="overflow-auto justify-center w-full h-screen">
@@ -232,7 +227,7 @@ function AppointmentCustomer() {
               </div>
             </div>
           </TabPanel>
-          
+
           <TabPanel value={value} index={1}>
             <div className="shadow-md p-3 w-auto rounded-md ">
               <div className="flex flex-col lg:flex-row ">
@@ -258,11 +253,6 @@ function AppointmentCustomer() {
                   <div className="flex mx-3 my-3 justify-start lg:justify-end">
                     <button className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                       <DateRangeIcon /> Date Range
-                    </button>
-                  </div>
-                  <div className="flex mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <AccessTimeIcon /> Time Range
                     </button>
                   </div>
                 </div>
@@ -378,11 +368,6 @@ function AppointmentCustomer() {
                       <AccessTimeIcon /> Time Range
                     </button>
                   </div>
-                  <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <DateRangeIcon /> Date Range
-                    </button>
-                  </div>
                 </div>
               </div>
               <div className="overflow-auto justify-center w-full h-screen">
@@ -485,11 +470,6 @@ function AppointmentCustomer() {
                   <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
                     <button className="py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                       <AccessTimeIcon /> Time Range
-                    </button>
-                  </div>
-                  <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <DateRangeIcon /> Date Range
                     </button>
                   </div>
                 </div>
