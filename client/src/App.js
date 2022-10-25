@@ -35,6 +35,7 @@ import ServiceProviderCharges from "./pages/afterLogin/serviceProvider/ServicePr
 import ServiceProviderChat from "./pages/afterLogin/serviceProvider/ServiceProviderChat";
 import ServiceProviderPortfolio from "./pages/afterLogin/serviceProvider/ServiceProviderPortfolio";
 import ServiceProviderProfile from "./pages/afterLogin/serviceProvider/ServiceProviderProfile";
+import ServiceProviderDasboard from "./pages/afterLogin/serviceProvider/ServiceProviderDashboard";
 
 import ChoosePackage from "./components/payment/ChoosePackage";
 
@@ -320,6 +321,17 @@ function App() {
         <Route
           exact
           path="/serviceportfolio"
+          element={
+            isAuthenticated && userrole === "sp" ? (
+              <ServiceProviderPortfolio userid={id} />
+            ) : (
+              <Home />
+            )
+          }
+        />
+        <Route
+          exact
+          path="/servicedashboard"
           element={
             isAuthenticated && userrole === "sp" ? (
               <ServiceProviderPortfolio userid={id} />

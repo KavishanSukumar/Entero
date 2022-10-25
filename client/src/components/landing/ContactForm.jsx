@@ -104,6 +104,7 @@ function ContactForm() {
         </div>
 
         <div className="basis-8/12">
+        <ToastContainer autoClose={2000} />
           <div className="bg-white bg-opacity-90 rounded-xl shadow-lg p-8 :w-80">
             <form className="flex flex-col space-y-4 " onSubmit={onSubmitForm}>
               <div>

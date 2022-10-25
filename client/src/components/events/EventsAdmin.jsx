@@ -71,6 +71,10 @@ function EventsAdmin() {
     fetchBookings();
   }, []);
 
+  const closePopup=()=>{
+    setPopup(false)
+  }
+
   const handlePopup = async (booking) => {
     let y = booking_URL + "/bookingdetail/" + booking.booking_id;
     const res = await axios.get(y);
@@ -119,7 +123,7 @@ function EventsAdmin() {
           <div className="w-full inline-flex justify-end items-end">
             <AiOutlineClose
               className="w-6 h-6 cursor-pointer"
-              onClick={handlePopup(1)}
+              onClick={closePopup}
             />
           </div>
           <div className="w-full mb-4">

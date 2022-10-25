@@ -6,6 +6,7 @@ import ChatIcon from "@mui/icons-material/Chat";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import { NavLink } from "react-router-dom";
+import { MdSpaceDashboard, MdContactPhone } from "react-icons/md";
 
 // import EventIcon from '@mui/icons-material/Event';
 
@@ -64,6 +65,26 @@ function ServiceProviderSidebar() {
               }
             >
               Portfolio
+            </span>
+          </div>
+          <div className="relative inline-flex items-center mb-4">
+            <NavLink
+              to="/servicedashboard"
+              className="cursor-pointer"
+              onMouseEnter={() => handleLabel(2)}
+              onMouseLeave={() => handleLabel(2)}
+            >
+              <MdSpaceDashboard className="!w-12 !h-12 text-fuchsia-800 bg-fuchsia-100 hover:scale-110 rounded-full p-3" />
+            </NavLink>
+
+            <span
+              className={
+                bookingLabel
+                  ? "absolute ml-[55px] w-28 text-center rounded-md bg-black text-white"
+                  : "hidden"
+              }
+            >
+              Dashboard
             </span>
           </div>
 

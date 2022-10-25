@@ -3,7 +3,17 @@ import pool from "../db.js";
 
 const router = express.Router();
 
+router.get('/',async (req,res)=>{
+    try{
+        
+        const getBooking= await pool.query("select * from subscriptionincome ;")
 
+        res.json(getBooking.rows);
+    }
+    catch(err){
+        console.log(err.message);
+    }
+})
 
 router.post('/',async (req,res)=>{
     try{
