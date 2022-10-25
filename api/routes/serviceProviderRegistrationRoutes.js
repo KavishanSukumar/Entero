@@ -143,7 +143,7 @@ router.put("/:userid/:token", async (req, res) => {
   const updatePassword=await pool.query("UPDATE users SET password=$1 WHERE userid=$2",[bcryptPassword,userid])
   const updateStatus=await pool.query("UPDATE service_provider SET status='a' WHERE userid=$1",[userid])
 
-  const portfolio=await pool.query("INSERT INTO portfolio (description, userid) VALUES ('Type your description here',$5) RETURNING userid")
+  const portfolio=await pool.query("INSERT INTO portfolio (description, userid) VALUES ('Type your description here',$1) RETURNING userid",[userid])
   
 
     res.status(200).send({message:"Password set"});
