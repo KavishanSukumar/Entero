@@ -1,6 +1,7 @@
 import { date } from "azure-storage";
 import express from "express";
 import pool from "../db.js";
+import mailSender from "../utils/mail-helpers.js";
 
 const router = express.Router();
 
@@ -16,10 +17,10 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    console.log("hello")
+    
     const {id}=req.params;
-    const getBooking = await pool.query("SELECT * from booking where userid_c=$1",[id]);
-    console.log(getBooking.rows)
+    const getBooking = await pool.query("SELECT * from booking where userid_c=$1 ",[id]);
+    
     res.json(getBooking.rows);
   } catch (err) {
     console.log(err.message);
@@ -30,7 +31,7 @@ router.post("/", async (req, res) => {
   try {
     const {date,time,location,eventName,userid_c,userid_s,package_id,price} = req.body;
     const x = new Date();
-    const madeDate = x.getFullYear() + "-" + x.getMonth() + "-" + x.getDate();
+    const madeDate = x.getFullYear() + "-" + (x.getMonth()+1) + "-" + x.getDate();
     const madeTime = x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
 
 
@@ -49,6 +50,18 @@ router.post("/", async (req, res) => {
         price,
       ]
     );
+
+    const sp_id=makeBooking.rows[0].userid_s;
+
+    const getServiceProvider=await pool.query("SELECT email FROM users WHERE userid=$1",[sp_id])
+
+    const subject="Booking processing";
+    
+    
+    
+    const html="<p>We will let you know when your booking is accepted.</p>"
+
+    const mail=await mailSender(getServiceProvider.rows[0].email,subject,html)
 
     res.json(makeBooking.rows[0]);
   } catch (err) {
