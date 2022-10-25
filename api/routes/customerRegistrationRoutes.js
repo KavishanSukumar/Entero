@@ -27,6 +27,7 @@ router.post("/", validInfo, async (req, res) => {
     const saltRound = 10;
     const salt = await bcrypt.genSalt(saltRound);
     const bcryptPassword = await bcrypt.hash(password, salt);
+    const x = new Date();
     const joinDate =
       x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate();
     const newUser = await pool.query(

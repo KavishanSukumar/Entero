@@ -56,6 +56,7 @@ router.put('/password/:id',async (req,res)=>{
         console.log(currentPassword,newPassword)
         const getpassword=await pool.query("SELECT password FROM users WHERE userid=$1",[id])
         const validPassword = await bcrypt.compare(currentPassword, getpassword.rows[0].password);
+        console.log(validPassword)
         if(validPassword){
             const saltRound = 10;
     const salt = await bcrypt.genSalt(saltRound);
