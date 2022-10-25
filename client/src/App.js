@@ -334,7 +334,7 @@ function App() {
           path="/servicedashboard"
           element={
             isAuthenticated && userrole === "sp" ? (
-              <ServiceProviderPortfolio userid={id} />
+              <ServiceProviderDasboard userid={id} />
             ) : (
               <Home />
             )

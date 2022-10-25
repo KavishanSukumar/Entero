@@ -29,7 +29,8 @@ import chatRoute from "./routes/chatRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
 import serviceProviderRegistrationRoutes from "./routes/serviceProviderRegistrationRoutes.js";
 import reviewRouter from "./routes/reviewRoutes.js";
-
+import adminCustomerRouter from "./routes/adminCustomerRoutes.js";
+import adminServiceRouter  from "./routes/adminServiceRoutes.js"
 
 import getAllCusRouter from "./routes/getAllCusRoutes.js"
 import getAllSpRouter from "./routes/getAllSpRoutes.js"
