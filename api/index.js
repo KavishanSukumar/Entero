@@ -21,6 +21,8 @@ import adminCustomerRouter from "./routes/adminCustomerRoutes.js";
 import adminServiceRouter from "./routes/adminServiceRoutes.js"
 import getAllCusRouter from "./routes/getAllCusRoutes.js"
 import getAllSpRouter from "./routes/getAllSpRoutes.js"
+import reportBookingsRouter from "./routes/reportBookingRouter.js"
+import subIncomeRouter from "./routes/subscriptionRoutes.js"
 
 dotenv.config();
 
@@ -58,6 +60,8 @@ app.use("/api/serviceprovider/portfolioimages", portfolioImages);
 app.use("/api/admincustomer", adminCustomerRouter);
 app.use("/api/allcus", getAllCusRouter);
 app.use("/api/allsp", getAllSpRouter);
+app.use("/api/reportbooking", reportBookingsRouter);
+app.use("/api/subscriptionincome", subIncomeRouter);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}.`);

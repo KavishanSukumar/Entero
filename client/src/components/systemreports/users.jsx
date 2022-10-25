@@ -306,7 +306,8 @@ export default function Users() {
     if (cussearchvalue == "") {
       console.log(cus);
       return cus;
-    } else if (regex.test(cus.name) || regex.test(cus.userid)) {
+    
+    } else if (regex.test(cus.name) || regex.test(cus.userid) ||regex.test("Active")) {
       console.log(cus);
       
       return cus;
@@ -694,6 +695,12 @@ export default function Users() {
                           >
                             Joined date
                           </th>
+                          <th
+                            scope="col"
+                            className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                          >
+                            Status
+                          </th>
 
 
 
@@ -714,7 +721,8 @@ export default function Users() {
 
                               <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.userid}</td>
                               <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.name}</td>
-                              <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">2020/01/01</td>
+                              <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.date}</td>
+                              <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.status=="a" ? "Active":  "Inactive"}</td>
 
 
 

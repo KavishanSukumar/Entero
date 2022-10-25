@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { useState } from 'react';
+
+import React, { useState, useEffect } from "react";
 import Chart from "react-apexcharts";
 import { Link } from 'react-router-dom';
 import { stringify } from 'postcss';
@@ -19,8 +19,8 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-
-
+import axios from "axios";
+const booking_URL = "http://localhost:4000/api/reportbooking";
 
 
 
@@ -29,10 +29,25 @@ export default function Booking() {
 
     const options = { labels: ["Service Providers", "Customers"], colors: ['#EF4444', '#0284C7'] };
     const series = [100, 400];
+//get all bookings
+const [eventdata, setbookings] = useState([])
 
-    // pie chart
-    const options1 = { labels: ["Catering", "Hall", "Decoration", "Photography"] };
-    const series1 = [100, 70, 20, 10];
+
+async function fetchbookings() {
+  try {
+    const res = await axios.get(booking_URL);
+    setbookings(res.data);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+
+useEffect(() => {
+  fetchbookings();
+}, []);
+
+    
 
 
     const [value, setValue] = React.useState(0);
@@ -47,12 +62,9 @@ export default function Booking() {
         setValue1(newValue);
     };
 
-    const [data, setdata] = useState(MockData);
-    const [eventdata, setdata2] = useState(event_data);
-    const [cusdata, setdata3] = useState(cus);
-    const [serdata, setdata4] = useState(ser);
-    const [showpopup, setshowpopup] = useState(false);
-    const handleOnClose = () => setshowpopup(false);
+   
+    // const [eventdata, setdata2] = useState(event_data);
+   
     const [popup, setPopup] = useState(false);
 
 
@@ -77,10 +89,132 @@ export default function Booking() {
         setShowMore2(!showMore2)
     }
 
+    //filter by year and month ---> bookings
+    const [year, setyear] = useState("year");
+    const [month, setmonth] = useState("month");
 
+    function filteryear(event) {
+        console.log('====== this is the year ===========');
+        console.log(event.target.value, "|", month);
+
+        if (event.target.value == "year" && month != "month") {
+            window.alert('Plese select an year without selecting "Year"')
+            event.target.value = year;
+        }
+        setyear(event.target.value);
+        console.log('this is year --->', year);
+
+
+    }
+    function filtermonth(event) {
+        console.log('====== this is the month ===========');
+        //console.log(event.target.value);
+        console.log('year -->', year);
+        if (year == "year" && event.target.value != "month") {
+            window.alert('Plese select an year without selecting "Year"')
+            event.target.value = "month"
+        }
+        setmonth(event.target.value);
+       // console.log('this is month --->', month);
+
+
+    }
+//booking filttering according to  year and month
+let filterbookings = eventdata.filter((bk) => {
+
+    if (year == "year" && month == "month") {
+      return bk;
+    } else if (year == "year" && month != "month") {
+
+    } else if (year != "year" && month != "month") {
+      console.log('filter data in each row ', year, '|', bk.madedate.split("-")[0], "|", bk.madedate.split("-")[1]);
+      if (bk.madedate.split("-")[0] == year && bk.madedate.split("-")[1] == month) {
+        return bk;
+      }
+    } else {
+      console.log('filter data in each row ', year, '|', bk.madedate.split("-")[0]);
+      if (bk.madedate.split("-")[0] == year) {
+        return bk;
+
+      }
+    }
+  })
+let bday = 0;
+let wedd = 0;
+let recep = 0;
+let eng = 0;
+let other = 0;
+filterbookings.map((event)=>{
+    if (event.type=="wedding"){
+        wedd = wedd + 1;
+    }else if(event.type=="birthday"){
+        bday = bday + 1;
+    }else if(event.type=="reception"){
+        recep = recep +1;
+    }else if(event.type=="engagement"){
+        eng=eng+1;
+    }else if(event.type=="other"){
+        other = other + 1;
+        
+    }
+})
+
+// pie chart
+const options1 = { labels: ["Birthday", "Wedding", "Reception", "Engagement", "Other"] };
+const series1 = [bday, wedd, recep, eng, other];
+
+
+
+    //eventdata searchval
+//filter by search (booking)
+const [searchvalue, setsearchvalue] = useState("")
+console.log('this is booking search value 1 ----->', searchvalue);
+function searchval(event) {
+  setsearchvalue(event.target.value);
+  console.log('this is booking search value 2 ----->', searchvalue);
+}
+let bookingdata = filterbookings.filter((bk) => {
+    var regex = new RegExp(searchvalue);
+   
+
+    if (searchvalue == "") {
+      return bk;
+    } else if (regex.test(bk.booking_id) || regex.test(bk.type) || regex.test(bk.madetime)  || regex.test(bk.sname)  || regex.test(bk.cname) ) {
+      return bk;
+    }
+
+
+  })
+
+//set topic
+
+function settopic(y, m) {
+
+    if (y != "year" && m == "month") {
+      return (
+        <p className=' lg:text-[25px] md:text-[25px] sm:text-[25px] text-[15px]'>Bookings in {y}  : {filterbookings.length} </p>
+
+      )
+    } else if (y != "year" && m != "month") {
+
+
+      const map = new Map([["01", "January"], ["02", "February"], ["03", "March"], ["04", "April"], ["05", "May"], ["06", "June"],
+      ["07", "July"], ["08", "August"], ["09", "September"], ["10", "October"], ["11", "November"], ["12", "December"]]);
+      return (
+        <p className='lg:text-[25px] md:text-[25px] sm:text-[25px] text-[15px] '>Bookings in {y} - {map.get(m)} : {filterbookings.length}  </p>
+
+      )
+    } else {
+      return (
+        <p className=' lg:text-[25px] md:text-[25px] sm:text-[25px] text-[15px] '>Total Bookings : {filterbookings.length}  (2022 - up to now)</p>
+      )
+
+    }
+
+  }
     return (
         <>
-            <div
+            {/* <div
                 className={
                     popup
                         ? "fixed backdrop-blur-[1px] bg-black/60 top-0 w-full h-full z-50  p-4 left-0"
@@ -151,7 +285,7 @@ export default function Booking() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             <div className=" flex flex-col gap-16   w-full">
 
@@ -163,8 +297,9 @@ export default function Booking() {
                         </div>
                         <div className="relative w-40 order-2 ">
                             <select id="years" className="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
-                                                dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2">
-                                <option selected>Year</option>
+                                                dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2"
+                                onChange={filteryear}>
+                                <option selected value="year">Year</option>
                                 <option value="2022">2022</option>
                                 <option value="2021">2021</option>
                                 <option value="2020">2020</option>
@@ -177,20 +312,22 @@ export default function Booking() {
                         <div className="flex  order-3">
                             <div className="relative w-36">
                                 <select id="months" className="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
-                                                            dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2">
-                                    <option selected> Month</option>
-                                    <option value="1">January</option>
-                                    <option value="2">February</option>
-                                    <option value="3">March</option>
-                                    <option value="4">April</option>
-                                    <option value="5">May</option>
-                                    <option value="6">June</option>
-                                    <option value="7">July</option>
-                                    <option value="8">August</option>
-                                    <option value="9">September</option>
-                                    <option value="10">October</option>
-                                    <option value="11">November</option>
-                                    <option value="12">December</option>
+                                                            dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2"
+                                    onChange={filtermonth}>
+                                    <option value="month" selected> Month</option>
+                                    <option value="01">January     </option>
+                                    <option value="02">February      </option>
+                                    <option value="03">March        </option>
+                                    <option value="04">April       </option>
+                                    <option value="05">May           </option>
+                                    <option value="06">June        </option>
+                                    <option value="07">July        </option>
+                                    <option value="08">August       </option>
+                                    <option value="09">September      </option>
+                                    <option value="10">October      </option>
+                                    <option value="11">November     </option>
+                                    <option value="12">December     </option>
+
 
                                 </select>
                             </div>
@@ -201,7 +338,7 @@ export default function Booking() {
                     <div className='flex order-2 justify-center'>
 
                         <div className="flex flex-row gap-2 bg-gray-300 rounded-lg  shadow-lg  shadow-black w-full   py-5 px-6 mb-4 text-2xl text-black  font-bold  justify-center" >
-                            <p className=' lg:text-[25px] md:text-[25px] sm:text-[25px] text-[15px]'>Total Bookings : 200 (2022 - up to now)</p>
+                        {settopic(year,month)}
                         </div>
 
                     </div>
@@ -211,7 +348,7 @@ export default function Booking() {
 
                     </div>
 
-                    <div className="flex mt-2 space-x-2 justify-center order-4">
+                    <div className="flex mt-2 lg:ml-6 space-x-2 justify-center order-4">
                         <button
                             onClick={handlelessmore1}
                             type="button"
@@ -222,74 +359,38 @@ export default function Booking() {
 
                     <div className={
                         showMore1
-                            ? 'flex order-5 flex-row w-auto mt-5'
+                            ? 'flex order-5 flex-col w-auto mt-5 justify-center'
                             : 'hidden'}>
-                        <div className="flex p-1 md:px-4 py-2 ">
-                            <div className="relative w-36">
-                                <select id="years" className="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
-                                                dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2">
-                                    <option selected>Year</option>
-                                    <option value="2022">2022</option>
-                                    <option value="2021">2021</option>
-                                    <option value="2020">2020</option>
-                                    <option value="2019">2019</option>
-                                    <option value="2018">2018</option>
-                                    <option value="2017">2017</option>
-
-                                </select>
+                      
+                        <div className='flex justify-center flex-col mt-4'>
+                            <div className='mt-2  flex w-full justify-center'>
+                                <p className='font-bold  text-lg '>Total bookings according to search : {bookingdata.length}</p>
                             </div>
-                        </div>
+                            <div className="flex p-1 md:px-4 py-2 justify-center">
+                                <div className="relative w-full">
 
-                        <div className="flex p-1 md:px-4 py-2 ">
-                            <div className="relative w-36">
-                                <select id="months" className="bg-gray-50 borde  text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5
-                                                            dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500 border-2">
-                                    <option selected> Month</option>
-                                    <option value="1">January</option>
-                                    <option value="2">February</option>
-                                    <option value="3">March</option>
-                                    <option value="4">April</option>
-                                    <option value="5">May</option>
-                                    <option value="6">June</option>
-                                    <option value="7">July</option>
-                                    <option value="8">August</option>
-                                    <option value="9">September</option>
-                                    <option value="10">October</option>
-                                    <option value="11">November</option>
-                                    <option value="12">December</option>
-
-                                </select>
-                            </div>
-                        </div>
-
-                        <div className="flex p-1 md:px-4 py-2 ">
-                            <div className="relative w-[500px]">
-
-                                <label className="relative block">
-                                    <span className="sr-only">Search</span>
-                                    <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                                        <SearchIcon
-                                            className="!h-5 !w-5 fill-slate-300"
-                                            viewBox="0 0 20 20"
+                                    <label className="relative block">
+                                        <span className="sr-only">Search</span>
+                                        <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                                            <SearchIcon
+                                                className="!h-5 !w-5 fill-slate-300"
+                                                viewBox="0 0 20 20"
+                                            />
+                                        </span>
+                                        <input
+                                            className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                                            placeholder="Search "
+                                            type="text"
+                                            name="search"
+                                            onChange={searchval}
                                         />
-                                    </span>
-                                    <input
-                                        className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                                        placeholder="Search "
-                                        type="text"
-                                        name="search"
-                                    />
-                                </label>
+                                    </label>
+                                </div>
                             </div>
                         </div>
 
 
-                        <div className={'mt-2  flex w-72 justify-end'}
 
-
-                        >
-                            <p className='font-bold  text-lg '>Total Bookings : 200</p>
-                        </div>
                     </div>
 
                     <div className={showMore1 ? 'flex order-6 mt-10' : 'hidden'}>
@@ -309,7 +410,7 @@ export default function Booking() {
                                             scope="col"
                                             className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                                         >
-                                            Catergory
+                                            Event
                                         </th>
 
                                         <th
@@ -317,6 +418,12 @@ export default function Booking() {
                                             className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                                         >
                                             Customer
+                                        </th>
+                                        <th
+                                            scope="col"
+                                            className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                                        >
+                                            Service Provider
                                         </th>
                                         <th
                                             scope="col"
@@ -337,25 +444,19 @@ export default function Booking() {
 
 
 
-                                    {eventdata.map((d) => {
+                                    {bookingdata.map((d) => {
 
                                         return (
 
-                                            <tr key={d.id} className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                                            <tr key={d.bookingid} className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
 
-                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.eventid}</td>
-                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.eventname}</td>
-                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.customer}</td>
-                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.startdate}</td>
+                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.booking_id}</td>
+                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.type}</td>
+                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.cname}</td>
+                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.sname}</td>
+                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{d.madedate.split("T")[0]}</td>
 
-                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                    <button onClick={handlePopup}
-                                                        className="m-1 py-2 px-4 w-auto bg-blue-500 text-white font-semibold rounded-lg shadow-md
-                                                                 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                                                    >
-                                                        More Details
-                                                    </button>
-                                                </td>
+
 
 
 

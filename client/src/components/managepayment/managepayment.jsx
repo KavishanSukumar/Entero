@@ -15,6 +15,11 @@ import ShieldIcon from '@mui/icons-material/Shield';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 const API_URL = "http://localhost:4000/api/admin/packages";
+const booking_URL = "http://localhost:4000/api/reportbooking";
+
+
+
+
 //main tab pannel (packages,service charges)
 function TabPanel1(props) {
   const { children, value, index, ...other } = props;
@@ -76,6 +81,44 @@ TabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
+function a11yProps2(index) {
+  return {
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
+}
+
+//tabs for booking fee :- customer and service provider
+
+
+function TabPanel2(props) {
+  const { children, value, index, ...other } = props;
+
+
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel2.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
@@ -87,12 +130,27 @@ function a11yProps(index) {
 
 
 
-
-
-
-
-
 function ManagePayments() {
+
+
+  //get all bookings
+  const [bookings, setbookings] = useState([])
+
+
+  async function fetchbookings() {
+    try {
+      const res = await axios.get(booking_URL);
+      setbookings(res.data);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+
+  useEffect(() => {
+    fetchbookings();
+  }, []);
+
 
 
   // for payment tabs
@@ -104,10 +162,16 @@ function ManagePayments() {
 
   //for main tab
   const [value1, setValue1] = React.useState(0);
-
   const handleChange1 = (event, newValue) => {
     setValue1(newValue);
   };
+  //for booking fee tab
+  const [value2, setValue2] = React.useState(0);
+  const handleChange2 = (event, newValue) => {
+    setValue2(newValue);
+  };
+
+
 
   // to update packages
   const [name, setName] = useState("");
@@ -135,9 +199,9 @@ function ManagePayments() {
       return (
         <SellIcon className="text-green-500 !h-10 !w-10" />
       )
-    } else if (id == 2) {
+    } else if (id == 6) {
       return (
-        <WorkspacePremiumIcon className="text-red-500 !h-10 !w-10" />
+        <WorkspacePremiumIcon className="text-yellow-500 !h-10 !w-10" />
       )
 
     } else if (id == 3) {
@@ -149,7 +213,7 @@ function ManagePayments() {
         <Brightness7Icon className="text-yellow-500 !h-10 !w-10" />
       )
 
-    } else if (id == 5) {
+    } else if (id == 7) {
       return (
         <DiamondIcon className="text-blue-500 !h-10 !w-10" />
       )
@@ -203,14 +267,45 @@ function ManagePayments() {
   const [thepackageid, setthepackageid] = useState(0);
 
   function selectpack(id) {
+    let item = [];
+    for (var x = 0; x < adminpacks.length; x++) {
+      if (adminpacks[x].sub_packageid == id) {
+        item = adminpacks[x];
+      }
+    }
 
-    let item = adminpacks[id - 1];
+
     setName(item.name);
     setDes(item.des);
     setPrice(item.price);
 
 
   }
+  //filter by search (booking fee)
+  const [booksearchvalue, setbooksearchvalue] = useState("")
+  
+  function booksearchval(event) {
+    setbooksearchvalue(event.target.value);
+  
+  }
+
+  let filterbookings = bookings.filter((bk) => {
+    var regex = new RegExp(booksearchvalue);
+    var cat = "";
+
+ 
+    if (booksearchvalue == "") {
+      return bk;
+    } else if (regex.test(bk.booking_id) || regex.test(bk.cname) || regex.test(bk.date.split("T")) || regex.test(bk.sname) || regex.test(bk.cname)|| 
+    regex.test(bk.madedate.split("T")) || regex.test(bk.type) ||  regex.test(bk.amount)) {
+      return bk;
+    }
+
+
+  })
+  
+
+
 
   return (
     <div className="m-10  flex flex-col">
@@ -294,7 +389,7 @@ function ManagePayments() {
           >
             <Tab label="Packages" {...a11yProps(0)} />
             <Tab label="Service Charges" {...a11yProps(1)} />
-
+            <Tab label="Booking Fee" {...a11yProps(2)} />
 
           </Tabs>
         </Box>
@@ -362,7 +457,7 @@ function ManagePayments() {
                 >
                   <Tab label="Past Service Charges" {...a11yProps(0)} />
                   <Tab label="Pending Service Charges" {...a11yProps(1)} />
-                  <Tab label="Trails" {...a11yProps(2)} />
+                  {/* <Tab label="Trails" {...a11yProps(2)} /> */}
 
                 </Tabs>
               </Box>
@@ -722,7 +817,7 @@ function ManagePayments() {
                 </div>
 
               </TabPanel>
-              <TabPanel value={value} index={2}>
+              {/* <TabPanel value={value} index={2}>
                 <div className="flex p-1 md:px-4 py-2 ">
                   <div className="relative w-[500px]">
 
@@ -889,7 +984,7 @@ function ManagePayments() {
                   </table>
                 </div>
 
-              </TabPanel>
+              </TabPanel> */}
 
 
             </Box>
@@ -897,6 +992,304 @@ function ManagePayments() {
 
 
           </div>
+
+        </TabPanel1>
+        <TabPanel1 value={value1} index={2}>
+          <Box sx={{ width: "100%" }}>
+            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+              <Tabs
+                value={value2}
+                onChange={handleChange2}
+                aria-label="basic tabs example"
+              >
+                <Tab label="Customer" {...a11yProps(0)} />
+                {/* <Tab label="Service Provider" {...a11yProps(1)} /> */}
+
+
+              </Tabs>
+            </Box>
+
+            <TabPanel2 value={value2} index={0}>
+              <div className="flex p-1 md:px-4 py-2 ">
+                <div className="relative w-[500px]">
+
+                  <label className="relative block">
+                    <span className="sr-only">Search</span>
+                    <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                      <SearchIcon
+                        className="!h-5 !w-5 fill-slate-300"
+                        viewBox="0 0 20 20"
+                      />
+                    </span>
+                    <input
+                      className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                      placeholder="Search "
+                      type="text"
+                      name="search"
+                      onChange={booksearchval}
+                    />
+                  </label>
+                </div>
+              </div>
+              <div className="overflow-auto justify-center w-full h-auto mt-5">
+                {console.log(bookings)}
+                <table className="min-w-full z-0">
+                  <thead className="bg-white border-b sticky top-0">
+                    <tr>
+                      <th
+                        scope="col"
+                        className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      >
+                        Booking Id
+                      </th>
+
+
+                      <th
+                        scope="col"
+                        className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      >
+                        Customer
+                      </th>
+                      <th
+                        scope="col"
+                        className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      >
+                        Service Provider
+                      </th>
+                      <th
+                        scope="col"
+                        className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      >
+                      Event 
+                      </th>
+
+                      <th
+                        scope="col"
+                        className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      >
+                       Booked Date
+                      </th>
+                      <th
+                        scope="col"
+                        className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      >
+                       Starting date
+                      </th>
+
+
+                      <th
+                        scope="col"
+                        className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      >
+                        Amount
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="">
+                    {filterbookings.map((d) => {
+
+                      return (
+
+                        <tr key={d.booking_id} className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">{d.booking_id}</td>
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">{d.cname}</td>
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">{d.sname}</td>
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">{d.type}</td>
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">{d.madedate.split("T")[0]}</td>
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">{d.date.split("T")[0]}</td>
+                     
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">LKR {d.amount}</td>
+
+
+
+
+                        </tr>
+
+                      )
+
+
+                    }
+                    )
+                    }
+
+                  </tbody>
+                </table>
+              </div>
+
+
+            </TabPanel2>
+            {/* <TabPanel2 value={value2} index={1}>
+            <div className="flex p-1 md:px-4 py-2 ">
+                  <div className="relative w-[500px]">
+
+                    <label className="relative block">
+                      <span className="sr-only">Search</span>
+                      <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                        <SearchIcon
+                          className="!h-5 !w-5 fill-slate-300"
+                          viewBox="0 0 20 20"
+                        />
+                      </span>
+                      <input
+                        className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                        placeholder="Search "
+                        type="text"
+                        name="search"
+                      />
+                    </label>
+                  </div>
+                </div>
+                <div className="overflow-auto justify-center w-full h-auto mt-5">
+                  <table className="min-w-full z-0">
+                    <thead className="bg-white border-b sticky top-0">
+                      <tr>
+                        <th
+                          scope="col"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          User Id
+                        </th>
+
+
+                        <th
+                          scope="col"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Name
+                        </th>
+                        <th
+                          scope="col"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Period
+                        </th>
+                       
+
+                        <th
+                          scope="col"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Total Amount to paid 
+                        </th>
+
+
+                        <th
+                          scope="col"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                        Paid Amount
+                        </th>
+                        <th
+                          scope="col"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                        Balance
+                        </th>
+                        <th
+                          scope="col"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                       Due Date
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="">
+                      <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        SP001
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
+                          Kamal
+                        </td>
+                       
+                       
+
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          05/2022
+                        </td>
+
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          200
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          100
+                        </td>
+                        
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          100
+                        </td>
+                        <td className=" text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          05/05 /2022
+                        </td>
+                      </tr>
+                      <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        SP002
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
+                          Nimal
+                        </td>
+                       
+                      
+
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          06/2022
+                        </td>
+
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          300
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          100
+                        </td>
+                        
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          200
+                        </td>
+                        <td className=" text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          05/06/2022
+                        </td>
+                      </tr>
+                      <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          SP003
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
+                          Bimal
+                        </td>
+
+                      
+
+                        <td className=" text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          07/2022
+                        </td>
+
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          100
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          100
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          0
+                        </td>
+                        <td className=" text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
+                          05/07/2022
+                        </td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+            </TabPanel2> */}
+
+
+
+
+          </Box>
+
+
 
         </TabPanel1>
 
