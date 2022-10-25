@@ -81,7 +81,7 @@ function PortFolio(props) {
       <div className="flex flex-row m-3">
         <div className="flex justify-left mx-3  basis-1/12">
           <img
-            src={File_Url + User.image}
+            src={File_Url + User?.image}
             alt="logo"
             className="w-36 h-36 object-contain m-3 shadow-inner"
           />
