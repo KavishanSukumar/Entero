@@ -111,8 +111,18 @@ function CustomerRegister() {
           password,
         });
         
-
-        setEmailMessage(res.data.message)
+        if(res.data.status){
+          toast("Signup Successful Check your email !");
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 2000);
+        }else{
+          toast("Signup UnSuccessful !");
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 2000);
+        }
+        
         
       }
     } catch (err) {

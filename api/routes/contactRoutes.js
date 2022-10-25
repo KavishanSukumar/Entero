@@ -33,7 +33,7 @@ router.post('/',async (req,res)=>{
         const {name,email,message}=req.body;
         const newContact= await pool.query("INSERT INTO contact (name,email,message,received_date,received_time) VALUES ($1,$2,$3,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP) RETURNING *",[name,email,message])
 
-        res.json(newContact.rows[0]);
+        res.json({status:true});
     }
     catch(err){
         console.log(err.message);

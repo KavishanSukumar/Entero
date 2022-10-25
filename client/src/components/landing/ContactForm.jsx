@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import LoopIcon from "@mui/icons-material/Loop";
 
 const API_URL = "http://localhost:4000/api/contact";
 
@@ -11,6 +14,12 @@ function ContactForm() {
   const [message, setMessage] = useState("");
   const [messageError, setMessageError] = useState("");
 
+  const [buttonval, setButtonval] = React.useState(
+    <button className="inline-block self-end bg-cyan-500 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm hover:bg-cyan-400 ">
+      Send
+    </button>
+  );
+
   const onSubmitForm = async (e) => {
     e.preventDefault();
     const x = new Date();
@@ -18,7 +27,7 @@ function ContactForm() {
       x.getFullYear + "-" + x.getMonth + "-" + x.getDate;
     const { received_time } =
       x.getHours + ":" + x.getMinutes + ":" + x.getSeconds;
-    const validEmailCheck=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const validEmailCheck = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     let checkErrors = 0;
     try {
       if (!name.trim()) {
@@ -28,8 +37,7 @@ function ContactForm() {
       if (!email.trim()) {
         setEmailError("Email is required");
         checkErrors = 1;
-      }
-      else if(!validEmailCheck.test(email)){
+      } else if (!validEmailCheck.test(email)) {
         setEmailError("Email is invalid");
         checkErrors = 1;
       }
@@ -39,6 +47,16 @@ function ContactForm() {
       }
 
       if (checkErrors == 0) {
+        setButtonval(
+          <button
+            type="submit"
+            className="inline-block self-end bg-cyan-500 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm hover:bg-cyan-400"
+            disabled
+          >
+            <LoopIcon className="animate-spin" />
+            Processing ...
+          </button>
+        );
         const res = await axios.post(API_URL, {
           name,
           email,
@@ -46,11 +64,24 @@ function ContactForm() {
           received_date,
           received_time,
         });
-        setName("");
+        if (res.data.status) {
+          toast("Your message has been sent");
+          setName("");
         setEmail("");
         setMessage("");
-        console.log(res.data);
-        alert("Message sent");
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 2000);
+        } else {
+          toast("Your message is not sent");
+          setName("");
+        setEmail("");
+        setMessage("");
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 2000);
+        }
+        
       }
     } catch (error) {
       console.error(error.message);
@@ -96,8 +127,10 @@ function ContactForm() {
                   placeholder="Your email"
                   name="email"
                   value={email}
-                  onChange={(e) => {setEmail(e.target.value)
-                  setEmailError('')}}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setEmailError("");
+                  }}
                   className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black"
                 ></input>
                 <p className="text-red-500 text-sm">{emailError}</p>
@@ -108,16 +141,17 @@ function ContactForm() {
                   name="message"
                   placeholder="Your message"
                   value={message}
-                  onChange={(e) => {setMessage(e.target.value);setMessageError('')}}
+                  onChange={(e) => {
+                    setMessage(e.target.value);
+                    setMessageError("");
+                  }}
                   rows="5"
                   className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300  text-black"
                 ></textarea>
                 <p className="text-red-500 text-sm">{messageError}</p>
               </div>
 
-              <button className="inline-block self-end bg-cyan-500 text-white font-bold rounded-lg px-6 py-2 uppercase text-sm hover:bg-cyan-400 ">
-                Send
-              </button>
+              {buttonval}
             </form>
           </div>
         </div>

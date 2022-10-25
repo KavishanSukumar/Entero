@@ -56,7 +56,7 @@ router.post("/", validInfo, async (req, res) => {
 
     const mail=await mailSender(email,subject,html)
 
-    res.status(200).send({message:"A mail has been sent to your email.Please verify it"});
+    res.json({status: true });
 
     // const token = jwtTokens(newUser.rows[0].userid);
 

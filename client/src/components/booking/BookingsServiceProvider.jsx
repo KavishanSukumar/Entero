@@ -13,6 +13,7 @@ import Modal from "@mui/material/Modal";
 import axios from "axios";
 
 const booking_URL = "http://localhost:4000/api/booking/";
+const USER_URL = "http://localhost:4000/api/auth/isverify";
 
 const viewstyle = {
   position: "absolute",
@@ -67,6 +68,9 @@ function BookingsServiceProvider() {
   const [serviceDetail,setServiceDetail]=useState();
   const [packageDetail,setPackageDetail]=useState();
   const [bookingDetail,setBookingDetail]=useState();
+  const [userid_s, setUserid_S] = useState();
+  const [userid_c, setUserid_C] = useState();
+  const [booking_id, setBooking_id] = useState();
   const [bookingsSp,setBookingsSp]=useState([])
   const [rawBookings, setRawBookings] = React.useState([]);
 
@@ -242,7 +246,7 @@ function BookingsServiceProvider() {
                 </tr>
               </thead>
               <tbody className="">
-                {bookings.map(
+                {bookingsSp.map(
                   (booking) =>
                     booking.status == "0" && (
                       <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -351,7 +355,7 @@ function BookingsServiceProvider() {
                 </tr>
               </thead>
               <tbody className="">
-                {bookings.map(
+                {bookingsSp.map(
                   (booking) =>
                     booking.status == "1" && (
                       <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -458,7 +462,7 @@ function BookingsServiceProvider() {
                 </tr>
               </thead>
               <tbody className="">
-                {bookings.map(
+                {bookingsSp.map(
                   (booking) =>
                     booking.status == "2" && (
                       <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -561,7 +565,7 @@ function BookingsServiceProvider() {
                 </tr>
               </thead>
               <tbody className="">
-                {bookings.map(
+                {bookingsSp.map(
                   (booking) =>
                     booking.status == "3" && (
                       <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -664,7 +668,7 @@ function BookingsServiceProvider() {
                 </tr>
               </thead>
               <tbody className="">
-                {bookings.map(
+                {bookingsSp.map(
                   (booking) =>
                     booking.status == "4" && (
                       <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
