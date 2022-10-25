@@ -9,6 +9,8 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { AiOutlineClose } from 'react-icons/ai';
+import { BsExclamationLg } from 'react-icons/bs';
+
 import axios from "axios";
 import AddIcon from '@mui/icons-material/Add';
 import Carousel from "./Carousel";
@@ -61,7 +63,7 @@ function AboutUs(props) {
   async function getportfolioinfo(uid) {
 
     try {
-      let y=API_URL+"/"+uid
+      let y = API_URL + "/" + uid
       const res = await axios.get(y)
       setportfolioinfo(res.data);
       console.log('job is done');
@@ -172,11 +174,11 @@ function AboutUs(props) {
     console.log('URL ->', x);
     const data = new FormData();
 
-    data.append("image",imagedata);
+    data.append("image", imagedata);
     console.log('data ->', data);
     console.log('imagedata type  ->', imagedata.type);
     try {
-      const res = await axios.post(x,data)
+      const res = await axios.post(x, data)
       console.log(res);
       window.alert('uploaded the  image Successfully');
       window.location = '/home';
@@ -239,6 +241,7 @@ function AboutUs(props) {
               className="w-6 h-6 cursor-pointer bg-white rounded-2xl text-black hover:text-red-500  hover:bg-white   mt-8 "
               onClick={handlePopup1}
             />
+
           </div>
           <form action="" encType="multipart/form-data" onSubmit={uploadimage} >
             <div className="flex flex-col mt-3">
@@ -251,7 +254,7 @@ function AboutUs(props) {
                 type="file"
                 accept="image/*"
                 name="image"
-                onChange={(e) => onInputChange(e.target.files[0])} />
+                onChange={(e) => onInputChange(e.target.files[0])} required />
               <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">Image files only</p>
               <div className="flex justify-center">
                 <button className="bg-cyan-500 h-10 w-24 text-white hover:bg-blue-700  py-2  text-lg px-3 rounded mr-1 cursor-pointer"> upload</button>
@@ -266,31 +269,50 @@ function AboutUs(props) {
       {/* ---- popup for gallery  -------- */}
       <div className="m-10  flex flex-col">
         <div className={popup ? "fixed overflow-y-auto flex flex-col  gap-2   backdrop-blur-[1px] bg-black/80 top-0 w-full h-full z-10  left-0 mb-5 " : "hidden"}>
-          <div className="w-full inline-flex justify-end items-end ">
-            <AiOutlineClose
-              className="w-6 h-6 cursor-pointer bg-white rounded-2xl text-black hover:text-red-500  hover:bg-white   mt-8 mr-10"
-              onClick={handlePopup}
-            />
-          </div>
+          {popup1 == false
+            ?
+            <div className="w-full inline-flex justify-end items-end ">
+              <AiOutlineClose
+                className="w-6 h-6 cursor-pointer bg-white rounded-2xl text-black hover:text-red-500  hover:bg-white   mt-8 mr-7"
+                onClick={handlePopup}
+              />
+            </div>
+            :
+            <div>
+
+            </div>
+          }
+
           <div class=" text-gray-500 ">
             <div class="container px-5 py-2 mx-auto  flex flex-col gap-3">
               <div className="flex justify-center">
                 <p className="font-bold text-lg lg:text-3xl md:text-2xl sm:text-xl cursor-default" >Image gallery</p>
               </div>
-              <div className="flex justify-end text-3xl " >
-                <div className="" title='add an image'>
-                  < AddIcon className="cursor-pointer hover:text-white text-lg" fontSize='large' onClick={handlePopup1} />
-                </div>
+              <div className="flex justify-between  text-3xl " >
+                <BsExclamationLg
+                  className="w-6 h-6   rounded-2xl bg-white p-1 hover:text-blue-500   mt-2 mr-10"
+                  title='You can upload 8 pictures only'>
+                  onClick={handlePopup}
+                </BsExclamationLg>
+                {portfolio_images.length <= 7
+                  ?
+                  <div className="" title='add an image'>
+                    < AddIcon className="cursor-pointer hover:text-white text-lg" fontSize='large' onClick={handlePopup1} />
+                  </div>
+                  : <div></div>
+
+                }
+
 
               </div>
               <div className="flex justify-center">
                 <div class="flex flex-wrap -m-1 md:-m-2  w-[90%] gap-y-3 justify-center ">
                   {portfolio_images.length === 0 ?
 
-                    <div>
+                    <div className="flex mt-6">
                       <img src={errorimage} alt="errorimage.png" className="block  p-1 bg-white object-center w-full   xl:h-[330px] lg:h-[250px] md:h-[200px] sm:h-[150px]  h-[100px]  rounded-lg" />
                     </div>
-                    
+
                     :
                     portfolio_images && portfolio_images.map((a) => (
                       <div class="flex flex-wrap w-1/2     p-2">
