@@ -17,7 +17,10 @@ import Carousel from "./Carousel";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { FileUploader } from "react-drag-drop-files";
 import ImageUploading from 'react-images-uploading';
-import errorimage from "./errorimage.png"
+import errorimage from "./errorimage.png";
+// import ImageUploader from 'react-images-upload';
+// import React.component from '../uploadimg/uploimg.jsx';
+
 const API_URL = "http://localhost:4000/api/serviceprovider/portfoliosp";
 const IMG_URL2 = "http://localhost:4000/api/serviceprovider/portfolioimages";
 
@@ -247,14 +250,37 @@ function AboutUs(props) {
             <div className="flex flex-col mt-3">
 
 
-              <input class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer
+              {/* <input class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer
              dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                aria-describedby="file_input_help"
+              //  aria-describedby="file_input_help"
                 id="image"
                 type="file"
                 accept="image/*"
                 name="image"
-                onChange={(e) => onInputChange(e.target.files[0])} required />
+                onChange={(e) => onInputChange(e.target.files[0])} /> */}
+              {/* <ImageUploader */}
+              <input
+                aria-describedby="file_input_help"
+                id="image"
+                
+                type="file"
+                    className="block w-full text-sm text-slate-500
+            file:mr-4 file:py-1 file:px-4
+            file:rounded-full file:border-0
+            file:text-sm file:font-semibold
+            file:bg-cyan-500 file:text-white
+            hover:file:bg-cyan-400"
+                accept="image/*"
+                name="image"
+
+                withIcon={true}
+                buttonText='Choose images'
+                // onChange={this.onDrop}
+                onChange={(e) => onInputChange(e.target.files[0])}
+                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                maxFileSize={5242880}
+            />
+
               <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">Image files only</p>
               <div className="flex justify-center">
                 <button className="bg-cyan-500 h-10 w-24 text-white hover:bg-blue-700  py-2  text-lg px-3 rounded mr-1 cursor-pointer"> upload</button>
@@ -449,6 +475,7 @@ function AboutUs(props) {
       </div>
     </div>
   );
-}
+      }
+
 
 export default AboutUs;

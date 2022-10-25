@@ -35,29 +35,21 @@ const AdminTermsCondition = () => {
         gap-1"
             >
               <div>
-                <PageHeader title="Edit Terms and Condition" />
+                <PageHeader title="Terms and Condition" />
               </div>
 
               <div className="ml-20 flex flex-wrap lg:flex-nowrap justify-center">
                 <div className="justify-center">
-                  {/* <Button
-                    color="white"
-                    bgColor="#03C9D7"
-                    text="Edit"
-                    borderRadius="10px"
-                    size="md"
-                    width="300px"
-                
-                  /> */}
-                   <input
-            type="file"
-            className="block w-full text-sm text-slate-500
+                  
+                  {/* <input
+                    type="file"
+                    className="block w-full text-sm text-slate-500
             file:mr-4 file:py-1 file:px-4
             file:rounded-full file:border-0
             file:text-sm file:font-semibold
             file:bg-cyan-500 file:text-white
             hover:file:bg-cyan-400"
-          />
+                  /> */}
                 </div>
               </div>
             </div>

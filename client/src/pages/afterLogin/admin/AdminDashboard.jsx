@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
-
+import MockData from './monthlypay.json'
 // import { Stacked, Button, SparkLine } from '../../../components';
 import Stacked from "../../../components/Charts/Stacked";
 import Button from "../../../components/button/Button";
@@ -13,39 +13,169 @@ import AdminHeader from "../../../components/header/AdminHeader";
 import AdminSidebar from "../../../components/sidebar/AdminSidebar";
 import Footer from "../../../components/footer/Footer";
 import Chart from "react-apexcharts";
-
+import axios from "axios";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-
+const booking_URL = "http://localhost:4000/api/reportbooking";
+const API_URL = "http://localhost:4000/api/allcus"
+const API_URL2 = "http://localhost:4000/api/allsp"
 const AdminDashboard = () => {
   //  const { currentColor } = useStateContext();
+  //get all bookings
+  const [bookings, setbookings] = useState([])
+  // all years
+  const yeeararray = ["2022",];
+  async function fetchbookings() {
+    try {
+      const res = await axios.get(booking_URL);
+      setbookings(res.data);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+  const [subscriptionincome, setsubscriptionincome] = useState(MockData);
 
-  const options1 = {
-    labels: ["Catering", "Hall", "Decoration", "Photography"],
-  };
-  const series1 = [17, 25, 10, 15];
+  useEffect(() => {
+    fetchbookings();
+  }, []);
+  //get all customers
+  const [customers, setCustomers] = useState([])
+  const [customerDetail, setCustomerDetail] = useState()
+
+  async function fetchCustomers() {
+    try {
+      const res = await axios.get(API_URL);
+      setCustomers(res.data);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+
+  useEffect(() => {
+    fetchCustomers();
+  }, []);
+
+
+
+  //get all service providers
+  const [service_providers, setservice_providers] = useState([])
+
+  async function fetchSetservice_providers() {
+    try {
+      const res = await axios.get(API_URL2);
+      setservice_providers(res.data);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+
+  useEffect(() => {
+    fetchSetservice_providers();
+  }, []);
+
+  //set standard and premium for all years;
+  function setAll(a, v) {
+    var i, n = a.length;
+    for (i = 0; i < n; ++i) {
+      a[i] = v;
+    }
+  }
+  console.log('allyear arry lenght = ', yeeararray.length);
+  let allyearssubincome = new Array(yeeararray.length);
+  let allyearbooking = new Array(yeeararray.length);
+  setAll(allyearssubincome, 0);
+  setAll(allyearbooking, 0)
+  console.log(allyearssubincome);
+  //console.log(allyearsstandard);
+
+  for (let x = 0; x < yeeararray.length; x++) {
+
+
+    subscriptionincome.map((sp) => {
+      if (sp.date.split("T")[0].split("-")[0] == yeeararray[x]) {
+        // console.log('year--> ',sp.date.split("T")[0],yeeararray[x]);
+        // console.log(' allyearsstandard[x] 1', allyearsstandard[x]);
+        allyearssubincome[x] = allyearssubincome[x] + parseInt(sp.Amount);
+
+      }
+    })
+
+    bookings.map((sp) => {
+      if (sp.madedate.split("T")[0].split("-")[0] == yeeararray[x]) {
+        // console.log('year--> ',sp.date.split("T")[0],yeeararray[x]);
+        // console.log(' allyearsstandard[x] 1', allyearsstandard[x]);
+        allyearbooking[x] = allyearbooking[x] + parseInt(sp.amount);
+
+      }
+    })
+
+
+
+
+
+
+
+
+  }
+  //total income
+  let totalincome = 0;
+
+  for (let x = 0; x < allyearssubincome.length; x++) {
+    totalincome = totalincome = allyearssubincome[x] + allyearbooking[x];
+  }
+
+
+  let total = 0
+  let bday = 0;
+  let wedd = 0;
+  let recep = 0;
+  let eng = 0;
+  let other = 0;
+  bookings.map((event) => {
+    if (event.type == "wedding") {
+      wedd = wedd + 1;
+    } else if (event.type == "birthday") {
+      bday = bday + 1;
+    } else if (event.type == "reception") {
+      recep = recep + 1;
+    } else if (event.type == "engagement") {
+      eng = eng + 1;
+    } else if (event.type == "other") {
+      other = other + 1;
+
+    }
+  })
+
+total = bday + wedd + recep + eng + other;
+
+
+
+
+
+  const options1 = { labels: ["Birthday", "Wedding", "Reception", "Engagement", "Other"] };
+  const series1 = [bday, wedd, recep, eng, other];
+
+  // const options1 = {
+  //   labels: ["Catering", "Hall", "Decoration", "Photography"],
+  // };
+  // const series1 = [17, 25, 10, 15];
 
   const optionsbar = {
     series: [
       {
         data: [111, 127, 143, 159, 99, 80, 100],
-        name: "Caterings",
+        name: "Subscriptions",
       },
       {
         data: [81, 87, 93, 59, 89, 99, 79],
-        name: "Halls",
+        name: "Booking Fee",
       },
-      {
-        data: [21, 17, 63, 69, 69, 15, 19],
-        name: "Decorations",
-      },
-      {
-        data: [38, 31, 44, 55, 21, 67, 15],
-        name: "Photography",
-      },
+
     ],
     chart: {
       type: "bar",
@@ -75,22 +205,16 @@ const AdminDashboard = () => {
   };
 
   const optionsbar2 = {
+
+
     series: [
       {
-        data: [111, 127, 143, 159, 99, 80, 100, 0, 0, 0, 0, 0],
-        name: "Caterings",
+        data: allyearssubincome,
+        name: "Subscriptions",
       },
       {
-        data: [81, 87, 93, 59, 89, 99, 79, 0, 0, 0, 0, 0],
-        name: "Halls",
-      },
-      {
-        data: [21, 17, 63, 69, 69, 15, 19, 0, 0, 0, 0, 0],
-        name: "Decorations",
-      },
-      {
-        data: [38, 31, 44, 55, 21, 67, 15, 0, 0, 0, 0, 0],
-        name: "Photography",
+        data: allyearbooking,
+        name: "Booking Fee",
       },
     ],
     chart: {
@@ -108,20 +232,7 @@ const AdminDashboard = () => {
     },
 
     xaxis: {
-      categories: [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-      ],
+      categories: yeeararray,
     },
   };
 
@@ -163,37 +274,86 @@ const AdminDashboard = () => {
                   className="flex m-3 flex-wrap justify-center
           gap-1 item-center"
                 >
-                  {earningData.map((item) => (
-                    <div
-                      key={item.title}
-                      className="bg-white
+
+                  <div
+
+                    className="bg-white
                 dark:text-gray-200
                 dark:bg-secondary-dark-bg md:w-56
                 p-4 pt-9 rounded-2xl"
-                    >
-                      <button
-                        type="button"
-                        style={{
-                          color: item.iconColor,
-                          backgroundColor: item.iconBg,
-                        }}
-                        className="text-2xl opacity-0.9
+                  >
+                    <button
+                      type="button"
+
+                      className="text-2xl opacity-0.9
                   rounded-full p-4
                   hover:drop-shadow-xl"
-                      >
-                        {item.icon}
-                      </button>
-                      <p className="mt-3">
-                        <span className="text-lg font-semibold text-black">
-                          {item.amount}
-                        </span>
-                        {/* <span className={`text-sm text-${item.pcColor} ml-2`}>
+                    >
+
+                    </button>
+                    <p className="mt-3">
+                      <span className="text-lg font-semibold text-black">
+                        {customers.length}
+                      </span>
+                      {/* <span className={`text-sm text-${item.pcColor} ml-2`}>
                       {item.percentage}
                     </span> */}
-                      </p>
-                      <p className="text-sm text-black mt-1">{item.title}</p>
-                    </div>
-                  ))}
+                    </p>
+                    <p className="text-sm text-black mt-1">Customers</p>
+                  </div>
+                  <div
+
+                    className="bg-white
+              dark:text-gray-200
+              dark:bg-secondary-dark-bg md:w-56
+              p-4 pt-9 rounded-2xl"
+                  >
+                    <button
+                      type="button"
+
+                      className="text-2xl opacity-0.9
+                rounded-full p-4
+                hover:drop-shadow-xl"
+                    >
+
+                    </button>
+                    <p className="mt-3">
+                      <span className="text-lg font-semibold text-black">
+                        {service_providers.length}
+                      </span>
+                      {/* <span className={`text-sm text-${item.pcColor} ml-2`}>
+                    {item.percentage}
+                  </span> */}
+                    </p>
+                    <p className="text-sm text-black mt-1">Service Providers</p>
+                  </div>
+                  <div
+
+                    className="bg-white
+              dark:text-gray-200
+              dark:bg-secondary-dark-bg md:w-56
+              p-4 pt-9 rounded-2xl"
+                  >
+                    <button
+                      type="button"
+
+                      className="text-2xl opacity-0.9
+                rounded-full p-4
+                hover:drop-shadow-xl"
+                    >
+
+                    </button>
+                    <p className="mt-3">
+                      <span className="text-lg font-semibold text-black">
+                        {bookings.length}
+                      </span>
+                      {/* <span className={`text-sm text-${item.pcColor} ml-2`}>
+                    {item.percentage}
+                  </span> */}
+                    </p>
+                    <p className="text-sm text-black mt-1">Bookings</p>
+                  </div>
+
                 </div>
               </div>
 
@@ -203,10 +363,19 @@ const AdminDashboard = () => {
           rounded-2xl md:w-780"
                 >
                   <div className="flex justify-between">
-                    <p className="font-semibold text-black text-xl">
+                    {/* <p className="font-semibold text-black text-xl">
                       Revenue Updates
-                    </p>
-                    <div className="flex item-center gap-4">
+                    </p> */}
+                    <div className="flex">
+                      <Button
+                        color="white"
+                        bgColor="#03C9D7"
+                        // bgColor={currentColor}
+                        text="Go to Report"
+                        borderRadius="10px"
+                      />
+                    </div>
+                    <div className="flex item-center gap-4 ">
                       {/* <p className="flex item-center gap-2 text-gray-600
                 hover:drop-shadow-xl">
                   <span><GoPrimitiveDot /></span>
@@ -216,27 +385,27 @@ const AdminDashboard = () => {
                         className="flex item-center gap-2 text-green-400
                 hover:drop-shadow-xl"
                       >
-                        <span>2022</span>
+                        <span>2022 - upto now</span>
                       </p>
                     </div>
                   </div>
 
                   <div
-                    className="mt-10 flex gap-10
+                    className="mt-1 flex gap-10
               flex-wrap justify-center"
                   >
-                    <div className="border-r-1 border-color m-4 pr-10">
+                    <div className="border-r-1 border-color m-4 mt-7 pr-10">
                       <div>
                         <p>
                           <span className="text-3xl font-semibold">
-                            LKR 1500
+                            LKR {totalincome}
                           </span>
                           {/* <span className="p-1.5 hover:drop-shadow-xl cursor-pointer
                       rounded-full text-white bg-green-400 ml-3 text-xs">
                         23%
                       </span> */}
                         </p>
-                        <p className="text-gray-500 mt-1">Income</p>
+                        <p className="text-gray-500 mt-1">Total Income</p>
                       </div>
 
                       <div className="mt-8">
@@ -264,15 +433,7 @@ const AdminDashboard = () => {
                       />
                     </div> */}
 
-                      <div className="mt-10">
-                        <Button
-                          color="white"
-                          bgColor="#03C9D7"
-                          // bgColor={currentColor}
-                          text="Go to Report"
-                          borderRadius="10px"
-                        />
-                      </div>
+
                     </div>
                     {/* <div>
                       <Stacked width="360px" height="360px" />
@@ -295,16 +456,29 @@ const AdminDashboard = () => {
                       />
                     </div>
                   </div>
-                  <div className="flex justify-center mt-12">
-                    <div>
-                    <p className="font-semibold text-black text-xl">
-                      Service Providers
-                    </p>
+                  <div className="border-r-1 border-color m-4 pr-10 mt-24">
+                    <div className="flex flex-col">
+                      <p className="flex justify-start ml-9">
+                        <span className="text-3xl font-semibold">
+                          {total}
+                          {console.log('bday + wedd + recep + eng + other',total)}
+                        </span>
+                        {/* <span className="p-1.5 hover:drop-shadow-xl cursor-pointer
+                      rounded-full text-white bg-green-400 ml-3 text-xs">
+                        23%
+                      </span> */}
+                      </p>
+                      <p className="text-gray-500 ">Total Bookings</p>
                     </div>
-                   
 
-                    
-                    <div className="flex justify-center">
+
+                  </div>
+                  <div className="flex justify-center mt-[-100px]">
+
+
+
+
+                    <div className="flex justify-center ml-11">
                       <Chart
                         options={options1}
                         series={series1}
