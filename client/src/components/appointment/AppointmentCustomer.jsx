@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+
+import * as React from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -9,12 +10,15 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import axios from "axios";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 const API_URL = "http://localhost:4000/api/customer/appointment";
 function TabPanel(props) {
-  const id = props.data;
+  
 
   const { children, value, index, ...other } = props;
+  const id = props.data;
 
   return (
     <div
@@ -46,18 +50,25 @@ function a11yProps(index) {
   };
 }
 
-function AppointmentCustomer() {
-  // const [value, setValue] = React.useState(0);
-  const [value, setValue] = useState();
+function AppointmentCustomer(props) {
+  const [value, setValue] = React.useState(0);
+  //const [value, setValue] = useState(0);
   const [appointment, setAppointment] = React.useState([]);
   // const [id, setId] = React.useState(props.data);
-  const [id, setId] = useState();
+  const [rawappointment, setRawAppointment] = React.useState([]);
+  const [id, setId] = React.useState(props.data);
+  const [calendar, setCalendar] = React.useState(false);
+  const [calenderDate, setCalenderDate] = React.useState();
+  const [appointmentDates, setAppointmentDates] = React.useState([]);
 
+  let b = API_URL + "/" +id;
   async function getAppointment() {
-    const res = await axios.post(API_URL, {
+    //  let b = API_URL + "/" +id;
+    const res = await axios.get(b, {
       id: id,
     });
     setAppointment(res.data);
+    setRawAppointment(res.data);
   }
 
   async function changestatus(appointment_id, status) {
@@ -80,10 +91,56 @@ function AppointmentCustomer() {
 
   React.useEffect(() => {
     getAppointment();
+    getAppointmentDates();
   }, []);
+
+
+  const getAppointmentDates = () => {
+    rawappointment.map((item) => {
+      let year = item.date.slice(6, 10);
+      let month = item.date.slice(3, 5);
+      let date = item.date.slice(0, 2);
+      let newDate = date + "-" + month + "-" + year;
+      setAppointmentDates((appointmentDates) => [...appointmentDates, newDate]);
+    });
+  };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const openCalender = () => {
+    setCalendar(!calendar);
+  };
+  const getCalenderDate = (e) => {
+    setAppointment([]);
+    var date = e.getDate();
+    var month = e.getMonth() + 1;
+    var year = e.getFullYear();
+    var fulldate = year + "-" + month + "-" + date;
+    rawappointment.map((item) => {
+      if (item.date.slice(6, 10) == year) {
+        if (item.date.slice(3, 5) == month) {
+          if (item.date.slice(0, 2) == date) {
+            setAppointment((appointment) => [...appointment, item]);
+          }
+        }
+      }
+    });
+  };
+  console.log(rawappointment);
+  console.log(appointment);
+  const getAppointmentByName = (e) => {
+    if (e.target.value == "") {
+      setAppointment(rawappointment);
+    } else {
+      setAppointment([]);
+      rawappointment.map((item) => {
+        if (item.name.toLowerCase().includes(e.target.value.toLowerCase())) {
+          setAppointment((appointment) => [...appointment, item]);
+        }
+      });
+    }
   };
 
   return (
@@ -124,33 +181,83 @@ function AppointmentCustomer() {
                       placeholder="Search by name..."
                       type="text"
                       name="search"
+                      onChange={(e) => {
+                        getAppointmentByName(e);
+                      }}
                     />
                   </label>
                 </div>
 
-                <div className="basis-6/12 flex flex-row justify-end">
+                <div className="relarive basis-6/12 flex flex-row justify-end">
                   <div className="flex  mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <DateRangeIcon /> Date Range
+                    <button 
+                    onClick={openCalender}
+                    className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                      <DateRangeIcon /> Date
                     </button>
                   </div>
-                  <div className="flex  mx-3 my-3 justify-start lg:justify-end">
+                  {/* <div className="flex  mx-3 my-3 justify-start lg:justify-end">
                     <button className="py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                       <AccessTimeIcon /> Time Range
                     </button>
-                  </div>
+                  </div> */}
+                  {/* {calendar && (
+                    <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
+                      <Calendar
+                        onChange={(e) => getDate(e)}
+                        value={calenderDate}
+                      />
+                    </div>
+                  )} */}
+                    {calendar && (
+                    <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
+                      <Calendar
+                        onChange={(e) => getCalenderDate(e)}
+                        tileClassName={({ date, view }) => {
+                          // var day = date.getDate().toString();
+                          // var month = (
+                          //   new Date(date).getMonth() + 1.0
+                          // ).toString();
+                          // var year = new Date(date).getFullYear().toString();
+                          // if (date.getMonth() < 10) {
+                          //   var month = "0" + month;
+                          // }
+                          // if (date.getDate() < 10) {
+                          //   var date = "0" + date;
+                          // }
+                          // const realDate = day + "-" + month + "-" + year;
+                          // appointmentDates.map((item) => {
+                          //   if (item.slice(6, 10) === year) {
+                          //     if (item.slice(3, 5) === month) {
+                          //       if (item.slice(0, 2) === day) {
+                          //       }
+                          //     }
+                          //   }
+                          // });
+                          // return "bg-green-500 weight-700";
+                          // if (
+                          //   appointmentDates.find(
+                          //     (x) => x === moment(date).format("DD-MM-YYYY")
+                          //   )
+                          // ) {
+                          //   return "bg-green-500 weight-700";
+                          // }
+                        }}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="overflow-auto justify-center w-full h-screen">
                 <table class="min-w-full z-0">
                   <thead class="bg-white border-b sticky top-0">
                     <tr>
-                      <th
+                      {/* <th
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
                         Appointment id
-                      </th>
+                      </th> */}
                       <th
                         scope="col"
                         class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
@@ -187,7 +294,7 @@ function AppointmentCustomer() {
                   <tbody className="">
                     {appointment.map(
                       (item) =>
-                        item.status === 0 || (
+                        item.status === 0 && (
                           <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                             {/* <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         A001
@@ -209,7 +316,7 @@ function AppointmentCustomer() {
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                               <button
                                 onClick={() =>
-                                  changestatus(item.appointment_id, 1)
+                                  changestatus(item.appointment_id, 2)
                                 }
                                 className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                               >
@@ -232,7 +339,7 @@ function AppointmentCustomer() {
               </div>
             </div>
           </TabPanel>
-          
+
           <TabPanel value={value} index={1}>
             <div className="shadow-md p-3 w-auto rounded-md ">
               <div className="flex flex-col lg:flex-row ">
@@ -250,21 +357,36 @@ function AppointmentCustomer() {
                       placeholder="Search by name..."
                       type="text"
                       name="search"
+                      onChange={(e) => {
+                        getAppointmentByName(e);
+                      }}
                     />
                   </label>
                 </div>
 
                 <div className="basis-6/12 flex flex-row justify-end">
                   <div className="flex mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <DateRangeIcon /> Date Range
+                    <button 
+                    onClick={openCalender}
+                    className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                      <DateRangeIcon /> Date
                     </button>
                   </div>
-                  <div className="flex mx-3 my-3 justify-start lg:justify-end">
+                  {/* <div className="flex mx-3 my-3 justify-start lg:justify-end">
                     <button className="py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                       <AccessTimeIcon /> Time Range
                     </button>
-                  </div>
+                  </div> */}
+                   {/* {calendar && (
+                    <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
+                      <Calendar onChange={getDate} value={calenderDate} />
+                    </div>
+                  )} */}
+                   {calendar && (
+                    <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
+                      <Calendar onChange={(e) => getCalenderDate(e)} />
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="overflow-auto justify-center w-full h-screen">
@@ -368,21 +490,36 @@ function AppointmentCustomer() {
                       placeholder="Search by name..."
                       type="text"
                       name="search"
+                      onChange={(e) => {
+                        getAppointmentByName(e);
+                      }}
                     />
                   </label>
                 </div>
 
                 <div className="basis-6/12 flex flex-row justify-end">
-                  <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
+                  {/* <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
                     <button className="py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                       <AccessTimeIcon /> Time Range
                     </button>
-                  </div>
+                  </div> */}
                   <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <DateRangeIcon /> Date Range
+                    <button 
+                     onClick={openCalender}
+                    className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                      <DateRangeIcon /> Date
                     </button>
                   </div>
+                   {/* {calendar && (
+                      <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
+                        <Calendar onChange={getDate} value={calenderDate} />
+                      </div>
+                    )} */}
+                     {calendar && (
+                      <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
+                        <Calendar onChange={(e) => getCalenderDate(e)} />
+                      </div>
+                    )}
                 </div>
               </div>
               <div className="overflow-auto justify-center w-full h-screen">
@@ -478,20 +615,36 @@ function AppointmentCustomer() {
                       placeholder="Search by name..."
                       type="text"
                       name="search"
+                      onChange={(e) => {
+                        getAppointmentByName(e);
+                      }}
                     />
                   </label>
                 </div>
                 <div className="basis-6/12 flex flex-row justify-end">
+                  
                   <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
+                    <button 
+                    onClick={openCalender}
+                    className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                      <DateRangeIcon /> Date
+                    </button>
+                    {calendar && (
+                      <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
+                        <Calendar onChange={(e) => getCalenderDate(e)} />
+                      </div>
+                    )}
+                  </div>
+                  {/* <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
                     <button className="py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                       <AccessTimeIcon /> Time Range
                     </button>
-                  </div>
-                  <div className="flex basis-3/12 mx-3 my-3 justify-start lg:justify-end">
-                    <button className="py-2 px-4 bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                      <DateRangeIcon /> Date Range
-                    </button>
-                  </div>
+                  </div> */}
+                   {/* {calendar && (
+                      <div className="absolute w-80  z-50 rounded-xl p-2 top-20">
+                        <Calendar onChange={getDate} value={calenderDate} />
+                      </div>
+                    )} */}
                 </div>
               </div>
               <div className="overflow-auto justify-center w-full h-screen">
@@ -534,7 +687,7 @@ function AppointmentCustomer() {
                   <tbody className="">
                     {appointment.map(
                       (item) =>
-                        (item.status == 2 || item.status == 4) && (
+                        (item.status === 2 || item.status === 4) && (
                           <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                               {item.name}

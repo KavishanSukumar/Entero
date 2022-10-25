@@ -15,28 +15,55 @@ const router = express.Router();
 
 router.get("/",async (req,res)=>{
     try{    
-        const getCustomerAppointment1= await pool.query("SELECT * FROM appointment")
-
+      const customer_id = req.body.id;
+       console.log(customer_id);
+        const getCustomerAppointment1= await pool.query(
+          // "SELECT * FROM appointment")
+          "SELECT appointment_id, to_char(date,'DD-MM-YYYY') as date, time, description, customer_id, sp_id, status, name  FROM appointment INNER JOIN users ON customer_id=userid WHERE customer_id::text=$1",         
+          // "SELECT appointment_id, to_char(date,'DD-MM-YYYY') as date, time, description, customer_id, sp_id, status, name  FROM appointment INNER JOIN users ON customer_id=userid WHERE customer_id::text=$1",
+          [customer_id]
+        );
+       
     res.json(getCustomerAppointment1.rows);
-  } catch (err) {
-    console.log(err.message);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
   }
-})
+});
 
-router.get("/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    console.log(req.params);
-    const getCustomerAppointment2 = await pool.query(
-      "SELECT * FROM appointment WHERE contact_id=$1",
-      [id]
-    )
+router.get("/:id",async (req,res)=>{
+  try{    
+    // const customer_id = req.body.id;
+    const {id}=req.params;
+     console.log(id);
+      const getCustomerAppointment1= await pool.query(
+        // "SELECT * FROM appointment")
+        "SELECT appointment_id, to_char(date,'DD-MM-YYYY') as date, time, description, customer_id, sp_id, status, name  FROM appointment INNER JOIN users ON customer_id=userid WHERE userid::text=$1",         
+        // "SELECT appointment_id, to_char(date,'DD-MM-YYYY') as date, time, description, customer_id, sp_id, status, name  FROM appointment INNER JOIN users ON customer_id=userid WHERE customer_id::text=$1",
+        [id]
+      );
+     
+  res.json(getCustomerAppointment1.rows);
+} catch (error) {
+  console.error(error.message);
+  res.status(500).send("Server Error");
+}
+});
 
-    res.json(getCustomerAppointment2.rows[0]);
-  } catch (err) {
-    console.log(err.message);
-  }
-})
+// router.get("/:id", async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     console.log(req.params);
+//     const getCustomerAppointment2 = await pool.query(
+//       "SELECT * FROM appointment WHERE customer_id=$1",
+//       [id]
+//     )
+
+//     res.json(getCustomerAppointment2.rows[0]);
+//   } catch (err) {
+//     console.log(err.message);
+//   }
+// })
 
 router.post("/:id", async (req, res) => {
   try {
@@ -53,33 +80,64 @@ router.post("/:id", async (req, res) => {
   } catch (err) {
     console.log(err.message);
   }
-})
+});
+
+// router.put("/", async (req, res) => {
+//   try {
+//     const { id, date, time, description, status} = req.body;
+    
+//     const updateAppointment = await pool.query(
+//       "UPDATE appointment SET date=$1,time=$2,description=$3,status=$4 WHERE appointment_id=$4",
+//       [date, time, description, status, id])
+
+//     res.json(updateAppointment.rows[0]);
+//   } catch (error) {
+//     console.error(error.message);
+//     res.status(500).send("Server Error");
+//   }
+// });
 
 router.put("/:id", async (req, res) => {
   try {
-    const { id } = req.params;
-    const { reply } = req.body;
+    const { appointment_id, status} = req.body;
+    
     const updateAppointment = await pool.query(
-      "UPDATE appointment SET date=$1,time=$2,description=$3 WHERE appointment_id=$4",
-      [date, time, description, id])
+      "UPDATE appointment SET status=$1 WHERE appointment_id::=$1",
+      [status, appointment_id])
 
-    res.json(updateAppointment.rows[0]);
-  } catch (err) {
-    console.log(err.message);
+    res.json({ status: true });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
   }
-})
+});
 
-router.delete("/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deleteAppointment = await pool.query(
-      "DELETE FROM appointment WHERE appointment_id=$1",[id] )
+// router.put("/", async (req, res) => {
+//   try {
+//     const { id, date, time, description} = req.body;
+//     const { reply } = req.body;
+//     const updateAppointment = await pool.query(
+//       "UPDATE appointment SET date=$1,time=$2,description=$3 WHERE appointment_id=$4",
+//       [date, time, description, id])
 
-        res.json("Done deleting");
-    }
-    catch(err){
-        console.log(err.message);
-    }
-})
+//     res.json(updateAppointment.rows[0]);
+//   } catch (error) {
+//     console.error(error.message);
+//     res.status(500).send("Server Error");
+//   }
+// });
+
+// router.delete("/:id", async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const deleteAppointment = await pool.query(
+//       "DELETE FROM appointment WHERE appointment_id=$1",[id] )
+
+//         res.json("Done deleting");
+//     }
+//     catch(err){
+//         console.log(err.message);
+//     }
+// })
 
 export default router;
