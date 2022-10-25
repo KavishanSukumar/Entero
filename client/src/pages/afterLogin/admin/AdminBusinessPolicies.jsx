@@ -95,12 +95,12 @@ const AdminBusinessPolicies = () => {
               </div>
               <div className="flex justify-center mt-10">
                 {/* -----------only add ------------------- */}
-                <AdminBusinessPoliciesList />
+                {/* <AdminBusinessPoliciesList /> */}
                 {/* -----------only add ------------------- */}
               </div>
             </div>
            
-            {/* <EditorData /> */}
+            <EditorData />
 
             {/* 
             <RichTextEditorComponent>   

@@ -5,6 +5,7 @@ import AppointmentCustomer from "../../../components/appointment/AppointmentCust
 
 function CustomerAppointments(props) {
   const id = props.data;
+  console.log(id);
   return (
     <div>
       <CustomerHeader />

@@ -141,7 +141,7 @@ export default function Contact({ data, myuserid, userid }) {
               to=""
               onClick={handlePopup}
               className=" w-32 bg-cyan-500 text-white hover:bg-blue-400 py-2 px-3 rounded mr-1 cursor-pointer"
-              disabled={!appointment}
+              disabled={appointment}
             >
               Appointment
             </button>
