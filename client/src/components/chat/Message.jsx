@@ -10,13 +10,6 @@ function Message({ status, message }) {
           : "flex flex-row m-3 items-center justify-start"
       }
     >
-      <div className="m-3">
-        <img
-          className="inline-block h-9 w-9 rounded-full ring-2 ring-black"
-          src="/assets/images/fab.jpg"
-          alt=""
-        />
-      </div>
       <div className="flex flex-col">
         <div
           className={
