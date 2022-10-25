@@ -37,6 +37,7 @@ import { Link } from "react-router-dom";
 
 const API_URL = "http://localhost:4000/api/customerevent";
 const IMG_URL2 = "http://localhost:4000/api/serviceprovider/portfolioimages";
+const IMAGE_URL = "http://localhost:4000/api/users/profilepicture/";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -92,32 +93,30 @@ function EventsCustomer({ userid, data }) {
   const [eventDetail, setEventDetails] = useState();
   const [rateValue, setRateValue] = useState(1);
   const [itemData, setItemData] = useState([]);
-
-  let hall = true;
-  let decoration = true;
-  let refreshment = true;
-  let photography = true;
-  let oneabove = true;
-  let twoabove = true;
-  let threeabove = true;
-  let fourabove = true;
-  let fivestars = true;
-
-  let hall2 = false;
-  let decoration2 = false;
-  let refreshment2 = false;
-  let photography2 = false;
+  const [image, setImage] = useState("");
 
 
-  // let hall = false;
-  // let decoration = false;
-  // let refreshment = false;
-  // let photography = false;
-  // let oneabove = false;
-  // let twoabove = false;
-  // let threeabove = false;
-  // let fourabove = false;
-  // let fivestars = false;
+  const getProfilePic = async () => {
+    const res = await axios.get(IMAGE_URL);
+    setImage(res.data.image);
+  };
+  // const getProfilePic = async () => {
+  //   const res = await axios.get(IMAGE_URL + sender);
+  //   setImage(res.data.image);
+  // };
+
+  const File_Url = "http://localhost:4000/profilePics/";
+
+
+  let hall = false;
+  let decoration = false;
+  let refreshment = false;
+  let photography = false;
+  let oneabove = false;
+  let twoabove = false;
+  let threeabove = false;
+  let fourabove = false;
+  let fivestars = false;
 
   if (services.includes("hall")) {
     hall = true;
@@ -132,18 +131,18 @@ function EventsCustomer({ userid, data }) {
   if (services.includes("photography")) {
     photography = true;
   }
-  if (services.includes("hall2")) {
-    hall2 = true;
-  }
-  if (services.includes("decoration2")) {
-    decoration2 = true;
-  }
-  if (services.includes("refreshment2")) {
-    refreshment2 = true;
-  }
-  if (services.includes("photography2")) {
-    photography2 = true;
-  }
+  // if (services.includes("hall2")) {
+  //   hall2 = true;
+  // }
+  // if (services.includes("decoration2")) {
+  //   decoration2 = true;
+  // }
+  // if (services.includes("refreshment2")) {
+  //   refreshment2 = true;
+  // }
+  // if (services.includes("photography2")) {
+  //   photography2 = true;
+  // }
 
   if (ratings.includes("oneabove")) {
     oneabove = true;
@@ -307,9 +306,9 @@ function EventsCustomer({ userid, data }) {
               <li class="w-full rounded-t-lg border-b border-gray-200 ">
                 <div class="flex items-center pl-3">
                   <input
-                    id="refreshment-checkbox"
+                    id="refreshment"
                     type="checkbox"
-                    value="1"
+                    value="refreshment"
                     onClick={(e) => {
                       serviceList(e);
                       setServicesError("");
@@ -317,7 +316,7 @@ function EventsCustomer({ userid, data }) {
                     class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
                   <label
-                    for="refreshment-checkbox"
+                    for="refreshment"
                     class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     Refreshment
@@ -327,7 +326,7 @@ function EventsCustomer({ userid, data }) {
               <li class="w-full rounded-t-lg border-b border-gray-200 ">
                 <div class="flex items-center pl-3">
                   <input
-                    id="Halls-checkbox"
+                    id="hall"
                     type="checkbox"
                     value="hall"
                     onClick={(e) => {
@@ -337,7 +336,7 @@ function EventsCustomer({ userid, data }) {
                     class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
                   <label
-                    for="Halls-checkbox"
+                    for="hall"
                     class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     Halls
@@ -347,7 +346,7 @@ function EventsCustomer({ userid, data }) {
               <li class="w-full rounded-t-lg border-b border-gray-200 ">
                 <div class="flex items-center pl-3">
                   <input
-                    id="Decoration-checkbox"
+                    id="decoration"
                     type="checkbox"
                     value="decoration"
                     onClick={(e) => {
@@ -357,7 +356,7 @@ function EventsCustomer({ userid, data }) {
                     class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
                   <label
-                    for="Decoration-checkbox"
+                    for="decoration"
                     class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     Decoration
@@ -367,7 +366,7 @@ function EventsCustomer({ userid, data }) {
               <li class="w-full rounded-t-lg border-b border-gray-200 ">
                 <div class="flex items-center pl-3">
                   <input
-                    id="Photography-checkbox"
+                    id="photography"
                     type="checkbox"
                     value="photography"
                     onClick={(e) => {
@@ -377,7 +376,7 @@ function EventsCustomer({ userid, data }) {
                     class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
                   <label
-                    for="Photography-checkbox"
+                    for="photography"
                     class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     Photography
@@ -394,9 +393,9 @@ function EventsCustomer({ userid, data }) {
               <li class="w-full rounded-t-lg border-b border-gray-200">
                 <div class="flex items-center pl-3">
                   <input
-                    id="1star-checkbox"
+                    id="oneabove"
                     type="checkbox"
-                    value="1star"
+                    value="oneabove"
                     onClick={(e) => {
                       ratingsList(e);
                       setRatingsError("");
@@ -404,7 +403,7 @@ function EventsCustomer({ userid, data }) {
                     class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
                   <label
-                    for="premium-checkbox"
+                    for="oneabove"
                     class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     1 & above
@@ -414,9 +413,9 @@ function EventsCustomer({ userid, data }) {
               <li class="w-full rounded-t-lg border-b border-gray-200">
                 <div class="flex items-center pl-3">
                   <input
-                    id="2star-checkbox"
+                    id="twoabove"
                     type="checkbox"
-                    value="2star"
+                    value="twoabove"
                     onClick={(e) => {
                       ratingsList(e);
                       setRatingsError("");
@@ -424,7 +423,7 @@ function EventsCustomer({ userid, data }) {
                     class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
                   <label
-                    for="premium-checkbox"
+                    for="twoabove"
                     class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     2 & above
@@ -434,9 +433,9 @@ function EventsCustomer({ userid, data }) {
               <li class="w-full rounded-t-lg border-b border-gray-200">
                 <div class="flex items-center pl-3">
                   <input
-                    id="3star-checkbox"
+                    id="threeabove"
                     type="checkbox"
-                    value="3star"
+                    value="threeabove"
                     onClick={(e) => {
                       ratingsList(e);
                       setRatingsError("");
@@ -444,7 +443,7 @@ function EventsCustomer({ userid, data }) {
                     class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
                   <label
-                    for="premium-checkbox"
+                    for="threeabove"
                     class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     3 & above
@@ -454,9 +453,9 @@ function EventsCustomer({ userid, data }) {
               <li class="w-full rounded-t-lg border-b border-gray-200">
                 <div class="flex items-center pl-3">
                   <input
-                    id="4star-checkbox"
+                    id="fourabove"
                     type="checkbox"
-                    value="4star"
+                    value="fourabove"
                     onClick={(e) => {
                       ratingsList(e);
                       setRatingsError("");
@@ -464,7 +463,7 @@ function EventsCustomer({ userid, data }) {
                     class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
                   <label
-                    for="trial-checkbox"
+                    for="fourabove"
                     class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     4 & above
@@ -474,9 +473,9 @@ function EventsCustomer({ userid, data }) {
               <li class="w-full rounded-t-lg border-b border-gray-200">
                 <div class="flex items-center pl-3">
                   <input
-                    id="5star-checkbox"
+                    id="fivestars"
                     type="checkbox"
-                    value="5star"
+                    value="fivestars"
                     onClick={(e) => {
                       ratingsList(e);
                       setRatingsError("");
@@ -484,7 +483,7 @@ function EventsCustomer({ userid, data }) {
                     class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-blue-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
                   <label
-                    for="trial-checkbox"
+                    for="fivestars"
                     class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     5
@@ -499,145 +498,103 @@ function EventsCustomer({ userid, data }) {
                 className="flex m-5 flex-wrap 
               gap-1"
               >
-                <div class="w-72 bg-white rounded-lg border m-3 border-gray-200 shadow-md ">
-                  <a href="#">
-                    <img
-                      class="rounded-t-lg"
-                      src="/assets/images/fabcake.jpg"
-                      alt=""
-                      className=" w-72 h-60"
-                    />
-                  </a>
-                  <div class="p-5">
-                    <a href="#">
-                      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                        The Fab
-                      </h5>
-                    </a>
-                    {/* <p class="mb-3 font-normal text-gray-700 ">7</p> */}
-                    {/* <Rate /> */}
-                    <Rating
-                              name="text-feedback"
-                              value={rateValue}
-                              precision={0.1}
-                              emptyIcon={
-                                <StarIcon
-                                  style={{ opacity: 0.55 }}
-                                  fontSize="inherit"
-                                  // fontSize="medium"
-                                />
-                              }
-                              // onChange={(e) => {
-                              //   setRateValue(e.target.value);
-                              // }}
-                            />
-                            <span class="bg-blue-100 mt-0 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
-                                {/* {event.rating} */}
-                                5.0
-                              </span>
-                    <Link
-                      to="/customerserviceportfolio"
-                      class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
-                    >
-                      See Portfolio
-                      <svg
-                        class="ml-2 -mr-1 w-4 h-4"
-                        aria-hidden="true"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </Link>
-                  </div>
-                </div>
-
-                <div class="w-72 bg-white rounded-lg border m-3 border-gray-200 shadow-md ">
-                  <a href="#">
-                    <img
-                      class="rounded-t-lg"
-                      src="/assets/images/fabcake.jpg"
-                      alt=""
-                      className=" w-72 h-60"
-                    />
-                  </a>
-                  <div class="p-5">
-                    <a href="#">
-                      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                        The Fab
-                      </h5>
-                    </a>
-                    {/* <p class="mb-3 font-normal text-gray-700 ">7</p> */}
-                    {/* <Rate /> */}
-                    <Rating
-                              name="text-feedback"
-                              value={rateValue}
-                              precision={0.1}
-                              emptyIcon={
-                                <StarIcon
-                                  style={{ opacity: 0.55 }}
-                                  fontSize="inherit"
-                                  // fontSize="medium"
-                                />
-                              }
-                              // onChange={(e) => {
-                              //   setRateValue(e.target.value);
-                              // }}
-                            />
-                            <span class="bg-blue-100 mt-0 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
-                                {/* {event.rating} */}
-                                5.0
-                              </span>
-                    <Link
-                      to="/customerserviceportfolio"
-                      class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
-                    >
-                      See Portfolio
-                      <svg
-                        class="ml-2 -mr-1 w-4 h-4"
-                        aria-hidden="true"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </Link>
-                  </div>
-                </div>
-
+         
                 {
-                  // events2.map((event2) => (
+                 ((hall === false) && (decoration === false) &&(refreshment === false) &&(photography === false) &&(oneabove === false) &&(twoabove === false) &&(threeabove === false) &&(fourabove === false)&&(fivestars === false) )
+                ?
+                events.map(
+                  (event) =>
+                      // console.log(avg),
+                    event.birthday === true && (
+                      <div class="w-72 bg-white rounded-lg border m-3 border-gray-200 shadow-md">
+                        <a href="#">
+                          {/* <ImageListItem key={event.img}> */}
+                          {getspid(event.userid)}
+                          <img
+                            class="rounded-t-lg"
+                            // src={
+                            //   "http://localhost:4000/" +
+                            //   event.userid +
+                            //   "/" +
+                            //  // portfolio_images[0]
+                            //  "cate3.jpg"
+                            // }
+                            src={File_Url + image}
+
+                            alt=""
+                            className=" w-72 h-60"
+                          />
+                          {/* </ImageListItem> */}
+                        </a>
+                        <div class="p-5">
+                          <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                              {/* CHE Studio */}
+                              {event.name}
+                            </h5>
+                          </a>
+                          {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
+                          {/* <Rate /> */}
+                          <Rating
+                            name="text-feedback"                         
+                            value={rateValue}
+                            precision={0.1}
+                            emptyIcon={
+                              <StarIcon
+                                style={{ opacity: 0.55 }}
+                                fontSize="inherit"
+                              />
+                            }
+                            // onChange={(e) => {
+                            //   setRateValue(e.target.value);
+                            // }}
+                          />
+                          <span class="bg-blue-100 mt-0 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
+                              {/* {event.rating} */}
+                              5.0
+                            </span>
+                          <Link
+                            to={"/customerserviceportfolio/"+event.userid}
+                            class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                          >
+                            See Portfolio
+                            <svg
+                              aria-hidden="true"
+                              class="ml-2 -mr-1 w-4 h-4"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </Link>
+                        </div>
+                      </div>
+                    )
+                  // ))
+                )
+                :
+
+
                   events.map(
                     (event) =>
                         // console.log(avg),
-                      event.birthday === true &&
+                      event.birthday === true && (
                       ((event.refreshment === true && refreshment === true) ||
                         (event.decoration === true && decoration === true) ||
                         (event.hallservices === true && hall === true) ||
-                        (event.photography === true &&
-                          photography === true))
-                        // &&
-                        // ((event.refreshment === true && refreshment2 === true) ||
-                        //   (event.decoration === true && decoration2 === true) ||
-                        //   (event.hallservices === true && hall2 === true) ||
-                        //   (event.photography === true &&
-                        //     photography2 === true))
-                        // ||
-                        // ((event.avg === 5 && fivestars === true) ||
-                        //   (event.avg === 4 && fourabove === true) ||
-                        //   (event.avg === 3 && threeabove === true) ||
-                        //   (event.avg === 4 && twoabove === true) ||
-                        //   (event.avg === 1 && oneabove === true))
+                        (event.photography === true && photography === true))
+                        
+                        ||
+                        ((event.avg == 5 && fivestars === true) ||
+                          (event.avg == 4 && fourabove === true) ||
+                          (event.avg == 3 && threeabove === true) ||
+                          (event.avg == 2 && twoabove === true) ||
+                          (event.avg == 1 && oneabove === true)))
                         && (
                         <div class="w-72 bg-white rounded-lg border m-3 border-gray-200 shadow-md">
                           <a href="#">
@@ -717,37 +674,25 @@ function EventsCustomer({ userid, data }) {
                 className="flex m-5 flex-wrap 
               gap-1"
               >
-                {events.map(
+                {
+                 ((hall === false) && (decoration === false) &&(refreshment === false) &&(photography === false) &&(oneabove === false) &&(twoabove === false) &&(threeabove === false) &&(fourabove === false)&&(fivestars === false) )
+                ?
+                events.map(
                   (event) =>
-                    event.wedding === true &&
-                    ((event.refreshment === true && refreshment === true) ||
-                      (event.decoration === true && decoration === true) ||
-                      (event.hallservices === true && hall === true) ||
-                      (event.photography === true && photography === true)) 
-                      // &&
-                      //   ((event.refreshment === true && refreshment2 === true) ||
-                      //     (event.decoration === true && decoration2 === true) ||
-                      //     (event.hallservices === true && hall2 === true) ||
-                      //     (event.photography === true &&
-                      //       photography2 === true))
-                          //   &&
-                          //   ((event.avg === 5 && fivestars === true) ||
-                          // (event.avg === 4 && fourabove === true) ||
-                          // (event.avg === 3 && threeabove === true) ||
-                          // (event.avg === 4 && twoabove === true) ||
-                          // (event.avg === 1 && oneabove === true))
-                      && (
-                      <div class="w-72 bg-white rounded-lg m-3 border border-gray-200 shadow-md">
+                      // console.log(avg),
+                    event.wedding === true && (
+                      <div class="w-72 bg-white rounded-lg border m-3 border-gray-200 shadow-md">
                         <a href="#">
                           {/* <ImageListItem key={event.img}> */}
-                          {getspimg(event.userid)}
+                          {getspid(event.userid)}
                           <img
                             class="rounded-t-lg"
                             src={
                               "http://localhost:4000/" +
                               event.userid +
                               "/" +
-                              "cate3.jpg"
+                             // portfolio_images[0]
+                             "cate3.jpg"
                             }
                             alt=""
                             className=" w-72 h-60"
@@ -764,23 +709,23 @@ function EventsCustomer({ userid, data }) {
                           {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
                           {/* <Rate /> */}
                           <Rating
-                              name="text-feedback"
-                              value={rateValue}
-                              precision={0.1}
-                              emptyIcon={
-                                <StarIcon
-                                  style={{ opacity: 0.55 }}
-                                  fontSize="inherit"
-                                />
-                              }
-                              // onChange={(e) => {
-                              //   setRateValue(e.target.value);
-                              // }}
-                            />
-                            <span class="bg-blue-100 mt-0 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
-                                {/* {event.rating} */}
-                                5.0
-                              </span>
+                            name="text-feedback"                         
+                            value={rateValue}
+                            precision={0.1}
+                            emptyIcon={
+                              <StarIcon
+                                style={{ opacity: 0.55 }}
+                                fontSize="inherit"
+                              />
+                            }
+                            // onChange={(e) => {
+                            //   setRateValue(e.target.value);
+                            // }}
+                          />
+                          <span class="bg-blue-100 mt-0 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
+                              {/* {event.rating} */}
+                              5.0
+                            </span>
                           <Link
                             to={"/customerserviceportfolio/"+event.userid}
                             class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
@@ -803,7 +748,97 @@ function EventsCustomer({ userid, data }) {
                         </div>
                       </div>
                     )
-                )}
+                  // ))
+                )
+                :
+
+
+                  events.map(
+                    (event) =>
+                        // console.log(avg),
+                      event.wedding === true && (
+                      ((event.refreshment === true && refreshment === true) ||
+                        (event.decoration === true && decoration === true) ||
+                        (event.hallservices === true && hall === true) ||
+                        (event.photography === true && photography === true))
+                        
+                       ||
+                        ((event.avg == 5 && fivestars === true) ||
+                          (event.avg == 4 && fourabove === true) ||
+                          (event.avg == 3 && threeabove === true) ||
+                          (event.avg == 2 && twoabove === true) ||
+                          (event.avg == 1 && oneabove === true)))
+                        && (
+                        <div class="w-72 bg-white rounded-lg border m-3 border-gray-200 shadow-md">
+                          <a href="#">
+                            {/* <ImageListItem key={event.img}> */}
+                            {getspid(event.userid)}
+                            <img
+                              class="rounded-t-lg"
+                              src={
+                                "http://localhost:4000/" +
+                                event.userid +
+                                "/" +
+                               // portfolio_images[0]
+                               "cate3.jpg"
+                              }
+                              alt=""
+                              className=" w-72 h-60"
+                            />
+                            {/* </ImageListItem> */}
+                          </a>
+                          <div class="p-5">
+                            <a href="#">
+                              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                                {/* CHE Studio */}
+                                {event.name}
+                              </h5>
+                            </a>
+                            {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
+                            {/* <Rate /> */}
+                            <Rating
+                              name="text-feedback"                         
+                              value={rateValue}
+                              precision={0.1}
+                              emptyIcon={
+                                <StarIcon
+                                  style={{ opacity: 0.55 }}
+                                  fontSize="inherit"
+                                />
+                              }
+                              // onChange={(e) => {
+                              //   setRateValue(e.target.value);
+                              // }}
+                            />
+                            <span class="bg-blue-100 mt-0 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
+                                {/* {event.rating} */}
+                                5.0
+                              </span>
+                            <Link
+                              to={"/customerserviceportfolio/"+event.userid}
+                              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                            >
+                              See Portfolio
+                              <svg
+                                aria-hidden="true"
+                                class="ml-2 -mr-1 w-4 h-4"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                            </Link>
+                          </div>
+                        </div>
+                      )
+                    // ))
+                  )
+                }
               </div>
             </TabPanel>
 
@@ -812,37 +847,25 @@ function EventsCustomer({ userid, data }) {
                 className="flex m-5 flex-wrap 
               gap-1"
               >
-                {events.map(
+                 {
+                 ((hall === false) && (decoration === false) &&(refreshment === false) &&(photography === false) &&(oneabove === false) &&(twoabove === false) &&(threeabove === false) &&(fourabove === false)&&(fivestars === false) )
+                ?
+                events.map(
                   (event) =>
-                    event.reception === true &&
-                    ((event.refreshment === true && refreshment === true) ||
-                      (event.decoration === true && decoration === true) ||
-                      (event.hallservices === true && hall === true) ||
-                      (event.photography === true && photography === true)) 
-                    //  &&
-                  //       ((event.refreshment === true && refreshment2 === true) ||
-                  //         (event.decoration === true && decoration2 === true) ||
-                  //         (event.hallservices === true && hall2 === true) ||
-                  //         (event.photography === true &&
-                  //           photography2 === true))
-                  //  ||
-                  //  ((event.avg === 5 && fivestars === true) ||
-                  //  (event.avg === 4 && fourabove === true) ||
-                  //  (event.avg === 3 && threeabove === true) ||
-                  //  (event.avg === 4 && twoabove === true) ||
-                  //  (event.avg === 1 && oneabove === true))
-                      && (
+                      // console.log(avg),
+                    event.reception === true && (
                       <div class="w-72 bg-white rounded-lg border m-3 border-gray-200 shadow-md">
                         <a href="#">
                           {/* <ImageListItem key={event.img}> */}
-                          {getspimg(event.userid)}
+                          {getspid(event.userid)}
                           <img
                             class="rounded-t-lg"
                             src={
                               "http://localhost:4000/" +
                               event.userid +
                               "/" +
-                              "cate3.jpg"
+                              portfolio_images[event.userid]
+                            //  "cate3.jpg"
                             }
                             alt=""
                             className=" w-72 h-60"
@@ -859,23 +882,23 @@ function EventsCustomer({ userid, data }) {
                           {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
                           {/* <Rate /> */}
                           <Rating
-                              name="text-feedback"
-                              value={rateValue}
-                              precision={0.1}
-                              emptyIcon={
-                                <StarIcon
-                                  style={{ opacity: 0.55 }}
-                                  fontSize="inherit"
-                                />
-                              }
-                              // onChange={(e) => {
-                              //   setRateValue(e.target.value);
-                              // }}
-                            />
-                            <span class="bg-blue-100 mt-0 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
-                                {/* {event.rating} */}
-                                5.0
-                              </span>
+                            name="text-feedback"                         
+                            value={rateValue}
+                            precision={0.1}
+                            emptyIcon={
+                              <StarIcon
+                                style={{ opacity: 0.55 }}
+                                fontSize="inherit"
+                              />
+                            }
+                            // onChange={(e) => {
+                            //   setRateValue(e.target.value);
+                            // }}
+                          />
+                          <span class="bg-blue-100 mt-0 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
+                              {/* {event.rating} */}
+                              5.0
+                            </span>
                           <Link
                             to={"/customerserviceportfolio/"+event.userid}
                             class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
@@ -898,7 +921,97 @@ function EventsCustomer({ userid, data }) {
                         </div>
                       </div>
                     )
-                )}
+                  // ))
+                )
+                :
+
+
+                  events.map(
+                    (event) =>
+                        // console.log(avg),
+                      event.reception === true && (
+                      ((event.refreshment === true && refreshment === true) ||
+                        (event.decoration === true && decoration === true) ||
+                        (event.hallservices === true && hall === true) ||
+                        (event.photography === true && photography === true))
+              
+                       ||
+                        ((event.avg == 5 && fivestars === true) ||
+                          (event.avg == 4 && fourabove === true) ||
+                          (event.avg == 3 && threeabove === true) ||
+                          (event.avg == 2 && twoabove === true) ||
+                          (event.avg == 1 && oneabove === true)))
+                        && (
+                        <div class="w-72 bg-white rounded-lg border m-3 border-gray-200 shadow-md">
+                          <a href="#">
+                            {/* <ImageListItem key={event.img}> */}
+                            {getspid(event.userid)}
+                            <img
+                              class="rounded-t-lg"
+                              src={
+                                "http://localhost:4000/" +
+                                event.userid +
+                                "/" +
+                               portfolio_images[event.userid]
+                               //"cate3.jpg"
+                              }
+                              alt=""
+                              className=" w-72 h-60"
+                            />
+                            {/* </ImageListItem> */}
+                          </a>
+                          <div class="p-5">
+                            <a href="#">
+                              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                                {/* CHE Studio */}
+                                {event.name}
+                              </h5>
+                            </a>
+                            {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
+                            {/* <Rate /> */}
+                            <Rating
+                              name="text-feedback"                         
+                              value={rateValue}
+                              precision={0.1}
+                              emptyIcon={
+                                <StarIcon
+                                  style={{ opacity: 0.55 }}
+                                  fontSize="inherit"
+                                />
+                              }
+                              // onChange={(e) => {
+                              //   setRateValue(e.target.value);
+                              // }}
+                            />
+                            <span class="bg-blue-100 mt-0 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
+                                {/* {event.rating} */}
+                                5.0
+                              </span>
+                            <Link
+                              to={"/customerserviceportfolio/"+event.userid}
+                              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                            >
+                              See Portfolio
+                              <svg
+                                aria-hidden="true"
+                                class="ml-2 -mr-1 w-4 h-4"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                            </Link>
+                          </div>
+                        </div>
+                      )
+                    // ))
+                  )
+                }
               </div>
             </TabPanel>
 
@@ -907,37 +1020,25 @@ function EventsCustomer({ userid, data }) {
                 className="flex m-5 flex-wrap 
               gap-1"
               >
-                {events.map(
+                {
+                  ((hall === false) && (decoration === false) &&(refreshment === false) &&(photography === false) &&(oneabove === false) &&(twoabove === false) &&(threeabove === false) &&(fourabove === false)&&(fivestars === false) )
+                ?
+                events.map(
                   (event) =>
-                    event.engagement === true &&
-                    ((event.refreshment === true && refreshment === true) ||
-                      (event.decoration === true && decoration === true) ||
-                      (event.hallservices === true && hall === true) ||
-                      (event.photography === true && photography === true)) 
-                      // &&
-                        // ((event.refreshment === true && refreshment2 === true) ||
-                        //   (event.decoration === true && decoration2 === true) ||
-                        //   (event.hallservices === true && hall2 === true) ||
-                        //   (event.photography === true &&
-                        //     photography2 === true))
-                    //  &&
-                    //  ((event.avg === 5 && fivestars === true) ||
-                    //  (event.avg === 4 && fourabove === true) ||
-                    //  (event.avg === 3 && threeabove === true) ||
-                    //  (event.avg === 4 && twoabove === true) ||
-                    //  (event.avg === 1 && oneabove === true))
-                      && (
+                      // console.log(avg),
+                    event.engagement === true && (
                       <div class="w-72 bg-white rounded-lg border m-3 border-gray-200 shadow-md">
                         <a href="#">
                           {/* <ImageListItem key={event.img}> */}
-                          {getspimg(event.userid)}
+                          {getspid(event.userid)}
                           <img
                             class="rounded-t-lg"
                             src={
                               "http://localhost:4000/" +
                               event.userid +
                               "/" +
-                              "cate3.jpg"
+                             // portfolio_images[0]
+                             "cate3.jpg"
                             }
                             alt=""
                             className=" w-72 h-60"
@@ -954,23 +1055,23 @@ function EventsCustomer({ userid, data }) {
                           {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
                           {/* <Rate /> */}
                           <Rating
-                              name="text-feedback"
-                              value={rateValue}
-                              precision={0.1}
-                              emptyIcon={
-                                <StarIcon
-                                  style={{ opacity: 0.55 }}
-                                  fontSize="inherit"
-                                />
-                              }
-                              // onChange={(e) => {
-                              //   setRateValue(e.target.value);
-                              // }}
-                            />
-                            <span class="bg-blue-100 mt-0 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
-                                {/* {event.avgrating} */}
-                                5.0
-                              </span>
+                            name="text-feedback"                         
+                            value={rateValue}
+                            precision={0.1}
+                            emptyIcon={
+                              <StarIcon
+                                style={{ opacity: 0.55 }}
+                                fontSize="inherit"
+                              />
+                            }
+                            // onChange={(e) => {
+                            //   setRateValue(e.target.value);
+                            // }}
+                          />
+                          <span class="bg-blue-100 mt-0 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
+                              {/* {event.rating} */}
+                              5.0
+                            </span>
                           <Link
                             to={"/customerserviceportfolio/"+event.userid}
                             class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
@@ -993,63 +1094,56 @@ function EventsCustomer({ userid, data }) {
                         </div>
                       </div>
                     )
-                )}
-              </div>
-            </TabPanel>
+                  // ))
+                )
+                :
 
-            <TabPanel value={value} index={4}>
-              <div
-                className="flex m-5 flex-wrap 
-              gap-1"
-              >
-                {events.map(
-                  (event) =>
-                    event.other === true &&
-                    ((event.refreshment === true && refreshment === true) ||
-                      (event.decoration === true && decoration === true) ||
-                      (event.hallservices === true && hall === true) ||
-                      (event.photography === true && photography === true))
-                      // &&
-                      //   ((event.refreshment === true && refreshment2 === true) ||
-                      //     (event.decoration === true && decoration2 === true) ||
-                      //     (event.hallservices === true && hall2 === true) ||
-                      //     (event.photography === true &&
-                      //       photography2 === true))
-                        // ||
-                        // ((event.avg === 5 && fivestars === true) ||
-                        // (event.avg === 4 && fourabove === true) ||
-                        // (event.avg === 3 && threeabove === true) ||
-                        // (event.avg === 4 && twoabove === true) ||
-                        // (event.avg === 1 && oneabove === true))
-                      && (
-                      <div class="w-72 bg-white rounded-lg border m-3 border-gray-200 shadow-md">
-                        <a href="#">
-                          {/* <ImageListItem key={event.img}> */}
-                          {getspimg(event.userid)}
-                          <img
-                            class="rounded-t-lg"
-                            src={
-                              "http://localhost:4000/" +
-                              event.userid +
-                              "/" +
-                              "cate3.jpg"
-                            }
-                            alt=""
-                            className=" w-72 h-60"
-                          />
-                          {/* </ImageListItem> */}
-                        </a>
-                        <div class="p-5">
+
+                  events.map(
+                    (event) =>
+                        // console.log(avg),
+                      event.engagement === true && (
+                      ((event.refreshment === true && refreshment === true) ||
+                        (event.decoration === true && decoration === true) ||
+                        (event.hallservices === true && hall === true) ||
+                        (event.photography === true && photography === true))
+                      
+                        ||
+                        ((event.avg == 5 && fivestars === true) ||
+                          (event.avg == 4 && fourabove === true) ||
+                          (event.avg == 3 && threeabove === true) ||
+                          (event.avg == 2 && twoabove === true) ||
+                          (event.avg == 1 && oneabove === true)))
+                        && (
+                        <div class="w-72 bg-white rounded-lg border m-3 border-gray-200 shadow-md">
                           <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                              {/* CHE Studio */}
-                              {event.name}
-                            </h5>
+                            {/* <ImageListItem key={event.img}> */}
+                            {getspid(event.userid)}
+                            <img
+                              class="rounded-t-lg"
+                              src={
+                                "http://localhost:4000/" +
+                                event.userid +
+                                "/" +
+                               // portfolio_images[0]
+                               "cate3.jpg"
+                              }
+                              alt=""
+                              className=" w-72 h-60"
+                            />
+                            {/* </ImageListItem> */}
                           </a>
-                          {/* <p class="mb-3 font-normal text-gray-700 ">Premium</p> */}
-                          {/* <Rate /> */}
-                          <Rating
-                              name="text-feedback"
+                          <div class="p-5">
+                            <a href="#">
+                              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                                {/* CHE Studio */}
+                                {event.name}
+                              </h5>
+                            </a>
+                            {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
+                            {/* <Rate /> */}
+                            <Rating
+                              name="text-feedback"                         
                               value={rateValue}
                               precision={0.1}
                               emptyIcon={
@@ -1066,6 +1160,91 @@ function EventsCustomer({ userid, data }) {
                                 {/* {event.rating} */}
                                 5.0
                               </span>
+                            <Link
+                              to={"/customerserviceportfolio/"+event.userid}
+                              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                            >
+                              See Portfolio
+                              <svg
+                                aria-hidden="true"
+                                class="ml-2 -mr-1 w-4 h-4"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                            </Link>
+                          </div>
+                        </div>
+                      )
+                    // ))
+                  )
+                }
+              </div>
+            </TabPanel>
+
+            <TabPanel value={value} index={4}>
+              <div
+                className="flex m-5 flex-wrap 
+              gap-1"
+              >
+                {
+                 ((hall === false) && (decoration === false) &&(refreshment === false) &&(photography === false) &&(oneabove === false) &&(twoabove === false) &&(threeabove === false) &&(fourabove === false)&&(fivestars === false) )
+                ?
+                events.map(
+                  (event) =>
+                      // console.log(avg),
+                    event.other === true && (
+                      <div class="w-72 bg-white rounded-lg border m-3 border-gray-200 shadow-md">
+                        <a href="#">
+                          {/* <ImageListItem key={event.img}> */}
+                          {getspid(event.userid)}
+                          <img
+                            class="rounded-t-lg"
+                            src={
+                              "http://localhost:4000/" +
+                              event.userid +
+                              "/" +
+                             // portfolio_images[0]
+                             "cate3.jpg"
+                            }
+                            alt=""
+                            className=" w-72 h-60"
+                          />
+                          {/* </ImageListItem> */}
+                        </a>
+                        <div class="p-5">
+                          <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                              {/* CHE Studio */}
+                              {event.name}
+                            </h5>
+                          </a>
+                          {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
+                          {/* <Rate /> */}
+                          <Rating
+                            name="text-feedback"                         
+                            value={rateValue}
+                            precision={0.1}
+                            emptyIcon={
+                              <StarIcon
+                                style={{ opacity: 0.55 }}
+                                fontSize="inherit"
+                              />
+                            }
+                            // onChange={(e) => {
+                            //   setRateValue(e.target.value);
+                            // }}
+                          />
+                          <span class="bg-blue-100 mt-0 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
+                              {/* {event.rating} */}
+                              5.0
+                            </span>
                           <Link
                             to={"/customerserviceportfolio/"+event.userid}
                             class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
@@ -1088,7 +1267,97 @@ function EventsCustomer({ userid, data }) {
                         </div>
                       </div>
                     )
-                )}
+                  // ))
+                )
+                :
+
+
+                  events.map(
+                    (event) =>
+                        // console.log(avg),
+                      event.other === true && (
+                      ((event.refreshment === true && refreshment === true) ||
+                        (event.decoration === true && decoration === true) ||
+                        (event.hallservices === true && hall === true) ||
+                        (event.photography === true && photography === true))
+                       
+                        ||
+                        ((event.avg == 5 && fivestars === true) ||
+                          (event.avg == 4 && fourabove === true) ||
+                          (event.avg == 3 && threeabove === true) ||
+                          (event.avg == 2 && twoabove === true) ||
+                          (event.avg == 1 && oneabove === true)))
+                        && (
+                        <div class="w-72 bg-white rounded-lg border m-3 border-gray-200 shadow-md">
+                          <a href="#">
+                            {/* <ImageListItem key={event.img}> */}
+                            {getspid(event.userid)}
+                            <img
+                              class="rounded-t-lg"
+                              src={
+                                "http://localhost:4000/" +
+                                event.userid +
+                                "/" +
+                               // portfolio_images[0]
+                               "cate3.jpg"
+                              }
+                              alt=""
+                              className=" w-72 h-60"
+                            />
+                            {/* </ImageListItem> */}
+                          </a>
+                          <div class="p-5">
+                            <a href="#">
+                              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                                {/* CHE Studio */}
+                                {event.name}
+                              </h5>
+                            </a>
+                            {/* <p class="mb-3 font-normal text-gray-700 ">{event.userid}</p> */}
+                            {/* <Rate /> */}
+                            <Rating
+                              name="text-feedback"                         
+                              value={rateValue}
+                              precision={0.1}
+                              emptyIcon={
+                                <StarIcon
+                                  style={{ opacity: 0.55 }}
+                                  fontSize="inherit"
+                                />
+                              }
+                              // onChange={(e) => {
+                              //   setRateValue(e.target.value);
+                              // }}
+                            />
+                            <span class="bg-blue-100 mt-0 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
+                                {/* {event.rating} */}
+                                5.0
+                              </span>
+                            <Link
+                              to={"/customerserviceportfolio/"+event.userid}
+                              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                            >
+                              See Portfolio
+                              <svg
+                                aria-hidden="true"
+                                class="ml-2 -mr-1 w-4 h-4"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                            </Link>
+                          </div>
+                        </div>
+                      )
+                    // ))
+                  )
+                }
               </div>
             </TabPanel>
           </div>
