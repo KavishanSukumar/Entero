@@ -19,6 +19,7 @@ const style = {
 
 function UserProfileImage(props) {
   const [openForm, setOpenForm] = useState(false);
+  const [id,setId]=useState(props.userid)
   const [a, setA] = useState(1);
   const [image, setImage] = useState();
   const [file, setFile] = useState();
@@ -26,7 +27,7 @@ function UserProfileImage(props) {
 
   async function getDetails() {
     try {
-      let x = API_URL + props.userid;
+      let x = API_URL + id;
 
       const res = await axios.get(x);
       setImage(res.data.image);
@@ -73,6 +74,7 @@ function UserProfileImage(props) {
             uploadType: "2",
           },
         });
+        
         getDetails();
       }
     } catch (error) {
@@ -82,8 +84,9 @@ function UserProfileImage(props) {
 
   const removePic = async (e) => {
     try {
-      let y = API_URL + "image/remove/" + props.userid;
+      let y = API_URL + "image/remove/" + id;
       const res = await axios.put(y);
+      
       getDetails();
     } catch (error) {
       console.log(error);
