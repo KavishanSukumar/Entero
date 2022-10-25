@@ -14,7 +14,11 @@ import uploadFileToBlob, {
 } from "../../azure-storage-blob.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import PropTypes from "prop-types";
+import { styled } from "@mui/material/styles";
+import RadioGroup, { useRadioGroup } from "@mui/material/RadioGroup";
+import Radio from "@mui/material/Radio";
+import FormLabel from "@mui/material/FormLabel";
 const storageConfigured = isStorageConfigured();
 
 const API_URL = "http://localhost:4000/api/serviceregistration";
@@ -51,6 +55,7 @@ function ServiceRegister() {
   const [services, setServices] = useState([]);
   const [events, setEvents] = useState([]);
   const [file, setFile] = useState();
+  const [system_fee_type, setsystem_fee_type] = useState(1);
 
   const { name, email, contactNum, address, brNo } = inputs;
 
@@ -132,16 +137,6 @@ function ServiceRegister() {
       }
 
       if (checkErrors == 0 && storageConfigured) {
-        const formDetail = new FormData();
-
-        formDetail.append("name", name);
-        formDetail.append("email", email);
-        formDetail.append("contactNum", contactNum);
-        formDetail.append("address", address);
-        formDetail.append("brNo", brNo);
-        formDetail.append("services", services);
-        formDetail.append("events", events);
-
         setButtonval(
           <button
             type="submit"
@@ -161,6 +156,7 @@ function ServiceRegister() {
           brNo,
           services,
           events,
+          system_fee_type,
         });
         if (res.data.status) {
           setUploading(true);
@@ -416,7 +412,30 @@ function ServiceRegister() {
             </FormGroup>
             <p className="text-red-500 text-sm">{eventsError}</p>
           </div>
-
+          <div className="py-5 px-2">
+            <FormControl>
+              <FormLabel id="demo-radio-buttons-group-label">
+                Choose Type of Payment
+              </FormLabel>
+              <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                defaultValue="female"
+                name="system_fee_type"
+                onChange={(e) => setsystem_fee_type(e.target.value)}
+              >
+                <FormControlLabel
+                  value={1}
+                  control={<Radio />}
+                  label="Pay per booking"
+                />
+                <FormControlLabel
+                  value={2}
+                  control={<Radio />}
+                  label="Pay Monthly"
+                />
+              </RadioGroup>
+            </FormControl>
+          </div>
           <div className="flex items-center justify-between py-3 px-2">
             <div className="flex items-center mt-5">
               <input

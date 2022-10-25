@@ -5,7 +5,8 @@ import { useState } from "react";
 
 const API_URL_USER = "http://localhost:4000/api/user/";
 const API_URL_GETNEWMESSAGE = "http://localhost:4000/api/message/";
-
+const File_Url = "http://localhost:4000/profilePics/";
+const IMAGE_URL = "http://localhost:4000/api/users/profilepicture/";
 function User({ conversation, userId }) {
   const [sender, setSender] = useState(
     conversation.sender_id !== userId
@@ -14,12 +15,14 @@ function User({ conversation, userId }) {
   );
   const [user, setUser] = useState();
   const [count, setCount] = useState(0);
+  const [image, setImage] = useState("");
   useEffect(() => {
     getUser();
     getMessageCount();
     const interval = setInterval(() => {
       getMessageCount();
     }, 6000);
+    getProfilePic();
   }, [userId]);
 
   const getUser = async () => {
@@ -43,12 +46,17 @@ function User({ conversation, userId }) {
     setCount(temp);
   };
 
+  const getProfilePic = async () => {
+    const res = await axios.get(IMAGE_URL + sender);
+    setImage(res.data.image);
+  };
+
   return (
     <div className="grid grid-cols-6 p-3 m-3 border-b-2 hover:bg-slate-200 cursor-pointer">
       <div>
         <img
           className="inline-block h-14 w-14 rounded-full ring-2 ring-gray-500"
-          src={user?.image}
+          src={File_Url + image}
           alt=""
         />
       </div>

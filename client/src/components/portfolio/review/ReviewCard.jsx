@@ -1,26 +1,34 @@
 import React from "react";
+import Box from "@mui/material/Box";
+import Rating from "@mui/material/Rating";
+const File_Url = "http://localhost:4000/profilePics/";
 
-function ReviewCard(props) {
+function ReviewCard({ data }) {
+  console.log(data);
   return (
     <div className="flex flex-col m-3 shadow-inner rounded-lg">
       <div className="flex flex-row m-3">
         <div className="m-3">
           <img
             class="h-16 w-16 object-cover rounded-full"
-            src="/assets/images/senal.jpg"
+            src={File_Url + data.image}
             alt="Current profile photo"
           />
         </div>
         <div className="flex flex-col m-3">
-          <div className="font-sans text-2xl">Senal Punsara</div>
-          <div>{props.data}</div>
+          <div className="font-sans text-2xl">{data.name}</div>
+          <div>
+            <Box
+              sx={{
+                "& > legend": { mt: 2 },
+              }}
+            >
+              <Rating name="read-only" value={data.rating} readOnly />
+            </Box>
+          </div>
         </div>
       </div>
-      <div className="m-3 font-serif italic">
-        I am so delighted about the services, all the refreshment items are very
-        yummy. I recomment the refreshment price which is worth for the paid
-        price.
-      </div>
+      <div className="m-3 font-serif italic">{data.content}</div>
     </div>
   );
 }
