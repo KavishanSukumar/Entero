@@ -17,12 +17,10 @@ import Carousel from "./Carousel";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { FileUploader } from "react-drag-drop-files";
 import ImageUploading from 'react-images-uploading';
-<<<<<<< HEAD
-import errorimage from "./errorimage.png"
-=======
+import errorimage from "./errorimage.png";
 // import ImageUploader from 'react-images-upload';
 // import React.component from '../uploadimg/uploimg.jsx';
->>>>>>> yonali
+
 const API_URL = "http://localhost:4000/api/serviceprovider/portfoliosp";
 const IMG_URL2 = "http://localhost:4000/api/serviceprovider/portfolioimages";
 
