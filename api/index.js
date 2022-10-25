@@ -17,7 +17,7 @@ import portfolioSpRouter from "./routes/portfolioSpRoutes.js";
 import portfolioContact from "./routes/portfolioContact.js";
 import spPackages from "./routes/spPackagesRoutes.js";
 import portfolioImages from "./routes/portfolioImagesRoutes.js";
-import bookingsRouter from "./routes/bookingRoutes.js"
+import bookingsRouter from "./routes/bookingRoutes.js";
 //import spPortPics from "./sp_portfolio_images/10";
 import express from "express";
 import { createServer } from "http";
@@ -29,13 +29,15 @@ import chatRoute from "./routes/chatRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
 import serviceProviderRegistrationRoutes from "./routes/serviceProviderRegistrationRoutes.js";
 import reviewRouter from "./routes/reviewRoutes.js";
+
 import adminCustomerRouter from "./routes/adminCustomerRoutes.js";
 import adminServiceRouter from "./routes/adminServiceRoutes.js"
 import getAllCusRouter from "./routes/getAllCusRoutes.js"
 import getAllSpRouter from "./routes/getAllSpRoutes.js"
 import reportBookingsRouter from "./routes/reportBookingRouter.js"
 import subIncomeRouter from "./routes/subscriptionRoutes.js"
-
+import serviceProviderServicePayment from "./routes/ServiceProviderServicePayment.js";
+import userProfilePicRoutes from "./routes/userProfilePicRoutes.js";
 
 dotenv.config();
 
@@ -86,10 +88,10 @@ app.use("/api/profile", profileRouter);
 app.use("/api/review", reviewRouter);
 app.use("/api/customer/appointment", CustomerAppointmentRouter);
 app.use("/api/serviceprovider/appointment", serviceProviderRouter);
-app.use("/api/admin/packages",adminpaymentsRouter);
+app.use("/api/admin/packages", adminpaymentsRouter);
 app.use("/api/customer/appointment", CustomerAppointmentRouter);
 app.use("/api/bpolicies", BusinessPoliciesRouter);
-app.use("/api/customerevent", CustomerEventRouter );
+app.use("/api/customerevent", CustomerEventRouter);
 app.use("/api/contact", contactRouter);
 app.use("/api/serviceprovider/portfoliosp", portfolioSpRouter);
 app.use("/api/serviceprovider/portfoliocontact", portfolioContact);
@@ -98,7 +100,9 @@ app.use("/api/serviceprovider/portfolioimages", portfolioImages);
 app.use("/api/admincustomer", adminCustomerRouter);
 
 app.use("/api/adminservice", adminServiceRouter);
-app.use("/api/booking",bookingsRouter)
+app.use("/api/booking", bookingsRouter);
+app.use("/api/serviceprovider/servicepayment", serviceProviderServicePayment);
+app.use("/api/users/profilepicture", userProfilePicRoutes);
 
 app.use("/api/allcus", getAllCusRouter);
 app.use("/api/allsp", getAllSpRouter);

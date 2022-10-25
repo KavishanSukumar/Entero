@@ -10,6 +10,8 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
+const booking_URL = "http://localhost:4000/api/booking";
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -45,13 +47,41 @@ function a11yProps(index) {
 
 function EventsAdmin() {
   const [popup, setPopup] = useState(false);
-
+  const [bookings, setBookings] = useState([]);
+  const [customerDetail,setCustomerDetail]=useState();
+  const [serviceDetail,setServiceDetail]=useState();
+  const [packageDetail,setPackageDetail]=useState();
+  const [bookingDetail,setBookingDetail]=useState()
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const handlePopup = () => {
+  async function fetchBookings() {
+    try {
+      const res1 = await axios.get(booking_URL);
+      console.log(res1.data)
+      setBookings(res1.data);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  useEffect(() => {
+    fetchBookings();
+  }, []);
+
+  const closePopup=()=>{
+    setPopup(false)
+  }
+
+  const handlePopup = async (booking) => {
+    let y = booking_URL + "/bookingdetail/" + booking.booking_id;
+    const res = await axios.get(y);
+    setBookingDetail(res.data.bookingDetail)
+    setCustomerDetail(res.data.customerDetail)
+    setPackageDetail(res.data.packageDetail)
+    setServiceDetail(res.data.serviceDetail)
     setPopup(!popup);
   };
 
@@ -93,56 +123,58 @@ function EventsAdmin() {
           <div className="w-full inline-flex justify-end items-end">
             <AiOutlineClose
               className="w-6 h-6 cursor-pointer"
-              onClick={handlePopup}
+              onClick={closePopup}
             />
           </div>
           <div className="w-full mb-4">
-            <p className="text-lg text-center font-medium border-b-2 border-gray-900">
-              #B003 (Pending)
-            </p>
-          </div>
+                <p className="text-lg text-center font-medium border-b-2 border-gray-900">
+                  Booking ID:{bookingDetail && bookingDetail.booking_id}
+                </p>
+              </div>
 
-          <div className="w-full p-2 shadow-xl mb-10 grid grid-cols-1 lg:grid-cols-3">
-            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
-              <p className="text-center font-medium border-b-2 border-white">
-                Event Info
-              </p>
-              <p className="text-left">
-                <b>Date:</b> 02.09.22
-              </p>
-              <p className="text-left">
-                <b>Type:</b> Birthday
-              </p>
-              <p className="text-left">
-                <b>Venue:</b> Shangrila Hotel Colombo 02
-              </p>
-            </div>
-            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
-              <p className="text-center font-medium border-b-2 border-white">
-                Customer
-              </p>
-              <p className="text-left">
-                <b>ID:</b> 0065
-              </p>
-              <p className="text-left">
-                <b>Name:</b> Kavin Fernando
-              </p>
-            </div>
-            <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
-              <p className="text-center font-medium border-b-2 border-white">
-                Service
-              </p>
-              <p className="text-center">
-                <b>Catering</b>
-              </p>
-              <p className="text-center">
-                <b>Name:</b> Royal Food
-              </p>
-              <p className="text-left">
-                <b>Package:</b> Dine Package
-              </p>
-            </div>
-          </div>
+              <div className="w-full h-full p-2 shadow-xl mb-10 grid grid-cols-1 lg:grid-cols-3">
+                <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
+                  <p className="text-center font-medium border-b-2 border-white lg:mb-10">
+                    Event Info
+                  </p>
+                  <p className="text-left">
+                    <b>Date:</b> {bookingDetail && bookingDetail.date.substring(0, 10)}
+                  </p>
+                  <p className="text-left">
+                    <b>Type:</b> {bookingDetail && bookingDetail.type}
+                  </p>
+                  <p className="text-left">
+                    <b>Venue:</b> {bookingDetail && bookingDetail.location}
+                  </p>
+                </div>
+                <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
+                  <p className="text-center font-medium border-b-2 border-white lg:mb-10">
+                    Customer
+                  </p>
+                  
+                  <p className="text-left">
+                    <b>Name:</b> {customerDetail && customerDetail.name}
+                  </p>
+                  <p className="text-left">
+                    <b>Address:</b> {customerDetail && customerDetail.address}
+                  </p>
+                </div>
+                <div className=" bg-slate-100 p-2 text-center min-h-fit shadow-inner mx-2 rounded-xl mb-4">
+                  <p className="text-center font-medium border-b-2 border-white lg:mb-10">
+                    Service
+                  </p>
+
+                  <p className="text-left">
+                    <b>Name:</b> {serviceDetail && serviceDetail.name}
+                  </p>
+                  <p className="text-left">
+                    <b>Name:</b> {serviceDetail && serviceDetail.address}
+                  </p>
+                  <p className="text-left">
+                    <b>Package:</b> {packageDetail && packageDetail.name}
+                  </p>
+                </div>
+              </div>
         </div>
       </div>
 
@@ -153,9 +185,9 @@ function EventsAdmin() {
             onChange={handleChange}
             aria-label="basic tabs example"
           >
-            <Tab label="PENDING" {...a11yProps(0)} />
-            <Tab label="PAST" {...a11yProps(1)} />
-            <Tab label="CANCELLED" {...a11yProps(2)} />
+            <Tab label="CONFIRMED BOOKINGS" {...a11yProps(0)} />
+            <Tab label="PAST BOOKINGS" {...a11yProps(1)} />
+            <Tab label="CANCELLED BOOKINGS" {...a11yProps(2)} />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
@@ -173,41 +205,59 @@ function EventsAdmin() {
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    Customer
+                    Category
                   </th>
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    Type
+                    Date
                   </th>
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                  ></th>
+                  >
+                    Time
+                  </th>
+
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    Action
+                  </th>
                 </tr>
               </thead>
               <tbody className="">
-                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    B003
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Devin Fernando
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Birthday
-                  </td>
+                {bookings.map(
+                  (booking) =>
+                    booking.status == "2" && (
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          {booking.booking_id}
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          {booking.type}
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          {booking.date.substring(0, 10)}
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          {booking.time.substring(0, 10)}
+                        </td>
 
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <button
-                      onClick={handlePopup}
-                      className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                    >
-                      View
-                    </button>
-                  </td>
-                </tr>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          <button
+                            onClick={()=>{handlePopup(booking)}}
+                            className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                          >
+                            View
+                          </button>
+                          
+                        </td>
+                      </tr>
+                    )
+                )}
               </tbody>
             </table>
           </div>
@@ -227,81 +277,59 @@ function EventsAdmin() {
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    Customer
+                    Category
                   </th>
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    Type
+                    Date
                   </th>
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                  ></th>
+                  >
+                    Time
+                  </th>
+
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    Action
+                  </th>
                 </tr>
               </thead>
               <tbody className="">
-                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    B006
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Kavin Fernando
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Birthday
-                  </td>
+                {bookings.map(
+                  (booking) =>
+                    booking.status == "3" && (
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          {booking.booking_id}
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          {booking.type}
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          {booking.date.substring(0, 10)}
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          {booking.time.substring(0, 10)}
+                        </td>
 
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <button
-                      onClick={handlePopup}
-                      className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                    >
-                      View
-                    </button>
-                  </td>
-                </tr>
-                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    B007
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Fasheen Cooray
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Birthday
-                  </td>
-
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <button
-                      onClick={handlePopup}
-                      className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                    >
-                      View
-                    </button>
-                  </td>
-                </tr>
-                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    B008
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Milki Dayah
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Wedding
-                  </td>
-
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <button
-                      onClick={handlePopup}
-                      className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                    >
-                      View
-                    </button>
-                  </td>
-                </tr>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          <button
+                            onClick={()=>{handlePopup(booking)}}
+                            className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                          >
+                            View
+                          </button>
+                          
+                        </td>
+                      </tr>
+                    )
+                )}
               </tbody>
             </table>
           </div>
@@ -321,41 +349,59 @@ function EventsAdmin() {
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    Customer
+                    Category
                   </th>
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    Type
+                    Date
                   </th>
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                  ></th>
+                  >
+                    Time
+                  </th>
+
+                  <th
+                    scope="col"
+                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    Action
+                  </th>
                 </tr>
               </thead>
               <tbody className="">
-                <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    B005
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Hasini Perera
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Reception
-                  </td>
+                {bookings.map(
+                  (booking) =>
+                    booking.status == "4" && (
+                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          {booking.booking_id}
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          {booking.type}
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          {booking.date.substring(0, 10)}
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          {booking.time.substring(0, 10)}
+                        </td>
 
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <button
-                      onClick={handlePopup}
-                      className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                    >
-                      View
-                    </button>
-                  </td>
-                </tr>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          <button
+                            onClick={()=>{handlePopup(booking)}}
+                            className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                          >
+                            View
+                          </button>
+                          
+                        </td>
+                      </tr>
+                    )
+                )}
               </tbody>
             </table>
           </div>

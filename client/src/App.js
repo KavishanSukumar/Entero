@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState ,Fragment } from "react";
+import { useEffect, useState, Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
 import UserProfile from "./pages/afterLogin/UserProfile";
 import Home from "./pages/beforeLogin/Home";
@@ -35,6 +35,7 @@ import ServiceProviderCharges from "./pages/afterLogin/serviceProvider/ServicePr
 import ServiceProviderChat from "./pages/afterLogin/serviceProvider/ServiceProviderChat";
 import ServiceProviderPortfolio from "./pages/afterLogin/serviceProvider/ServiceProviderPortfolio";
 import ServiceProviderProfile from "./pages/afterLogin/serviceProvider/ServiceProviderProfile";
+import ServiceProviderDasboard from "./pages/afterLogin/serviceProvider/ServiceProviderDashboard";
 
 import ChoosePackage from "./components/payment/ChoosePackage";
 
@@ -330,6 +331,17 @@ function App() {
         />
         <Route
           exact
+          path="/servicedashboard"
+          element={
+            isAuthenticated && userrole === "sp" ? (
+              <ServiceProviderPortfolio userid={id} />
+            ) : (
+              <Home />
+            )
+          }
+        />
+        <Route
+          exact
           path="/serviceappointments"
           element={
             isAuthenticated && userrole === "sp" ? (
@@ -366,7 +378,7 @@ function App() {
           path="/serviceratings"
           element={
             isAuthenticated && userrole === "sp" ? (
-              <ServiceproviderRatings />
+              <ServiceproviderRatings userid={id} />
             ) : (
               <Home />
             )
@@ -377,7 +389,7 @@ function App() {
           path="/servicecharges"
           element={
             isAuthenticated && userrole === "sp" ? (
-              <ServiceProviderCharges />
+              <ServiceProviderCharges userid={id} />
             ) : (
               <Home />
             )

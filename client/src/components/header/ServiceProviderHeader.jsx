@@ -4,10 +4,11 @@ import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import SnippetFolderIcon from "@mui/icons-material/SnippetFolder";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { AiFillBell, AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
+import { MdSpaceDashboard } from "react-icons/md";
 
 const API_URL = "http://localhost:4000/api/profile/";
 const File_Url = "http://localhost:4000/profilePics/";
@@ -22,14 +23,13 @@ function ServiceProviderHeader() {
       const res = await axios.get("http://localhost:4000/api/auth/isverify", {
         headers: { token: localStorage.token },
       });
-      
+
       setId(res.data.payload);
 
       let x = API_URL + res.data.payload;
 
       const res2 = await axios.get(x);
       setImage(res2.data.image);
-      
     } catch (error) {
       console.error(error.message);
     }
@@ -108,20 +108,14 @@ function ServiceProviderHeader() {
       {/* header logo */}
 
       <img
-        src="/assets/images/fab.jpg"
+        src="/assets/images/Ss.svg"
         alt="logo"
         className="w-20 h-14 object-cover mt-3"
       />
 
       {/* After login components*/}
       <div className="hidden md:inline-flex items-center ">
-        <div className="p-3">
-          <AiFillBell
-            size={24}
-            className="text-black hover:text-gray-300"
-            onClick={handleDropdownBell}
-          />
-        </div>
+        
 
         {image === null ? (
           <img
@@ -157,15 +151,16 @@ function ServiceProviderHeader() {
         <div className="flex flex-col items-center shadow-2xl mb-2">
           {/*The image */}
           <div className="p-2">
-          {image === null ? (
-            <img
-              src="/assets/images/userAvatar.png"
-              className="w-28 h-28 rounded-full shadow-2xl "
-            />):(
+            {image === null ? (
               <img
-              src={File_Url + image}
-              className="w-28 h-28 rounded-full shadow-2xl "
-            />
+                src="/assets/images/userAvatar.png"
+                className="w-28 h-28 rounded-full shadow-2xl "
+              />
+            ) : (
+              <img
+                src={File_Url + image}
+                className="w-28 h-28 rounded-full shadow-2xl "
+              />
             )}
           </div>
 
@@ -183,19 +178,7 @@ function ServiceProviderHeader() {
           </div>
         </div>
         <ul className=" text-sm">
-          <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                isActive
-                  ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
-                  : "inline-flex items-center "
-              }
-            >
-              <AiFillBell className="w-6 h-6 text-gray-500" />
-              <span className="ml-3">Notifications</span>
-            </NavLink>
-          </li>
+          
           <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
             <NavLink
               to="/serviceportfolio"
@@ -207,6 +190,19 @@ function ServiceProviderHeader() {
             >
               <SnippetFolderIcon className="w-6 h-6 text-gray-500" />
               <span className="ml-3">Portfolio</span>
+            </NavLink>
+          </li>
+          <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">
+            <NavLink
+              to="/servicedashboard"
+              className={({ isActive }) =>
+                isActive
+                  ? "inline-flex w-full items-center bg-gray-700 rounded-lg py-2 p-1"
+                  : "inline-flex items-center "
+              }
+            >
+              <MdSpaceDashboard className="w-6 h-6 text-gray-500" />
+              <span className="ml-3">Dashboard</span>
             </NavLink>
           </li>
           <li className="py-2 border-b mb-4 border-gray-500 flex text-white p-3 hover:bg-gray-700 hover:rounded-lg">

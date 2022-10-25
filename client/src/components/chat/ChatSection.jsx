@@ -32,6 +32,7 @@ function ChatSection({ conversation, userId, user }) {
       API_URL_MESSAGES + conversation.conversation_id
     );
     setMessages(res.data);
+    console.log(res.data);
   };
 
   const handleChange = (event) => {
@@ -42,7 +43,7 @@ function ChatSection({ conversation, userId, user }) {
     return messageInput;
   };
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     const message = handleClick();
     var today = new Date(),
       date =
@@ -59,7 +60,7 @@ function ChatSection({ conversation, userId, user }) {
     const conversation_id = conversation.conversation_id;
     const sender_id = userId;
     if (messageInput != "") {
-      const res = axios.post(API_URL_SENDMESSAGES, {
+      const res = await axios.post(API_URL_SENDMESSAGES, {
         conversation_id,
         sender_id,
         message,
@@ -67,6 +68,8 @@ function ChatSection({ conversation, userId, user }) {
         time,
       });
       setMessageInput("");
+      console.log(res.data);
+      setMessages([...messages, res.data]);
     } else {
       toast("Can't Send empty messages");
     }
