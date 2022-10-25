@@ -21,7 +21,20 @@ const storage = multer.diskStorage({
     }
 })
 
+async function allpictures(folder){
+    let pictures = [];
 
+    const items  =  fs.readdirSync(folder);
+
+    for (const item of items){
+        if (item.isDirectory()){
+            pictures = pictures.concat(
+                await allpictures('${folder}-${item.name}')
+            );
+        }
+    }
+    return pictures;
+}
 
 
 
@@ -44,6 +57,25 @@ router.get('/', async (req, res) => {
         // const { id } = req.params;
         // console.log('user id -' + id);
         // console.log(req.file);
+        try {
+
+          
+
+            // const filenames = fs.readdirSync('sp_portfolio_images');
+            // const allfiles = [];
+            // allfiles =  allpictures('sp_portfolio_images')
+            // // console.log(filenames);
+            // // for(let x in filenames){
+            // //     allfiles.push(fs.readdirSync('sp_portfolio_images').readdirSync(filenames[x]))
+            // //     console.log(filenames[x]);
+            // // }
+              
+            // res.send(filenames);
+    
+        } catch (error) {
+            console.log('error in getting image');
+            console.log(error);
+        }
         res.send("got images");
 
     } catch (error) {
