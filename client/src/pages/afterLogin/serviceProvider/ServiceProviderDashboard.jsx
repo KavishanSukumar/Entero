@@ -1,7 +1,7 @@
 import React from "react";
 import ServiceProviderHeader from "../../../components/header/ServiceProviderHeader";
 import ServiceProviderSidebar from "../../../components/sidebar/ServiceProviderSidebar";
-
+import ServiceProviderDashboard1 from "../../../components/spdashboard/serviceproviderdashboard";
 
 function ServiceProviderDashboard(props) {
   return (
@@ -10,7 +10,7 @@ function ServiceProviderDashboard(props) {
       <div className="flex">
         <ServiceProviderSidebar />
         <div className="md:ml-20 md:mt-14 w-screen">
-          <p>This is service dashboard</p>
+        <ServiceProviderDashboard1 id={props.id}/>
         </div>
       </div>
     </div>
