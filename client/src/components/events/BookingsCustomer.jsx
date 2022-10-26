@@ -10,6 +10,8 @@ import Modal from "@mui/material/Modal";
 import Rating from "@mui/material/Rating";
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios";
+import "payhere-embed-sdk/dist/react.css";
+import Payhere from "payhere-embed-sdk/dist/react";
 
 const API_URL = "http://localhost:4000/api/review";
 const USER_URL = "http://localhost:4000/api/auth/isverify";
@@ -73,10 +75,10 @@ function BookingsCustomer() {
   const [openForm, setOpenForm] = useState(false);
   const [viewForm, setViewForm] = useState(false);
   const [userid_c, setUserid_C] = useState();
-  const [customerDetail,setCustomerDetail]=useState();
-  const [serviceDetail,setServiceDetail]=useState();
-  const [packageDetail,setPackageDetail]=useState();
-  const [bookingDetail,setBookingDetail]=useState()
+  const [customerDetail, setCustomerDetail] = useState();
+  const [serviceDetail, setServiceDetail] = useState();
+  const [packageDetail, setPackageDetail] = useState();
+  const [bookingDetail, setBookingDetail] = useState();
   const [userid_s, setUserid_S] = useState();
   const [booking_id, setBooking_id] = useState();
   const [message, setMessage] = useState("");
@@ -85,6 +87,8 @@ function BookingsCustomer() {
   const [rateValue, setRateValue] = useState(1);
   const [bookings, setBookings] = useState([]);
   const [editReview, SetEditReview] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [showPayhere, setShowPayhere] = useState(false);
 
   const [value, setValue] = React.useState(0);
 
@@ -96,7 +100,7 @@ function BookingsCustomer() {
 
       let y = booking_URL + res.data.payload;
       const res1 = await axios.get(y);
-      
+
       setBookings(res1.data);
     } catch (error) {
       console.error(error.message);
@@ -112,42 +116,41 @@ function BookingsCustomer() {
   };
 
   const handleOpenForm = async (booking) => {
-    setSuccessMessage("")
-    
+    setSuccessMessage("");
+
     setUserid_C(booking.userid_c);
     setUserid_S(booking.userid_s);
     setBooking_id(booking.booking_id);
 
     let y = API_URL + "/" + booking.booking_id;
-    
+
     const res = await axios.get(y);
     if (res.data.status) {
-      setRateValue(res.data.reviewData.rating)
+      setRateValue(res.data.reviewData.rating);
       setMessage(res.data.reviewData.content);
-      
+
       SetEditReview(true);
-    }else{
-      setRateValue()
+    } else {
+      setRateValue();
       setMessage();
-      
+
       SetEditReview(false);
     }
     setOpenForm(true);
-    
   };
   const handleCloseForm = () => setOpenForm(false);
 
-  const handleOpenForm1 =async (booking) => {
+  const handleOpenForm1 = async (booking) => {
     setUserid_C(booking.userid_c);
     setUserid_S(booking.userid_s);
     setBooking_id(booking.booking_id);
 
     let y = booking_URL + "/bookingdetail/" + booking.booking_id;
     const res = await axios.get(y);
-    setBookingDetail(res.data.bookingDetail)
-    setCustomerDetail(res.data.customerDetail)
-    setPackageDetail(res.data.packageDetail)
-    setServiceDetail(res.data.serviceDetail)
+    setBookingDetail(res.data.bookingDetail);
+    setCustomerDetail(res.data.customerDetail);
+    setPackageDetail(res.data.packageDetail);
+    setServiceDetail(res.data.serviceDetail);
     setViewForm(true);
   };
   const handleCloseForm1 = () => setViewForm(false);
@@ -185,9 +188,8 @@ function BookingsCustomer() {
           });
 
           setSuccessMessage(res1.data.message);
-          setMessage("")
-          setRateValue(0)
-          
+          setMessage("");
+          setRateValue(0);
         }
       }
     } catch (error) {
@@ -195,18 +197,18 @@ function BookingsCustomer() {
     }
   };
 
-  const handleCancel=async (id)=>{
+  const handleCancel = async (id) => {
     try {
       let y = booking_URL + "/cancelbooking/" + id;
       const res = await axios.put(y);
-      
-      if(res.data){
+
+      if (res.data) {
         fetchBookings();
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   return (
     <div className=" relative p-5 w-full mt-14 md:mt-0 mb-2 h-full">
@@ -294,7 +296,10 @@ function BookingsCustomer() {
                           >
                             View
                           </button>
-                          <button onClick={() => handleCancel(booking.booking_id)} className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                          <button
+                            onClick={() => handleCancel(booking.booking_id)}
+                            className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                          >
                             Cancel
                           </button>
                         </td>
@@ -369,11 +374,14 @@ function BookingsCustomer() {
                           >
                             View
                           </button>
-                          <button onClick={() => handleCancel(booking.booking_id)} className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                          <button
+                            onClick={() => handleCancel(booking.booking_id)}
+                            className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                          >
                             Cancel
                           </button>
                           <button className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                            Pay
+                            pay
                           </button>
                         </td>
                       </tr>
@@ -447,7 +455,10 @@ function BookingsCustomer() {
                           >
                             View
                           </button>
-                          <button onClick={() => handleCancel(booking.booking_id)} className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                          <button
+                            onClick={() => handleCancel(booking.booking_id)}
+                            className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                          >
                             Cancel
                           </button>
                         </td>
@@ -521,8 +532,11 @@ function BookingsCustomer() {
                           >
                             View
                           </button>
-                          
-                          <button onClick={() => handleOpenForm(booking)} className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+
+                          <button
+                            onClick={() => handleOpenForm(booking)}
+                            className="m-1 py-2 px-4 w-auto bg-cyan-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                          >
                             Rate
                           </button>
                         </td>
@@ -533,7 +547,7 @@ function BookingsCustomer() {
             </table>
           </div>
         </TabPanel>
-        
+
         <TabPanel value={value} index={4}>
           <div className="overflow-auto justify-center w-full h-screen">
             <table class="min-w-full z-0">
@@ -686,7 +700,7 @@ function BookingsCustomer() {
             <div className="bg-white fixed  flex flex-col  w-full  h-[100%]">
               <div className="w-full mb-4">
                 <p className="text-lg text-center font-medium border-b-2 border-gray-900">
-                Booking ID:{bookingDetail && bookingDetail.booking_id}
+                  Booking ID:{bookingDetail && bookingDetail.booking_id}
                 </p>
               </div>
 
@@ -696,7 +710,8 @@ function BookingsCustomer() {
                     Event Info
                   </p>
                   <p className="text-left">
-                    <b>Date:</b> {bookingDetail && bookingDetail.date.substring(0, 10)}
+                    <b>Date:</b>{" "}
+                    {bookingDetail && bookingDetail.date.substring(0, 10)}
                   </p>
                   <p className="text-left">
                     <b>Type:</b> {bookingDetail && bookingDetail.type}
@@ -709,7 +724,7 @@ function BookingsCustomer() {
                   <p className="text-center font-medium border-b-2 border-white lg:mb-10">
                     Customer
                   </p>
-                  
+
                   <p className="text-left">
                     <b>Name:</b> {customerDetail && customerDetail.name}
                   </p>

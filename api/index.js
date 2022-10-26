@@ -23,8 +23,8 @@ import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 
-
-
+import adminCustomerRouter from "./routes/adminCustomerRoutes.js";
+import adminServiceRouter from "./routes/adminServiceRoutes.js";
 import chatRoute from "./routes/chatRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
 import serviceProviderRegistrationRoutes from "./routes/serviceProviderRegistrationRoutes.js";
