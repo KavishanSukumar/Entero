@@ -495,13 +495,19 @@ function ManagePayments() {
                         >
                           Payment_ID
                         </th>
-
+                        <th
+                          scope="col"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Name
+                        </th>
                         <th
                           scope="col"
                           className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
                           Time
                         </th>
+                       
                         <th
                           scope="col"
                           className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
@@ -533,21 +539,25 @@ function ManagePayments() {
                     <tbody className="">
                       <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          P001
+                          2
                         </td>
-
+                       
                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          12:00:56
+                        Kavishan Foods
                         </td>
                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          25/04/2022
+                        12:00:56
+                        </td>
+                       
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          25/10/2022
                         </td>
 
                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          Premium
+                        Standard
                         </td>
                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          LKR 7000
+                          LKR 15000
                         </td>
                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
                           Visa
@@ -555,14 +565,17 @@ function ManagePayments() {
                       </tr>
                       <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          P002
-                        </td>
-
-                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          14:00:00
+                          1
                         </td>
                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          23/04/2022
+                        Senal’s catering 
+                        </td>
+                       
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          10:00:00
+                        </td>
+                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          25/10/2022
                         </td>
 
                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
@@ -575,72 +588,8 @@ function ManagePayments() {
                           Visa
                         </td>
                       </tr>
-                      <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          P003
-                        </td>
-
-                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          13:00:56
-                        </td>
-                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          25/03/2022
-                        </td>
-
-                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          Standard
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          LKR 4000
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          Master Card
-                        </td>
-                      </tr>
-                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          P004
-                        </td>
-
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          10:00:56
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          05/02/2022
-                        </td>
-
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          Standard
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          LKR 4000
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          Visa
-                        </td>
-                      </tr>
-                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          P005
-                        </td>
-
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          15:00:56
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          19/02/2022
-                        </td>
-
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          Premium
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          LKR 7000
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          Master Card
-                        </td>
-                      </tr>
+                     
+                     
 
 
 
@@ -684,7 +633,12 @@ function ManagePayments() {
                           Payment_ID
                         </th>
 
-
+                        <th
+                          scope="col"
+                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        >
+                          Name
+                        </th>
                         <th
                           scope="col"
                           class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
@@ -705,22 +659,20 @@ function ManagePayments() {
                         >
                           Amount
                         </th>
-                        <th
-                          scope="col"
-                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                        >
-                          Status
-                        </th>
+                       
                       </tr>
                     </thead>
                     <tbody className="">
                       <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          P001
+                          3
                         </td>
 
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          02/04/2022
+                          Visthira Hotels
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          28/10/2022
                         </td>
 
 
@@ -728,92 +680,14 @@ function ManagePayments() {
                           Premium
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          LKR 7000
+                          LKR 15000
                         </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          Pending
-                        </td>
+                        
                       </tr>
-                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          P002
-                        </td>
-
-
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          23:05:2022
-                        </td>
-
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          Premium
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          LKR 7000
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          Pending
-                        </td>
-                      </tr>
-                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          P003
-                        </td>
-
-
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          29/06/2022
-                        </td>
-
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          Standard
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          LKR 4000
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          Pending
-                        </td>
-                      </tr>
-                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          P004
-                        </td>
-
-
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          02/07/2022
-                        </td>
-
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          Standard
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          LKR 4000
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          Pending
-                        </td>
-                      </tr>
-                      <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          P005
-                        </td>
-
-
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          03/08/2022
-                        </td>
-
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          Standard
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          LKR 4000
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate overflow-hidden">
-                          Pending
-                        </td>
-                      </tr>
+                      
+                      
+                     
+                      
                     </tbody>
                   </table>
                 </div>

@@ -3,15 +3,15 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
 import MockData from './monthlypay.json'
 // import { Stacked, Button, SparkLine } from '../../../components';
-import Stacked from "../../../components/Charts/Stacked";
-import Button from "../../../components/button/Button";
-import SparkLine from "../../../components/Charts/SparkLine";
-import { earningData } from "../../../documents/dummy";
-import { SparklineAreaData } from "../../../documents/dummy";
+// import Stacked from "../../../components/Charts/Stacked";
+// import Button from "../../../components/button/Button";
+// import SparkLine from "../../../components/Charts/SparkLine";
+// import { earningData } from "../../../documents/dummy";
+// import { SparklineAreaData } from "../../../documents/dummy";
 // import { useStateContext } from '../contexts/ContextProvider';
-import AdminHeader from "../../../components/header/AdminHeader";
-import AdminSidebar from "../../../components/sidebar/AdminSidebar";
-import Footer from "../../../components/footer/Footer";
+import AdminHeader from "../header/AdminHeader";
+import AdminSidebar from "../sidebar/AdminSidebar";
+import Footer from "../footer/Footer";
 import Chart from "react-apexcharts";
 import axios from "axios";
 import Box from "@mui/material/Box";
@@ -212,10 +212,7 @@ total = bday + wedd + recep + eng + other;
         data: allyearssubincome,
         name: "Subscriptions",
       },
-      {
-        data: allyearbooking,
-        name: "Booking Fee",
-      },
+     
     ],
     chart: {
       type: "bar",
@@ -225,6 +222,7 @@ total = bday + wedd + recep + eng + other;
       bar: {
         borderRadius: 4,
         horizontal: false,
+        columnWidth: '35%'
       },
     },
     dataLabels: {
@@ -234,14 +232,76 @@ total = bday + wedd + recep + eng + other;
     xaxis: {
       categories: yeeararray,
     },
+
+    xaxis: {
+      categories: yeeararray,
+      title: {
+        text: 'Years',
+
+      }
+    },
+    yaxis: {
+      showAlways: true,
+      title: {
+        text: 'Amount (LKR)',
+
+      }
+    },
+
+
+
+
+
+  };
+  
+  const optionsbar3 = {
+
+
+    series: [
+      {
+        data: [2],
+        name: "bookings",
+      },
+     
+    ],
+    chart: {
+      type: "bar",
+      height: 350,
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        horizontal: false,
+        columnWidth: '35%'
+      },
+    },
+    dataLabels: {
+      enabled: true,
+    },
+    xaxis: {
+      categories: yeeararray,
+      title: {
+        text: 'Years',
+
+      }
+    },
+    yaxis: {
+      showAlways: true,
+      title: {
+        text: 'Booking amount',
+
+      }
+    },
+    colors: ["#16a34a"],
+    
   };
 
   return (
-    <div>
-      <AdminHeader />
-      <div>
-        <AdminSidebar />
-        <div className="pt-12 max-h-fit">
+    
+      
+      
+       
+        <div className=" max-h-fit">
           <div>
             <div className=" bg-slate-100 max-h-fit">
               <div className="flex flex-wrap lg:flex-nowrap justify-center">
@@ -270,91 +330,7 @@ total = bday + wedd + recep + eng + other;
             </div>
           </div> */}
 
-                <div
-                  className="flex m-3 flex-wrap justify-center
-          gap-1 item-center"
-                >
-
-                  <div
-
-                    className="bg-white
-                dark:text-gray-200
-                dark:bg-secondary-dark-bg md:w-56
-                p-4 pt-9 rounded-2xl"
-                  >
-                    <button
-                      type="button"
-
-                      className="text-2xl opacity-0.9
-                  rounded-full p-4
-                  hover:drop-shadow-xl"
-                    >
-
-                    </button>
-                    <p className="mt-3">
-                      <span className="text-lg font-semibold text-black">
-                        {customers.length}
-                      </span>
-                      {/* <span className={`text-sm text-${item.pcColor} ml-2`}>
-                      {item.percentage}
-                    </span> */}
-                    </p>
-                    <p className="text-sm text-black mt-1">Customers</p>
-                  </div>
-                  <div
-
-                    className="bg-white
-              dark:text-gray-200
-              dark:bg-secondary-dark-bg md:w-56
-              p-4 pt-9 rounded-2xl"
-                  >
-                    <button
-                      type="button"
-
-                      className="text-2xl opacity-0.9
-                rounded-full p-4
-                hover:drop-shadow-xl"
-                    >
-
-                    </button>
-                    <p className="mt-3">
-                      <span className="text-lg font-semibold text-black">
-                        {service_providers.length}
-                      </span>
-                      {/* <span className={`text-sm text-${item.pcColor} ml-2`}>
-                    {item.percentage}
-                  </span> */}
-                    </p>
-                    <p className="text-sm text-black mt-1">Service Providers</p>
-                  </div>
-                  <div
-
-                    className="bg-white
-              dark:text-gray-200
-              dark:bg-secondary-dark-bg md:w-56
-              p-4 pt-9 rounded-2xl"
-                  >
-                    <button
-                      type="button"
-
-                      className="text-2xl opacity-0.9
-                rounded-full p-4
-                hover:drop-shadow-xl"
-                    >
-
-                    </button>
-                    <p className="mt-3">
-                      <span className="text-lg font-semibold text-black">
-                        {bookings.length}
-                      </span>
-                      {/* <span className={`text-sm text-${item.pcColor} ml-2`}>
-                    {item.percentage}
-                  </span> */}
-                    </p>
-                    <p className="text-sm text-black mt-1">Bookings</p>
-                  </div>
-
-                </div>
+               
               </div>
 
               <div className="flex gap-10 flex-wrap justify-center">
@@ -398,7 +374,7 @@ total = bday + wedd + recep + eng + other;
                       <div>
                         <p>
                           <span className="text-3xl font-semibold">
-                            LKR {totalincome}
+                            LKR {allyearssubincome}
                           </span>
                           {/* <span className="p-1.5 hover:drop-shadow-xl cursor-pointer
                       rounded-full text-white bg-green-400 ml-3 text-xs">
@@ -460,8 +436,8 @@ total = bday + wedd + recep + eng + other;
                     <div className="flex flex-col">
                       <p className="flex justify-start ml-9">
                         <span className="text-3xl font-semibold">
-                          {total}
-                          {console.log('bday + wedd + recep + eng + other',total)}
+                          {2}
+                          {console.log('bday + wedd + recep + eng + other')}
                         </span>
                         {/* <span className="p-1.5 hover:drop-shadow-xl cursor-pointer
                       rounded-full text-white bg-green-400 ml-3 text-xs">
@@ -478,14 +454,12 @@ total = bday + wedd + recep + eng + other;
 
 
 
-                    <div className="flex justify-center ml-11">
-                      <Chart
-                        options={options1}
-                        series={series1}
-                        type="pie"
-                        width="500"
-                        height="900"
-                        className=""
+                    <div className="flex justify-center ml-64">
+                    <Chart
+                        options={optionsbar3}
+                        series={optionsbar3.series}
+                        type="bar"
+                        className="lineChartVerticleStyle   lg:w-[700px] lg:h-[500] md:w-[700px] md:h-[400]  md:ml-1  sm:w-[505px] sm:h-[300px]  xs:w-[200px]     bg-cyan-100 rounded-lg"
                       />
                     </div>
                   </div>
@@ -494,8 +468,7 @@ total = bday + wedd + recep + eng + other;
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      
   );
 };
 
